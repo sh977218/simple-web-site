@@ -20,5 +20,6 @@ jobs:
 
       - name: Print Title of PR
         run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+
       - name: Validate Title of PR
         run: node scripts/checkPrTitle.js --title="${{ github.event.pull_request.title }}"
