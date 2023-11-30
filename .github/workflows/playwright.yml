@@ -2,7 +2,6 @@ name: Playwright Tests
 on:
   pull_request:
     branches: [master]
-# Grant GITHUB_TOKEN the permissions required to make a Pages deployment
 
 jobs:
   e2e-test:
