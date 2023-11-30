@@ -1,0 +1,71 @@
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="side" class="border-8 mr-3">
+    <mat-selection-list>
+      <mat-list-option
+        color="primary"
+        togglePosition="before"
+        *ngFor="let shoe of typesOfShoes"
+        >{{ shoe }}</mat-list-option
+      >
+    </mat-selection-list>
+    <mat-divider></mat-divider>
+    <mat-selection-list>
+      <mat-list-option
+        color="accent"
+        togglePosition="before"
+        *ngFor="let season of typeOfSeasons"
+        >{{ season }}</mat-list-option
+      >
+    </mat-selection-list>
+  </mat-drawer>
+
+  <div class="flex">
+    <div class="flex">
+      <div class="align-middle scale-50">
+        <button
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="!drawer.opened"
+        >
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+        <button mat-icon-button (click)="drawer.toggle()" *ngIf="drawer.opened">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+      </div>
+    </div>
+    <div class="flex flex-col">
+      <h1 class="flex">Search Result:</h1>
+      <section class="flex flex-wrap justify-between">
+        <mat-card
+          *ngFor="let card of cards"
+          class="m-1 w-100 h-100 md:w-1/4 lg:w-1/3"
+        >
+          <mat-card-header>
+            <mat-card-title
+              ><a
+                class="underline"
+                routerLink="/search"
+                [queryParams]="{ q: card.title }"
+                >{{ card.title }}</a
+              >
+            </mat-card-title>
+            <mat-card-subtitle>{{ card.description }}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content
+            ><p>{{ card.content }}</p></mat-card-content
+          >
+          <mat-card-actions>
+            <p [ngPlural]="card.number">
+              <ng-template ngPluralCase="=0"> No Element found. </ng-template>
+              <ng-template ngPluralCase="=1"> One Element found. </ng-template>
+              <ng-template ngPluralCase="other">
+                {{ card.number }} Elements found.
+              </ng-template>
+            </p>
+          </mat-card-actions>
+        </mat-card>
+      </section>
+    </div>
+  </div>
+</mat-drawer-container>

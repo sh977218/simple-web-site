@@ -1,0 +1,84 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "e2e-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "e2e-app",
+      "sourceRoot": "e2e-app/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "customWebpackConfig": {
+              "path": "e2e-app/coverage.webpack.js"
+            },
+            "outputPath": "dist",
+            "index": "e2e-app/src/index.html",
+            "main": "e2e-app/src/main.ts",
+            "polyfills": "e2e-app/src/polyfills.ts",
+            "tsConfig": "e2e-app/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["e2e-app/src/favicon.ico", "e2e-app/src/assets"],
+            "styles": [
+              {
+                "input": "e2e-app/src/theme.scss"
+              },
+              "e2e-app/src/styles.scss"
+            ],
+            "scripts": [],
+            "progress": false,
+            "aot": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "e2e-app/src/environments/environment.ts",
+                  "with": "e2e-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-builders/custom-webpack:dev-server",
+          "options": {
+            "buildTarget": "e2e-app:build",
+            "proxyConfig": "e2e-app/src/proxy.conf.json"
+          },
+          "configurations": {
+            "development": {
+              "buildTarget": "e2e-app:build:development"
+            },
+            "playwright": {
+              "buildTarget": "e2e-app:build:production",
+              "liveReload": false,
+              "watch": false
+            }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "3e8c3217-741b-4c39-bf6e-f7fe64045e1c"
+  }
+}
