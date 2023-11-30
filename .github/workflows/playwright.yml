@@ -68,3 +68,6 @@ jobs:
       - name: Deploy Playwright result to Github Pages
         id: code-coverage
         uses: actions/deploy-pages@v2
+
+      - name: update job summary
+        run: echo "# Deployed playwright code coverage result to ${{ steps.code-coverage.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
