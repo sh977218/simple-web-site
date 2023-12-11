@@ -5,8 +5,8 @@ function checkString(s) {
   );
   console.log("Input string: ".concat(s));
   var regex = new RegExp(/(- \[[ ]\].+)/g);
-  var uncompletedTasks = regex.match(s);
-  console.log("uncompletedTasks: ".concat(uncompletedTasks));
+  var uncompletedTasks = s.match(regex);
+  console.log("uncompletedTasks: ".concat(uncompletedTasks.join("\n")));
   console.log(
     "------------------------------------------------------------------"
   );
