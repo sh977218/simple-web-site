@@ -1,4 +1,4 @@
-name: PR title check
+name: PR title and template check
 
 on:
   pull_request:
@@ -6,9 +6,9 @@ on:
     types: [opened, synchronize, edited]
 
 jobs:
-  check_pr_title:
+  check_pr_title_template:
     runs-on: ubuntu-latest
-    name: Run PR title check
+    name: Run PR title and template check
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
@@ -17,9 +17,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "20"
-
-      - name: Print Title of PR
-        run: echo The Title of your PR is ${{ github.event.pull_request.title }}
 
       - name: Validate Title of PR
         run: node scripts/checkPrTitle.js --title="${{ github.event.pull_request.title }}"
