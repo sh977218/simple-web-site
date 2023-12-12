@@ -6,7 +6,7 @@ on:
     types: [opened, synchronize, edited]
 
 jobs:
-  build_and_deploy_job:
+  check_pr_title:
     runs-on: ubuntu-latest
     name: Run PR title check
     steps:
@@ -23,3 +23,6 @@ jobs:
 
       - name: Validate Title of PR
         run: node scripts/checkPrTitle.js --title="${{ github.event.pull_request.title }}"
+
+      - name: Validate Template completion of PR
+        run: node scripts/checkPrTemplate.js --body="${{ github.event.pull_request.body }}"
