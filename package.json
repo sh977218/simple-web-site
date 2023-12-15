@@ -88,11 +88,6 @@
     "npm": "10.x.x",
     "yarn": ">=1.15.2 <2.0.0"
   },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
-    }
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
