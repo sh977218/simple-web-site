@@ -4,7 +4,7 @@ function checkString(s) {
     "------------------------------------------------------------------"
   );
   console.log("Input string: ".concat(s));
-  var regex = new RegExp(/^(\b(feat|fix|bug|docs)\b:)\s(.)*/);
+  var regex = new RegExp(/^(\b(feat|fix|bug|docs|chore)\b:)\s(.)*/);
   var regexResult = regex.test(s);
   console.log("regexResult: ".concat(regexResult));
   console.log(
