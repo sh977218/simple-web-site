@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Angular-with-Playwright.iml" filepath="$PROJECT_DIR$/.idea/Angular-with-Playwright.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/SimpleWebSite.iml" filepath="$PROJECT_DIR$/.idea/SimpleWebSite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../cli-demo-17/.idea/cli-demo-17.iml" filepath="$PROJECT_DIR$/../cli-demo-17/.idea/cli-demo-17.iml" />
     </modules>
   </component>
 </project>
