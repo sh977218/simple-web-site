@@ -12,6 +12,7 @@ npm-debug.log
 yarn-error.log
 
 # IDEs and editors
+.idea/
 .project
 .classpath
 .c9/
@@ -45,6 +46,8 @@ Thumbs.db
 /github-pages/
 
 e2e-app/dist
+e2e-app/.nyc_output
+e2e-app/coverage-e2e
 test-results
 playwright-report
 coverage-e2e
