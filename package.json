@@ -71,7 +71,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "lint-staged": "^13.1.1",
-    "nyc": "14.1.1",
+    "nyc": "^15.1.0",
     "postcss": "^8.4.31",
     "prettier": "2.8.4",
     "standard-version": "^9.5.0",

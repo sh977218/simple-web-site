@@ -56,20 +56,23 @@ jobs:
         if: always()
         with:
           name: coverage-e2e
-          path: coverage-e2e/lcov-report
+          path: e2e-app/coverage-e2e/lcov-report
           retention-days: 30
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
       - name: Upload artifact
+        if: always()
         uses: actions/upload-pages-artifact@v2
         with:
-          path: coverage-e2e/lcov-report
+          path: e2e-app/coverage-e2e/lcov-report
 
       - name: Deploy Playwright result to Github Pages
+        if: always()
         id: code-coverage
         uses: actions/deploy-pages@v2
 
       - name: update job summary
+        if: always()
         run: echo "# Deployed playwright code coverage result to ${{ steps.code-coverage.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY

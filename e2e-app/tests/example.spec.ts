@@ -1,10 +1,10 @@
 import { expect } from '@playwright/test';
 import { test } from '../baseTest';
 
-test('Click home link', async ({ myPage, baseURL }) => {
-  await myPage.goto(baseURL);
-  await expect(myPage).toHaveTitle(`AngularWithPlaywright`);
-  const homeLink = myPage.locator(`[data-automation-id="home-link"]`);
+test('Click home link', async ({ page }) => {
+  await page.goto('/');
+  await expect(page).toHaveTitle(`AngularWithPlaywright`);
+  const homeLink = page.locator(`[data-automation-id="home-link"]`);
   await homeLink.click();
-  await expect(myPage).toHaveTitle(`Home`);
+  await expect(page).toHaveTitle(`Home`);
 });
