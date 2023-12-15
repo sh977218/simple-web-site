@@ -1,4 +1,5 @@
-checkPrTemplate();
+let prBody = getPrBody();
+checkPrTemplate(prBody);
 
 function checkString(s) {
   console.log(
@@ -8,9 +9,25 @@ function checkString(s) {
   console.log(
     "------------------------------------------------------------------"
   );
-  var regex = new RegExp(/(- \[[ ]\].+)/g);
-  var uncompletedTasks = s.match(regex);
-  if (uncompletedTasks) {
+  let checkListRegex = new RegExp(/(- \[.+\].+)/g);
+  let checkList = s.match(checkListRegex);
+  const tasks = [];
+  for (let i = 0; i < checkList.length; i += 2) {
+    tasks.push([checkList[i], checkList[i + 1]]);
+  }
+  let uncompletedTasksRegex = new RegExp(/(- \[[\s+]\].+)/g);
+  const uncompletedTasks = [];
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    let uncompletedTask = task.filter((t) => t.match(uncompletedTasksRegex));
+
+    if (uncompletedTask.length === 2) {
+      if (uncompletedTask) {
+        uncompletedTasks.push(task);
+      }
+    }
+  }
+  if (uncompletedTasks.length) {
     console.log("uncompletedTasks: \n".concat(uncompletedTasks.join("\n")));
     console.log(
       "------------------------------------------------------------------"
@@ -22,16 +39,19 @@ function checkString(s) {
 }
 
 function checkPrTemplate() {
-  var argv = process.argv[2];
+  checkString(prBody);
+}
+
+function getPrBody() {
+  let argv = process.argv[2];
   if (!argv) {
     process.exit(1);
   } else {
-    var argvArray = argv.split("=");
+    let argvArray = argv.split("=");
     if (argvArray.length != 2) {
       process.exit(1);
     } else {
-      var prTitle = argvArray[1];
-      checkString(prTitle);
+      return argvArray[1];
     }
   }
 }
