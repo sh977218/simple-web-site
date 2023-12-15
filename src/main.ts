@@ -3,16 +3,16 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { VERSION as CDK_VERSION } from '@angular/cdk';
 import { VERSION as MAT_VERSION } from '@angular/material/core';
-import { AppComponent } from './app/app.component';
+import { AppComponent } from 'src/app/app.component';
 import {
   provideRouter,
   RouterStateSnapshot,
   Routes,
   TitleStrategy,
 } from '@angular/router';
-import { HomeComponent } from './app/home/home.component';
-import { AboutComponent } from './app/about/about.component';
-import { SearchComponent } from './app/search/search.component';
+import { HomeComponent } from 'src/app/home/home.component';
+import { AboutComponent } from 'src/app/about/about.component';
+import { SearchComponent } from 'src/app/search/search.component';
 import { Injectable } from '@angular/core';
 
 /* eslint-disable no-console */
