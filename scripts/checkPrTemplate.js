@@ -3,11 +3,11 @@ checkPrTemplate(prBody);
 
 function checkString(s) {
   console.log(
-    "------------------------------------------------------------------"
+    '------------------------------------------------------------------'
   );
-  console.log("Input string: ".concat(s));
+  console.log('Input string: '.concat(s));
   console.log(
-    "------------------------------------------------------------------"
+    '------------------------------------------------------------------'
   );
   let checkListRegex = new RegExp(/(- \[.+\].+)/g);
   let checkList = s.match(checkListRegex);
@@ -28,9 +28,9 @@ function checkString(s) {
     }
   }
   if (uncompletedTasks.length) {
-    console.log("uncompletedTasks: \n".concat(uncompletedTasks.join("\n")));
+    console.log('uncompletedTasks: \n'.concat(uncompletedTasks.join('\n')));
     console.log(
-      "------------------------------------------------------------------"
+      '------------------------------------------------------------------'
     );
     process.exit(1);
   } else {
@@ -47,7 +47,7 @@ function getPrBody() {
   if (!argv) {
     process.exit(1);
   } else {
-    let argvArray = argv.split("=");
+    let argvArray = argv.split('=');
     if (argvArray.length != 2) {
       process.exit(1);
     } else {

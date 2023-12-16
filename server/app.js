@@ -1,15 +1,15 @@
-const express = require("express");
+const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.send({
-    message: "Hello World!",
+    message: 'Hello World!',
   });
 });
-app.get("/api/", (req, res) => {
+app.get('/api/', (req, res) => {
   res.send({
-    message: "Hello World!",
+    message: 'Hello World!',
   });
 });
 

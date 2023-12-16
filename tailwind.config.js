@@ -1,16 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./e2e-app/src/**/*.{html,ts}"],
+  content: ['./e2e-app/src/**/*.{html,ts}'],
   theme: {
     extend: {
       screens: {
-        sm: "660px",
+        sm: '660px',
 
-        md: "845px",
+        md: '845px',
 
-        lg: "860px",
+        lg: '860px',
 
-        xl: "1200px",
+        xl: '1200px',
       },
     },
   },
