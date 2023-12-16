@@ -41,10 +41,10 @@ export class AppComponent implements OnInit {
   darkMode = false;
 
   constructor() {
-    console.log('a');
+    console.log('a ');
   }
 
   ngOnInit(): void {
-    console.log('a');
+    console.log('a ');
   }
 }
