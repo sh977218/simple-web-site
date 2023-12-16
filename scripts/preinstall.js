@@ -1,6 +1,6 @@
 if (
-  process.env.npm_execpath.indexOf("npm") === -1 &&
-  process.env.npm_execpath.indexOf("yarn") === -1
+  process.env.npm_execpath.indexOf('npm') === -1 &&
+  process.env.npm_execpath.indexOf('yarn') === -1
 ) {
   throw new Error(`
 
