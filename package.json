@@ -94,10 +94,5 @@
     "node": "20.x.x",
     "npm": "10.x.x",
     "yarn": ">=1.15.2 <2.0.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
