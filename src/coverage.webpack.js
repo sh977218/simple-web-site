@@ -5,12 +5,12 @@ module.exports = {
         test: /\.(js|ts)$/,
         use: [
           {
-            loader: "coverage-istanbul-loader",
+            loader: 'coverage-istanbul-loader',
             options: { esModules: true },
           },
         ],
-        enforce: "post",
-        include: require("path").join(__dirname, ".", "src"),
+        enforce: 'post',
+        include: require('path').join(__dirname, '.', 'src'),
         exclude: [
           /\.(e2e|spec|po)\.ts$/,
           /node_modules/,

@@ -1,8 +1,8 @@
-@use "@angular/material" as mat;
+@use '@angular/material' as mat;
 
 @include mat.core();
 
-@import "color";
+@import 'color';
 
 $my-light-theme-primary: mat.define-palette($my-light-color, 100, 200, 400);
 $my-light-theme-accent: mat.define-palette(mat.$yellow-palette, 100, 200, 400);
