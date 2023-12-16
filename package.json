@@ -21,7 +21,7 @@
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major"
+    "release:major": "standard-version --release-as major "
   },
   "private": true,
   "dependencies": {
@@ -67,7 +67,6 @@
     "commitizen": "^4.3.0",
     "coverage-istanbul-loader": "^3.0.3",
     "crypto": "^1.0.1",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.54.0",
     "husky": "^8.0.3",
     "jasmine-core": "~4.3.0",
