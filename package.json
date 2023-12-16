@@ -9,6 +9,7 @@
   "scripts": {
     "postinstall": "npx husky install",
     "ng": "ng",
+    "lint": "ng lint",
     "start": "ng s",
     "start:playwright": "ng serve e2e-app -c playwright",
     "start:server": "node server/app.js",
@@ -20,8 +21,7 @@
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
-    "release:major": "standard-version --release-as major",
-    "lint": "ng lint"
+    "release:major": "standard-version --release-as major"
   },
   "private": true,
   "dependencies": {
