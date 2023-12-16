@@ -1,21 +1,5 @@
 {
-  "endOfLine": "lf",
-  "printWidth": 120,
+  "printWidth": 80,
   "singleQuote": true,
-  "useTabs": true,
-  "overrides": [
-    {
-      "files": "*.html",
-      "options": {
-        "parser": "angular",
-        "htmlWhitespaceSensitivity": "strict"
-      }
-    },
-    {
-      "files": "src/**/*",
-      "options": {
-        "htmlWhitespaceSensitivity": "strict"
-      }
-    }
-  ]
+  "endOfLine": "auto"
 }
