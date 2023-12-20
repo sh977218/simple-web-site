@@ -173,15 +173,15 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "buildTarget": "e2e-app:coverage",
+            "buildTarget": "e2e-coverage-app:coverage",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "development": {
-              "buildTarget": "e2e-app:build:development"
+              "buildTarget": "e2e-coverage-app:build:development"
             },
             "playwright": {
-              "buildTarget": "e2e-app:build:production",
+              "buildTarget": "e2e-coverage-app:build:production",
               "liveReload": false,
               "watch": false
             }
