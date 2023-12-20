@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "e2e-app": {
+    "simple-web-site": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -13,6 +13,79 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": [
+              {
+                "input": "src/theme.scss"
+              },
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "progress": false,
+            "aot": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {}
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-builders/build-angular:dev-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "simple-web-site:build:development"
+            },
+            "playwright": {
+              "buildTarget": "simple-web-site:build:production",
+              "liveReload": false,
+              "watch": false
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+          }
+        }
+      }
+    },
+    "e2e-coverage-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "e2e-coverage-app",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
