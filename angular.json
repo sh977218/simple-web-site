@@ -64,7 +64,7 @@
               "buildTarget": "simple-web-site:build:development"
             },
             "playwright": {
-              "buildTarget": "simple-web-site:coverage",
+              "buildTarget": "simple-web-site:coverage:production",
               "liveReload": false,
               "watch": false
             }
@@ -105,18 +105,6 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true
-          },
-          "configurations": {
-            "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {}
           },
           "defaultConfiguration": "production"
         }
