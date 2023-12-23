@@ -1,7 +1,7 @@
 import { test as baseTest } from '@playwright/test';
+import { randomBytes } from 'crypto';
 import { promises as fs } from 'fs';
 import { join } from 'path';
-import { randomBytes } from 'crypto';
 
 export const test = baseTest.extend({
   page: async ({ page }, use) => {
