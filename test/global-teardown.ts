@@ -5,7 +5,7 @@ import NYC from 'nyc';
 import { promises as fs } from 'fs';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const coverageThresholds = require('../e2e-app/coverage-thresholds.json');
+const coverageThresholds = require('./coverage-thresholds.json');
 
 async function globalTeardown() {
   try {
