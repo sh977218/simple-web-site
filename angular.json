@@ -50,6 +50,40 @@
           },
           "defaultConfiguration": "production"
         },
+        "coverage": {
+          "builder": "@angular-builders/custom-webpack:browser",
+          "options": {
+            "customWebpackConfig": {
+              "path": "src/coverage.webpack.js"
+            },
+            "outputPath": "dist/simple-web-site",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "src/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": [
+              {
+                "input": "src/theme.scss"
+              },
+              "src/styles.scss"
+            ],
+            "scripts": [],
+            "progress": false,
+            "aot": false,
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
+          },
+          "configurations": {
+            "development": {}
+          },
+          "defaultConfiguration": "development"
+        },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
@@ -60,7 +94,7 @@
               "buildTarget": "simple-web-site:build:development"
             },
             "playwright": {
-              "buildTarget": "simple-web-site:build:production",
+              "buildTarget": "simple-web-site:coverage",
               "liveReload": false,
               "watch": false
             }

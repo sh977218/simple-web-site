@@ -11,7 +11,7 @@
     "ng": "ng",
     "lint": "ng lint",
     "start": "ng s simple-web-site",
-    "start:playwright": "ng serve e2e-coverage-app -c playwright",
+    "start:playwright": "ng serve simple-web-site -c playwright",
     "start:server": "node server/app.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
