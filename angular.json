@@ -15,12 +15,14 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/simple-web-site",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "browser": "src/main.ts",
+            "polyfills": [
+              "src/polyfills.ts"
+            ],
             "tsConfig": "src/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -33,15 +35,7 @@
               },
               "src/styles.scss"
             ],
-            "scripts": [],
-            "progress": false,
-            "aot": false,
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -53,16 +47,20 @@
               ],
               "outputHashing": "all"
             },
-            "development": {}
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "proxyConfig": "src/proxy.conf.json"
-          },
           "configurations": {
+            "production": {
+              "buildTarget": "simple-web-site:build:production"
+            },
             "development": {
               "buildTarget": "simple-web-site:build:development"
             },
@@ -73,15 +71,6 @@
             }
           },
           "defaultConfiguration": "development"
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
-          }
         },
         "coverage": {
           "builder": "@angular-builders/custom-webpack:browser",
@@ -116,9 +105,18 @@
             "namedChunks": true
           },
           "configurations": {
-            "production": {}
+            "development": {}
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "development"
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
