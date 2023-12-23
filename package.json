@@ -16,7 +16,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "e2e": "playwright test -c e2e-app",
+    "e2e": "playwright test -c test",
     "commit": "git cz",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
