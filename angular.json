@@ -15,12 +15,12 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@@angular-devkit/build-angular:application",
+          "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/simple-web-site",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "polyfills": ["src/polyfills.ts"],
             "tsConfig": "src/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
@@ -50,13 +50,20 @@
               ],
               "outputHashing": "all"
             },
-            "development": {}
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
           },
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-builders/build-angular:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "production": {
+              "buildTarget": "simple-web-site:build:production"
+            },
             "development": {
               "buildTarget": "simple-web-site:build:development"
             },
@@ -198,7 +205,7 @@
     }
   },
   "cli": {
-    "analytics": "3e8c3217-741b-4c39-bf6e-f7fe64045e1c",
-    "schematicCollections": ["@angular-eslint/schematics"]
+    "schematicCollections": ["@angular-eslint/schematics"],
+    "analytics": false
   }
 }
