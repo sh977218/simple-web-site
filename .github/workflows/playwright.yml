@@ -15,8 +15,7 @@ jobs:
       pages: write
       id-token: write
 
-    runs-on: ubuntu-latest
-
+    runs-on: self-hosted
     # Deploy to the github-pages environment
     environment:
       name: github-pages
