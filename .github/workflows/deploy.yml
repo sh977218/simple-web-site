@@ -33,11 +33,11 @@ jobs:
       - name: Build Angular
         run: npm run build
 
-      - name: Deploy to S3
+      - name: Deploy master branch to S3
         if: github.ref == 'refs/heads/master'
         run: aws s3 sync ./dist/ ${{ secrets.AWS_SECRET_S3_BUCKET }} --delete
 
-      - name: Deploy to S3
+      - name: Deploy PR branch to S3
         if: github.event_name == 'pull_request'
         run: aws s3 sync ./dist/ ${{ secrets.AWS_SECRET_S3_BUCKET }}/test/${{ github.event.number }} --delete
 #      - name: Invalidate CloudFront
