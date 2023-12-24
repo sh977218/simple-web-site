@@ -8,6 +8,9 @@
     >
       Primary Button
     </button>
+    <button mat-raised-button color="primary" (click)="clickMe()">
+      Primary Raised Button
+    </button>
     <button
       mat-button
       color="accent"
@@ -15,6 +18,9 @@
       (click)="clickMeAgain()"
     >
       Accent Button
+    </button>
+    <button mat-raised-button color="accent" (click)="clickMeAgain()">
+      Accent Raised Button
     </button>
     <button mat-button color="warn" data-automation-id="button3">
       Warn Button
@@ -24,8 +30,8 @@
     <div class="flex justify-center align-middle">
       <mat-button-toggle-group appearance="standard">
         <mat-button-toggle mat-button value="bold" appearance="standard"
-          >Search All</mat-button-toggle
-        >
+          >Search All
+        </mat-button-toggle>
         <mat-button-toggle value="italic">Form</mat-button-toggle>
       </mat-button-toggle-group>
     </div>

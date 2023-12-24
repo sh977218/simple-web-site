@@ -1,21 +1,24 @@
 $my-blue: #326295;
+$my-light-blue: #2475cc;
+$my-dark-blue: #253b54;
 $dark-primary-text: rgba(black, 0.87);
 $light-primary-text: white;
 
 $my-light-color: (
-  100: #326295,
-  200: #2475cc,
-  400: #e2f0ff,
-  A100: #ea80fc,
-  A200: #e040fb,
-  A400: #d500f9,
-  A700: #aa00ff,
+  50: #e2f0ff,
+  100: #2475cc,
+  500: #326295,
+  900: #253b54,
+  A100: blue,
+  A200: orange,
+  A400: purple,
+  A700: gold,
   contrast: (
     50: $dark-primary-text,
     100: $dark-primary-text,
     200: $dark-primary-text,
-    300: $light-primary-text,
-    400: $light-primary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
     500: $light-primary-text,
     600: $light-primary-text,
     700: $light-primary-text,
@@ -28,7 +31,7 @@ $my-light-color: (
   ),
 );
 
-$my-dark-color: (
+/*$my-dark-color: (
   100: #326295,
   200: #2475cc,
   400: #e2f0ff,
@@ -52,4 +55,4 @@ $my-dark-color: (
     A400: $light-primary-text,
     A700: $light-primary-text,
   ),
-);
+);*/
