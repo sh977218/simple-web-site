@@ -1,6 +1,6 @@
 # Simple Web Site
 
-## This a playground project, but it has comprehensive software development practices
+## This is a playground project, but it has comprehensive software development practices
 
 ### Stacks:
 
