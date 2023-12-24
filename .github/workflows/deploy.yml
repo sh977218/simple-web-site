@@ -1,6 +1,7 @@
 name: Deployment to AWS S3
 
 on:
+  pull_request:
   push:
     branches:
       - master
