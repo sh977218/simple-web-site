@@ -2,7 +2,6 @@ import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   NO_ERRORS_SCHEMA,
-  OnInit,
 } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -36,15 +35,7 @@ import { NgClass } from '@angular/common';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'angular-playwright-code-coverage';
   darkMode = false;
-
-  constructor() {
-    console.log('a ');
-  }
-
-  ngOnInit(): void {
-    console.log('a ');
-  }
 }
