@@ -13,6 +13,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { NgClass } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -38,4 +39,14 @@ import { NgClass } from '@angular/common';
 export class AppComponent {
   title = 'angular-playwright-code-coverage';
   darkMode = false;
+
+  constructor(httpClient: HttpClient) {
+    httpClient
+      .get<{
+        numFound: number;
+      }>('https://openlibrary.org/search.json?q=the+lord+of+the+rings')
+      .subscribe((res) => {
+        console.log(`Found 'lord of the rings' book: ${res.numFound}`);
+      });
+  }
 }
