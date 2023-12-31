@@ -30,5 +30,5 @@ $my-dark-theme: mat.define-dark-theme(
   )
 );
 .dark-theme {
-  @include mat.all-component-themes($my-dark-theme);
+  @include mat.all-component-colors($my-dark-theme);
 }

@@ -11,7 +11,6 @@ import {
   TitleStrategy,
 } from '@angular/router';
 import { HomeComponent } from 'src/app/home/home.component';
-import { AboutComponent } from 'src/app/about/about.component';
 import { SearchComponent } from 'src/app/search/search.component';
 import { Injectable } from '@angular/core';
 
@@ -26,14 +25,14 @@ const routes: Routes = [
     title: 'Home',
   },
   {
-    path: 'about',
-    component: AboutComponent,
-    title: 'About',
-  },
-  {
     path: 'search',
     component: SearchComponent,
     title: 'Search',
+  },
+  {
+    path: 'helps',
+    loadChildren: () =>
+      import('./app/helps/helps.module').then((m) => m.HelpsModule),
   },
 ];
 

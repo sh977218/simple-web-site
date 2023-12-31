@@ -14,14 +14,18 @@
             style="display: flex; align-items: center"
             routerLinkActive="active"
           >
-            Help
+            Helps
             <mat-icon>expand_more</mat-icon>
           </mat-button>
           <mat-menu #sideMenu="matMenu">
             <a mat-menu-item href="https://www.google.com" target="_blank"
               >Google</a
             >
-            <button mat-menu-item routerLink="about" routerLinkActive="active">
+            <button
+              mat-menu-item
+              routerLink="/helps/about"
+              routerLinkActive="active"
+            >
               About
             </button>
           </mat-menu>
@@ -66,7 +70,7 @@
                     class="flex items-center"
                     routerLinkActive="active"
                   >
-                    Help
+                    Helps
                     <mat-icon>expand_more</mat-icon>
                   </mat-button>
                   <mat-menu #topMenu="matMenu">
@@ -78,7 +82,7 @@
                     >
                     <button
                       mat-menu-item
-                      routerLink="about"
+                      routerLink="/helps/about"
                       routerLinkActive="active"
                     >
                       About
@@ -166,7 +170,7 @@
               class="top-nav-list flex flex-col sm:flex-row justify-evenly"
             >
               <a mat-list-item href="" target="_blank" class="overflow-visible"
-                >Help</a
+                >Helps</a
               >
               <a mat-list-item href="" target="_blank" class="overflow-visible"
                 >Web Policies</a
