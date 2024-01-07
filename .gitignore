@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /bazel-out
+*/dist
 
 # Node
 /node_modules
@@ -44,9 +45,12 @@ Thumbs.db
 /playwright/.cache/
 /github-pages/
 
-test/dist
+# coverage files
+.nyc_output
 test/.nyc_output
 test/coverage-e2e
+coverage-e2e
+
+# playwright report
 test-results
 playwright-report
-coverage-e2e
