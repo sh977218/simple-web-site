@@ -7,17 +7,17 @@ import { promises as fs } from 'fs';
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const coverageThresholds = require('./coverage-thresholds.json');
 
+const PROJECT_ROOT_FOLDER = join(__dirname, '..');
+
 async function globalTeardown() {
   try {
-    const nycOutput = join(__dirname, '.', '.nyc_output');
     const nycInstance = new NYC({
-      cwd: join(__dirname, '.'),
+      cwd: PROJECT_ROOT_FOLDER,
       reportDir: `coverage-e2e`,
       reporter: ['lcov', 'json', 'text-summary'],
     });
     await nycInstance.checkCoverage(coverageThresholds);
     await nycInstance.report();
-    await fs.rm(nycOutput, { recursive: true, force: true });
   } catch (e) {
     // NYC doesn't throw error when coverage is not met. bug
     console.error('Insufficient playwright code coverage!');
