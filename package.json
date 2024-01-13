@@ -1,6 +1,6 @@
 {
   "name": "simple-web-site",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "keywords": [
     "Angular",
     "Playwright",
@@ -13,7 +13,7 @@
     "start": "ng s simple-web-site",
     "start:playwright": "ng serve e2e-coverage -c playwright",
     "start:server": "node server/app.js",
-    "build": "ng build",
+    "build": "ng build simple-web-site",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "playwright test -c test",
