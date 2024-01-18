@@ -17,7 +17,7 @@ jobs:
       contents: read
       pages: write
       id-token: write
-    name: "e2e-test"
+    name: e2e-test
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.41.0-jammy
