@@ -7,7 +7,7 @@ test('Check page title', async ({ page }) => {
   const homeLink = page.locator(`[data-automation-id="home-link"]`);
   await homeLink.click();
   await expect(page).toHaveTitle(`Home`);
-  await page.getByRole('button', { name: `Helps`, exact: true }).click();
-  await page.getByRole('button', { name: `About`, exact: true }).click();
+  await page.locator(`[data-automation-id="helps-link"]`).click();
+  await page.locator(`[data-automation-id="about-link"]`).click();
   await expect(page).toHaveTitle(`About`);
 });
