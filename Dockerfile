@@ -7,11 +7,11 @@ FROM node:latest as build
 WORKDIR /usr/local/app
 
   # Add the source code to app
-COPY ./ /usr/local/app/
+COPY . .
 
   # Install all the dependencies
 RUN npm install
-
+RUN npm cache clean --force
   # Generate the build of the application
 RUN npm run build
 
@@ -19,11 +19,11 @@ RUN npm run build
   # Stage 2: Serve app with nginx server
 
   # Use official nginx image as the base image
-FROM nginx:latest
+FROM nginx:latest AS ngi
 
   # Copy the build output to replace the default nginx contents.
-COPY --from=build /usr/local/app/dist/simple-web-site /usr/share/nginx/html
+COPY --from=build /usr/local/app/dist/simple-web-site/browser/ /usr/share/nginx/html
 COPY /nginx.conf  /etc/nginx/conf.d/default.conf
 
   # Expose port 80
-EXPOSE 80:80
+EXPOSE 80
