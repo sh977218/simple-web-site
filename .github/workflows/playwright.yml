@@ -43,8 +43,8 @@ jobs:
         uses: actions/upload-artifact@v3 #v4 doesn't work, because same name artifacts cannot be uploaded from multiple jobs
         if: always()
         with:
-          name: nyc_output
-          path: nyc_output
+          name: e2e_nyc_output
+          path: e2e_nyc_output
           retention-days: 30
 
   merge-html-report:    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
@@ -84,8 +84,8 @@ jobs:
       - name: Download nyc reports from Previous job(s)
         uses: actions/download-artifact@v3
         with:
-          name: nyc_output
-          path: nyc_output
+          name: e2e_nyc_output
+          path: e2e_nyc_output
 
       - name: Generate NYC coverage report
         run: npm run coverage-report
