@@ -3,7 +3,6 @@ import { defineConfig, devices } from '@playwright/test';
 export default defineConfig({
   testDir: './src',
   globalSetup: require.resolve('./global-setup'),
-  globalTeardown: require.resolve('./global-teardown'),
   timeout: 30 * 1000,
   expect: {
     timeout: 15000,
@@ -12,7 +11,7 @@ export default defineConfig({
   forbidOnly: !!process.env['CI'],
   retries: 1,
   workers: 1,
-  reporter: 'html',
+  reporter: process.env['CI'] ? 'blob' : 'html',
   use: {
     actionTimeout: 0,
     baseURL: 'http://localhost:4200',
@@ -28,9 +27,16 @@ export default defineConfig({
     },
   ],
 
-  webServer: {
-    command: 'npm run start:playwright',
-    port: 4200,
-    reuseExistingServer: true,
-  },
+  webServer: [
+    {
+      command: 'npm run start:server',
+      port: 3000,
+      reuseExistingServer: true,
+    },
+    {
+      command: 'npm run start:playwright',
+      port: 4200,
+      reuseExistingServer: true,
+    },
+  ],
 });

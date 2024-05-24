@@ -17,6 +17,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "playwright test -c test",
+    "coverage-report": "npx nyc report",
     "commit": "git cz",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
