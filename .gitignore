@@ -47,6 +47,7 @@ Thumbs.db
 
 # coverage files
 .nyc_output
+nyc_output
 test/.nyc_output
 test/coverage-e2e
 coverage-e2e
