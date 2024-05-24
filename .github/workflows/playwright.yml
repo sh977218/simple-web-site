@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.41.0-jammy
-    strategy:
-      fail-fast: false
-      matrix:
-        shardIndex: [ 1, 2 ]
-        shardTotal: [ 2 ]
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        shardIndex: [ 1, 2 ]
+#        shardTotal: [ 2 ]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,7 +29,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: CI=true npx playwright test -c test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+         run: CI=true npm run e2e
+#        run: CI=true npx playwright test -c test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - name: Upload playwright blob report to Artifacts
         uses: actions/upload-artifact@v3 #v4 doesn't work, because same name artifacts cannot be uploaded from multiple jobs
