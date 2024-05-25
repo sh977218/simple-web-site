@@ -17,6 +17,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "e2e": "playwright test -c test",
+    "e2e:ci": "CI=true playwright test -c test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}",
     "coverage-report": "npx nyc report",
     "playwright-report": "npx playwright merge-reports --reporter html ./all-blob-results",
     "commit": "git cz",

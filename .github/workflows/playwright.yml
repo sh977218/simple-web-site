@@ -30,10 +30,10 @@ jobs:
 
       - name: Run Playwright tests
         run: CI=true npm run e2e
-#        run: CI=true npx playwright test -c test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+#       run: npm run e2e:ci
 
       - name: Upload playwright blob report to Artifacts
-        uses: actions/upload-artifact@v3 #v4 doesn't work, because same name artifacts cannot be uploaded from multiple jobs
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: blob-report
@@ -41,7 +41,7 @@ jobs:
           retention-days: 30
 
       - name: Upload nyc report row data to Artifacts
-        uses: actions/upload-artifact@v3 #v4 doesn't work, because same name artifacts cannot be uploaded from multiple jobs
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: e2e_nyc_output
@@ -53,22 +53,25 @@ jobs:
     needs: [ e2e-test ]
     runs-on: ubuntu-latest
     steps:
+      - name: Download playwright blob report from Previous job(s)
+        uses: actions/download-artifact@v4
+        with:
+          name: blob-report
+          path: all-blob-report
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Download playwright blob report from Previous job(s)
-        uses: actions/download-artifact@v3
-        with:
-          name: blob-report
-          path: all-blob-report
+      - name: Install dependencies
+        run: npm ci
 
       - name: Generate playwright report
         run: npm run playwright-report
 
       - name: Upload playwright html report to Artifacts
-        uses: actions/upload-artifact@v3 #v4 doesn't work, because same name artifacts cannot be uploaded from multiple jobs
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: playwright-report
@@ -76,26 +79,29 @@ jobs:
           retention-days: 30
 
   coverage-html-report:    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    name: Coverage HTML Reports
+    name: Coverage HTML Report
     needs: [ e2e-test ]
     runs-on: ubuntu-latest
     steps:
+      - name: Download nyc report row data from Previous job(s)
+        uses: actions/download-artifact@v4
+        with:
+          name: e2e_nyc_output
+          path: e2e_nyc_output
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      - name: Download nyc report row data from Previous job(s)
-        uses: actions/download-artifact@v3
-        with:
-          name: e2e_nyc_output
-          path: e2e_nyc_output
+      - name: Install dependencies
+        run: npm ci
 
       - name: Generate coverage report
         run: npm run coverage-report
 
       - name: Upload playwright code coverage to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: coverage-e2e
@@ -115,24 +121,24 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Download coverage report from Previous job(s)
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: e2e-coverage
           path: e2e-coverage
 
       - name: Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
 
       - name: Upload coverage reports artifact to github-page
         if: always()
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           path: coverage-e2e/lcov-report
 
       - name: Deploy Playwright result to Github Pages
         if: always()
         id: deploy-coverage-to-github
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
 
       - name: update job summary
         if: always()
