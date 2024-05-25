@@ -19,11 +19,8 @@ jobs:
 #        shardIndex: [ 1, 2 ]
 #        shardTotal: [ 2 ]
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        run: npm ci
+      - uses: actions/checkout@v4
+      - run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
@@ -53,19 +50,17 @@ jobs:
     needs: [ e2e-test ]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+
       - name: Download playwright blob report from Previous job(s)
         uses: actions/download-artifact@v4
         with:
           name: blob-report
           path: all-blob-report
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Generate playwright report
         run: npm run playwright-report
@@ -83,19 +78,17 @@ jobs:
     needs: [ e2e-test ]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+
       - name: Download nyc report row data from Previous job(s)
         uses: actions/download-artifact@v4
         with:
           name: e2e_nyc_output
           path: e2e_nyc_output
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm ci
 
       - name: Generate coverage report
         run: npm run coverage-report
