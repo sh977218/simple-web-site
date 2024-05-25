@@ -18,7 +18,6 @@
     "test": "ng test",
     "e2e": "playwright test -c test",
     "e2e:ci": "CI=true npm run e2e",
-    "e2e:ci:sharding": "CI=true playwright test -c test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}",
     "coverage-report": "npx nyc report",
     "playwright-report": "npx playwright merge-reports --reporter html ./blob-report",
     "commit": "git cz",
