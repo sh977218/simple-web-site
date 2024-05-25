@@ -26,6 +26,9 @@ jobs:
       - name: Run Playwright tests
         run: npm run e2e
 
+      - name: Generate coverage report
+        run: npm run coverage-report
+
       - name: Upload playwright report to Artifacts
         uses: actions/upload-artifact@v3
         if: always()
