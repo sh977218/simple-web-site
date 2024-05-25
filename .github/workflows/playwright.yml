@@ -60,7 +60,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: blob-report
-          path: all-blob-report
+          path: all-blob-results
 
       - name: Generate playwright report
         run: npm run playwright-report
@@ -124,7 +124,7 @@ jobs:
 
       - name: Upload coverage reports artifact to github-page
         if: always()
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: coverage-e2e/lcov-report
 
