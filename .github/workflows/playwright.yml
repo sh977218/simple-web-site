@@ -45,25 +45,34 @@ jobs:
           path: coverage-e2e
           retention-days: 30
 
-  merge-html-report:    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+  playwright-html-report:
+    name: Playwright HTML Report
+    needs: [ e2e-test ]
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'skip...'
+
+  coverage-html-report:
+      name: Coverage HTML Report
+      needs: [ e2e-test ]
+      runs-on: ubuntu-latest
+      steps:
+        - run: echo 'skip...'
+
+  deploy-coverage-report:
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       contents: read
       pages: write
       id-token: write
-    name: Merge HTML Reports
-    needs: [ e2e-test ]
+    name: Deploy Coverage HTML Report to GitHub Page
+    needs: [ coverage-html-report ]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download playwright reports from Previous job(s)
-        uses: actions/download-artifact@v3
-        with:
-          name: playwright-report
-          path: playwright-report
-
-      - name: Download coverage reports from Previous job(s)
+      - name: Download coverage report from Previous job(s)
         uses: actions/download-artifact@v3
         with:
           name: coverage-e2e
