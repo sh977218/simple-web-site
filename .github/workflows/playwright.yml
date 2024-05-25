@@ -37,6 +37,17 @@ jobs:
           path: blob-report
           retention-days: 30
 
+      - name: Generate playwright report
+        run: npm run playwright-report
+
+      - name: Upload playwright html report to Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 30
+
       - name: Upload nyc report row data to Artifacts
         uses: actions/upload-artifact@v4
         if: always()
@@ -62,16 +73,16 @@ jobs:
           name: blob-report
           path: all-blob-results
 
-      - name: Generate playwright report
-        run: npm run playwright-report
-
-      - name: Upload playwright html report to Artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report
-          retention-days: 30
+#      - name: Generate playwright report
+#        run: npm run playwright-report
+#
+#      - name: Upload playwright html report to Artifacts
+#        uses: actions/upload-artifact@v4
+#        if: always()
+#        with:
+#          name: playwright-report
+#          path: playwright-report
+#          retention-days: 30
 
   coverage-html-report:    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     name: Coverage HTML Report
