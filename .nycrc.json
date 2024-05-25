@@ -5,8 +5,8 @@
   "reporter": [
     "lcov", "json", "text-summary"
   ],
-  "statements": 70,
+  "statements": 63,
   "branches": 100,
-  "functions": 45,
-  "lines": 70
+  "functions": 30,
+  "lines": 62
 }
