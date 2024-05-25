@@ -116,8 +116,8 @@ jobs:
       - name: Download coverage report from Previous job(s)
         uses: actions/download-artifact@v4
         with:
-          name: e2e-coverage
-          path: e2e-coverage
+          name: coverage-e2e
+          path: coverage-e2e
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
