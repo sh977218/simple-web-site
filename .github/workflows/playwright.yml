@@ -44,6 +44,8 @@ jobs:
           path: e2e_nyc_output
           retention-days: 30
 
+      - run: pwd
+
 #      - name: Generate coverage report
 #        run: npm run coverage-report
 #
@@ -93,6 +95,8 @@ jobs:
         with:
           node-version: '20'
       - run: npm ci
+
+      - run: pwd
 
       - name: Download nyc report row data from Previous job(s)
         uses: actions/download-artifact@v4
