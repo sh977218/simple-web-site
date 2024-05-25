@@ -71,7 +71,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: blob-report
-          path: all-blob-results
+          path: blob-report
 
       - name: Generate playwright report
         run: npm run playwright-report
