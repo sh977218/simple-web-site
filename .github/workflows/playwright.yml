@@ -60,49 +60,22 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - uses: actions/checkout@v4
-      - run: npm i
-
-      - name: Download blob reports from Previous job(s)
+      - name: Download playwright reports from Previous job(s)
         uses: actions/download-artifact@v3
-        with:
-          name: blob-report
-          path: all-blob-results
-
-      - name: Generate HTML Report
-        run: npx playwright merge-reports --reporter html ./all-blob-results
-
-      - name: Upload playwright report to Artifacts
-        uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+          path: playwright-report
 
-      - name: Download nyc reports from Previous job(s)
+      - name: Download coverage reports from Previous job(s)
         uses: actions/download-artifact@v3
         with:
-          name: e2e_nyc_output
-          path: e2e_nyc_output
-
-      - name: Generate NYC coverage report
-        run: npm run coverage-report
-
-      - name: Upload playwright code coverage to Artifacts
-        uses: actions/upload-artifact@v3
-        if: always()
-        with:
           name: coverage-e2e
-          path: coverage-e2e/lcov-report
-          retention-days: 30
+          path: coverage-e2e
 
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
-      - name: Upload artifact
+      - name: Upload coverage reports artifact to github-page
         if: always()
         uses: actions/upload-pages-artifact@v2
         with:
@@ -110,9 +83,9 @@ jobs:
 
       - name: Deploy Playwright result to Github Pages
         if: always()
-        id: code-coverage
+        id: deploy-coverage-to-github
         uses: actions/deploy-pages@v2
 
       - name: update job summary
         if: always()
-        run: echo "# Deployed playwright code coverage result to ${{ steps.code-coverage.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+        run: echo "# Deployed playwright code coverage result to ${{ steps.deploy-coverage-to-github.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
