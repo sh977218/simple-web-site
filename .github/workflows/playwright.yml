@@ -74,9 +74,6 @@ jobs:
     name: Coverage HTML Reports
     needs: [ e2e-test ]
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Download nyc report row data from Previous job(s)
         uses: actions/download-artifact@v3
@@ -87,12 +84,12 @@ jobs:
       - name: Generate coverage report
         run: npm run coverage-report
 
-      - name: Upload coverage report to Artifacts
-        uses: actions/upload-artifact@v3 #v4 doesn't work, because same name artifacts cannot be uploaded from multiple jobs
+      - name: Upload playwright code coverage to Artifacts
+        uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: e2e-coverage
-          path: e2e-coverage
+          name: coverage-e2e
+          path: coverage-e2e
           retention-days: 30
 
   deploy-coverage-report:    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
