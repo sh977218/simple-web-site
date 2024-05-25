@@ -100,8 +100,8 @@ jobs:
       contents: read
       pages: write
       id-token: write
-    name: Coverage HTML Reports
-    needs: [ e2e-test ]
+    name: Deploy Coverage HTML Report to GitHub Page
+    needs: [ coverage-html-report ]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
