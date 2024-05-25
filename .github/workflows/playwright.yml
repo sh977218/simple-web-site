@@ -49,10 +49,15 @@ jobs:
           retention-days: 30
 
   playwright-html-report:    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-    name: Playwright-HTML-Report
+    name: Playwright HTML Report
     needs: [ e2e-test ]
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Download playwright blob report from Previous job(s)
         uses: actions/download-artifact@v3
         with:
@@ -75,6 +80,11 @@ jobs:
     needs: [ e2e-test ]
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
       - name: Download nyc report row data from Previous job(s)
         uses: actions/download-artifact@v3
         with:
