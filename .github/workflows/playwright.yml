@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.41.0-jammy
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        shardIndex: [ 1 ]
-#        shardTotal: [ 1 ]
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [ 1 ]
+        shardTotal: [ 1 ]
     steps:
       - uses: actions/checkout@v4
       - run: npm ci
@@ -26,7 +26,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npm run e2e:ci
+        run: CI=true npx playwright test -c test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - name: Upload playwright blob report to Artifacts
         uses: actions/upload-artifact@v4
@@ -42,17 +42,6 @@ jobs:
         with:
           name: e2e_nyc_output
           path: e2e_nyc_output
-          retention-days: 30
-
-      - name: Generate coverage report
-        run: npm run coverage-report
-
-      - name: Upload playwright code coverage to Artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: coverage-e2e
-          path: coverage-e2e
           retention-days: 30
 
   playwright-html-report:
@@ -87,32 +76,32 @@ jobs:
     name: Coverage HTML Report
     needs: [ e2e-test ]
     runs-on: ubuntu-latest
+    # because NYC generate report with absolute path of source code mapping.
+    # We have to use same runner as report generated in above jobs
+    container:
+      image: mcr.microsoft.com/playwright:v1.41.0-jammy
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - run: npm ci
 
-#      - name: Download nyc report row data from Previous job(s)
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: e2e_nyc_output
-#          path: e2e_nyc_output
-#
-#      - name: Generate coverage report
-#        run: npm run coverage-report
-#
-#      - name: Upload playwright code coverage to Artifacts
-#        uses: actions/upload-artifact@v4
-#        if: always()
-#        with:
-#          name: coverage-e2e
-#          path: coverage-e2e
-#          retention-days: 30
+      - name: Download nyc report row data from Previous job(s)
+        uses: actions/download-artifact@v4
+        with:
+          name: e2e_nyc_output
+          path: e2e_nyc_output
+
+      - name: Generate coverage report
+        run: npm run coverage-report
+
+      - name: Upload playwright code coverage to Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-e2e
+          path: coverage-e2e
+          retention-days: 30
 
   deploy-coverage-report:
-# Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       contents: read
       pages: write
