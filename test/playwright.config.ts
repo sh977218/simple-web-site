@@ -11,7 +11,7 @@ export default defineConfig({
   forbidOnly: !!process.env['CI'],
   retries: 1,
   workers: 1,
-  reporter: 'html',
+  reporter: process.env['CI'] ? 'blob' : 'html',
   use: {
     actionTimeout: 0,
     baseURL: 'http://localhost:4200',
