@@ -8,25 +8,21 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  elastisearch:
-    runs-on: ubuntu-latest
-    container:
-        image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
-        env:
-          discovery.type: single-node
-        options:
-          --health-cmd "curl http://localhost:9200/_cluster/health"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 10
-        ports:
-        - 9200:9200
-    steps:
-        - run: curl -X GET http://localhost:9200/_cluster/health
-
-  e2e-test:     
+  e2e-test:
     name: e2e-test
     runs-on: ubuntu-latest
+    services:
+      elastisearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+        env:
+            discovery.type: single-node
+        options:
+            --health-cmd "curl http://localhost:9200/_cluster/health"
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 10
+        ports:
+        - 9200:9200
     container:
       image: mcr.microsoft.com/playwright:v1.41.0-jammy
     strategy:
@@ -35,6 +31,7 @@ jobs:
         shardIndex: [ 1, 2]
         shardTotal: [ 2 ]
     steps:
+      - run: curl -X GET http://localhost:9200/_cluster/health
       - uses: actions/checkout@v4
       - run: npm ci
 
