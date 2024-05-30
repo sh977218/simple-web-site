@@ -11,7 +11,16 @@ jobs:
   e2e-test:
     name: e2e-test
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.41.0-jammy
     services:
+      redis:
+        image: redis
+        options: >-
+            --health-cmd "redis-cli ping"
+            --health-interval 10s
+            --health-timeout 5s
+            --health-retries 5
       elastisearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
         env:
@@ -23,8 +32,6 @@ jobs:
             --health-retries 10
         ports:
         - 9200:9200
-    container:
-      image: mcr.microsoft.com/playwright:v1.41.0-jammy
     strategy:
       fail-fast: false
       matrix:
