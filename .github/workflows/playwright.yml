@@ -25,6 +25,9 @@ jobs:
         image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
         env:
             discovery.type: single-node
+        volumes:
+            - /home/shared-content-initiative/elasticsearch:/usr/share/elasticsearch/data //read, write and execute
+            - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
         options:
             --health-cmd "curl http://localhost:9200/_cluster/health"
             --health-interval 10s
