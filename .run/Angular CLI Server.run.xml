@@ -7,7 +7,10 @@
     </scripts>
     <node-interpreter value="project" />
     <package-manager value="npm" />
-    <envs />
+    <envs>
+      <env name="Client_ID" value="690878205797-g14lol8dcen0r6eat3dde53p7j1h4vr7.apps.googleusercontent.com" />
+      <env name="Client_Secret" value="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" />
+    </envs>
     <method v="2" />
   </configuration>
 </component>
