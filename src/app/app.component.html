@@ -1,37 +1,5 @@
 <div [ngClass]="[darkMode ? 'dark-theme' : '']">
   <mat-sidenav-container>
-    <mat-sidenav #drawer mode="over" fixedInViewport>
-      <mat-nav-list class="example-side-nav-list">
-        <a
-          mat-list-item
-          routerLink="home"
-          routerLinkActive="active"
-          [routerLinkActiveOptions]="{ exact: true }"
-          >Home</a
-        >
-        <mat-list-item [matMenuTriggerFor]="sideMenu" routerLinkActive="active">
-          <mat-button
-            style="display: flex; align-items: center"
-            routerLinkActive="active"
-          >
-            Helps
-            <mat-icon>expand_more</mat-icon>
-          </mat-button>
-          <mat-menu #sideMenu="matMenu">
-            <a mat-menu-item href="https://www.google.com" target="_blank"
-              >Google</a
-            >
-            <button
-              mat-menu-item
-              routerLink="/helps/about"
-              routerLinkActive="active"
-            >
-              About
-            </button>
-          </mat-menu>
-        </mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
     <mat-sidenav-content>
       <div class="flex flex-col">
         <div class="fixed top-0 right-0 left-0 z-10">
@@ -41,19 +9,12 @@
             </mat-toolbar-row>
           </mat-toolbar>
           <mat-toolbar color="primary">
-            <mat-toolbar-row class="flex justify-between">
-              <button
-                class="flex items-center"
-                mat-icon-button
-                (click)="drawer.toggle()"
-              >
-                <mat-icon>menu</mat-icon>
-              </button>
+            <mat-toolbar-row class="flex">
               <button class="flex items-center" mat-icon-button routerLink="/">
                 <mat-icon> sentiment_satisfied</mat-icon>
               </button>
               <span>My Application Header</span>
-              <mat-nav-list class="flex flex-row py-0">
+              <mat-nav-list role="navigation">
                 <a
                   mat-list-item
                   routerLink="home"
@@ -68,38 +29,31 @@
                   routerLinkActive="active"
                   data-automation-id="three-js-link"
                   [routerLinkActiveOptions]="{ exact: true }"
-                  >threeJs</a
+                  >ThreeJs</a
                 >
-                <mat-list-item
+                <a
+                  mat-list-item
+                  routerLink="helps"
+                  routerLinkActive="active"
+                  data-automation-id="helps-link"
                   [matMenuTriggerFor]="topMenu"
+                  >Helps</a
+                >
+              </mat-nav-list>
+              <mat-menu #topMenu="matMenu">
+                <a mat-menu-item href="https://www.google.com" target="_blank"
+                  >Google</a
+                >
+                <button
+                  mat-menu-item
+                  routerLink="/helps/about"
+                  data-automation-id="about-link"
                   routerLinkActive="active"
                 >
-                  <mat-button
-                    class="flex items-center"
-                    data-automation-id="helps-link"
-                    routerLinkActive="active"
-                  >
-                    Helps
-                    <mat-icon>expand_more</mat-icon>
-                  </mat-button>
-                  <mat-menu #topMenu="matMenu">
-                    <a
-                      mat-menu-item
-                      href="https://www.google.com"
-                      target="_blank"
-                      >Google</a
-                    >
-                    <button
-                      mat-menu-item
-                      routerLink="/helps/about"
-                      data-automation-id="about-link"
-                      routerLinkActive="active"
-                    >
-                      About
-                    </button>
-                  </mat-menu>
-                </mat-list-item>
-              </mat-nav-list>
+                  About
+                </button>
+              </mat-menu>
+              <span class="flex-1"></span>
               <a
                 mat-icon-button
                 class="favorite-icon"
