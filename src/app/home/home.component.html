@@ -1,0 +1,83 @@
+<div class="flex flex-col">
+  <div class="flex justify-center">
+    <button
+      mat-button
+      color="primary"
+      data-automation-id="button1"
+      (click)="clickMe()"
+    >
+      Primary Button
+    </button>
+    <button mat-raised-button color="primary" (click)="clickMe()">
+      Primary Raised Button
+    </button>
+    <button
+      mat-button
+      color="accent"
+      data-automation-id="button2"
+      (click)="clickMeAgain()"
+    >
+      Accent Button
+    </button>
+    <button mat-raised-button color="accent" (click)="clickMeAgain()">
+      Accent Raised Button
+    </button>
+    <button mat-button color="warn" data-automation-id="button3">
+      Warn Button
+    </button>
+  </div>
+  <div class="flex flex-col">
+    <div class="flex justify-center align-middle">
+      <mat-button-toggle-group appearance="standard">
+        <mat-button-toggle mat-button value="bold" appearance="standard"
+          >Search All
+        </mat-button-toggle>
+        <mat-button-toggle value="italic">Form</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="flex justify-center align-middle">
+      <mat-form-field>
+        <input matInput type="search" />
+        <button
+          mat-button
+          color="primary"
+          matSuffix
+          aria-label="search"
+          routerLink="/search"
+        >
+          <mat-icon>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="flex justify-center align-middle">
+    <div class="flex w-96">
+      <mat-tab-group>
+        <mat-tab class="flex align-middle">
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">search</mat-icon>
+            Search
+          </ng-template>
+          <div class="flex flex-col">
+            <mat-icon>expand_more</mat-icon>
+            Some very very very very very very very very very very very very
+            very very long texts.
+          </div>
+        </mat-tab>
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">submit</mat-icon>
+            Submit
+          </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>
+<div
+  data-automation-id="welcome-message"
+  class="flex"
+  style="background-color: gray"
+>
+  {{ welcome_message }}
+</div>

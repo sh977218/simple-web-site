@@ -1,0 +1,108 @@
+{
+  "name": "simple-web-site",
+  "version": "1.0.0",
+  "keywords": [
+    "Angular",
+    "Playwright",
+    "Code Coverage"
+  ],
+  "scripts": {
+    "postinstall": "npx husky install",
+    "ng": "ng",
+    "lint": "ng lint",
+    "start": "ng s simple-web-site",
+    "start:playwright": "ng serve e2e-coverage -c playwright",
+    "start:server": "node server/app.js",
+    "build": "ng build simple-web-site",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "e2e": "playwright test -c test",
+    "e2e:ci": "CI=true npm run e2e",
+    "coverage-report": "npx nyc report",
+    "playwright-report": "npx playwright merge-reports --reporter html ./blob-report",
+    "commit": "git cz",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major",
+    "build-docker": "docker build -t simply-web-site:v1.0.0 -f ./Dockerfile .",
+    "run-docker": "docker run -p 4200:80 simply-web-site:v1.0.0"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^17.0.3",
+    "@angular/cdk": "^17.0.1",
+    "@angular/common": "^17.0.3",
+    "@angular/compiler": "^17.0.3",
+    "@angular/core": "^17.0.3",
+    "@angular/forms": "^17.0.3",
+    "@angular/material": "^17.0.1",
+    "@angular/platform-browser": "^17.0.3",
+    "@angular/platform-browser-dynamic": "^17.0.3",
+    "@angular/router": "^17.0.3",
+    "@fortawesome/angular-fontawesome": "^0.14.0",
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.2"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^17.0.0",
+    "@angular-devkit/build-angular": "^17.0.1",
+    "@angular-eslint/builder": "17.1.1",
+    "@angular-eslint/eslint-plugin": "17.1.1",
+    "@angular-eslint/eslint-plugin-template": "17.1.1",
+    "@angular-eslint/schematics": "17.1.1",
+    "@angular-eslint/template-parser": "17.1.1",
+    "@angular/cli": "~17.0.1",
+    "@angular/compiler-cli": "^17.0.3",
+    "@angular/material": "^17.0.1",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@commitlint/cz-commitlint": "^18.4.3",
+    "@playwright/test": "latest",
+    "@types/jasmine": "~4.0.0",
+    "@types/node": "^16.18.23",
+    "@types/three": "^0.165.0",
+    "@typescript-eslint/eslint-plugin": "6.13.1",
+    "@typescript-eslint/parser": "6.13.1",
+    "ajv": "^8.12.0",
+    "autoprefixer": "^10.4.16",
+    "commitizen": "^4.3.0",
+    "coverage-istanbul-loader": "^3.0.3",
+    "eslint": "^8.54.0",
+    "husky": "^8.0.3",
+    "jasmine-core": "~4.3.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "lint-staged": "^13.1.1",
+    "nyc": "^15.1.0",
+    "postcss": "^8.4.31",
+    "prettier": "2.8.4",
+    "standard-version": "^9.5.0",
+    "tailwindcss": "^3.3.5",
+    "three": "^0.165.0",
+    "typescript": "~5.2.2",
+    "v8-to-istanbul": "^9.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,css,scss,html,md}": [
+      "prettier --write"
+    ]
+  },
+  "engines": {
+    "node": ">=18 <= 20.x.x",
+    "npm": ">=9 <= 10.x.x"
+  }
+}
