@@ -13,6 +13,7 @@ import {
 import { HomeComponent } from 'src/app/home/home.component';
 import { SearchComponent } from 'src/app/search/search.component';
 import { Injectable } from '@angular/core';
+import { ThreeJsComponent } from 'src/app/three-js/three-js.component';
 
 /* eslint-disable no-console */
 console.info('Angular CDK version', CDK_VERSION.full);
@@ -23,6 +24,11 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     title: 'Home',
+  },
+  {
+    path: 'threeJs',
+    component: ThreeJsComponent,
+    title: 'Three Js',
   },
   {
     path: 'search',

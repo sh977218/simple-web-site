@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.41.0-jammy
-    services:
+    # services:
     #   redis:
     #     image: redis
     #     options: >-
