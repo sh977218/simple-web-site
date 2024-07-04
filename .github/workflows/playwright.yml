@@ -70,7 +70,7 @@ jobs:
           retention-days: 30
 
       - name: Upload current run allure result to Artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         if: always()
         with:
           name: allure-result
