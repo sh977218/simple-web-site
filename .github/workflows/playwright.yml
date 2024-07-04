@@ -69,6 +69,7 @@ jobs:
   playwright-html-report:
     name: Playwright HTML Report
     needs: [ e2e-test ]
+    if: always()
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -97,6 +98,7 @@ jobs:
   coverage-html-report:
     name: Coverage HTML Report
     needs: [ e2e-test ]
+    if: always()
     runs-on: ubuntu-latest
     # because NYC generate report with absolute path of source code mapping.
     # We have to use same runner as report generated in above jobs
