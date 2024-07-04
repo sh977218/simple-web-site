@@ -69,6 +69,14 @@ jobs:
           path: e2e_nyc_output
           retention-days: 30
 
+      - name: Upload current run allure result to Artifacts
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: allure-result
+          path: allure-results
+          retention-days: 30
+
   playwright-html-report:
     name: Playwright HTML Report
     needs: [ e2e-test ]
@@ -127,14 +135,6 @@ jobs:
           path: coverage-e2e
           retention-days: 30
 
-      - name: Upload current run allure result to Artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: current-allure-result
-          path: allure-results
-          retention-days: 30
-
   playwright-allure-report:
     # GitHub CLI is not available in playwright image container, so this needs a seperated job
     name: playwright-allure-report
@@ -162,7 +162,7 @@ jobs:
       - name: Download current run allure report from e2e test job
         uses: actions/download-artifact@v3
         with:
-          name: current-allure-result  # the artifact name uploaded
+          name: allure-result          # the artifact name uploaded
           path: allure-results         # the folder name where artifact will be downloaded to
 
       - name: Fetch previous Playwright run
