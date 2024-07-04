@@ -16,7 +16,7 @@
     "build": "ng build simple-web-site",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "e2e": "playwright test -c test",
+    "e2e": "playwright test",
     "e2e:ci": "CI=true npm run e2e",
     "coverage-report": "npx nyc report",
     "playwright-report": "npx playwright merge-reports --reporter html ./blob-report",
