@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: allure-result-${{ matrix.shardIndex }}
+          name: allure-result
           path: allure-results
           retention-days: 30
 
