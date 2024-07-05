@@ -170,7 +170,7 @@ jobs:
 #        run: echo "run_id=$(gh run list -w 'Playwright Tests' -s completed -L 1 --json databaseId --jq '.[].databaseId')" >> $GITHUB_OUTPUT
 #
 #      - name: Download allure report from previous run
-#        uses: actions/download-artifact@v3
+#        uses: actions/download-artifact@v4
 #        with:
 #          github-token: ${{ secrets.GithubCliToken }}
 #          run-id: ${{ steps.previous_playwright_run_id.outputs.run_id }}
@@ -179,12 +179,12 @@ jobs:
 #
 #      - name: Copy historical data into current run
 #        run: cp previous-allure-report/history allure-results/history -r
-
+#
       - name: Generate allure report
         run: npx allure generate allure-results
 
       - name: Upload allure report to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-report
@@ -212,23 +212,23 @@ jobs:
         if: always()
         uses: actions/configure-pages@v4
 
-      - name: Download playwright html from current run
+      - name: Download playwright html from current run to all-report folder
         id: download_playwright_html_report
         uses: actions/download-artifact@v3
         with:
           name: playwright-report
           path: all-report/playwright-report
 
-      - name: Download coverage report from current run
+      - name: Download coverage report from current run to all-report folder
         id: download_coverage_report
         uses: actions/download-artifact@v3
         with:
           name: coverage-e2e
           path: all-report/coverage-e2e
 
-#      - name: Download allure report from current run
+#      - name: Download allure report from current run to all-report folder
 #        id: download_allure_report
-#        uses: actions/download-artifact@v3
+#        uses: actions/download-artifact@v4
 #        with:
 #          name: allure-report
 #          path: all-report/allure-report
