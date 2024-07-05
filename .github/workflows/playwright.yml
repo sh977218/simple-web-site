@@ -165,21 +165,21 @@ jobs:
           name: allure-result          # the artifact name uploaded
           path: allure-results         # the folder name where artifact will be downloaded to
 
-#      - name: Fetch previous Playwright run
-#        id: previous_playwright_run_id
-#        run: echo "run_id=$(gh run list -w 'Playwright Tests' -s completed -L 1 --json databaseId --jq '.[].databaseId')" >> $GITHUB_OUTPUT
-#
-#      - name: Download allure report from previous run
-#        uses: actions/download-artifact@v4
-#        with:
-#          github-token: ${{ secrets.GithubCliToken }}
-#          run-id: ${{ steps.previous_playwright_run_id.outputs.run_id }}
-#          name: allure-report          # the artifact name uploaded
-#          path: previous-allure-report # the folder name where artifact will be downloaded to
-#
-#      - name: Copy historical data into current run
-#        run: cp previous-allure-report/history allure-results/history -r
-#
+      - name: Fetch previous Playwright run
+        id: previous_playwright_run_id
+        run: echo "run_id=$(gh run list -w 'Playwright Tests' -s completed -L 1 --json databaseId --jq '.[].databaseId')" >> $GITHUB_OUTPUT
+
+      - name: Download allure report from previous run
+        uses: actions/download-artifact@v4
+        with:
+          github-token: ${{ secrets.GithubCliToken }}
+          run-id: ${{ steps.previous_playwright_run_id.outputs.run_id }}
+          name: allure-report          # the artifact name uploaded
+          path: previous-allure-report # the folder name where artifact will be downloaded to
+
+      - name: Copy historical data into current run
+        run: cp previous-allure-report/history allure-results/history -r
+
       - name: Generate allure report
         run: npx allure generate allure-results
 
@@ -226,15 +226,15 @@ jobs:
           name: coverage-e2e
           path: all-report/coverage-e2e
 
-#      - name: Download allure report from current run to all-report folder
-#        id: download_allure_report
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: allure-report
-#          path: all-report/allure-report
+      - name: Download allure report from current run to all-report folder
+        id: download_allure_report
+        uses: actions/download-artifact@v4
+        with:
+          name: allure-report
+          path: all-report/allure-report
 
       - name: Upload all report to github-pages
-#        if: steps.download_playwright_html_report.outcome == 'success' && steps.download_coverage_report.outcome == 'success' && steps.download_allure_report.outcome == 'success'
+        if: steps.download_playwright_html_report.outcome == 'success' && steps.download_coverage_report.outcome == 'success' && steps.download_allure_report.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: all-report
