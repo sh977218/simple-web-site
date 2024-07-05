@@ -234,7 +234,7 @@ jobs:
 #          path: all-report/allure-report
 
       - name: Upload all report to github-pages
-        if: steps.download_playwright_html_report.outcome == 'success' && steps.download_coverage_report.outcome == 'success' && steps.download_allure_report.outcome == 'success'
+#        if: steps.download_playwright_html_report.outcome == 'success' && steps.download_coverage_report.outcome == 'success' && steps.download_allure_report.outcome == 'success'
         uses: actions/upload-pages-artifact@v3
         with:
           path: all-report
