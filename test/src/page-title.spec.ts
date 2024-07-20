@@ -8,6 +8,6 @@ test('Check page title', async ({ page }) => {
 
 test('Check home page title', async ({ page }) => {
   await page.goto('/');
-  await page.locator(`[data-automation-id="home-link"]`).click();
+  await page.locator(`[data-automation-id="home-link"]`).first().click();
   await expect(page).toHaveTitle(`Home`);
 });
