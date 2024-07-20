@@ -1,83 +1,54 @@
 <div class="flex flex-col">
-  <div class="flex justify-center">
-    <button
-      mat-button
-      color="primary"
-      data-automation-id="button1"
-      (click)="clickMe()"
-    >
-      Primary Button
-    </button>
-    <button mat-raised-button color="primary" (click)="clickMe()">
-      Primary Raised Button
-    </button>
-    <button
-      mat-button
-      color="accent"
-      data-automation-id="button2"
-      (click)="clickMeAgain()"
-    >
-      Accent Button
-    </button>
-    <button mat-raised-button color="accent" (click)="clickMeAgain()">
-      Accent Raised Button
-    </button>
-    <button mat-button color="warn" data-automation-id="button3">
-      Warn Button
-    </button>
-  </div>
-  <div class="flex flex-col">
-    <div class="flex justify-center align-middle">
-      <mat-button-toggle-group appearance="standard">
-        <mat-button-toggle mat-button value="bold" appearance="standard"
-          >Search All
+  <section>
+    <div class="example-label">Button</div>
+    <div *ngFor="let color of colorService.colors$ | async">
+      <button mat-raised-button [color]="color">{{ color }} Button</button>
+    </div>
+  </section>
+  <section>
+    <div class="example-label">Button Toggle</div>
+    <div *ngFor="let appearance of colorService.appearance$ | async">
+      <mat-button-toggle-group [appearance]="appearance">
+        <mat-button-toggle *ngFor="let color of colorService.colors$ | async">
+          {{ appearance }} {{ color }} Button
         </mat-button-toggle>
-        <mat-button-toggle value="italic">Form</mat-button-toggle>
       </mat-button-toggle-group>
     </div>
-    <div class="flex justify-center align-middle">
-      <mat-form-field>
-        <input matInput type="search" />
-        <button
-          mat-button
-          color="primary"
-          matSuffix
-          aria-label="search"
-          routerLink="/search"
-        >
-          <mat-icon>search</mat-icon>
-        </button>
-      </mat-form-field>
+  </section>
+  <section>
+    <div class="example-label">Checkbox</div>
+    <div *ngFor="let color of colorService.colors$ | async">
+      <mat-checkbox [color]="color" [checked]="true">
+        {{ color }}
+      </mat-checkbox>
+      <mat-checkbox [color]="color" [indeterminate]="true">
+        {{ color }}
+      </mat-checkbox>
+      <mat-checkbox [color]="color" [indeterminate]="false">
+        {{ color }}
+      </mat-checkbox>
     </div>
-  </div>
-  <div class="flex justify-center align-middle">
-    <div class="flex w-96">
-      <mat-tab-group>
-        <mat-tab class="flex align-middle">
-          <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">search</mat-icon>
-            Search
-          </ng-template>
-          <div class="flex flex-col">
-            <mat-icon>expand_more</mat-icon>
-            Some very very very very very very very very very very very very
-            very very long texts.
-          </div>
-        </mat-tab>
-        <mat-tab>
-          <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">submit</mat-icon>
-            Submit
-          </ng-template>
-        </mat-tab>
+  </section>
+  <section>
+    <div class="example-label">Chips</div>
+    <div>
+      <mat-chip-set>
+        <mat-chip
+          *ngFor="let color of colorService.colors$ | async"
+          [color]="color"
+        >
+          {{ color }}
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+  </section>
+  <section>
+    <div class="example-label">Tabs</div>
+    <div *ngFor="let color of colorService.colors$ | async">
+      <mat-tab-group [color]="color">
+        <mat-tab label="{{ color }}">{{ color }}</mat-tab>
+        <mat-tab label="{{ color }}">{{ color }}</mat-tab>
       </mat-tab-group>
     </div>
-  </div>
-</div>
-<div
-  data-automation-id="welcome-message"
-  class="flex"
-  style="background-color: gray"
->
-  {{ welcome_message }}
+  </section>
 </div>
