@@ -1,6 +1,7 @@
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
+  inject,
   NO_ERRORS_SCHEMA,
 } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -12,7 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
-import { NgClass } from '@angular/common';
+import { AsyncPipe, NgClass, NgForOf, UpperCasePipe } from '@angular/common';
+import { ColorService } from 'src/app/color-service';
 
 @Component({
   selector: 'app-root',
@@ -32,10 +34,14 @@ import { NgClass } from '@angular/common';
     MatListModule,
     RouterLinkActive,
     NgClass,
+    NgForOf,
+    AsyncPipe,
+    UpperCasePipe,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class AppComponent {
   title = 'angular-playwright-code-coverage';
-  darkMode = false;
+
+  colorService = inject(ColorService);
 }
