@@ -198,7 +198,7 @@ jobs:
 
 
       - name: temp
-        run: ls
+        run: ls previous-allure-report
 
       - name: Copy historical data into current run
         run: cp previous-allure-report/history allure-results/history -r
