@@ -1,4 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"passed","Sat Dec 07 23:25:18 EST 2024","Sat Dec 07 23:25:32 EST 2024","13361","chromium","","","","","Click home link",""
-"passed","Sat Dec 07 23:25:32 EST 2024","Sat Dec 07 23:25:33 EST 2024","591","chromium","","","","","Check home page title",""
-"passed","Sat Dec 07 23:25:32 EST 2024","Sat Dec 07 23:25:32 EST 2024","506","chromium","","","","","Check page title",""
