@@ -249,3 +249,24 @@ jobs:
 #      - name: update job summary
 #        if: always()
 #        run: echo "# Deployed all report to ${{ steps.deploy-all-report-to-github.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+
+
+  elasticsearch-demo:
+    name: elasticsearch
+    needs: [ e2e-test ]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configure sysctl limits
+        run: |
+          sudo swapoff -a
+          sudo sysctl -w vm.swappiness=1
+          sudo sysctl -w fs.file-max=262144
+          sudo sysctl -w vm.max_map_count=262144
+
+      - name: Runs Elasticsearch
+        uses: elastic/elastic-github-actions/elasticsearch@master
+        with:
+          stack-version: 8.2.0
+          security-enabled: false
+      - run: curl http://localhost:9200/_cluster/health
