@@ -185,9 +185,11 @@ jobs:
 #        with:
 #          name: allure-result          # the artifact name uploaded
 #          path: allure-results         # the folder name where artifact will be downloaded to
-
+      - run: |
+          az cache purge
+          | az login --verbose
       - name: Azure Login
-        uses: azure/login@v2
+        uses: Azure/login@v2.2.0
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           enable-AzPSSession: true
