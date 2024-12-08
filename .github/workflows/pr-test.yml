@@ -17,7 +17,7 @@ jobs:
     name: e2e-test
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.41.0-jammy
+      image: mcr.microsoft.com/playwright:v1.46.0-noble
     strategy:
       fail-fast: false
       matrix:
@@ -25,7 +25,7 @@ jobs:
         shardTotal: [ 2 ]
     steps:
       - uses: actions/checkout@v4
-      - run: npm ci
+      - run: npm i
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm ci
+      - run: npm i
 
       - name: Download playwright blob report from Previous job(s)
         uses: actions/download-artifact@v3
@@ -103,7 +103,7 @@ jobs:
     # because NYC generate report with absolute path of source code mapping.
     # We have to use same runner as report generated in above jobs
     container:
-      image: mcr.microsoft.com/playwright:v1.41.0-jammy
+      image: mcr.microsoft.com/playwright:v1.46.0-noble
     steps:
       - uses: actions/checkout@v4
 
@@ -175,7 +175,7 @@ jobs:
           java-version: '21'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       - name: Download current run allure report from e2e test job
         uses: actions/download-artifact@v3
