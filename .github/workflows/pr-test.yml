@@ -194,7 +194,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az storage blob download-batch --account-name mysimplewebsite -s allure-report --destination ./previous-allure-report
+            az storage blob download-batch -s allure-report --destination previous-allure-report
 #
 #      - name: Copy historical data into current run
 #        run: cp previous-allure-report/history allure-results/history -r
