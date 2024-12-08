@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: pr tests
 on:
   pull_request:
     branches: [ master ]
@@ -250,7 +250,6 @@ jobs:
 #        if: always()
 #        run: echo "# Deployed all report to ${{ steps.deploy-all-report-to-github.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
 
-
   elasticsearch-demo:
     name: elasticsearch
     needs: [ e2e-test ]
@@ -269,4 +268,8 @@ jobs:
         with:
           stack-version: 8.2.0
           security-enabled: false
-      - run: curl http://localhost:9200/_cluster/health
+      - run: |
+          curl http://localhost:9200/heros/doc -H "Content-Type: application/json" -d @test/example.json
+
+      - run: |
+         curl http://localhost:9200/heros/_search?pretty=true&q=*:*
