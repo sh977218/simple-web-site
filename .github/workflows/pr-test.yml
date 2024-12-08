@@ -184,14 +184,10 @@ jobs:
 #        uses: actions/download-artifact@v3
 #        with:
 #          name: allure-result          # the artifact name uploaded
-#          path: allure-results         # the folder name where artifact will be downloaded to
-      - run: |
-          az cache purge
       - name: Azure Login
         uses: Azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-          enable-AzPSSession: true
 
       - name: Download previous allure report from Azure
         uses: azure/cli@v2
