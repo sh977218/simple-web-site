@@ -93,7 +93,7 @@ jobs:
         run: |
           echo "# Deployed playwright report to https://mysimplewebsite.blob.core.windows.net/playwright/${{github.event.pull_request.number}}/index.html" >> $GITHUB_STEP_SUMMARY
 
-  coverage-html-report:
+  generate-coverage-html-report:
     name: Coverage HTML Report
     needs: [ e2e-test ]
     if: always()
@@ -114,6 +114,26 @@ jobs:
       - name: Generate coverage report
         run: npm run coverage-report
 
+      - name: Upload playwright code coverage to Artifacts
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: coverage-e2e
+          path: coverage-e2e
+          retention-days: 30
+
+  publish-coverage-html-report:
+    name: Coverage HTML Report
+    needs: [ generate-coverage-html-report ]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download coverage report from Previous job
+        uses: actions/download-artifact@v3
+        with:
+          name: coverage-e2e
+          path: coverage-e2e
+
       - name: Azure Login
         uses: azure/login@v2
         with:
@@ -130,6 +150,8 @@ jobs:
         if: always()
         run: |
           echo "# Deployed coverage report to https://mysimplewebsite.blob.core.windows.net/coverage/${{github.event.pull_request.number}}/index.html" >> $GITHUB_STEP_SUMMARY
+
+
 
   playwright-allure-report:
     # GitHub CLI is not available in playwright image container, so this needs a seperated job
@@ -191,6 +213,7 @@ jobs:
         run: |
           echo "# Deployed coverage report to https://mysimplewebsite.blob.core.windows.net/allure-report/index.html" >> $GITHUB_STEP_SUMMARY
 
+
   elasticsearch-demo:
     name: elasticsearch
     needs: [ e2e-test ]
@@ -210,7 +233,10 @@ jobs:
           stack-version: 8.2.0
           security-enabled: false
       - run: |
-          curl -XPOST http://localhost:9200/heros/doc -H "Content-Type: application/json" -d @test/example.json
+          curl -X PUT "localhost:9200/heroes"
 
       - run: |
-         curl http://localhost:9200/heros/_search?pretty=true&q=*:*
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+
+      - run: |
+         curl http://localhost:9200/heroes/_search?pretty=true&q=*:*
