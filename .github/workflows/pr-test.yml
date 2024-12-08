@@ -190,6 +190,7 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+          enable-AzPSSession: true
 
       - name: Download previous allure report from Azure
         uses: azure/cli@v2
