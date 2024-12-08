@@ -187,7 +187,8 @@ jobs:
 #          path: allure-results         # the folder name where artifact will be downloaded to
       - run: |
           az cache purge
-          | az login --verbose
+      - run: |
+          az login --verbose
       - name: Azure Login
         uses: Azure/login@v2.2.0
         with:
