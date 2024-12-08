@@ -188,7 +188,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       - name: Create previous-allure-report folder
-        run: mkdir previous-allure-report
+        run: mkdir previous-allure-report/history
 
       - name: Download previous allure report from Azure
         uses: azure/cli@v2
