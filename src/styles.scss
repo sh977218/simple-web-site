@@ -10,9 +10,5 @@ body {
 }
 
 .active {
-  background: white !important;
-}
-
-.active > span > span {
-  color: $my-blue !important;
+  background: $my-blue;
 }

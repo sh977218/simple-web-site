@@ -34,7 +34,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az storage blob delete-batch --account-name mysimplewebsite -s playwright-report --pattern ${{github.event.pull_request.number}}*
+            az storage fs directory delete --account-name mysimplewebsite --file-system playwright --name ${{github.event.pull_request.number}} --yes
 
   copy-code-coverage:
     name: Publish latest merged code coverage
