@@ -11,6 +11,7 @@
 /node_modules
 npm-debug.log
 yarn-error.log
+package-lock.json
 
 # IDEs and editors
 .idea
@@ -61,3 +62,6 @@ playwright-report
 blob-report
 all-report
 allure-results
+allure-report
+previous-allure-report
+/allure-report/

@@ -6,8 +6,8 @@ on:
     types: [ closed ]
 
 jobs:
-  deploy:
-    name: Remove S3 folder
+  remove-pr-s3:
+    name: Remove PR's S3 folder
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS credentials
@@ -19,3 +19,37 @@ jobs:
 
       - name: Cleanup
         run: aws s3 rm ${{ secrets.AWS_SECRET_S3_BUCKET }}/test/${{ github.event.number }} --recursive
+
+  clean_up_azure:
+    name: Clean up Azure Static content storage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Remove playwright report from Azure
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az storage blob delete-batch --account-name mysimplewebsite -s playwright-report --pattern ${{github.event.pull_request.number}}*
+
+  copy-code-coverage:
+    name: Publish latest merged code coverage
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Copy PR coverage to master
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az storage blob copy start-batch --account-name mysimplewebsite --destination-container coverage  --source-account-name mysimplewebsite --source-container coverage --pattern ${{github.event.pull_request.number}}*
+
