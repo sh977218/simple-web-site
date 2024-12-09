@@ -187,6 +187,8 @@ jobs:
         uses: Azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Create previous-allure-report folder
+        run: mkdir previous-allure-report
 
       - name: Download previous allure report from Azure
         uses: azure/cli@v2
@@ -194,9 +196,6 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az storage blob download-batch --account-name mysimplewebsite -s allure-report --destination previous-allure-report
-
-      - name: temp
-        run: ls previous-allure-report
 
       - name: Copy historical data into current run
         run: cp previous-allure-report/history allure-results/history -r
