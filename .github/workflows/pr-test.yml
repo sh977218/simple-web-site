@@ -57,18 +57,18 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Runs Elasticsearch
-        uses: elastic/elastic-github-actions/elasticsearch@master
-        with:
-          stack-version: 8.2.0
-          security-enabled: false
-
-      - name: Create es index
-        run: curl -X PUT "localhost:9200/heroes"
-
-      - name: Inject data into es
-        run: |
-          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+#      - name: Runs Elasticsearch
+#        uses: elastic/elastic-github-actions/elasticsearch@master
+#        with:
+#          stack-version: 8.2.0
+#          security-enabled: false
+#
+#      - name: Create es index
+#        run: curl -X PUT "localhost:9200/heroes"
+#
+#      - name: Inject data into es
+#        run: |
+#          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
       - name: Run Playwright tests
         run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
