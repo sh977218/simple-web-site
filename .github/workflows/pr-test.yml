@@ -53,7 +53,7 @@ jobs:
         uses: actions/upload-artifact@v3
         if: always()
         with:
-          name: allure-result
+          name: allure-results
           path: allure-results
           retention-days: 30
 
@@ -180,16 +180,13 @@ jobs:
       - name: Download current run allure report from e2e test job
         uses: actions/download-artifact@v3
         with:
-          name: allure-result          # the artifact name uploaded
-          path: allure-result
+          name: allure-results          # the artifact name uploaded
+          path: allure-results
 
       - name: Azure Login
         uses: Azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Create previous-allure-report folder
-        run: mkdir -p previous-allure-report/history
 
       - name: Download previous allure report from Azure
         uses: azure/cli@v2
