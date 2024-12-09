@@ -13,7 +13,7 @@ permissions:
   id-token: write
   contents: read
 jobs:
-  es-demo-1:
+  es-as-service:
     name: Start es as service
     runs-on: ubuntu-latest
     services:
@@ -42,11 +42,7 @@ jobs:
         run: |
           curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
-
-
-
-
-  es-demo-2:
+  es-as-script:
     name: Start es in steps/script
     runs-on: ubuntu-latest
     steps:
@@ -67,13 +63,10 @@ jobs:
         run: |
           curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
-
-
-
-
-  mongo-db-demo-1:
+  mongo-db-as-service:
     name: Start mongo as service
     runs-on: ubuntu-latest
+    container: node:20-bookworm-slim
     services:
       mongodb:
         image: mongo
@@ -100,7 +93,7 @@ jobs:
       - run: mongoimport --version
       - run: mongoimport test/heroes.json
 
-  mongo-db-demo-2:
+  mongo-as-script:
     name: Start mongo in steps/script
     runs-on: ubuntu-latest
     steps:
