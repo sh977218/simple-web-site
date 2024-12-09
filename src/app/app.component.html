@@ -1,45 +1,50 @@
 <div [ngClass]="[colorService.darkMode ? 'dark-theme' : '']">
-  <div class="fixed top-0 right-0 left-0 z-10">
-    <mat-toolbar
-      *ngFor="let color of colorService.colors$ | async"
-      [color]="color"
-    >
-      <mat-toolbar-row>
-        <span>{{ color | uppercase }} tool bar</span>
-        <mat-nav-list role="navigation" class="flex flex-row">
-          <mat-list-item
-            routerLinkActive="active"
-            data-automation-id="home-link"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a routerLink="home">Home</a>
-          </mat-list-item>
-          <mat-list-item
-            routerLinkActive="active"
-            data-automation-id="three-js-link"
-            [routerLinkActiveOptions]="{ exact: true }"
-          >
-            <a routerLink="threeJs">ThreeJs</a>
-          </mat-list-item>
-        </mat-nav-list>
-        <span class="flex-1"></span>
-        <mat-slide-toggle
-          color="warn"
-          labelPosition="before"
-          [(ngModel)]="colorService.darkMode"
-        >
-          <div class="flex justify-center">
-            <mat-icon>dark_mode</mat-icon>
-            DARK MODE
-          </div>
-        </mat-slide-toggle>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </div>
-  <div style="height: 200px"></div>
-  <mat-sidenav-container>
-    <mat-sidenav-content>
+  <mat-toolbar
+    *ngFor="let color of colorService.colors$ | async"
+    [color]="color"
+  >
+    <mat-toolbar-row>
+      <span class="mx-2">{{ color | uppercase }} tool bar</span>
+      <a
+        mat-button
+        routerLinkActive="active"
+        data-automation-id="home-link"
+        routerLink="home"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Home
+      </a>
+      <a
+        mat-button
+        routerLinkActive="active"
+        data-automation-id="search-link"
+        routerLink="search"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Search</a
+      >
+      <a
+        mat-button
+        routerLinkActive="active"
+        routerLink="threeJs"
+        data-automation-id="three-js-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        >Three JS</a
+      >
+      <span class="flex-1"></span>
+      <mat-slide-toggle
+        color="warn"
+        labelPosition="before"
+        [(ngModel)]="colorService.darkMode"
+      >
+        <div class="flex justify-center">
+          <mat-icon>dark_mode</mat-icon>
+          DARK MODE
+        </div>
+      </mat-slide-toggle>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-drawer-container class="min-h-svh" autosize>
+    <main class="m-5">
       <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    </main>
+  </mat-drawer-container>
 </div>

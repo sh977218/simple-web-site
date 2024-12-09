@@ -1,23 +1,34 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClient } from '@angular/common/http';
+import { catchError, defer, from, map } from 'rxjs';
+// import { Client } from '@elastic/elasticsearch';
 
-type Card = {
-  title: string;
-  description: string;
+type Hero = {
+  homeTown: string;
+  secretBase: string;
   content: string;
-  number: number;
+  squadName: number;
+  members: {
+    age: number;
+    name: string;
+    powers: string[];
+    secretIdentity: string;
+  }[];
 };
 
 @Component({
   selector: 'app-search',
   standalone: true,
   imports: [
+    NgFor,
+    AsyncPipe,
     CommonModule,
     MatSidenavModule,
     MatListModule,
@@ -31,6 +42,9 @@ type Card = {
   styleUrl: './search.component.scss',
 })
 export class SearchComponent {
+  private http = inject(HttpClient);
+  //  client = new Client({ node: 'http://localhost:9200' });
+
   typesOfShoes: string[] = [
     'Boots',
     'Clogs',
@@ -40,97 +54,23 @@ export class SearchComponent {
   ];
   typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
 
-  cards: Card[] = [
-    {
-      title: 'Simple card',
-      description: '',
-      content:
-        'The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.',
-      number: 1,
-    },
-    {
-      title: 'Another simple card',
-      description: '',
-      content: '',
-      number: 2,
-    },
-    {
-      title: 'Complicated card',
-      description: '',
-      content: '',
-      number: 0,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-    {
-      title: 'Another Complicated card',
-      description: '',
-      content: '',
-      number: 40,
-    },
-  ];
+  heroes$ = this.http
+    .get('http://localhost:9200/heroes/_search', { responseType: 'text' })
+    .pipe(
+      catchError(() => []),
+      map((response: string) => {
+        const res = JSON.parse(response);
+        return res.hits.hits.map((h: any) => h._source as Hero);
+      })
+    );
+  /*
+    cards$ = defer(() => from((this.client.search<Hero>({
+        index: 'heroes'
+      })).then((response) => {
+        return response.hits.hits.map(h => h._source);
+      }))
+    ).pipe(catchError(() => []),
+      map((res: any) => {
+        return res.hits.hits._source as Hero[];
+      }));*/
 }
