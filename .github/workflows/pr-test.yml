@@ -16,6 +16,30 @@ jobs:
   e2e-test:
     name: e2e-test
     runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo
+        env:
+          MONGO_INITDB_ROOT_USERNAME: admin
+          MONGO_INITDB_ROOT_PASSWORD: admin
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd mongo
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+#      elasticsearch:
+#        image: elastic/elastic-github-actions/elasticsearch@master
+#        env:
+#            discovery.type: single-node
+#        volumes:
+#            - esdata1:/usr/share/elasticsearch/data:rw
+#        with:
+#          stack-version: 8.2.0
+#          security-enabled: false
+#        ports:
+#        - 9200:9200
     container:
       image: mcr.microsoft.com/playwright:v1.46.0-noble
     strategy:
@@ -24,6 +48,9 @@ jobs:
         shardIndex: [ 1, 2 ]
         shardTotal: [ 2 ]
     steps:
+#      - run: curl -X GET http://localhost:9200/_cluster/health
+      - run: curl -X GET http://localhost:27017/_cluster/health
+
       - uses: actions/checkout@v4
       - run: npm i
 
@@ -173,6 +200,8 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
+      - run: curl -X GET http://localhost:9200/_cluster/health
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
