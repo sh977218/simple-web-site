@@ -65,7 +65,7 @@ jobs:
 
   mongo-db-as-service:
     name: Start mongo as service
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     container: node:20-bookworm-slim
     services:
       mongodb:
