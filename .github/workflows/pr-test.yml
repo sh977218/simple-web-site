@@ -181,6 +181,8 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: allure-result          # the artifact name uploaded
+          path: allure-result
+
       - name: Azure Login
         uses: Azure/login@v2
         with:
@@ -195,7 +197,6 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az storage blob download-batch --account-name mysimplewebsite -s allure-report --destination previous-allure-report
-
 
       - name: temp
         run: ls previous-allure-report
