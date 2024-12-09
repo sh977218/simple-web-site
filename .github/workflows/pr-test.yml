@@ -13,8 +13,8 @@ permissions:
   id-token: write
   contents: read
 jobs:
-#  es-demo:
-#    runs-on: ubuntu-latest
+  es-demo:
+    runs-on: ubuntu-latest
 #    services:
 #      elasticsearch:
 #        image: elastic/elastic-github-actions/elasticsearch@master
@@ -27,21 +27,23 @@ jobs:
 #          security-enabled: false
 #        ports:
 #        - 9200:9200
-#    steps:
-#      - name: Runs Elasticsearch
-#        uses: elastic/elastic-github-actions/elasticsearch@master
-#        with:
-#          stack-version: 8.2.0
-#          security-enabled: false
-#
-#      - run: curl -X GET http://localhost:9200/_cluster/health
-#
-#      - name: Create es index
-#        run: curl -X PUT "localhost:9200/heroes"
-#
-#      - name: Inject data into es
-#        run: |
-#          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start Elasticsearch
+        uses: elastic/elastic-github-actions/elasticsearch@master
+        with:
+          stack-version: 8.2.0
+          security-enabled: false
+
+      - run: curl -X GET http://localhost:9200/_cluster/health
+
+      - name: Create es index
+        run: curl -X PUT "localhost:9200/heroes"
+
+      - name: Inject data into es
+        run: |
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
   mongo-db-demo:
     runs-on: ubuntu-latest
@@ -59,10 +61,7 @@ jobs:
 #          --health-timeout 5s
 #          --health-retries 5
     steps:
-      - name: Use Node.js 20
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20.x
+      - uses: actions/checkout@v4
 
       - name: Start MongoDB
         uses: supercharge/mongodb-github-action@1.11.0
@@ -74,10 +73,8 @@ jobs:
           wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
 
-      - run: mongorestore --version
-
-  #      - run: curl -X GET http://localhost:27017
-
+      - run: mongoimport --version
+      - run: mongoimport test/heroes.json
 
   e2e-test:
     name: e2e-test
@@ -226,8 +223,6 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - run: curl -X GET http://localhost:9200/_cluster/health
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
