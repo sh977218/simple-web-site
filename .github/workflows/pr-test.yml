@@ -208,7 +208,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az storage blob upload-batch --account-name mysimplewebsite -s ./allure-report -d allure ---overwrite
+            az storage blob upload-batch --account-name mysimplewebsite -s ./allure-report -d allure --overwrite
 
       - name: update job summary
         if: always()
