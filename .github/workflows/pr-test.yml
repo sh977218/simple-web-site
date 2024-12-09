@@ -47,10 +47,12 @@ jobs:
         run: |
           curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
+
   mongo-db-demo:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.46.0-noble
+      options: --user root
 #    services:
 #      mongodb:
 #        image: mongo
