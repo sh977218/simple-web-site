@@ -13,22 +13,42 @@ permissions:
   id-token: write
   contents: read
 jobs:
-  es-demo:
+  es-demo-1:
+    name: Start es as service
     runs-on: ubuntu-latest
-#    services:
-#      elasticsearch:
-#        image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
-#        env:
-#            discovery.type: single-node
-#        volumes:
-#            - esdata1:/usr/share/elasticsearch/data:rw
-#        options:
-#            --health-cmd "curl http://localhost:9200/_cluster/health"
-#            --health-interval 10s
-#            --health-timeout 30s
-#            --health-retries 10
-#        ports:
-#        - 9200:9200
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+        env:
+            discovery.type: single-node
+        volumes:
+            - esdata1:/usr/share/elasticsearch/data:rw
+        options:
+            --health-cmd "curl http://localhost:9200/_cluster/health"
+            --health-interval 10s
+            --health-timeout 30s
+            --health-retries 10
+        ports:
+        - 9200:9200
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: curl -X GET http://localhost:9200/_cluster/health
+
+      - name: Create es index
+        run: curl -X PUT "localhost:9200/heroes"
+
+      - name: Inject data into es
+        run: |
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+
+
+
+
+
+  es-demo-2:
+    name: Start es in steps/script
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -48,21 +68,41 @@ jobs:
           curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
 
-  mongo-db-demo:
+
+
+
+  mongo-db-demo-1:
+    name: Start mongo as service
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.46.0-noble
-      options: --user root
-#    services:
-#      mongodb:
-#        image: mongo
-#        ports:
-#          - 27017:27017
-#        options: >-
-#          --health-cmd mongo
-#          --health-interval 10s
-#          --health-timeout 5s
-#          --health-retries 5
+    services:
+      mongodb:
+        image: mongo
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd mongo
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.11.0
+        with:
+          mongodb-version: 8.0
+
+      - name: Setup mongodb-tools
+        run: |
+          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
+          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
+
+      - run: mongoimport --version
+      - run: mongoimport test/heroes.json
+
+  mongo-db-demo-2:
+    name: Start mongo in steps/script
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
@@ -161,6 +201,7 @@ jobs:
         run: |
           echo "# Deployed playwright report to https://mysimplewebsite.blob.core.windows.net/playwright/${{github.event.pull_request.number}}/index.html" >> $GITHUB_STEP_SUMMARY
 
+
   generate-coverage-html-report:
     name: Coverage HTML Report
     needs: [ e2e-test ]
@@ -218,6 +259,7 @@ jobs:
         if: always()
         run: |
           echo "# Deployed coverage report to https://mysimplewebsite.blob.core.windows.net/coverage/${{github.event.pull_request.number}}/lcov-report/index.html" >> $GITHUB_STEP_SUMMARY
+
 
   playwright-allure-report:
     # GitHub CLI is not available in playwright image container, so this needs a seperated job
