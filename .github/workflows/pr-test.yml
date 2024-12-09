@@ -65,7 +65,7 @@ jobs:
 
   mongo-db-as-service:
     name: Start mongo as service
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     container: node:20-bookworm-slim
     services:
       mongodb:
@@ -97,7 +97,7 @@ jobs:
 
   mongo-as-script:
     name: Start mongo in steps/script
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
