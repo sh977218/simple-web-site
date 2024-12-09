@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient } from '@angular/common/http';
-import { catchError, defer, from, map } from 'rxjs';
+import { catchError, map } from 'rxjs';
 // import { Client } from '@elastic/elasticsearch';
 
 type Hero = {
@@ -59,8 +59,10 @@ export class SearchComponent {
     .pipe(
       catchError(() => []),
       map((response: string) => {
-        const res = JSON.parse(response);
-        return res.hits.hits.map((h: any) => h._source as Hero);
+        const res = JSON.parse(response) as {
+          hits: { hits: { _source: Hero }[] };
+        };
+        return res.hits.hits.map((h) => h._source);
       })
     );
   /*

@@ -21,7 +21,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        shardIndex: [ 1, 2]
+        shardIndex: [ 1, 2 ]
         shardTotal: [ 2 ]
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +29,19 @@ jobs:
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
+      - name: Runs Elasticsearch
+        uses: elastic/elastic-github-actions/elasticsearch@master
+        with:
+          stack-version: 8.2.0
+          security-enabled: false
+
+      - name: Create es index
+        run: curl -X PUT "localhost:9200/heroes"
+
+      - name: Inject data into es
+        run: |
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
       - name: Run Playwright tests
         run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
@@ -215,30 +228,3 @@ jobs:
         if: always()
         run: |
           echo "# Deployed allure report to https://mysimplewebsite.blob.core.windows.net/allure-report/index.html" >> $GITHUB_STEP_SUMMARY
-
-  elasticsearch-demo:
-    name: elasticsearch
-    needs: [ e2e-test ]
-    if: always()
-    runs-on: ubuntu-latest
-    steps:
-      - name: Configure sysctl limits
-        run: |
-          sudo swapoff -a
-          sudo sysctl -w vm.swappiness=1
-          sudo sysctl -w fs.file-max=262144
-          sudo sysctl -w vm.max_map_count=262144
-
-      - name: Runs Elasticsearch
-        uses: elastic/elastic-github-actions/elasticsearch@master
-        with:
-          stack-version: 8.2.0
-          security-enabled: false
-      - run: |
-          curl -X PUT "localhost:9200/heroes"
-
-      - run: |
-          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
-
-      - run: |
-         curl http://localhost:9200/heroes/_search?pretty=true&q=*:*
