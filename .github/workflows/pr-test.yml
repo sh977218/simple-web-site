@@ -13,8 +13,37 @@ permissions:
   id-token: write
   contents: read
 jobs:
-  e2e-test:
-    name: e2e-test
+#  es-demo:
+#    runs-on: ubuntu-latest
+#    services:
+#      elasticsearch:
+#        image: elastic/elastic-github-actions/elasticsearch@master
+#        env:
+#            discovery.type: single-node
+#        volumes:
+#            - esdata1:/usr/share/elasticsearch/data:rw
+#        with:
+#          stack-version: 8.2.0
+#          security-enabled: false
+#        ports:
+#        - 9200:9200
+#    steps:
+#      - name: Runs Elasticsearch
+#        uses: elastic/elastic-github-actions/elasticsearch@master
+#        with:
+#          stack-version: 8.2.0
+#          security-enabled: false
+#
+#      - run: curl -X GET http://localhost:9200/_cluster/health
+#
+#      - name: Create es index
+#        run: curl -X PUT "localhost:9200/heroes"
+#
+#      - name: Inject data into es
+#        run: |
+#          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+
+  mongo-db-demo:
     runs-on: ubuntu-latest
 #    services:
 #      mongodb:
@@ -29,17 +58,30 @@ jobs:
 #          --health-interval 10s
 #          --health-timeout 5s
 #          --health-retries 5
-#      elasticsearch:
-#        image: elastic/elastic-github-actions/elasticsearch@master
-#        env:
-#            discovery.type: single-node
-#        volumes:
-#            - esdata1:/usr/share/elasticsearch/data:rw
-#        with:
-#          stack-version: 8.2.0
-#          security-enabled: false
-#        ports:
-#        - 9200:9200
+    steps:
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.11.0
+        with:
+          mongodb-version: 8.0
+
+      - name: Setup mongodb-tools
+        run: |
+          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
+          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
+
+      - run: mongorestore --version
+
+  #      - run: curl -X GET http://localhost:27017
+
+
+  e2e-test:
+    name: e2e-test
+    runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.46.0-noble
     strategy:
@@ -48,32 +90,11 @@ jobs:
         shardIndex: [ 1, 2 ]
         shardTotal: [ 2 ]
     steps:
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.6.0
-        with:
-          mongodb-version: 8.0
-
-#      - run: curl -X GET http://localhost:9200/_cluster/health
-      - run: curl -X GET http://localhost:27017
-
       - uses: actions/checkout@v4
       - run: npm i
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-
-#      - name: Runs Elasticsearch
-#        uses: elastic/elastic-github-actions/elasticsearch@master
-#        with:
-#          stack-version: 8.2.0
-#          security-enabled: false
-#
-#      - name: Create es index
-#        run: curl -X PUT "localhost:9200/heroes"
-#
-#      - name: Inject data into es
-#        run: |
-#          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
       - name: Run Playwright tests
         run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
