@@ -59,7 +59,7 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "projects/simple-web-site/src/coverage.webpack.js"
+              "path": "projects/simple-web-site/coverage.webpack.js"
             },
             "outputPath": "dist/simple-web-site",
             "index": "projects/simple-web-site/src/index.html",
@@ -136,7 +136,7 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "coverage.webpack.js"
+              "path": "projects/simple-web-site/coverage.webpack.js"
             },
             "outputPath": "dist/e2e-coverage",
             "index": "projects/simple-web-site/src/index.html",
