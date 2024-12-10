@@ -63,7 +63,7 @@ export class SearchComponent {
           hits: { hits: { _source: Hero }[] };
         };
         return res.hits.hits.map((h) => h._source);
-      })
+      }),
     );
   /*
     cards$ = defer(() => from((this.client.search<Hero>({

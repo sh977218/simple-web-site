@@ -3,11 +3,11 @@ checkPrTemplate(prBody);
 
 function checkString(s) {
   console.log(
-    '------------------------------------------------------------------'
+    '------------------------------------------------------------------',
   );
   console.log('Input string: '.concat(s));
   console.log(
-    '------------------------------------------------------------------'
+    '------------------------------------------------------------------',
   );
   let checkListRegex = new RegExp(/(- \[.+\].+)/g);
   let checkList = s.match(checkListRegex);
@@ -30,7 +30,7 @@ function checkString(s) {
   if (uncompletedTasks.length) {
     console.log('uncompletedTasks: \n'.concat(uncompletedTasks.join('\n')));
     console.log(
-      '------------------------------------------------------------------'
+      '------------------------------------------------------------------',
     );
     process.exit(1);
   } else {

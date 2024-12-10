@@ -27,7 +27,7 @@ module.exports = function (config) {
     coverageReporter: {
       dir: require('path').join(
         __dirname,
-        './coverage/angular-playwright-code-coverage'
+        './coverage/angular-playwright-code-coverage',
       ),
       subdir: '.',
       reporters: [{ type: 'html' }, { type: 'text-summary' }],

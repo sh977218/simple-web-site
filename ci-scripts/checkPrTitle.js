@@ -1,16 +1,16 @@
 checkPrTitle();
 function checkString(s) {
   console.log(
-    '------------------------------------------------------------------'
+    '------------------------------------------------------------------',
   );
   console.log('Input string: '.concat(s));
   let regex = new RegExp(
-    /(\b(feat|fix|bug|docs|chore|refactor|test)\b(\((.)*\))*:).*/
+    /(\b(feat|fix|bug|docs|chore|refactor|test)\b(\((.)*\))*:).*/,
   );
   let regexResult = regex.test(s);
   console.log('regexResult: '.concat(regexResult));
   console.log(
-    '------------------------------------------------------------------'
+    '------------------------------------------------------------------',
   );
   process.exit(regexResult ? 0 : 1);
 }
