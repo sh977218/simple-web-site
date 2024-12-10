@@ -18,17 +18,17 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/simple-web-site",
-            "index": "src/index.html",
-            "browser": "src/main.ts",
-            "polyfills": ["src/polyfills.ts"],
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "projects/src/index.html",
+            "browser": "projects/src/main.ts",
+            "polyfills": ["projects/src/polyfills.ts"],
+            "tsConfig": "projects/src/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["projects/src/favicon.ico", "projects/src/assets"],
             "styles": [
               {
-                "input": "src/theme.scss"
+                "input": "projects/src/theme.scss"
               },
-              "src/styles.scss"
+              "projects/src/styles.scss"
             ],
             "scripts": []
           },
@@ -36,8 +36,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/src/environments/environment.ts",
+                  "with": "projects/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -54,20 +54,20 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "src/coverage.webpack.jfadafs"
+              "path": "projects/src/coverage.webpack.jfadafs"
             },
             "outputPath": "dist/simple-web-site",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "projects/src/index.html",
+            "main": "projects/src/main.ts",
+            "polyfills": "projects/src/polyfills.ts",
+            "tsConfig": "projects/src/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["projects/src/favicon.ico", "projects/src/assets"],
             "styles": [
               {
-                "input": "src/theme.scss"
+                "input": "projects/src/theme.scss"
               },
-              "src/styles.scss"
+              "projects/src/styles.scss"
             ],
             "scripts": [],
             "progress": false,
@@ -104,7 +104,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
+            "lintFilePatterns": ["projects/src/**/*.ts", "projects/src/**/*.html"]
           }
         }
       }
@@ -127,17 +127,17 @@
               "path": "coverage.webpack.js"
             },
             "outputPath": "dist/e2e-coverage",
-            "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "index": "projects/src/index.html",
+            "main": "projects/src/main.ts",
+            "polyfills": "projects/src/polyfills.ts",
+            "tsConfig": "projects/src/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["projects/src/favicon.ico", "projects/src/assets"],
             "styles": [
               {
-                "input": "src/theme.scss"
+                "input": "projects/src/theme.scss"
               },
-              "src/styles.scss"
+              "projects/src/styles.scss"
             ],
             "scripts": [],
             "progress": false,
@@ -153,8 +153,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "replace": "projects/src/environments/environment.ts",
+                  "with": "projects/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
