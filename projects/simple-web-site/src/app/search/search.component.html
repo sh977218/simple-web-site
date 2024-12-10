@@ -20,7 +20,7 @@
   <div class="flex flex-col">
     <h1 class="flex">Search Result:</h1>
     <section class="flex flex-wrap justify-between">
-      <mat-card *ngFor="let hero of heroes$ | async">
+      <mat-card *ngFor="let hero of heroesFromES | async">
         <mat-card-header>
           <mat-card-title
             ><a

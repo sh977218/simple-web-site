@@ -54,7 +54,7 @@ export class SearchComponent {
   ];
   typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
 
-  heroes$ = this.http
+  heroesFromES$ = this.http
     .get('http://localhost:9200/heroes/_search', { responseType: 'text' })
     .pipe(
       catchError(() => []),
@@ -65,6 +65,10 @@ export class SearchComponent {
         return res.hits.hits.map((h) => h._source);
       })
     );
+
+  heroesFromMongo$ = this.http
+    .get<Hero[]>('/api/heroes')
+    .pipe(catchError(() => []));
   /*
     cards$ = defer(() => from((this.client.search<Hero>({
         index: 'heroes'
