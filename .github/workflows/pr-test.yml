@@ -22,7 +22,7 @@ jobs:
         env:
             discovery.type: single-node
         options:
-          --health-cmd "curl https://localhost:9200/_cluster/health"
+          --health-cmd "curl http://localhost:9200/_cluster/health"
           --health-interval 10s
           --health-timeout 30s
           --health-retries 10
@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: curl -X GET https://localhost:9200/_cluster/health
+      - run: curl -X GET http://localhost:9200/_cluster/health
 
       - name: Create es index
         run: curl -X PUT "localhost:9200/heroes"
@@ -40,7 +40,7 @@ jobs:
         run: |
           curl -XPOST http://localhosts:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
-      - run: curl https://localhost:9200/heroes/_search
+      - run: curl http://localhost:9200/heroes/_search
 
   es-as-script:
     name: Start es in steps/script
@@ -54,16 +54,16 @@ jobs:
           stack-version: 8.2.0
           security-enabled: false
 
-      - run: curl -X GET https://localhost:9200/_cluster/health
+      - run: curl -X GET http://localhost:9200/_cluster/health
 
       - name: Create es index
-        run: curl -X PUT "https://localhost:9200/heroes"
+        run: curl -X PUT "http://localhost:9200/heroes"
 
       - name: Inject data into es
         run: |
-          curl -XPOST https://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
-      - run: curl https://localhost:9200/heroes/_search
+      - run: curl http://localhost:9200/heroes/_search
 
   mongo-db-as-service:
     name: Start mongo as service
@@ -89,7 +89,7 @@ jobs:
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
 
       - run: mongoimport test/heroes.json
-      - run: mongosh <<EOF db.heroes.find({})
+      - run: mongosh
 
   mongo-as-script:
     name: Start mongo in steps/script
@@ -108,7 +108,7 @@ jobs:
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
 
       - run: mongoimport test/heroes.json
-      - run: mongosh <<EOF db.getCollection('heroes').find({})
+      - run: mongosh
 
 
   e2e-test:
