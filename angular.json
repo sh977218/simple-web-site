@@ -7,28 +7,29 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "style": "scss"
+          "style": "scss",
+          "changeDetection": "OnPush"
         }
       },
       "root": "",
-      "sourceRoot": "project/src",
+      "sourceRoot": "projects/simple-web-site",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/simple-web-site",
-            "index": "projects/src/index.html",
-            "browser": "projects/src/main.ts",
-            "polyfills": ["projects/src/polyfills.ts"],
-            "tsConfig": "projects/src/tsconfig.app.json",
+            "index": "projects/simple-web-site/src/index.html",
+            "browser": "projects/simple-web-site/src/main.ts",
+            "polyfills": ["projects/simple-web-site/src/polyfills.ts"],
+            "tsConfig": "projects/simple-web-site/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["projects/src/assets"],
+            "assets": ["projects/simple-web-site/public"],
             "styles": [
               {
-                "input": "projects/src/theme.scss"
+                "input": "projects/simple-web-site/src/theme.scss"
               },
-              "projects/src/styles.scss"
+              "projects/simple-web-site/src/styles.scss"
             ],
             "scripts": []
           },
@@ -36,8 +37,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/src/environments/environment.ts",
-                  "with": "projects/src/environments/environment.prod.ts"
+                  "replace": "projects/simple-web-site/src/environments/environment.ts",
+                  "with": "projects/simple-web-site/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -54,20 +55,22 @@
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "projects/src/coverage.webpack.jfadafs"
+              "path": "projects/simple-web-site/src/coverage.webpack.js"
             },
             "outputPath": "dist/simple-web-site",
-            "index": "projects/src/index.html",
-            "main": "projects/src/main.ts",
-            "polyfills": "projects/src/polyfills.ts",
-            "tsConfig": "projects/src/tsconfig.app.json",
+            "index": "projects/simple-web-site/src/index.html",
+            "main": "projects/simple-web-site/src/main.ts",
+            "polyfills": "projects/simple-web-site/src/polyfills.ts",
+            "tsConfig": "projects/simple-web-site/src/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["projects/src/assets"],
+            "assets": [
+              "projects/simple-web-site/public"
+            ],
             "styles": [
               {
-                "input": "projects/src/theme.scss"
+                "input": "projects/simple-web-site/src/theme.scss"
               },
-              "projects/src/styles.scss"
+              "projects/simple-web-site/src/styles.scss"
             ],
             "scripts": [],
             "progress": false,
@@ -85,7 +88,7 @@
           "defaultConfiguration": "development"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "simple-web-site:build:production"
@@ -104,7 +107,7 @@
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": ["projects/src/**/*.ts", "projects/src/**/*.html"]
+            "lintFilePatterns": ["projects/simple-web-site/src/**/*.ts", "projects/simple-web-site/src/**/*.html"]
           }
         }
       }
@@ -117,7 +120,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "projects/src",
+      "sourceRoot": "projects/simple-web-site",
       "prefix": "app",
       "architect": {
         "build": {
@@ -127,17 +130,19 @@
               "path": "coverage.webpack.js"
             },
             "outputPath": "dist/e2e-coverage",
-            "index": "projects/src/index.html",
-            "main": "projects/src/main.ts",
-            "polyfills": "projects/src/polyfills.ts",
-            "tsConfig": "projects/src/tsconfig.app.json",
+            "index": "projects/simple-web-site/src/index.html",
+            "main": "projects/simple-web-site/src/main.ts",
+            "polyfills": "projects/simple-web-site/src/polyfills.ts",
+            "tsConfig": "projects/simple-web-site/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["projects/src/assets"],
+            "assets": [
+              "projects/simple-web-site/public"
+            ],
             "styles": [
               {
-                "input": "projects/src/theme.scss"
+                "input": "projects/simple-web-site/src/theme.scss"
               },
-              "projects/src/styles.scss"
+              "projects/simple-web-site/src/styles.scss"
             ],
             "scripts": [],
             "progress": false,
@@ -153,8 +158,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/src/environments/environment.ts",
-                  "with": "projects/src/environments/environment.prod.ts"
+                  "replace": "projects/simple-web-site/src/environments/environment.ts",
+                  "with": "projects/simple-web-site/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -184,7 +189,9 @@
     }
   },
   "cli": {
-    "schematicCollections": ["@angular-eslint/schematics"],
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ],
     "analytics": false
   }
 }
