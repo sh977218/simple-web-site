@@ -13,35 +13,34 @@ permissions:
   id-token: write
   contents: read
 jobs:
-#  es-as-service:
-#    name: Start es as service
-#    runs-on: ubuntu-latest
-#    services:
-#      elasticsearch:
-#        image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
-#        env:
-#            discovery.type: single-node
-#        volumes:
-#            - esdata1:/usr/share/elasticsearch/data:rw
-#        options:
-#            --health-cmd "curl http://localhost:9200/_cluster/health"
-#            --health-interval 10s
-#            --health-timeout 30s
-#            --health-retries 10
-#        ports:
-#        - 9200:9200
-#    steps:
-#      - uses: actions/checkout@v4
-#
-#      - run: curl -X GET http://localhost:9200/_cluster/health
-#
-#      - name: Create es index
-#        run: curl -X PUT "localhost:9200/heroes"
-#
-#      - name: Inject data into es
-#        run: |
-#          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
-#
+  es-as-service:
+    name: Start es as service
+    runs-on: ubuntu-latest
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+        env:
+            discovery.type: single-node
+        options:
+          --health-cmd "curl http://localhost:9200/_cluster/health"
+          --health-interval 10s
+          --health-timeout 30s
+          --health-retries 10
+        ports:
+          - 9200:9200
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: curl -X GET http://localhost:9200/_cluster/health
+
+      - name: Create es index
+        run: curl -X PUT "localhost:9200/heroes"
+
+      - name: Inject data into es
+        run: |
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+
+      - run: curl http://localhost:9200/heroes/_search
 
   es-as-script:
     name: Start es in steps/script
@@ -63,6 +62,8 @@ jobs:
       - name: Inject data into es
         run: |
           curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+
+      - run: curl http://localhost:9200/heroes/_search
 
   mongo-db-as-service:
     name: Start mongo as service
@@ -107,8 +108,10 @@ jobs:
           wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
 
-      - run: mongoimport --version
       - run: mongoimport test/heroes.json
+      - run: mongosh <<EOF
+          db.getCollection('heroes').find({})
+          EOF
 
   e2e-test:
     name: e2e-test
