@@ -5,6 +5,10 @@
     "outDir": "../../out-tsc/app",
     "baseUrl": "src"
   },
-  "files": ["src/main.ts"],
-  "include": ["src/**/*.d.ts"]
+  "files": [
+    "src/main.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
 }

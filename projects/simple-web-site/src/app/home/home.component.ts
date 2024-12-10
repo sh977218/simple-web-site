@@ -7,9 +7,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-import { ColorService } from 'src/app/color-service';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
+import { ColorService } from 'app/color-service';
 
 @Component({
   selector: 'app-home',

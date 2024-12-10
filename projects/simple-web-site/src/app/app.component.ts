@@ -14,7 +14,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { AsyncPipe, NgClass, NgForOf, UpperCasePipe } from '@angular/common';
-import { ColorService } from 'src/app/color-service';
+import { ColorService } from './color-service';
 
 @Component({
   selector: 'app-root',
@@ -41,7 +41,5 @@ import { ColorService } from 'src/app/color-service';
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class AppComponent {
-  title = 'angular-playwright-code-coverage';
-
   colorService = inject(ColorService);
 }
