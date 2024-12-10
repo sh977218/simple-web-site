@@ -89,8 +89,7 @@ jobs:
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
 
       - run: mongoimport test/heroes.json
-      - run: mongosh <<EOF
-              db.getCollection('heroes').find({})
+      - run: mongosh <<EOF db.getCollection('heroes').find({})
 
   mongo-as-script:
     name: Start mongo in steps/script
@@ -109,9 +108,8 @@ jobs:
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
 
       - run: mongoimport test/heroes.json
-      - run: mongosh <<EOF
-          db.getCollection('heroes').find({})
-          EOF
+      - run: mongosh <<EOF db.getCollection('heroes').find({})
+
 
   e2e-test:
     name: e2e-test
