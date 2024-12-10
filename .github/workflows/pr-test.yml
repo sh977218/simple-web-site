@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
         env:
             discovery.type: single-node
         options:
@@ -89,7 +89,6 @@ jobs:
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
 
       - run: mongoimport test/heroes.json
-      - run: mongo
 
   mongo-as-script:
     name: Start mongo in steps/script
@@ -108,8 +107,6 @@ jobs:
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
 
       - run: mongoimport test/heroes.json
-      - run: mongo >>EOF db.heroes.find({}) EOF
-
 
   e2e-test:
     name: e2e-test
