@@ -55,44 +55,6 @@
           },
           "defaultConfiguration": "production"
         },
-        "coverage": {
-          "builder": "@angular-builders/custom-webpack:browser",
-          "options": {
-            "customWebpackConfig": {
-              "path": "projects/simple-web-site/coverage.webpack.js"
-            },
-            "outputPath": "dist/simple-web-site",
-            "index": "projects/simple-web-site/src/index.html",
-            "main": "projects/simple-web-site/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
-            "tsConfig": "projects/simple-web-site/src/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "projects/simple-web-site/public"
-            ],
-            "styles": [
-              {
-                "input": "projects/simple-web-site/src/theme.scss"
-              },
-              "projects/simple-web-site/src/styles.scss"
-            ],
-            "scripts": [],
-            "progress": false,
-            "aot": false,
-            "vendorChunk": true,
-            "extractLicenses": false,
-            "buildOptimizer": false,
-            "sourceMap": true,
-            "optimization": false,
-            "namedChunks": true
-          },
-          "configurations": {
-            "development": {}
-          },
-          "defaultConfiguration": "development"
-        },
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
