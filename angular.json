@@ -23,7 +23,7 @@
             "polyfills": ["projects/src/polyfills.ts"],
             "tsConfig": "projects/src/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["projects/src/favicon.ico", "projects/src/assets"],
+            "assets": ["projects/src/assets"],
             "styles": [
               {
                 "input": "projects/src/theme.scss"
