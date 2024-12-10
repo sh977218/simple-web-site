@@ -38,7 +38,7 @@ jobs:
 
       - name: Inject data into es
         run: |
-          curl -XPOST http://localhosts:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
 
       - run: curl http://localhost:9200/heroes/_search
 
