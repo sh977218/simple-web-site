@@ -43,7 +43,7 @@ type Hero = {
 })
 export class SearchComponent {
   private http = inject(HttpClient);
-  //  client = new Client({ node: 'http://localhost:9200' });
+  //  client = new Client({ node: 'https://localhost:9200' });
 
   typesOfShoes: string[] = [
     'Boots',
@@ -55,7 +55,7 @@ export class SearchComponent {
   typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
 
   heroes$ = this.http
-    .get('http://localhost:9200/heroes/_search', { responseType: 'text' })
+    .get('https://localhost:9200/heroes/_search', { responseType: 'text' })
     .pipe(
       catchError(() => []),
       map((response: string) => {
