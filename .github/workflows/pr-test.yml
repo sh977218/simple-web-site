@@ -34,6 +34,7 @@ jobs:
       - run: curl -X GET http://localhost:9200/_cluster/health
       - name: Create es index
         run: curl -X PUT "localhost:9200/heroes"
+      - run: curl -X GET http://localhost:9200/_cat/indices/heroes
       - run: curl -X GET http://localhost:9200/_cluster/health/heroes
       - run: curl -X GET http://localhost:9200/heroes
       - name: Inject data into es
