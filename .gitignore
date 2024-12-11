@@ -64,3 +64,6 @@ all-report
 allure-results
 allure-report
 previous-allure-report
+
+# logger
+error.log
