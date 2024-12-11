@@ -131,7 +131,7 @@ jobs:
         run: |
           curl -X PUT "localhost:9200/heroes"
       - run: sleep 30
-      - run: http://localhost:9200/_cluster/health/heroes
+      - run: curl -X GET http://localhost:9200/_cluster/health/heroes
       - name: Get es index
         run: curl -X GET localhost:9200/_cat/indices
       - name: Inject data into es
