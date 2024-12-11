@@ -1,27 +1,33 @@
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
 const port = 3000;
+app.use(cors());
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
 
-// Replace the placeholder with your Atlas connection string
-const uri = 'mongodb://localhost:27017/';
+function mongoClient() {
+  const uri = 'mongodb://localhost:27017/';
+  const client = new MongoClient(uri, {
+    serverApi: {
+      version: ServerApiVersion.v1,
+      strict: true,
+      deprecationErrors: true,
+    },
+  });
+  return client;
+}
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  },
-});
-
-const database = client.db('test');
-
-const heroes = database.collection('heroes');
+async function mongoDb() {
+  const client = await mongoClient().connect();
+  return client.db('test');
+}
 
 app.get('/api/heroes', async (req, res) => {
-  res.send(await heroes.find({}));
+  const HeroesCollection = (await mongoDb()).collection('heroes');
+  const heroes = await HeroesCollection.find({}).toArray();
+  res.send(heroes);
 });
 
 app.listen(port, () => {
