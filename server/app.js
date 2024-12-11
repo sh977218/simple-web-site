@@ -16,6 +16,7 @@ app.use(
 );
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const { LeveledLogMethod } = require('winston');
 
 function mongoClient() {
   const uri = 'mongodb://localhost:27017/';
@@ -38,17 +39,26 @@ async function mongoDb() {
   return client.db('test');
 }
 
+app.get('/api/information', async (req, res) => {
+  // Log a message at a level
+  logger.log('silly', '/api/information testing silly');
+  logger.log('debug', '/api/information testing debug');
+  logger.log('verbose', '/api/information testing verbose');
+  logger.log('info', '/api/information testing info');
+  logger.log('warn', '/api/information testing warn');
+  logger.log('error', '/api/information testing error');
+  logger.info('/api/information testing info');
+  logger.warn('/api/information testing warn');
+  logger.error('/api/information testing error');
+
+  res.send('/api/information testing');
+});
+
 app.get('/api/heroes', async (req, res) => {
   logger.info('GET /api/heroes route accessed'); // Log an info message
   const HeroesCollection = (await mongoDb()).collection('heroes');
   const heroes = await HeroesCollection.find({}).toArray();
   res.send(heroes);
-});
-
-app.get('/api/error', async (req, res) => {
-  logger.info('GET /api/error route accessed'); // Log an info message
-  logger.error('system error'); // Log an error message
-  res.status(500).send('system error');
 });
 
 // Use express-winston for error logging
