@@ -130,8 +130,24 @@ jobs:
           --health-retries 10
         ports:
           - 9200:9200
+      mongodb:
+        image: mongo
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd mongosh
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
     steps:
       - uses: actions/checkout@v4
+
+      - name: Setup mongodb-tools
+        run: |
+          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
+          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
+      - name: Inject data into mongo
+        run: mongoimport test/heroes.json
 
       - name: Create es index
         run: curl -X PUT "http://localhost:9200/heroes"
