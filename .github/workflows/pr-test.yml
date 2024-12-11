@@ -115,9 +115,9 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.46.0-noble
     strategy:
       fail-fast: false
-      matrix:
-        shardIndex: [ 1, 2 ]
-        shardTotal: [ 2 ]
+#      matrix:
+#        shardIndex: [ 1, 2 ]
+#        shardTotal: [ 2 ]
     steps:
       - uses: actions/checkout@v4
       - run: npm i
