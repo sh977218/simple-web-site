@@ -118,22 +118,15 @@ jobs:
 #      matrix:
 #        shardIndex: [ 1, 2 ]
 #        shardTotal: [ 2 ]
-    services:
-      elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
-        env:
-          discovery.type: single-node
-        options:
-          --health-cmd "curl http://localhost:9200/_cluster/health"
-          --health-interval 10s
-          --health-timeout 30s
-          --health-retries 10
-        ports:
-          - 9200:9200
 
     steps:
       - uses: actions/checkout@v4
 
+      - name: Start Elasticsearch
+        uses: elastic/elastic-github-actions/elasticsearch@master
+        with:
+          stack-version: 8.2.0
+          security-enabled: false
       - name: Create es index
         run: curl -X PUT "localhost:9200/heroes"
       - name: Inject data into es
