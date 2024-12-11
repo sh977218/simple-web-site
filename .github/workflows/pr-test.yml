@@ -113,8 +113,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: mcr.microsoft.com/playwright:v1.46.0-noble
-    strategy:
-      fail-fast: false
+#    strategy:
+#      fail-fast: false
 #      matrix:
 #        shardIndex: [ 1, 2 ]
 #        shardTotal: [ 2 ]
