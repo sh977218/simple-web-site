@@ -125,7 +125,7 @@ jobs:
       - name: Start Elasticsearch
         uses: elastic/elastic-github-actions/elasticsearch@master
         with:
-          stack-version: 8.2.0
+          stack-version: 7.17.0
           security-enabled: false
       - name: Create es index
         run: curl -X PUT "localhost:9200/heroes"
