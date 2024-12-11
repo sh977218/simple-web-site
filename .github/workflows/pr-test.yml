@@ -129,6 +129,8 @@ jobs:
           security-enabled: false
       - name: Create es index
         run: curl -X PUT "localhost:9200/heroes"
+      - name: Get es index
+        run: curl -X GET localhost:9200/_cat/indices
       - name: Inject data into es
         run: |
           curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
