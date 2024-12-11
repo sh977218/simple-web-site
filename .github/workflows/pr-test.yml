@@ -111,13 +111,13 @@ jobs:
   e2e-test:
     name: e2e-test
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.46.0-noble
-    strategy:
-      fail-fast: false
-      matrix:
-        shardIndex: [ 1, 2 ]
-        shardTotal: [ 2 ]
+#    container:
+#      image: mcr.microsoft.com/playwright:v1.46.0-noble
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        shardIndex: [ 1, 2 ]
+#        shardTotal: [ 2 ]
     steps:
       - uses: actions/checkout@v4
       - run: npm i
@@ -126,7 +126,8 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+#        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: npx playwright test
 
       - name: Upload playwright blob report to Artifacts
         uses: actions/upload-artifact@v3

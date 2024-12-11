@@ -29,13 +29,18 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Remove playwright report from Azure
+      - name: Copy playwright report from PR
         uses: azure/cli@v2
         with:
           azcliversion: latest
           inlineScript: |
             az storage blob copy start-batch --account-name mysimplewebsite --destination-container playwright  --source-account-name mysimplewebsite --source-container playwright --pattern ${{github.event.pull_request.number}}*
-            |
+
+      - name: Remove PR playwright report from Azure
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
             az storage fs directory delete --account-name mysimplewebsite --file-system playwright --name ${{github.event.pull_request.number}} --yes
 
 
@@ -49,13 +54,18 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Copy PR coverage to master
+      - name: Copy PR coverage from PR
         uses: azure/cli@v2
         with:
           azcliversion: latest
           inlineScript: |
             az storage blob copy start-batch --account-name mysimplewebsite --destination-container coverage  --source-account-name mysimplewebsite --source-container coverage --pattern ${{github.event.pull_request.number}}*
-            |
+
+      - name: Remove PR coverage from Azure
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
             az storage fs directory delete --account-name mysimplewebsite --file-system coverage --name ${{github.event.pull_request.number}} --yes
 
 
