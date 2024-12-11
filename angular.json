@@ -153,6 +153,7 @@
             },
             "playwright": {
               "buildTarget": "e2e-coverage:build:production",
+              "proxyConfig": "projects/simple-web-site/src/proxy.conf.json",
               "liveReload": false,
               "watch": false
             }

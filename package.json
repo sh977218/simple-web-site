@@ -76,6 +76,7 @@
     "cors": "^2.8.5",
     "coverage-istanbul-loader": "^3.0.3",
     "eslint": "^8.54.0",
+    "express-winston": "^4.2.0",
     "husky": "^8.0.3",
     "jasmine-core": "~4.3.0",
     "karma": "~6.4.0",
@@ -92,7 +93,8 @@
     "tailwindcss": "^3.4.16",
     "three": "^0.165.0",
     "typescript": "~5.5.4",
-    "v8-to-istanbul": "^9.1.0"
+    "v8-to-istanbul": "^9.1.0",
+    "winston": "^3.17.0"
   },
   "config": {
     "commitizen": {
