@@ -1,49 +1,44 @@
-<mat-selection-list>
-  <mat-list-option
-    color="primary"
-    togglePosition="before"
-    *ngFor="let shoe of typesOfShoes"
-    >{{ shoe }}</mat-list-option
-  >
-</mat-selection-list>
-<mat-divider></mat-divider>
-<mat-selection-list>
-  <mat-list-option
-    color="accent"
-    togglePosition="before"
-    *ngFor="let season of typeOfSeasons"
-    >{{ season }}</mat-list-option
-  >
-</mat-selection-list>
+<div class="flex flex-col">
+  <div class="flex flex-row">
+    <div class="flex-grow">
+      <mat-selection-list>
+        <mat-list-option
+          color="primary"
+          togglePosition="before"
+          *ngFor="let shoe of typesOfShoes"
+          >{{ shoe }}</mat-list-option
+        >
+      </mat-selection-list>
+    </div>
+    <div class="flex-grow">
+      <mat-selection-list>
+        <mat-list-option
+          color="accent"
+          togglePosition="before"
+          *ngFor="let season of typeOfSeasons"
+          >{{ season }}</mat-list-option
+        >
+      </mat-selection-list>
+    </div>
+  </div>
+  <mat-divider></mat-divider>
 
-<div class="flex">
-  <div class="flex flex-col">
-    <h1 class="flex">Search Result:</h1>
-    <section class="flex flex-wrap justify-between">
-      <mat-card *ngFor="let hero of heroes$ | async">
-        <mat-card-header>
-          <mat-card-title
-            ><a
-              class="underline"
-              routerLink="/search"
-              [queryParams]="{ q: hero.homeTown }"
-              >{{ hero.homeTown }}</a
-            >
-          </mat-card-title>
-          <mat-card-subtitle>{{ hero.squadName }}</mat-card-subtitle>
-        </mat-card-header>
-        <mat-card-content>
-          <p>{{ hero.content }}</p>
-          <mat-list>
-            <mat-list-item *ngFor="let member of hero?.members || []">
-              <p>{{ member.name }}</p>
-              <p>{{ member.age }}</p>
-              <p>{{ member.powers }}</p>
-              <p>{{ member.secretIdentity }}</p>
-            </mat-list-item>
-          </mat-list>
-        </mat-card-content>
-      </mat-card>
-    </section>
+  <div class="flex">
+    <div class="flex-grow" data-testid="esResult">
+      <h1>Search Result From ES:</h1>
+      <section class="flex flex-wrap justify-between">
+        <ng-container *ngFor="let hero of heroesFromES$ | async">
+          <app-hero [hero]="hero"></app-hero>
+        </ng-container>
+      </section>
+    </div>
+    <div class="flex-grow" data-testid="mongoResult">
+      <h1 class="flex">Search Result From Mongo:</h1>
+      <section class="flex flex-wrap justify-between">
+        <ng-container *ngFor="let hero of heroesFromMongo$ | async">
+          <app-hero [hero]="hero"></app-hero>
+        </ng-container>
+      </section>
+    </div>
   </div>
 </div>

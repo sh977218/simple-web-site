@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title
+      ><a
+        class="underline"
+        routerLink="/search"
+        [queryParams]="{ q: hero().homeTown }"
+        >{{ hero().homeTown }}</a
+      >
+    </mat-card-title>
+    <mat-card-subtitle>{{ hero().squadName }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ hero().content }}</p>
+    <mat-list>
+      <mat-list-item *ngFor="let member of hero()?.members || []">
+        <p>{{ member.name }}</p>
+        <p>{{ member.age }}</p>
+        <p>{{ member.powers }}</p>
+        <p>{{ member.secretIdentity }}</p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>

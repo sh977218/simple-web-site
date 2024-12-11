@@ -12,7 +12,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "projects/simple-web-site",
+      "sourceRoot": "projects/simple-web-site/src",
       "prefix": "app",
       "architect": {
         "build": {
@@ -27,7 +27,7 @@
             "tsConfig": "projects/simple-web-site/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/simple-web-site/public"
+              "projects/simple-web-site/src/public"
             ],
             "styles": [
               {
@@ -62,6 +62,7 @@
               "buildTarget": "simple-web-site:build:production"
             },
             "development": {
+              "proxyConfig": "projects/simple-web-site/src/proxy.conf.json",
               "buildTarget": "simple-web-site:build:development"
             },
             "playwright": {
@@ -91,7 +92,7 @@
         }
       },
       "root": "",
-      "sourceRoot": "projects/simple-web-site",
+      "sourceRoot": "projects/simple-web-site/src",
       "prefix": "app",
       "architect": {
         "build": {
@@ -109,7 +110,7 @@
             "tsConfig": "projects/simple-web-site/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/simple-web-site/public"
+              "projects/simple-web-site/src/public"
             ],
             "styles": [
               {

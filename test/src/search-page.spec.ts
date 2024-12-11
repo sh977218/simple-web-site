@@ -5,7 +5,10 @@ test.fixme('Click search link', async ({ page }) => {
   await page.goto('/');
   await page.locator(`[data-automation-id="search-link"]`).first().click();
   await expect(page).toHaveTitle(`Search`);
-  await expect(
-    page.getByText('Radiation resistance,Turning tiny,Radiation blast')
-  ).toBeVisible();
+  await expect(page.getByTestId('esResult')).toContainText(
+    'Radiation resistance,Turning tiny,Radiation blast'
+  );
+  await expect(page.getByTestId('mongoResult')).toContainText(
+    'Radiation resistance,Turning tiny,Radiation blast'
+  );
 });
