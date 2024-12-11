@@ -35,6 +35,7 @@ jobs:
       - name: Create es index
         run: curl -X PUT "localhost:9200/heroes"
       - run: curl -X GET http://localhost:9200/_cluster/health/heroes
+      - run: curl -X GET http://localhost:9200/heroes
       - name: Inject data into es
         run: |
           curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
