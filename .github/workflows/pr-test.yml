@@ -51,7 +51,7 @@ jobs:
         with:
           stack-version: 8.2.0
           security-enabled: false
-          node: 2
+          nodes: 2
 
       - run: curl -X GET http://localhost:9200/_cluster/health
       - name: Create es index
