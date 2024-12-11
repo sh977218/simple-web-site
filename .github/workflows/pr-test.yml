@@ -28,8 +28,6 @@ jobs:
           --health-retries 10
         ports:
           - 9200:9200
-    container:
-      image: mcr.microsoft.com/playwright:v1.46.0-noble
     steps:
       - uses: actions/checkout@v4
 
@@ -47,8 +45,6 @@ jobs:
   es-as-script:
     name: Start es in steps/script
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.46.0-noble
     steps:
       - uses: actions/checkout@v4
 
@@ -84,8 +80,6 @@ jobs:
           --health-retries 5
         volumes:
           - db_vol:/data/db
-    container:
-      image: mcr.microsoft.com/playwright:v1.46.0-noble
     steps:
       - uses: actions/checkout@v4
 
@@ -99,8 +93,6 @@ jobs:
   mongo-as-script:
     name: Start mongo in steps/script
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.46.0-noble
     steps:
       - uses: actions/checkout@v4
 
@@ -119,13 +111,13 @@ jobs:
   e2e-test:
     name: e2e-test
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.46.0-noble
-    strategy:
-      fail-fast: false
-      matrix:
-        shardIndex: [ 1, 2 ]
-        shardTotal: [ 2 ]
+#    container:
+#      image: mcr.microsoft.com/playwright:v1.46.0-noble
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        shardIndex: [ 1, 2 ]
+#        shardTotal: [ 2 ]
     steps:
       - uses: actions/checkout@v4
       - run: npm i
@@ -134,6 +126,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
+#        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - name: Upload playwright blob report to Artifacts
