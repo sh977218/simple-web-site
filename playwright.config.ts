@@ -10,7 +10,7 @@ export default defineConfig({
   },
   fullyParallel: true,
   forbidOnly: !!process.env['CI'],
-  retries: 1,
+  retries: 0,
   workers: 1,
   reporter: [
     ['blob'],
@@ -33,8 +33,8 @@ export default defineConfig({
     actionTimeout: 0,
     baseURL: 'http://localhost:4200',
 
-    trace: 'on-first-retry',
-    video: 'retry-with-video',
+    trace: 'on',
+    video: 'on',
   },
 
   projects: [

@@ -62,7 +62,6 @@
               "buildTarget": "simple-web-site:build:production"
             },
             "development": {
-              "proxyConfig": "projects/simple-web-site/src/proxy.conf.json",
               "buildTarget": "simple-web-site:build:development"
             },
             "playwright": {
