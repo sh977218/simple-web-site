@@ -128,7 +128,9 @@ jobs:
           stack-version: 7.17.0
           security-enabled: false
       - name: Create es index
-        run: curl -X PUT "localhost:9200/heroes"
+        run: |
+          curl -X PUT "localhost:9200/heroes"
+      - run: sleep 30
       - name: Get es index
         run: curl -X GET localhost:9200/_cat/indices
       - name: Inject data into es
