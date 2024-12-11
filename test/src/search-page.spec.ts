@@ -1,7 +1,7 @@
 import { expect } from '@playwright/test';
 import test from 'test/fixtures/baseTest';
 
-test.fixme('Click search link', async ({ page }) => {
+test('Click search link', async ({ page }) => {
   await page.goto('/');
   await page.locator(`[data-automation-id="search-link"]`).first().click();
   await expect(page).toHaveTitle(`Search`);

@@ -42,29 +42,6 @@ jobs:
 
       - run: curl http://localhost:9200/heroes/_search
 
-  es-as-script:
-    name: Start es in steps/script
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Start Elasticsearch
-        uses: elastic/elastic-github-actions/elasticsearch@master
-        with:
-          stack-version: 8.2.0
-          security-enabled: false
-
-      - run: curl -X GET http://localhost:9200/_cluster/health
-
-      - name: Create es index
-        run: curl -X PUT "http://localhost:9200/heroes"
-
-      - name: Inject data into es
-        run: |
-          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
-
-      - run: curl http://localhost:9200/heroes/_search
-
   mongo-db-as-service:
     name: Start mongo as service
     runs-on: ubuntu-latest
@@ -90,24 +67,6 @@ jobs:
 
       - run: mongoimport test/heroes.json
 
-  mongo-as-script:
-    name: Start mongo in steps/script
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.11.0
-        with:
-          mongodb-version: 8.0
-
-      - name: Setup mongodb-tools
-        run: |
-          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
-          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
-
-      - run: mongoimport test/heroes.json
-
   e2e-test:
     name: e2e-test
     runs-on: ubuntu-latest
@@ -124,6 +83,31 @@ jobs:
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
+
+      - name: Start Elasticsearch
+        uses: elastic/elastic-github-actions/elasticsearch@master
+        with:
+          stack-version: 8.2.0
+          security-enabled: false
+
+      - name: Create es index
+        run: curl -X PUT "http://localhost:9200/heroes"
+
+      - name: Inject data into es
+        run: |
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.11.0
+        with:
+          mongodb-version: 8.0
+
+      - name: Setup mongodb-tools
+        run: |
+          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
+          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
+
+      - run: mongoimport test/heroes.json
 
       - name: Run Playwright tests
         run: npx playwright test
