@@ -41,21 +41,16 @@ async function mongoDb() {
 
 app.get('/api/information', async (req, res) => {
   // Log a message at a level
-  for (const level of [
-    'error',
-    'warn',
-    'help',
-    'data',
-    'info',
-    'debug',
-    'prompt',
-    'http',
-    'verbose',
-    'input',
-    'silly',
-  ]) {
-    logger[level](`/api/information testing ${level}`);
-  }
+  logger.log('silly', '/api/information testing silly');
+  logger.log('debug', '/api/information testing debug');
+  logger.log('verbose', '/api/information testing verbose');
+  logger.log('info', '/api/information testing info');
+  logger.log('warn', '/api/information testing warn');
+  logger.log('error', '/api/information testing error');
+  logger.info('/api/information testing info');
+  logger.warn('/api/information testing warn');
+  logger.error('/api/information testing error');
+
   res.send('/api/information testing');
 });
 
@@ -64,12 +59,6 @@ app.get('/api/heroes', async (req, res) => {
   const HeroesCollection = (await mongoDb()).collection('heroes');
   const heroes = await HeroesCollection.find({}).toArray();
   res.send(heroes);
-});
-
-app.get('/api/error', async (req, res) => {
-  logger.info('GET /api/error route accessed'); // Log an info message
-  logger.error('system error'); // Log an error message
-  res.status(500).send('system error');
 });
 
 // Use express-winston for error logging

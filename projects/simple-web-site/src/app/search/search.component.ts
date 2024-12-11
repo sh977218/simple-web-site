@@ -64,7 +64,7 @@ export class SearchComponent {
     );
 
   heroesFromMongo$ = this.http
-    .get<Hero[]>('/api/heroes')
+    .get<Hero[]>('http://localhost:3000/api/heroes')
     .pipe(catchError(() => []));
 
   /*
@@ -78,6 +78,6 @@ export class SearchComponent {
         return res.hits.hits._source as Hero[];
       }));*/
   constructor() {
-    this.http.get('/api/information').subscribe();
+    this.http.get('http://localhost:3000/api/information').subscribe();
   }
 }
