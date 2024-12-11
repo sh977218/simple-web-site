@@ -118,8 +118,27 @@ jobs:
 #      matrix:
 #        shardIndex: [ 1, 2 ]
 #        shardTotal: [ 2 ]
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+        env:
+          discovery.type: single-node
+        options:
+          --health-cmd "curl http://localhost:9200/_cluster/health"
+          --health-interval 10s
+          --health-timeout 30s
+          --health-retries 10
+        ports:
+          - 9200:9200
     steps:
       - uses: actions/checkout@v4
+
+      - name: Create es index
+        run: curl -X PUT "http://localhost:9200/heroes"
+      - name: Inject data into es
+        run: |
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+
       - run: npm i
 
       - name: Install Playwright Browsers
