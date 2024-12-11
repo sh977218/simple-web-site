@@ -127,6 +127,7 @@ jobs:
         with:
           stack-version: 7.17.0
           security-enabled: false
+          nodes: 2
       - name: Create es index
         run: |
           curl -X PUT "localhost:9200/heroes"
