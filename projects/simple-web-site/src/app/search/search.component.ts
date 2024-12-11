@@ -66,6 +66,7 @@ export class SearchComponent {
   heroesFromMongo$ = this.http
     .get<Hero[]>('/api/heroes')
     .pipe(catchError(() => []));
+
   /*
     cards$ = defer(() => from((this.client.search<Hero>({
         index: 'heroes'
@@ -76,4 +77,7 @@ export class SearchComponent {
       map((res: any) => {
         return res.hits.hits._source as Hero[];
       }));*/
+  constructor() {
+    this.http.get('/api/information').subscribe();
+  }
 }

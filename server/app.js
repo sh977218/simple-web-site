@@ -16,6 +16,7 @@ app.use(
 );
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
+const { LeveledLogMethod } = require('winston');
 
 function mongoClient() {
   const uri = 'mongodb://localhost:27017/';
@@ -37,6 +38,26 @@ async function mongoDb() {
     });
   return client.db('test');
 }
+
+app.get('/api/information', async (req, res) => {
+  // Log a message at a level
+  for (const level of [
+    'error',
+    'warn',
+    'help',
+    'data',
+    'info',
+    'debug',
+    'prompt',
+    'http',
+    'verbose',
+    'input',
+    'silly',
+  ]) {
+    logger[level](`/api/information testing ${level}`);
+  }
+  res.send('/api/information testing');
+});
 
 app.get('/api/heroes', async (req, res) => {
   logger.info('GET /api/heroes route accessed'); // Log an info message
