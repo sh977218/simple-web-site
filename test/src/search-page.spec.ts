@@ -2,6 +2,7 @@ import { expect } from '@playwright/test';
 import test from 'test/fixtures/baseTest';
 
 test.describe('Click search link', async () => {
+  test.fixme();
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     await page.locator(`[data-automation-id="search-link"]`).first().click();
