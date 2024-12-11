@@ -55,5 +55,10 @@ export default defineConfig({
       port: 4200,
       reuseExistingServer: true,
     },
+    {
+      command: 'npm run check:es',
+      port: 9200,
+      reuseExistingServer: true,
+    },
   ],
 });

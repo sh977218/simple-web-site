@@ -45,6 +45,12 @@ app.get('/api/heroes', async (req, res) => {
   res.send(heroes);
 });
 
+app.get('/api/error', async (req, res) => {
+  logger.info('GET /api/error route accessed'); // Log an info message
+  logger.error('system error'); // Log an error message
+  res.status(500).send('system error');
+});
+
 // Use express-winston for error logging
 app.use(
   expressWinston.errorLogger({
