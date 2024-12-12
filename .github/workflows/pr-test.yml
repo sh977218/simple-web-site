@@ -58,8 +58,8 @@ jobs:
       - name: Create es index
         run: curl -X PUT "localhost:9200/heroes"
       - run: |
-          curl -X PUT 'http://localhost:9200/_settings' -H "Content-Type: application/json" -d '{
-              "heroes" : {
+          curl -X PUT 'http://localhost:9200/heroes/_settings' -H "Content-Type: application/json" -d '{
+              "index" : {
                   "number_of_replicas" : 0
               }
           }'
