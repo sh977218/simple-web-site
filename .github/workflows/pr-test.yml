@@ -54,6 +54,12 @@ jobs:
           stack-version: 7.17.26
           security-enabled: false
 
+      - run: |
+          curl -X PUT 'http://localhost:9200/_settings' -d '{
+              "index" : {
+                  "number_of_replicas" : 0
+              }
+          }'
       - run: curl -X GET http://localhost:9200/_cluster/health
       - name: Create es index
         run: curl -X PUT "localhost:9200/heroes"
@@ -62,7 +68,7 @@ jobs:
       - run: curl -X GET http://localhost:9200/heroes
       - name: Inject data into es
         run: |
-          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+          curl -X POST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
       - run: curl http://localhost:9200/heroes/_search
 
   e2e-test:
