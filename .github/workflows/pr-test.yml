@@ -13,14 +13,14 @@ permissions:
   id-token: write
   contents: read
 jobs:
-  es-as-service:
-    name: Start es as service
+  e2e-test:
+    name: e2e-test
     runs-on: ubuntu-latest
     services:
       elasticsearch:
         image: docker.elastic.co/elasticsearch/elasticsearch:7.17.26
         env:
-            discovery.type: single-node
+          discovery.type: single-node
         options:
           --health-cmd "curl http://localhost:9200/_cluster/health"
           --health-interval 10s
@@ -28,65 +28,6 @@ jobs:
           --health-retries 10
         ports:
           - 9200:9200
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Create es index
-        run: curl -X PUT localhost:9200/heroes
-      - name: Update index to have 0 replicas
-        run: |
-          curl -X PUT http://localhost:9200/heroes/_settings -H "Content-Type: application/json" -d '{
-              "index" : {
-                  "number_of_replicas" : 0
-              }
-          }'
-      - name: Inject data into es
-        run: |
-          curl -X PUT http://localhost:9200/heroes/_create/1 -H "Content-Type: application/json" -d @test/heroes.json
-      - name: Inject another data into es
-        run: |
-          curl -X POST http://localhost:9200/heroes/_doc -H "Content-Type: application/json" -d @test/heroes.json
-      - run: curl -X GET http://localhost:9200/_cluster/health
-      - run: curl -X GET http://localhost:9200/_cluster/health/heroes
-      - run: curl http://localhost:9200/heroes/_doc/
-
-  es-as-script:
-    name: Start es in steps/script
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Start Elasticsearch
-        uses: elastic/elastic-github-actions/elasticsearch@master
-        with:
-          stack-version: 7.17.26
-          security-enabled: false
-
-      - uses: actions/checkout@v4
-
-      - name: Create es index
-        run: curl -X PUT localhost:9200/heroes
-      - name: Update index to have 0 replicas
-        run: |
-          curl -X PUT http://localhost:9200/heroes/_settings -H "Content-Type: application/json" -d '{
-              "index" : {
-                  "number_of_replicas" : 0
-              }
-          }'
-      - name: Inject data into es
-        run: |
-          curl -X POST http://localhost:9200/heroes/_create -H "Content-Type: application/json" -d @test/heroes.json
-      - name: Inject another data into es
-        run: |
-          curl -X POST http://localhost:9200/heroes/_create -H "Content-Type: application/json" -d @test/heroes.json
-      - run: curl -X GET http://localhost:9200/_cluster/health
-      - run: curl -X GET http://localhost:9200/_cluster/health/heroes
-      - run: curl http://localhost:9200/heroes/_search
-
-  e2e-test:
-    name: e2e-test
-    runs-on: ubuntu-latest
-    services:
       mongodb:
         image: mongo
         ports:
@@ -106,6 +47,19 @@ jobs:
           wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
       - run: mongoimport test/heroes.json # TODO find a way to run this inside the mongo service container, then the `Setup mongodb-tools` would not be needed neither
+
+      - name: Create es index
+        run: curl -X PUT localhost:9200/heroes
+      - name: Update index to have 0 replicas # TODO es create 1 repl set per node by default, index status is yellow.
+        run: |
+          curl -X PUT http://localhost:9200/heroes/_settings -H "Content-Type: application/json" -d '{
+              "index" : {
+                  "number_of_replicas" : 0
+              }
+          }'
+      - name: Inject data into es
+        run: |
+          curl -X PUT http://localhost:9200/heroes/_create/1 -H "Content-Type: application/json" -d @test/heroes.json
 
       - run: npm i
 
