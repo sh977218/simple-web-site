@@ -52,7 +52,7 @@ export class SearchComponent {
   typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
 
   heroesFromES$ = this.http
-    .get('http://localhost:9200/heroes/_doc/1', { responseType: 'text' })
+    .get('http://localhost:9200/es/heroes/_doc/1', { responseType: 'text' })
     .pipe(
       catchError(() => []),
       map((response: string) => {

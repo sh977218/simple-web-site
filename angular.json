@@ -152,8 +152,7 @@
             },
             "playwright": {
               "buildTarget": "e2e-coverage:build:production",
-              "liveReload": false,
-              "watch": false
+              "proxyConfig": "projects/ts-etl-ui/src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
