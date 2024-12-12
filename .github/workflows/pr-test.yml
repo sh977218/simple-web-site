@@ -83,59 +83,9 @@ jobs:
       - run: curl -X GET http://localhost:9200/_cluster/health/heroes
       - run: curl http://localhost:9200/heroes/_search
 
-  mongo-db-as-service:
-    name: Start mongo as service
-    runs-on: ubuntu-latest
-    services:
-      mongodb:
-        image: mongo
-        ports:
-          - 27017:27017
-        options: >-
-          --health-cmd mongosh
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-        volumes:
-          - db_vol:/data/db
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup mongodb-tools
-        run: |
-          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
-          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
-
-      - run: mongoimport test/heroes.json
-
-  mongo-as-script:
-    name: Start mongo in steps/script
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.11.0
-        with:
-          mongodb-version: 8.0
-
-      - name: Setup mongodb-tools
-        run: |
-          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
-          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
-
-      - run: mongoimport test/heroes.json
-
   e2e-test:
     name: e2e-test
     runs-on: ubuntu-latest
-#    container:
-#      image: mcr.microsoft.com/playwright:v1.46.0-noble
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        shardIndex: [ 1, 2 ]
-#        shardTotal: [ 2 ]
     services:
       mongodb:
         image: mongo
@@ -163,7 +113,6 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-#        run: npx playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         run: npx playwright test
 
       - name: Upload playwright blob report to Artifacts
