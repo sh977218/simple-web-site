@@ -76,8 +76,7 @@ app.get('/api/search/heroes', async (req, res) => {
       },
     },
   });
-  const heroes = result.hits.hits;
-  res.send(heroes);
+  res.send(result.hits.hits);
 });
 
 // Use express-winston for error logging
