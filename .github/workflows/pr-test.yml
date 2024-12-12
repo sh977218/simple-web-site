@@ -55,7 +55,7 @@ jobs:
           security-enabled: false
 
       - run: |
-          curl -X PUT 'http://localhost:9200/_settings' -d '{
+          curl -X PUT 'http://localhost:9200/_settings' "Content-Type: application/json" -d '{
               "index" : {
                   "number_of_replicas" : 0
               }
