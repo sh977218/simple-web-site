@@ -61,10 +61,6 @@ jobs:
         run: |
           curl -X PUT http://localhost:9200/heroes/_create/1 -H "Content-Type: application/json" -d @test/heroes.json
 
-      - name: Get data from es
-        run: |
-          curl -X GET http://localhost:9200/heroes/_doc/1
-
       - run: npm i
 
       - name: Install Playwright Browsers
