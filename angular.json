@@ -151,8 +151,7 @@
               "buildTarget": "e2e-coverage:build:development"
             },
             "playwright": {
-              "buildTarget": "e2e-coverage:build:production",
-              "proxyConfig": "projects/ts-etl-ui/src/proxy.conf.json"
+              "buildTarget": "e2e-coverage:build:production"
             }
           },
           "defaultConfiguration": "development"
