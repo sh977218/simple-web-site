@@ -13,6 +13,39 @@ permissions:
   id-token: write
   contents: read
 jobs:
+  es-as-service:
+    name: Start es as service
+    runs-on: ubuntu-latest
+    services:
+      elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.26
+        env:
+          discovery.type: single-node
+        options:
+          --health-cmd "curl http://localhost:9200/_cluster/health"
+          --health-interval 10s
+          --health-timeout 30s
+          --health-retries 10
+        ports:
+          - 9200:9200
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create es index
+        run: curl -X PUT 'http://localhost:9200/heroes'
+      - name: Update index to have 0 replicas
+        run: |
+          curl -X PUT 'http://localhost:9200/heroes/_settings' -H "Content-Type: application/json" -d '{
+              "index" : {
+                  "number_of_replicas" : 0
+              }
+          }'
+      - name: Inject data into es
+        run: |
+          curl -X POST 'http://localhost:9200/heroes/doc' -H "Content-Type: application/json" -d @test/heroes.json
+      - run: |
+          curl -X GET 'http://localhost:9200/heroes/_search?pretty'
+
   e2e-test:
     name: e2e-test
     runs-on: ubuntu-latest
