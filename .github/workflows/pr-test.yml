@@ -48,7 +48,7 @@ jobs:
           curl -X POST http://localhost:9200/heroes/_doc -H "Content-Type: application/json" -d @test/heroes.json
       - run: curl -X GET http://localhost:9200/_cluster/health
       - run: curl -X GET http://localhost:9200/_cluster/health/heroes
-      - run: curl http://localhost:9200/heroes/_search
+      - run: curl http://localhost:9200/heroes/_doc/1
 
   es-as-script:
     name: Start es in steps/script
