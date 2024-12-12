@@ -12,7 +12,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map } from 'rxjs';
+import { catchError } from 'rxjs';
 import { Hero } from '../model/hero';
 import { HeroComponent } from '../hero/hero.component';
 
@@ -52,16 +52,8 @@ export class SearchComponent {
   typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
 
   heroesFromES$ = this.http
-    .get('http://localhost:9200/es/heroes/_doc/1', { responseType: 'text' })
-    .pipe(
-      catchError(() => []),
-      map((response: string) => {
-        const res = JSON.parse(response) as {
-          hits: { hits: { _source: Hero }[] };
-        };
-        return res.hits.hits.map((h) => h._source);
-      })
-    );
+    .get<Hero[]>('http://localhost:3000/api/search/heroes')
+    .pipe(catchError(() => []));
 
   heroesFromMongo$ = this.http
     .get<Hero[]>('http://localhost:3000/api/heroes')
