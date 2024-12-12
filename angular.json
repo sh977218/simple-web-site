@@ -151,9 +151,7 @@
               "buildTarget": "e2e-coverage:build:development"
             },
             "playwright": {
-              "buildTarget": "e2e-coverage:build:production",
-              "liveReload": false,
-              "watch": false
+              "buildTarget": "e2e-coverage:build:production"
             }
           },
           "defaultConfiguration": "development"

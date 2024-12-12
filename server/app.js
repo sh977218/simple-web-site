@@ -1,4 +1,5 @@
 const express = require('express');
+const { Client } = require('@elastic/elasticsearch');
 const expressWinston = require('express-winston');
 const logger = require('./logger'); // Import the logger instance
 const cors = require('cors');
@@ -16,7 +17,9 @@ app.use(
 );
 
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const { LeveledLogMethod } = require('winston');
+const client = new Client({
+  node: 'http://localhost:9200',
+});
 
 function mongoClient() {
   const uri = 'mongodb://localhost:27017/';
@@ -59,6 +62,21 @@ app.get('/api/heroes', async (req, res) => {
   const HeroesCollection = (await mongoDb()).collection('heroes');
   const heroes = await HeroesCollection.find({}).toArray();
   res.send(heroes);
+});
+
+app.get('/api/search/heroes', async (req, res) => {
+  logger.info('GET /api/search/heroes route accessed'); // Log an info message
+  const result = await client.search({
+    index: 'heroes',
+    body: {
+      query: {
+        match: {
+          homeTown: 'Metro City',
+        },
+      },
+    },
+  });
+  res.send(result.hits.hits);
 });
 
 // Use express-winston for error logging

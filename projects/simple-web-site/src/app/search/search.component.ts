@@ -52,15 +52,10 @@ export class SearchComponent {
   typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
 
   heroesFromES$ = this.http
-    .get('http://localhost:9200/heroes/_search', { responseType: 'text' })
+    .get<{ _source: Hero }[]>('http://localhost:3000/api/search/heroes')
     .pipe(
       catchError(() => []),
-      map((response: string) => {
-        const res = JSON.parse(response) as {
-          hits: { hits: { _source: Hero }[] };
-        };
-        return res.hits.hits.map((h) => h._source);
-      })
+      map((res) => res.map((h) => h._source))
     );
 
   heroesFromMongo$ = this.http
