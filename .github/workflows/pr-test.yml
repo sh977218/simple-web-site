@@ -55,7 +55,7 @@ jobs:
         run: mongoimport test/heroes.json # TODO find a way to run this inside the mongo service container, then the `Setup mongodb-tools` would not be needed neither
 
       - name: Create es index
-        run: curl -X PUT "http://localhost:9200/heroes"
+        run: curl -X PUT 'http://localhost:9200/heroes'
       - name: Update index to have 0 replicas
         run: |
           curl -X PUT 'http://localhost:9200/heroes/_settings' -H "Content-Type: application/json" -d '{
@@ -65,7 +65,9 @@ jobs:
           }'
       - name: Inject data into es
         run: |
-            curl -X POST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+          curl -X POST 'http://localhost:9200/heroes/doc' -H "Content-Type: application/json" -d @test/heroes.json
+      - run: |
+          curl -X GET 'http://localhost:9200/heroes/_search?pretty'
 
       - run: npm i
 
