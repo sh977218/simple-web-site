@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     services:
       elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.26
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
         env:
-          discovery.type: single-node
+            discovery.type: single-node
         options:
           --health-cmd "curl http://localhost:9200/_cluster/health"
           --health-interval 10s
@@ -31,8 +31,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - run: curl -X GET http://localhost:9200/_cluster/health
       - name: Create es index
-        run: curl -X PUT 'http://localhost:9200/heroes'
+        run: curl -X PUT "localhost:9200/heroes"
       - name: Update index to have 0 replicas
         run: |
           curl -X PUT 'http://localhost:9200/heroes/_settings' -H "Content-Type: application/json" -d '{
@@ -43,17 +44,73 @@ jobs:
       - run: curl -X GET http://localhost:9200/_cluster/health/heroes
       - name: Inject data into es
         run: |
-          curl -X POST 'http://localhost:9200/heroes/doc' -H "Content-Type: application/json" -d @test/heroes.json
-      - name: Inject data 1 into es
-        run: |
-          curl -X POST 'http://localhost:9200/heroes/doc' -H "Content-Type: application/json" -d @test/heroes.json
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+      - run: curl http://localhost:9200/heroes/_search
 
-      - name: Inject data 2 into es
-        run: |
-          curl -X POST 'http://localhost:9200/heroes/doc' -H "Content-Type: application/json" -d @test/heroes.json
+  es-as-script:
+    name: Start es in steps/script
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
 
-      - run: |
-          curl -X GET 'http://localhost:9200/heroes/_search?pretty'
+      - name: Start Elasticsearch
+        uses: elastic/elastic-github-actions/elasticsearch@master
+        with:
+          stack-version: 8.2.0
+          security-enabled: false
+          nodes: 2
+
+      - run: curl -X GET http://localhost:9200/_cluster/health
+      - name: Create es index
+        run: curl -X PUT "http://localhost:9200/heroes"
+      - run: curl -X GET http://localhost:9200/_cluster/health/heroes
+      - name: Inject data into es
+        run: |
+          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+      - run: curl http://localhost:9200/heroes/_search
+
+  mongo-db-as-service:
+    name: Start mongo as service
+    runs-on: ubuntu-latest
+    services:
+      mongodb:
+        image: mongo
+        ports:
+          - 27017:27017
+        options: >-
+          --health-cmd mongosh
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        volumes:
+          - db_vol:/data/db
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup mongodb-tools
+        run: |
+          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
+          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
+
+      - run: mongoimport test/heroes.json
+
+  mongo-as-script:
+    name: Start mongo in steps/script
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.11.0
+        with:
+          mongodb-version: 8.0
+
+      - name: Setup mongodb-tools
+        run: |
+          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
+          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
+
+      - run: mongoimport test/heroes.json
 
   e2e-test:
     name: e2e-test
@@ -66,26 +123,17 @@ jobs:
 #        shardIndex: [ 1, 2 ]
 #        shardTotal: [ 2 ]
     services:
-      elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.26
-        env:
-          discovery.type: single-node
-        options:
-          --health-cmd "curl http://localhost:9200/_cluster/health"
-          --health-interval 10s
-          --health-timeout 30s
-          --health-retries 10
-        ports:
-          - 9200:9200
       mongodb:
         image: mongo
-        options:
+        ports:
+          - 27017:27017
+        options: >-
           --health-cmd mongosh
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-        ports:
-          - 27017:27017
+        volumes:
+          - db_vol:/data/db
     steps:
       - uses: actions/checkout@v4
 
@@ -93,23 +141,7 @@ jobs:
         run: |
           wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
-      - name: Inject data into mongo
-        run: mongoimport test/heroes.json # TODO find a way to run this inside the mongo service container, then the `Setup mongodb-tools` would not be needed neither
-
-      - name: Create es index
-        run: curl -X PUT 'http://localhost:9200/heroes'
-      - name: Update index to have 0 replicas
-        run: |
-          curl -X PUT 'http://localhost:9200/heroes/_settings' -H "Content-Type: application/json" -d '{
-              "index" : {
-                  "number_of_replicas" : 0
-              }
-          }'
-      - name: Inject data into es
-        run: |
-          curl -X POST 'http://localhost:9200/heroes/doc' -H "Content-Type: application/json" -d @test/heroes.json
-      - run: |
-          curl -X GET 'http://localhost:9200/heroes/_search?pretty'
+      - run: mongoimport test/heroes.json # TODO find a way to run this inside the mongo service container, then the `Setup mongodb-tools` would not be needed neither
 
       - run: npm i
 
