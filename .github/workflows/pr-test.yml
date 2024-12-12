@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       elasticsearch:
-        image: docker.elastic.co/elasticsearch/elasticsearch:7.9.2
+        image: docker.elastic.co/elasticsearch/elasticsearch:7.17.26
         env:
             discovery.type: single-node
         options:
@@ -31,20 +31,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - run: curl -X GET http://localhost:9200/_cluster/health
       - name: Create es index
-        run: curl -X PUT "localhost:9200/heroes"
+        run: curl -X PUT localhost:9200/heroes
       - name: Update index to have 0 replicas
         run: |
-          curl -X PUT 'http://localhost:9200/heroes/_settings' -H "Content-Type: application/json" -d '{
+          curl -X PUT http://localhost:9200/heroes/_settings -H "Content-Type: application/json" -d '{
               "index" : {
                   "number_of_replicas" : 0
               }
           }'
-      - run: curl -X GET http://localhost:9200/_cluster/health/heroes
       - name: Inject data into es
         run: |
-          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+          curl -X POST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+      - name: Inject another data into es
+        run: |
+          curl -X POST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+      - run: curl -X GET http://localhost:9200/_cluster/health
+      - run: curl -X GET http://localhost:9200/_cluster/health/heroes
       - run: curl http://localhost:9200/heroes/_search
 
   es-as-script:
@@ -56,17 +59,28 @@ jobs:
       - name: Start Elasticsearch
         uses: elastic/elastic-github-actions/elasticsearch@master
         with:
-          stack-version: 8.2.0
+          stack-version: 7.17.26
           security-enabled: false
-          nodes: 2
 
-      - run: curl -X GET http://localhost:9200/_cluster/health
+      - uses: actions/checkout@v4
+
       - name: Create es index
-        run: curl -X PUT "http://localhost:9200/heroes"
-      - run: curl -X GET http://localhost:9200/_cluster/health/heroes
+        run: curl -X PUT localhost:9200/heroes
+      - name: Update index to have 0 replicas
+        run: |
+          curl -X PUT http://localhost:9200/heroes/_settings -H "Content-Type: application/json" -d '{
+              "index" : {
+                  "number_of_replicas" : 0
+              }
+          }'
       - name: Inject data into es
         run: |
-          curl -XPOST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+          curl -X POST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+      - name: Inject another data into es
+        run: |
+          curl -X POST http://localhost:9200/heroes/doc -H "Content-Type: application/json" -d @test/heroes.json
+      - run: curl -X GET http://localhost:9200/_cluster/health
+      - run: curl -X GET http://localhost:9200/_cluster/health/heroes
       - run: curl http://localhost:9200/heroes/_search
 
   mongo-db-as-service:
