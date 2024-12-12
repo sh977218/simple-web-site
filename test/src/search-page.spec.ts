@@ -8,7 +8,6 @@ test.describe('Click search link', async () => {
     await expect(page).toHaveTitle(`Search`);
   });
   test('es result', async ({ page }) => {
-    test.fixme();
     await expect(page.getByTestId('esResult')).toContainText(
       'Radiation resistance,Turning tiny,Radiation blast'
     );
