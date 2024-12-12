@@ -42,10 +42,10 @@ jobs:
           }'
       - name: Inject data into es
         run: |
-          curl -X POST http://localhost:9200/heroes/_create -H "Content-Type: application/json" -d @test/heroes.json
+          curl -X PUT http://localhost:9200/heroes/_create/1 -H "Content-Type: application/json" -d @test/heroes.json
       - name: Inject another data into es
         run: |
-          curl -X POST http://localhost:9200/heroes/_create -H "Content-Type: application/json" -d @test/heroes.json
+          curl -X POST http://localhost:9200/heroes/_doc -H "Content-Type: application/json" -d @test/heroes.json
       - run: curl -X GET http://localhost:9200/_cluster/health
       - run: curl -X GET http://localhost:9200/_cluster/health/heroes
       - run: curl http://localhost:9200/heroes/_search
