@@ -221,11 +221,24 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - uses: actions/checkout@v1
-      - name: publish allure report
-        uses: ./.github/actions/publish-allure-report
-
       - name: Azure Login
         uses: Azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - uses: actions/checkout@v1
+      - name: publish allure report
+        uses: ./.github/actions/publish-allure-report
+
+      - name: Upload allure report to Azure
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: |
+            az storage blob upload-batch --account-name mysimplewebsite -s ./allure-report -d allure-report --overwrite
+
+      - name: update job summary
+        shell: bash
+        if: always()
+        run: |
+          echo "# Deployed allure report to https://mysimplewebsite.blob.core.windows.net/allure-report/index.html" >> $GITHUB_STEP_SUMMARY
