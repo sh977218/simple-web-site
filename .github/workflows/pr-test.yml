@@ -221,7 +221,7 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - uses: ./.github/actions/publish-allure-report
+      - uses: .github/actions/publish-allure-report
 
       - name: Azure Login
         uses: Azure/login@v2
