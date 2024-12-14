@@ -226,7 +226,6 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: actions/checkout@v1
       - name: publish allure report
         uses: ./.github/actions/publish-allure-report
 
