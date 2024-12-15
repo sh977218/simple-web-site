@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/simple-web-site",
+            "outputPath": "build/dist/simple-web-site",
             "index": "projects/simple-web-site/src/index.html",
             "browser": "projects/simple-web-site/src/main.ts",
             "polyfills": [
@@ -100,7 +100,7 @@
             "customWebpackConfig": {
               "path": "projects/simple-web-site/coverage.webpack.js"
             },
-            "outputPath": "dist/e2e-coverage",
+            "outputPath": "build/dist/e2e-coverage",
             "index": "projects/simple-web-site/src/index.html",
             "main": "projects/simple-web-site/src/main.ts",
             "polyfills": [

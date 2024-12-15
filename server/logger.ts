@@ -1,7 +1,6 @@
-// logger.js
-const winston = require('winston');
+import winston from 'winston';
 
-const logger = winston.createLogger({
+export const logger = winston.createLogger({
   level: 'info', // Set the minimum logging level
   format: winston.format.combine(
     winston.format.timestamp(),
@@ -12,5 +11,3 @@ const logger = winston.createLogger({
     new winston.transports.File({ filename: 'error.log' }),
   ],
 });
-
-module.exports = logger;
