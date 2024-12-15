@@ -46,7 +46,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            azcopy copy "https://mysimplewebsite.blob.core.windows.net/playwright/${{github.event.pull_request.number}}/*?{{ secrets.AZURE_SAS_TOKEN}}"  "https://mysimplewebsite.blob.core.windows.net/playwright?{{ secrets.AZURE_SAS_TOKEN}}" --recursive=true
+            ./azcopy copy "https://mysimplewebsite.blob.core.windows.net/playwright/${{github.event.pull_request.number}}/*?{{ secrets.AZURE_SAS_TOKEN}}"  "https://mysimplewebsite.blob.core.windows.net/playwright?{{ secrets.AZURE_SAS_TOKEN}}" --recursive=true
 
       - name: Remove PR playwright report from Azure
         uses: azure/cli@v2
@@ -82,7 +82,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            azcopy copy "https://mysimplewebsite.blob.core.windows.net/coverage/${{github.event.pull_request.number}}/*?{{ secrets.AZURE_SAS_TOKEN}}"  "https://mysimplewebsite.blob.core.windows.net/coverage?{{ secrets.AZURE_SAS_TOKEN}}" --recursive=true
+            ./azcopy copy "https://mysimplewebsite.blob.core.windows.net/coverage/${{github.event.pull_request.number}}/*?{{ secrets.AZURE_SAS_TOKEN}}"  "https://mysimplewebsite.blob.core.windows.net/coverage?{{ secrets.AZURE_SAS_TOKEN}}" --recursive=true
 
       - name: Remove PR coverage from Azure
         uses: azure/cli@v2
