@@ -3,8 +3,6 @@ description: generate coverage report
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v4
-
     - name: Download nyc report row data from Previous job(s)
       uses: actions/download-artifact@v3
       with:
