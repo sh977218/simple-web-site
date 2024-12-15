@@ -1,8 +1,11 @@
-const express = require('express');
-const { Client } = require('@elastic/elasticsearch');
-const expressWinston = require('express-winston');
-const logger = require('./logger'); // Import the logger instance
-const cors = require('cors');
+import { Client } from '@elastic/elasticsearch';
+import { MongoClient, ServerApiVersion } from 'mongodb';
+import express, { Request, Response } from 'express';
+import expressWinston from 'express-winston';
+import cors from 'cors';
+import { logger } from './logger';
+import { createReadStream } from 'fs';
+import path from 'path';
 
 const app = express();
 const port = 3000;
@@ -16,21 +19,19 @@ app.use(
   })
 );
 
-const { MongoClient, ServerApiVersion } = require('mongodb');
 const client = new Client({
   node: 'http://localhost:9200',
 });
 
 function mongoClient() {
   const uri = 'mongodb://localhost:27017/';
-  const client = new MongoClient(uri, {
+  return new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,
       strict: true,
       deprecationErrors: true,
     },
   });
-  return client;
 }
 
 async function mongoDb() {
@@ -39,10 +40,10 @@ async function mongoDb() {
     .catch((err) => {
       logger.error(err.toString());
     });
-  return client.db('test');
+  return client?.db('test');
 }
 
-app.get('/api/information', async (req, res) => {
+app.get('/api/information', async (req: Request, res: Response) => {
   // Log a message at a level
   logger.log('silly', '/api/information testing silly');
   logger.log('debug', '/api/information testing debug');
@@ -57,14 +58,14 @@ app.get('/api/information', async (req, res) => {
   res.send('/api/information testing');
 });
 
-app.get('/api/heroes', async (req, res) => {
+app.get('/api/heroes', async (req: Request, res: Response) => {
   logger.info('GET /api/heroes route accessed'); // Log an info message
-  const HeroesCollection = (await mongoDb()).collection('heroes');
-  const heroes = await HeroesCollection.find({}).toArray();
+  const HeroesCollection = (await mongoDb())?.collection('heroes');
+  const heroes = await HeroesCollection?.find({}).toArray();
   res.send(heroes);
 });
 
-app.get('/api/search/heroes', async (req, res) => {
+app.get('/api/search/heroes', async (req: Request, res: Response) => {
   logger.info('GET /api/search/heroes route accessed'); // Log an info message
   const result = await client.search({
     index: 'heroes',
@@ -78,6 +79,11 @@ app.get('/api/search/heroes', async (req, res) => {
   });
   res.send(result.hits.hits);
 });
+
+app.use(
+  '/',
+  express.static(path.join(__dirname, '../dist/simple-web-site/browser'))
+);
 
 // Use express-winston for error logging
 app.use(

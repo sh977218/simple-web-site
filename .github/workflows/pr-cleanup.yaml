@@ -20,8 +20,8 @@ jobs:
       - name: Cleanup
         run: aws s3 rm ${{ secrets.AWS_SECRET_S3_BUCKET }}/test/${{ github.event.number }} --recursive
 
-  clean_up_azure:
-    name: Clean up Azure Static content storage
+  copy-playwright-report:
+    name: Publish latest merged playwright report
     runs-on: ubuntu-latest
     steps:
       - name: Azure Login
@@ -44,8 +44,8 @@ jobs:
             az storage fs directory delete --account-name mysimplewebsite --file-system playwright --name ${{github.event.pull_request.number}} --yes
 
 
-  copy-code-coverage:
-    name: Publish latest merged code coverage
+  copy-code-coverage-report:
+    name: Publish latest merged code coverage report
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:

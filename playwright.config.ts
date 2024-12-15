@@ -31,7 +31,7 @@ export default defineConfig({
   ],
   use: {
     actionTimeout: 0,
-    baseURL: 'http://localhost:4200',
+    baseURL: 'http://localhost:3000',
 
     trace: 'on',
     video: 'on',
@@ -46,13 +46,8 @@ export default defineConfig({
 
   webServer: [
     {
-      command: 'npm run start:server',
+      command: 'npm run start:build',
       port: 3000,
-      reuseExistingServer: true,
-    },
-    {
-      command: 'npm run start:playwright',
-      port: 4200,
       reuseExistingServer: true,
     },
   ],
