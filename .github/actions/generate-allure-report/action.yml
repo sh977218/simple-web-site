@@ -1,5 +1,5 @@
-name: playwright-allure-report
-description: Publish allure report to Azure
+name: generate-allure-report
+description: generate allure report
 runs:
   using: "composite"
   steps:
