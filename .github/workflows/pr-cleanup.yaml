@@ -42,10 +42,7 @@ jobs:
           rm -f packages-microsoft-prod.deb
 
       - name: Copy playwright report from PR
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
+        run: |
             azcopy copy "https://mysimplewebsite.blob.core.windows.net/playwright/${{github.event.pull_request.number}}/*?{{ secrets.AZURE_SAS_TOKEN}}"  "https://mysimplewebsite.blob.core.windows.net/playwright?{{ secrets.AZURE_SAS_TOKEN}}" --recursive=true
 
       - name: Remove PR playwright report from Azure
@@ -78,10 +75,7 @@ jobs:
           rm -f packages-microsoft-prod.deb
 
       - name: Copy PR coverage from PR
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
+        run: |
             azcopy copy "https://mysimplewebsite.blob.core.windows.net/coverage/${{github.event.pull_request.number}}/*?{{ secrets.AZURE_SAS_TOKEN}}"  "https://mysimplewebsite.blob.core.windows.net/coverage?{{ secrets.AZURE_SAS_TOKEN}}" --recursive=true
 
       - name: Remove PR coverage from Azure
