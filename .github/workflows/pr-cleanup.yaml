@@ -29,6 +29,18 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+      - name: Install azcopy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+
+          # when ubuntu-latest changes this needs updating from 22.04
+          wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
+          sudo dpkg -i packages-microsoft-prod.deb
+          sudo apt-get update
+          sudo apt-get install -y azcopy
+          rm -f packages-microsoft-prod.deb
+
       - name: Copy playwright report from PR
         uses: azure/cli@v2
         with:
@@ -52,6 +64,18 @@ jobs:
         uses: azure/login@v2
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Install azcopy
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y wget
+
+          # when ubuntu-latest changes this needs updating from 22.04
+          wget https://packages.microsoft.com/config/ubuntu/22.04/packages-microsoft-prod.deb
+          sudo dpkg -i packages-microsoft-prod.deb
+          sudo apt-get update
+          sudo apt-get install -y azcopy
+          rm -f packages-microsoft-prod.deb
 
       - name: Copy PR coverage from PR
         uses: azure/cli@v2
