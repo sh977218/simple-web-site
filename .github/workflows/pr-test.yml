@@ -176,6 +176,7 @@ jobs:
       - name: generate allure report
         uses: ./.github/actions/generate-allure-report
 
+      - run: pwd
       - name: Upload allure report to Azure
         uses: azure/cli@v2
         with:
