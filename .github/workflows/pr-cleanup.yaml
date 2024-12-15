@@ -34,7 +34,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az storage blob copy start-batch --account-name mysimplewebsite --destination-container playwright  --source-account-name mysimplewebsite --source-container playwright --pattern ${{github.event.pull_request.number}}*
+            az storage blob copy start-batch --account-name mysimplewebsite --destination-container playwright --destination-path master  --source-account-name mysimplewebsite --source-container playwright --pattern ${{github.event.pull_request.number}}*
 
       - name: Remove PR playwright report from Azure
         uses: azure/cli@v2
@@ -42,7 +42,6 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az storage fs directory delete --account-name mysimplewebsite --file-system playwright --name ${{github.event.pull_request.number}} --yes
-
 
   copy-code-coverage-report:
     name: Publish latest merged code coverage report
@@ -59,7 +58,7 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az storage blob copy start-batch --account-name mysimplewebsite --destination-container coverage  --source-account-name mysimplewebsite --source-container coverage --pattern ${{github.event.pull_request.number}}*
+            az storage blob copy start-batch --account-name mysimplewebsite --destination-container coverage  --destination-path master --source-account-name mysimplewebsite --source-container coverage --pattern ${{github.event.pull_request.number}}*
 
       - name: Remove PR coverage from Azure
         uses: azure/cli@v2
