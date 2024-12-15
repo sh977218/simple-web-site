@@ -50,7 +50,7 @@ jobs:
           rm -f packages-microsoft-prod.deb
 
       - name: Copy playwright report from PR
-        run: ./azcopy copy
+        run: azcopy copy
 
       - name: Setup mongodb-tools
         run: |
