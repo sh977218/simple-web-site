@@ -11,4 +11,4 @@ runs:
 
     - name: Generate coverage report
       shell: bash
-      run: npm run coverage-report
+      run: npx nyc report

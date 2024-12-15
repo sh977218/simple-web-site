@@ -3,12 +3,12 @@ description: Generate playwright report
 runs:
   using: "composite"
   steps:
-    - name: Download nyc report row data from Previous job(s)
+    - name: Download playwright blob report from Previous job(s)
       uses: actions/download-artifact@v3
       with:
-        name: e2e_nyc_output
-        path: e2e_nyc_output
+        name: blob-report
+        path: blob-report
 
-    - name: Generate coverage report
+    - name: Generate playwright report
       shell: bash
-      run: npm run coverage-report
+      run: npx playwright merge-reports --reporter html ./blob-report
