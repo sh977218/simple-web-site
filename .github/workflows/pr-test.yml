@@ -119,13 +119,6 @@ jobs:
           inlineScript: |
             az storage blob upload-batch --account-name mysimplewebsite -s ./playwright-report -d playwright --destination-path ${{github.event.pull_request.number}} --overwrite
 
-      - name: Copy playwright report from PR
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az storage blob copy start-batch --account-name mysimplewebsite --destination-container playwright --source-account-name mysimplewebsite --source-container playwright --pattern ${{github.event.pull_request.number}}*
-
       - name: Populate playwright report to summary
         run: |
           echo "# Deployed playwright report to https://mysimplewebsite.blob.core.windows.net/playwright/${{github.event.pull_request.number}}/index.html" >> $GITHUB_STEP_SUMMARY
