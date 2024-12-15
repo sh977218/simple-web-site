@@ -108,11 +108,7 @@ jobs:
           rm -f packages-microsoft-prod.deb
 
       - name: Copy playwright report from PR
-        uses: azure/cli@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
-            azcopy copy 
+        run: ./azcopy copy
 
   publish-playwright-report:
     name: Publish playwright report
