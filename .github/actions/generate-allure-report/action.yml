@@ -1,0 +1,29 @@
+name: generate-allure-report
+description: generate allure report
+runs:
+  using: "composite"
+  steps:
+    - name: Download current run allure report from e2e test job
+      uses: actions/download-artifact@v3
+      with:
+        name: allure-results          # the artifact name uploaded
+        path: allure-results
+
+    - name: Create previous-allure-report folder
+      shell: bash
+      run: mkdir previous-allure-report
+
+    - name: Download previous allure report from Azure
+      uses: azure/cli@v2
+      with:
+        azcliversion: latest
+        inlineScript: |
+          az storage blob download-batch --account-name mysimplewebsite -s allure-report -d previous-allure-report
+
+    - name: Copy historical data into current run
+      shell: bash
+      run: cp previous-allure-report/history allure-results/history -r
+
+    - name: Generate allure report
+      shell: bash
+      run: npx allure generate allure-results

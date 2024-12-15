@@ -1,0 +1,14 @@
+name: generate-playwright-report
+description: Generate playwright report
+runs:
+  using: "composite"
+  steps:
+    - name: Download playwright blob report from Previous job(s)
+      uses: actions/download-artifact@v3
+      with:
+        name: blob-report
+        path: blob-report
+
+    - name: Generate playwright report
+      shell: bash
+      run: npx playwright merge-reports --reporter html ./blob-report
