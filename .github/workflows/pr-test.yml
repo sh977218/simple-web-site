@@ -58,6 +58,9 @@ jobs:
 
       - run: npm i
 
+      - name: Grant git permission
+        run: git config --global --add safe.directory /__w/simple-web-site/simple-web-site
+
       - run: npm run build
 
       - name: Install Playwright Browsers
