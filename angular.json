@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
+  "newProjectRoot": "client",
   "projects": {
     "simple-web-site": {
       "projectType": "application",
@@ -12,28 +12,28 @@
         }
       },
       "root": "",
-      "sourceRoot": "projects/simple-web-site/src",
+      "sourceRoot": "client/simple-web-site/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
             "outputPath": "dist/simple-web-site",
-            "index": "projects/simple-web-site/src/index.html",
-            "browser": "projects/simple-web-site/src/main.ts",
+            "index": "client/simple-web-site/src/index.html",
+            "browser": "client/simple-web-site/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/simple-web-site/tsconfig.app.json",
+            "tsConfig": "client/simple-web-site/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/simple-web-site/src/public"
+              "client/simple-web-site/src/public"
             ],
             "styles": [
               {
-                "input": "projects/simple-web-site/src/theme.scss"
+                "input": "client/simple-web-site/src/theme.scss"
               },
-              "projects/simple-web-site/src/styles.scss"
+              "client/simple-web-site/src/styles.scss"
             ],
             "scripts": []
           },
@@ -41,8 +41,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/simple-web-site/src/environments/environment.ts",
-                  "with": "projects/simple-web-site/src/environments/environment.prod.ts"
+                  "replace": "client/simple-web-site/src/environments/environment.ts",
+                  "with": "client/simple-web-site/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -76,8 +76,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/simple-web-site/src/**/*.ts",
-              "projects/simple-web-site/src/**/*.html"
+              "client/simple-web-site/src/**/*.ts",
+              "client/simple-web-site/src/**/*.html"
             ]
           }
         }
@@ -91,31 +91,31 @@
         }
       },
       "root": "",
-      "sourceRoot": "projects/simple-web-site/src",
+      "sourceRoot": "client/simple-web-site/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-builders/custom-webpack:browser",
           "options": {
             "customWebpackConfig": {
-              "path": "projects/simple-web-site/coverage.webpack.js"
+              "path": "client/simple-web-site/coverage.webpack.js"
             },
             "outputPath": "dist/e2e-coverage",
-            "index": "projects/simple-web-site/src/index.html",
-            "main": "projects/simple-web-site/src/main.ts",
+            "index": "client/simple-web-site/src/index.html",
+            "main": "client/simple-web-site/src/main.ts",
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "projects/simple-web-site/tsconfig.app.json",
+            "tsConfig": "client/simple-web-site/tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "projects/simple-web-site/src/public"
+              "client/simple-web-site/src/public"
             ],
             "styles": [
               {
-                "input": "projects/simple-web-site/src/theme.scss"
+                "input": "client/simple-web-site/src/theme.scss"
               },
-              "projects/simple-web-site/src/styles.scss"
+              "client/simple-web-site/src/styles.scss"
             ],
             "scripts": [],
             "progress": false,
@@ -131,8 +131,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "projects/simple-web-site/src/environments/environment.ts",
-                  "with": "projects/simple-web-site/src/environments/environment.prod.ts"
+                  "replace": "client/simple-web-site/src/environments/environment.ts",
+                  "with": "client/simple-web-site/src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
