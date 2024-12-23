@@ -2,7 +2,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": "client/simple-web-site/src",
+    "paths": {
+      "@model/*": ["./model/*"]
+    },
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "strict": true,
@@ -25,9 +28,9 @@
     "strictTemplates": true
   },
   "files": [
-    "src/main.ts"
+    "client/simple-web-site/src/main.ts"
   ],
   "include": [
-    "src/**/*.d.ts"
+    "client/simple-web-site/src/**/*.d.ts"
   ]
 }

@@ -4,6 +4,9 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "paths": {
+      "@model/*": ["./model/*"]
+    },
     "moduleResolution": "node",
     "target": "ES2022",
     "module": "es2020",
