@@ -56,18 +56,19 @@ jobs:
         run: |
           curl -X PUT http://localhost:9200/heroes/_create/1 -H "Content-Type: application/json" -d @test/heroes.json
 
-      - run: npm i
+      - name: Install dependencies
+        run: npm i
 
       - name: Grant git permission
         run: git config --global --add safe.directory /__w/simple-web-site/simple-web-site
 
       - run: npm run build
 
-      - name: Install Playwright Browsers
+      - name: Install Playwright Browsers and dependencies
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npm run test:playwright
 
       - name: Upload playwright blob report to Artifacts
         uses: actions/upload-artifact@v3

@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Angular CLI Server" type="js.build_tools.npm" singleton="true">
+  <configuration default="false" name="start:client" type="js.build_tools.npm" singleton="true">
     <package-json value="$PROJECT_DIR$/package.json" />
     <command value="run" />
     <scripts>
-      <script value="start" />
+      <script value="start:client" />
     </scripts>
     <node-interpreter value="project" />
     <package-manager value="npm" />

@@ -10,7 +10,7 @@
     "postinstall": "npx husky install",
     "ng": "ng",
     "lint": "ng lint",
-    "start:angular": "ng s simple-web-site",
+    "start:client": "ng s simple-web-site",
     "start:server": "nest start",
     "start:server:dev": "nest start -p server/tsconfig.server.json --watch",
     "start:server:debug": "nest start --debug --watch",
