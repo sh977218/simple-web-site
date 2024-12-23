@@ -24,7 +24,7 @@
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "client/simple-web-site/tsconfig.app.json",
+            "tsConfig": "tsconfig.angular.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               "client/simple-web-site/src/public"
@@ -106,7 +106,7 @@
             "polyfills": [
               "zone.js"
             ],
-            "tsConfig": "client/simple-web-site/tsconfig.app.json",
+            "tsConfig": "tsconfig.angular.json",
             "inlineStyleLanguage": "scss",
             "assets": [
               "client/simple-web-site/src/public"

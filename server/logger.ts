@@ -1,13 +1,34 @@
-import winston from 'winston';
+import { LoggerService, Injectable } from '@nestjs/common';
 
-export const logger = winston.createLogger({
-  level: 'info', // Set the minimum logging level
-  format: winston.format.combine(
-    winston.format.timestamp(),
-    winston.format.json()
-  ),
-  transports: [
-    new winston.transports.Console(), // Log to console
-    new winston.transports.File({ filename: 'error.log' }),
-  ],
-});
+@Injectable()
+export class Logger implements LoggerService {
+  /**
+   * Write a 'log' level log.
+   */
+  log(message: any, ...optionalParams: any[]) {}
+
+  /**
+   * Write a 'fatal' level log.
+   */
+  fatal(message: any, ...optionalParams: any[]) {}
+
+  /**
+   * Write an 'error' level log.
+   */
+  error(message: any, ...optionalParams: any[]) {}
+
+  /**
+   * Write a 'warn' level log.
+   */
+  warn(message: any, ...optionalParams: any[]) {}
+
+  /**
+   * Write a 'debug' level log.
+   */
+  debug?(message: any, ...optionalParams: any[]) {}
+
+  /**
+   * Write a 'verbose' level log.
+   */
+  verbose?(message: any, ...optionalParams: any[]) {}
+}
