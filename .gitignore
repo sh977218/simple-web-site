@@ -10,6 +10,9 @@
 
 # Node
 /node_modules
+client/node_modules
+client/.angular
+client/dist
 npm-debug.log
 yarn-error.log
 package-lock.json

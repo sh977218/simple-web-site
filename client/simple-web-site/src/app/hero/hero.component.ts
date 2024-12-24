@@ -9,7 +9,7 @@ import {
 import { MatList, MatListItem } from '@angular/material/list';
 import { NgForOf } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { Hero } from '@model/hero';
+import { Hero } from '../model/hero';
 
 @Component({
   selector: 'app-hero',
