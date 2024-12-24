@@ -30,7 +30,7 @@ jobs:
         run: npm i
 
       - name: Build Angular
-        run: npm run build
+        run: npm run build:client
 
       - name: Deploy master branch to S3
         if: github.ref == 'refs/heads/master'

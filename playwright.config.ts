@@ -51,7 +51,7 @@ export default defineConfig({
       reuseExistingServer: true,
     },
     {
-      command: 'npm run start:playwright',
+      command: 'npm run start:playwright --prefix client',
       port: 4200,
       reuseExistingServer: true,
     },
