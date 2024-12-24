@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Client } from '@elastic/elasticsearch';
 import { MongoClient, ServerApiVersion } from 'mongodb';
-import { Hero } from 'client/simple-web-site/src/app/model/hero';
 import { InjectConnection } from '@nestjs/mongoose';
 import { Connection } from 'mongoose';
+import { Hero } from 'src/model/hero';
 
 @Injectable()
 export class HeroesService {
@@ -11,11 +11,7 @@ export class HeroesService {
     node: 'http://localhost:9200',
   });
   constructor(@InjectConnection() private connection: Connection) {}
-  async startTransaction() {
-    const session = await this.connection.startSession();
-    session.startTransaction();
-    // Your transaction logic here
-  }
+
   mongoClient() {
     const uri = 'mongodb://localhost:27017/';
     const client = new MongoClient(uri, {

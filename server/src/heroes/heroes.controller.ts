@@ -1,5 +1,5 @@
 import { Controller, Get } from '@nestjs/common';
-import { HeroesService } from 'server/heroes/heroes.service';
+import { HeroesService } from 'src/heroes/heroes.service';
 
 @Controller()
 export class HeroesController {
