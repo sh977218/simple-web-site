@@ -1,15 +1,14 @@
 /* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "../../tsconfig.json",
+  "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../out-tsc/spec",
-    "baseUrl": "src",
+    "outDir": "./out-tsc/spec",
     "types": [
       "jasmine"
     ]
   },
   "include": [
-    "src/**/*.spec.ts",
-    "src/**/*.d.ts"
+    "simple-web-site/src/**/*.spec.ts",
+    "simple-web-site/src/**/*.d.ts"
   ]
 }
