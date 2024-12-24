@@ -10,21 +10,21 @@
 
 # Node
 /node_modules
-client/node_modules
-client/.angular
-client/dist
-npm-debug.log
-yarn-error.log
-package-lock.json
+*/node_modules
+/npm-debug.log
+/yarn-error.log
+/package-lock.json
 
 # IDEs and editors
-.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+/.angular
+/client/.angular
+/.idea
+/.project
+/.classpath
+/.c9/
+/*.launch
+/.settings/
+/*.sublime-workspace
 
 # Visual Studio Code
 !.vscode/settings.json
@@ -35,30 +35,30 @@ package-lock.json
 
 # Miscellaneous
 /.angular/cache
-.sass-cache/
+/.sass-cache/
 /connect.lock
 /coverage
 /libpeerconnection.log
-testem.log
+/testem.log
 /typings
 
 # System files
-.DS_Store
-Thumbs.db
+/.DS_Store
+/Thumbs.db
 /test-results/
 /playwright-report/
 /playwright/.cache/
 /github-pages/
 
 # coverage files
-.nyc_output
-nyc_output
-e2e_nyc_output
-test/.nyc_output
-test/.e2e_nyc_output
-test/e2e_nyc_output
-test/coverage-e2e
-coverage-e2e
+/.nyc_output
+/nyc_output
+/e2e_nyc_output
+/test/.nyc_output
+/test/.e2e_nyc_output
+/test/e2e_nyc_output
+/test/coverage-e2e
+/coverage-e2e
 
 # playwright report
 test-results
