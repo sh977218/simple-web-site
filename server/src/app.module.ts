@@ -8,10 +8,10 @@ import { HeroesModule } from 'src/heroes/heroes.module';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      load: [configuration],
-    }),
-    MongooseModule.forRoot('mongodb://localhost/nest'),
+    // ConfigModule.forRoot({
+    //   load: [configuration],
+    // }),
+    // MongooseModule.forRoot('mongodb://localhost/nest'),
     HeroesModule,
   ],
   controllers: [AppController],

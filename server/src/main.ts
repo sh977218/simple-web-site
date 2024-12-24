@@ -1,14 +1,12 @@
 import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import cookieParser from 'cookie-parser';
-import { Logger } from 'src/logger'; // if you have esModuleInterop enabled
+import { Logger } from 'src/logger';
+import { AppModule } from 'src/app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, {
-    logger: new Logger(),
-  });
+  const app = await NestFactory.create(AppModule);
   app.enableCors();
-  app.use(cookieParser());
+  //  app.use(cookieParser());
   await app.listen(process.env['PORT'] ?? 3000);
 }
 

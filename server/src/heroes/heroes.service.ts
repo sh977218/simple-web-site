@@ -10,7 +10,7 @@ export class HeroesService {
   client = new Client({
     node: 'http://localhost:9200',
   });
-  constructor(@InjectConnection() private connection: Connection) {}
+  constructor() {}
 
   mongoClient() {
     const uri = 'mongodb://localhost:27017/';
