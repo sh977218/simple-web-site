@@ -46,12 +46,12 @@ export default defineConfig({
 
   webServer: [
     {
-      command: 'npm run start:server --prefix client',
+      command: 'npm run start:server',
       port: 3000,
       reuseExistingServer: true,
     },
     {
-      command: 'npm run start:playwright',
+      command: 'npm run start:playwright --prefix client',
       port: 4200,
       reuseExistingServer: true,
     },
