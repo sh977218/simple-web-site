@@ -46,7 +46,7 @@ export default defineConfig({
 
   webServer: [
     {
-      command: 'npm run start:server',
+      command: 'npm run start:server --prefix client',
       port: 3000,
       reuseExistingServer: true,
     },

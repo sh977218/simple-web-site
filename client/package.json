@@ -6,8 +6,7 @@
   ],
   "scripts": {
     "lint": "ng lint",
-    "start:karma": "ng test",
-    "start:client": "ng s simple-web-site",
+    "start": "ng s simple-web-site",
     "start:playwright": "ng serve e2e-coverage -c playwright",
     "build": "ng build simple-web-site",
     "test:karma": "ng test"

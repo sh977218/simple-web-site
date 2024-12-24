@@ -11,7 +11,7 @@
     "lint": "npm run lint --prefix client",
     "start:client": "npm run start:client --prefix client",
     "start:server": "node server/app.js",
-    "build:client": "npm run build:client --prefix client",
+    "build:client": "npm run build --prefix client",
     "start:karma": "npm run start:karma --prefix client",
     "test:playwright": "npx playwright test",
     "coverage-report": "npx nyc report",
@@ -69,5 +69,9 @@
   "engines": {
     "node": ">=18 <= 20.x.x",
     "npm": ">=9 <= 10.x.x"
-  }
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ]
 }
