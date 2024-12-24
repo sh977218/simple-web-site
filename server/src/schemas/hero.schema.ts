@@ -4,7 +4,7 @@ import { Member } from 'src/model/hero';
 
 export type HeroDocument = HydratedDocument<Hero>;
 
-@Schema()
+@Schema({ collection: 'hero' })
 export class Hero {
   @Prop()
   homeTown: string;

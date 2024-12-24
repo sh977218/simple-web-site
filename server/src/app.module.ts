@@ -11,7 +11,7 @@ import { HeroesModule } from 'src/heroes/heroes.module';
     // ConfigModule.forRoot({
     //   load: [configuration],
     // }),
-    MongooseModule.forRoot('mongodb://localhost'),
+    MongooseModule.forRoot('mongodb://localhost:27017', { dbName: 'test' }),
     HeroesModule,
   ],
   controllers: [AppController],

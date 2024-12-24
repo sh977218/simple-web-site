@@ -6,7 +6,7 @@ export class HeroesController {
   constructor(private readonly heroesService: HeroesService) {}
 
   @Get('/api/heroes')
-  async getHeroes() {
+  getHeroes() {
     return this.heroesService.getHeroes();
   }
 
