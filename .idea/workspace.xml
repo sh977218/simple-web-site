@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3605efc5-e649-4e2e-9bba-0ecfed49f322" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/heroes/heroes.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/heroes/heroes.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/heroes/heroes.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/heroes/heroes.service.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="SCSS File" />
+        <option value="tsconfig.json" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="0ea06b43-4ec2-4db5-b93d-f35ddd1e2140" />
+        <option name="url" value="https://github.com/sh977218/SimpleWebSite.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/node_modules/nyc/index.js" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2LTeQW62tEVfWz3yXMBop3eiECE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="sortByType" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;JavaScript Debug.Angular Application.executor&quot;: &quot;Run&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-Dependencies from package.json&quot;: &quot;Dependencies from package.json available&quot;,
+    &quot;Notification.DoNotAsk-Dependencies from package.json&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.18.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.17.10&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/peter/Documents/GitHub/simple-web-site/server&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;D:/tools/nodejs/node-v20.18.1/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Angular CLI Server.executor&quot;: &quot;Run&quot;,
+    &quot;npm.e2e.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start:playwright.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\peter\\Documents\\GitHub\\simple-web-site\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.TypeScript&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\peter\\Documents\\GitHub\\simple-web-site\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JSON Lines&quot;,
+      &quot;HTML&quot;,
+      &quot;JavaScript&quot;
+    ]
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site\server" />
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site\client\simple-web-site\src\app" />
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site\server\heroes" />
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site" />
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site\.github\actions" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site\server" />
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site\server\src" />
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site\client" />
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site\client\simple-web-site" />
+      <recent name="C:\Users\peter\Documents\GitHub\simple-web-site" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="docker-deploy" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.start:server:debug">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/simple-web-site/playwright-report/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html (2)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/simple-web-site/allure-report/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/SimpleWebSite/dist/simple-web-site/browser/index.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="checkPrTempalte.js" type="NodeJSConfigurationType" application-parameters="--title=&quot; aaa&quot;" path-to-js-file="$PROJECT_DIR$/scripts/checkPrTemplate.js" working-dir="$PROJECT_DIR$/scripts">
+      <method v="2" />
+    </configuration>
+    <configuration name="checkPrTitle.js" type="NodeJSConfigurationType" application-parameters="--title=&quot; aaa&quot;" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/scripts/checkPrTitle.js" working-dir="$PROJECT_DIR$/scripts">
+      <method v="2" />
+    </configuration>
+    <configuration name="scratch.js" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$APPLICATION_CONFIG_DIR$/scratches/scratch.js" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-image" temporary="true">
+      <deployment type="docker-image">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build-docker" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build-docker" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build:server" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build:server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="e2e CI true" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="e2e" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs>
+        <env name="CI" value="true" />
+      </envs>
+      <method v="2" />
+    </configuration>
+    <configuration name="run-docker" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="run-docker" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:server" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:server" />
+      </scripts>
+      <node-interpreter value="project" />
+      <package-manager value="npm" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:server:debug" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:server:debug" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:server:dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:server:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="test:playwright" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="test:playwright" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.Dockerfile" />
+      <item itemvalue="JavaScript Debug.Angular Application" />
+      <item itemvalue="JavaScript Debug.index.html (2)" />
+      <item itemvalue="JavaScript Debug.index.html (1)" />
+      <item itemvalue="JavaScript Debug.index.html" />
+      <item itemvalue="Node.js.checkPrTempalte.js" />
+      <item itemvalue="Node.js.checkPrTitle.js" />
+      <item itemvalue="Node.js.scratch.js" />
+      <item itemvalue="npm.Angular CLI Server" />
+      <item itemvalue="npm.start:client" />
+      <item itemvalue="npm.start:server" />
+      <item itemvalue="npm.start:server:dev" />
+      <item itemvalue="npm.start:server:debug" />
+      <item itemvalue="npm.build-docker" />
+      <item itemvalue="npm.run-docker" />
+      <item itemvalue="npm.e2e CI true" />
+      <item itemvalue="npm.test:playwright" />
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.build:server" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html (1)" />
+        <item itemvalue="JavaScript Debug.index.html (2)" />
+        <item itemvalue="JavaScript Debug.index.html" />
+        <item itemvalue="Docker.Dockerfile" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3605efc5-e649-4e2e-9bba-0ecfed49f322" name="Changes" comment="" />
+      <created>1675899483642</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1675899483642</updated>
+      <workItem from="1675899484929" duration="496000" />
+      <workItem from="1675899997896" duration="1543000" />
+      <workItem from="1675906245475" duration="15533000" />
+      <workItem from="1675982565695" duration="643000" />
+      <workItem from="1676076406734" duration="1535000" />
+      <workItem from="1676234622961" duration="484000" />
+      <workItem from="1678152045239" duration="719000" />
+      <workItem from="1678152785051" duration="242000" />
+      <workItem from="1679097236910" duration="254000" />
+      <workItem from="1679097503286" duration="275000" />
+      <workItem from="1679097787797" duration="31000" />
+      <workItem from="1679097854162" duration="32000" />
+      <workItem from="1680829651141" duration="885000" />
+      <workItem from="1680830589451" duration="5750000" />
+      <workItem from="1680836896031" duration="690000" />
+      <workItem from="1680837612456" duration="1417000" />
+      <workItem from="1680839491860" duration="80000" />
+      <workItem from="1680839584128" duration="48000" />
+      <workItem from="1680862440638" duration="1520000" />
+      <workItem from="1680864569667" duration="9664000" />
+      <workItem from="1680876844539" duration="44000" />
+      <workItem from="1680882490379" duration="628000" />
+      <workItem from="1680886615842" duration="313000" />
+      <workItem from="1680886941626" duration="352000" />
+      <workItem from="1680887406249" duration="2188000" />
+      <workItem from="1681334565829" duration="15635000" />
+      <workItem from="1681479507085" duration="1411000" />
+      <workItem from="1681480951745" duration="2753000" />
+      <workItem from="1681488460913" duration="115000" />
+      <workItem from="1681488584963" duration="1406000" />
+      <workItem from="1681495019507" duration="1215000" />
+      <workItem from="1681514899514" duration="3023000" />
+      <workItem from="1681609723468" duration="1172000" />
+      <workItem from="1681693632629" duration="1304000" />
+      <workItem from="1682216503494" duration="3499000" />
+      <workItem from="1683064653070" duration="509000" />
+      <workItem from="1683065330821" duration="706000" />
+      <workItem from="1684369511334" duration="1025000" />
+      <workItem from="1684370566630" duration="195000" />
+      <workItem from="1699586391336" duration="37000" />
+      <workItem from="1700183370442" duration="527000" />
+      <workItem from="1700183921282" duration="157000" />
+      <workItem from="1700184089283" duration="155000" />
+      <workItem from="1700184356063" duration="3593000" />
+      <workItem from="1700188008949" duration="2015000" />
+      <workItem from="1700354793304" duration="809000" />
+      <workItem from="1700355690726" duration="2980000" />
+      <workItem from="1700362915370" duration="6000" />
+      <workItem from="1700362935971" duration="40000" />
+      <workItem from="1700363028702" duration="159000" />
+      <workItem from="1700442856335" duration="2535000" />
+      <workItem from="1700505872372" duration="133000" />
+      <workItem from="1700506018041" duration="1204000" />
+      <workItem from="1700677122502" duration="1925000" />
+      <workItem from="1700682324322" duration="2538000" />
+      <workItem from="1700699909163" duration="3000" />
+      <workItem from="1700699921156" duration="2000" />
+      <workItem from="1700700149848" duration="1000" />
+      <workItem from="1700700161279" duration="33000" />
+      <workItem from="1700700203731" duration="4760000" />
+      <workItem from="1700762524034" duration="4000" />
+      <workItem from="1700770986112" duration="4201000" />
+      <workItem from="1700777043610" duration="38565000" />
+      <workItem from="1700928777454" duration="219000" />
+      <workItem from="1700929010923" duration="8651000" />
+      <workItem from="1700973252883" duration="2558000" />
+      <workItem from="1701008617592" duration="15874000" />
+      <workItem from="1701048056103" duration="73000" />
+      <workItem from="1701048481719" duration="114000" />
+      <workItem from="1701093618162" duration="3055000" />
+      <workItem from="1701138352802" duration="443000" />
+      <workItem from="1701139388498" duration="94000" />
+      <workItem from="1701139490965" duration="1654000" />
+      <workItem from="1701142871114" duration="768000" />
+      <workItem from="1701143679491" duration="8000" />
+      <workItem from="1701143696610" duration="11238000" />
+      <workItem from="1701296133927" duration="2163000" />
+      <workItem from="1701311534343" duration="4726000" />
+      <workItem from="1701368487024" duration="3361000" />
+      <workItem from="1701372153870" duration="1951000" />
+      <workItem from="1701375099617" duration="61000" />
+      <workItem from="1701375243513" duration="783000" />
+      <workItem from="1701377234584" duration="6544000" />
+      <workItem from="1702329424592" duration="3798000" />
+      <workItem from="1702336705245" duration="5768000" />
+      <workItem from="1702348669530" duration="1770000" />
+      <workItem from="1702350585078" duration="2640000" />
+      <workItem from="1702604818008" duration="5820000" />
+      <workItem from="1702612885932" duration="543000" />
+      <workItem from="1702613455062" duration="1386000" />
+      <workItem from="1702642932720" duration="8508000" />
+      <workItem from="1702654258280" duration="1349000" />
+      <workItem from="1702656341822" duration="2187000" />
+      <workItem from="1702659724540" duration="189000" />
+      <workItem from="1702660334778" duration="1491000" />
+      <workItem from="1702663685529" duration="7000" />
+      <workItem from="1702666171170" duration="833000" />
+      <workItem from="1702667028464" duration="34000" />
+      <workItem from="1702667076093" duration="28000" />
+      <workItem from="1702668298728" duration="10000" />
+      <workItem from="1702668311733" duration="550000" />
+      <workItem from="1702668881125" duration="8136000" />
+      <workItem from="1702682796647" duration="11097000" />
+      <workItem from="1702743060864" duration="940000" />
+      <workItem from="1702745135757" duration="982000" />
+      <workItem from="1702748604028" duration="815000" />
+      <workItem from="1702749438836" duration="4077000" />
+      <workItem from="1702760908764" duration="2014000" />
+      <workItem from="1703082646298" duration="5061000" />
+      <workItem from="1703104105461" duration="2413000" />
+      <workItem from="1703296413089" duration="729000" />
+      <workItem from="1703297175075" duration="750000" />
+      <workItem from="1703298022600" duration="9285000" />
+      <workItem from="1703356217606" duration="1680000" />
+      <workItem from="1703358283408" duration="56000" />
+      <workItem from="1703358423952" duration="23000" />
+      <workItem from="1703376070435" duration="413000" />
+      <workItem from="1703393676745" duration="6472000" />
+      <workItem from="1703768480125" duration="313000" />
+      <workItem from="1703976682761" duration="2679000" />
+      <workItem from="1703982923238" duration="73000" />
+      <workItem from="1704038134402" duration="690000" />
+      <workItem from="1704598293662" duration="1694000" />
+      <workItem from="1704600595033" duration="344000" />
+      <workItem from="1704600949392" duration="1971000" />
+      <workItem from="1704603190657" duration="1099000" />
+      <workItem from="1704604298840" duration="168000" />
+      <workItem from="1704604598654" duration="92000" />
+      <workItem from="1704604700544" duration="86000" />
+      <workItem from="1704604790199" duration="310000" />
+      <workItem from="1704605122092" duration="523000" />
+      <workItem from="1704605656388" duration="36000" />
+      <workItem from="1704606189164" duration="2437000" />
+      <workItem from="1704608645105" duration="586000" />
+      <workItem from="1704609238422" duration="31045000" />
+      <workItem from="1705586764203" duration="4543000" />
+      <workItem from="1709140538175" duration="25000" />
+      <workItem from="1709393959512" duration="740000" />
+      <workItem from="1709394718840" duration="9551000" />
+      <workItem from="1709415384826" duration="1811000" />
+      <workItem from="1709417587959" duration="2908000" />
+      <workItem from="1709421357086" duration="34000" />
+      <workItem from="1709421453718" duration="739000" />
+      <workItem from="1710787205101" duration="522000" />
+      <workItem from="1710886704047" duration="16000" />
+      <workItem from="1714258037992" duration="2460000" />
+      <workItem from="1714260693617" duration="208000" />
+      <workItem from="1714270532531" duration="501000" />
+      <workItem from="1714271083812" duration="16000" />
+      <workItem from="1715570386772" duration="364000" />
+      <workItem from="1715571158345" duration="592000" />
+      <workItem from="1716499296831" duration="3000" />
+      <workItem from="1716576003371" duration="26754000" />
+      <workItem from="1716648492912" duration="10388000" />
+      <workItem from="1716927167686" duration="16000" />
+      <workItem from="1718073938567" duration="2216000" />
+      <workItem from="1718108873333" duration="64000" />
+      <workItem from="1718163975923" duration="230000" />
+      <workItem from="1718196182616" duration="6000" />
+      <workItem from="1718675128542" duration="752000" />
+      <workItem from="1718761869004" duration="1972000" />
+      <workItem from="1718891406266" duration="63000" />
+      <workItem from="1719720023514" duration="3831000" />
+      <workItem from="1720061086187" duration="4264000" />
+      <workItem from="1720100428555" duration="16392000" />
+      <workItem from="1720183766389" duration="166000" />
+      <workItem from="1720186872187" duration="18000" />
+      <workItem from="1720653272945" duration="1695000" />
+      <workItem from="1720707580005" duration="12000" />
+      <workItem from="1721481906549" duration="123000" />
+      <workItem from="1721482083547" duration="5655000" />
+      <workItem from="1721489443747" duration="83000" />
+      <workItem from="1721523297276" duration="47000" />
+      <workItem from="1721657792422" duration="12000" />
+      <workItem from="1725901753660" duration="1425000" />
+      <workItem from="1733627350485" duration="3658000" />
+      <workItem from="1733632059658" duration="27247000" />
+      <workItem from="1733756213206" duration="21999000" />
+      <workItem from="1733805439267" duration="13493000" />
+      <workItem from="1733867489800" duration="5877000" />
+      <workItem from="1733877065061" duration="22914000" />
+      <workItem from="1733951107025" duration="468000" />
+      <workItem from="1733952755169" duration="14400000" />
+      <workItem from="1734022467335" duration="4374000" />
+      <workItem from="1734201244871" duration="9051000" />
+      <workItem from="1734231737171" duration="4156000" />
+      <workItem from="1734237387378" duration="11418000" />
+      <workItem from="1734288946418" duration="52000" />
+      <workItem from="1734882446557" duration="11955000" />
+      <workItem from="1734919657010" duration="109000" />
+      <workItem from="1734919805664" duration="4671000" />
+      <workItem from="1735004034025" duration="10693000" />
+      <workItem from="1735062316810" duration="4365000" />
+      <workItem from="1735072079803" duration="2950000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="angular.json" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$APPLICATION_CONFIG_DIR$/scratches/scratch.js</url>
+          <line>42</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/build/server/app.js</url>
+          <line>80</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/server/src/main.ts</url>
+          <line>9</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -19,6 +19,7 @@
 /.angular
 /client/.angular
 */.idea
+.idea
 /.project
 /.classpath
 /.c9/

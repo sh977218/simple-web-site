@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { Client } from '@elastic/elasticsearch';
 import { MongoClient, ServerApiVersion } from 'mongodb';
-import { InjectConnection } from '@nestjs/mongoose';
-import { Connection } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
 import { Hero } from 'src/model/hero';
 
 @Injectable()
@@ -10,7 +10,7 @@ export class HeroesService {
   client = new Client({
     node: 'http://localhost:9200',
   });
-  constructor() {}
+  constructor(@InjectModel('Hero') private readonly heroModel: Model<Hero>) {}
 
   mongoClient() {
     const uri = 'mongodb://localhost:27017/';
@@ -30,8 +30,7 @@ export class HeroesService {
   }
 
   async getHeroes() {
-    const HeroesCollection = (await this.mongoDb())?.collection('heroes');
-    const heroes = await HeroesCollection?.find({}).toArray();
+    const heroes = await this.heroModel.find({});
     return heroes;
   }
 
