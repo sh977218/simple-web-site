@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3605efc5-e649-4e2e-9bba-0ecfed49f322" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/heroes/heroes.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/heroes/heroes.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/heroes/heroes.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/heroes/heroes.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/schemas/hero.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/schemas/hero.schema.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
