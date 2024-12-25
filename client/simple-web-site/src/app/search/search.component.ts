@@ -16,8 +16,6 @@ import { catchError, map } from 'rxjs';
 import { Hero } from '../model/hero';
 import { HeroComponent } from '../hero/hero.component';
 
-// import { Client } from '@elastic/elasticsearch';
-
 @Component({
   selector: 'app-search',
   standalone: true,
@@ -40,7 +38,6 @@ import { HeroComponent } from '../hero/hero.component';
 })
 export class SearchComponent {
   private http = inject(HttpClient);
-  //  client = new Client({ node: 'http://localhost:9200' });
 
   typesOfShoes: string[] = [
     'Boots',
@@ -55,7 +52,7 @@ export class SearchComponent {
     .get<{ _source: Hero }[]>('http://localhost:3000/api/search/heroes')
     .pipe(
       catchError(() => []),
-      map((res) => res.map((h) => h._source))
+      map((res) => res.map((h) => h._source)),
     );
 
   heroesFromMongo$ = this.http

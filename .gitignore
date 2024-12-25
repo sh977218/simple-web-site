@@ -60,6 +60,7 @@
 /test/e2e_nyc_output
 /test/coverage-e2e
 /coverage-e2e
+/coverage
 
 # playwright report
 test-results
