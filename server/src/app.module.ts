@@ -1,19 +1,19 @@
+import { join } from 'path';
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { join } from 'path';
-import { ConfigModule } from '@nestjs/config';
-
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { HeroesModule } from 'src/heroes/heroes.module';
-import configuration from 'src/config/configuration';
+
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
   imports: [
-    // ConfigModule.forRoot({
-    //   load: [configuration],
-    // }),
+    ConfigModule.forRoot({
+      envFilePath: ['.env'],
+      isGlobal: true,
+    }),
     ServeStaticModule.forRoot({
       rootPath: join(
         __dirname,
@@ -21,7 +21,16 @@ import configuration from 'src/config/configuration';
         process.env.COVERAGE ? 'client' : 'client/browser',
       ),
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017', { dbName: 'test' }),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (configService: ConfigService) => ({
+        uri:
+          configService.get<string>('DATABASE_PROTOCOL') +
+          configService.get<string>('DATABASE_HOST'),
+        dbName: configService.get<string>('DATABASE_NAME'),
+      }),
+      inject: [ConfigService],
+    }),
     HeroesModule,
   ],
   controllers: [AppController],
