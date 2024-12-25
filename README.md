@@ -36,6 +36,10 @@
 - ChangeLog
   - Populate changeLog upon release workflow trigger - **to be included**
 
+### OpenAPI:
+
+- Using NestJS Swagger module to set up swagger
+
 ### Deploy Production:
 
 - Client

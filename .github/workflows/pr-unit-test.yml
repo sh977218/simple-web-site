@@ -1,4 +1,4 @@
-name: pr e2e test
+name: pr unit test
 on:
   pull_request:
     branches: [ master ]
