@@ -6,7 +6,7 @@
     "start:playwright": "ng serve e2e-coverage -c playwright",
     "build": "ng build simple-web-site",
     "build:e2e-coverage": "ng build e2e-coverage",
-    "test:karma": "ng test"
+    "test:karma": "ng test --no-watch --code-coverage --browsers=ChromeHeadless"
   },
   "dependencies": {
     "@angular/animations": "^18.2.13",

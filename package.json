@@ -19,7 +19,7 @@
     "build:client": "npm run build --prefix client",
     "build:client:coverage": "npm run build:e2e-coverage --prefix client",
     "build:server": "npm run build --prefix server",
-    "start:karma": "npm run start:karma --prefix client",
+    "test:karma": "npm run test:karma --prefix client",
     "test:playwright": "npx playwright test",
     "coverage-report": "npx nyc report",
     "playwright-report": "npx playwright merge-reports --reporter html ./blob-report",
