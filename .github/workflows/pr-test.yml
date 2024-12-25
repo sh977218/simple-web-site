@@ -59,14 +59,14 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Grant git permission
-        run: git config --global --add safe.directory /__w/simple-web-site/simple-web-site
+      - name: Build app
+        run: npm run build:coverage
 
       - name: Install Playwright Browsers and dependencies
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npm run test:playwright
+        run: COVERAGE=true npm run test:playwright
 
       - name: Upload playwright blob report to Artifacts
         uses: actions/upload-artifact@v3

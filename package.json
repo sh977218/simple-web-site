@@ -13,7 +13,11 @@
     "start:client": "npm run start --prefix client",
     "start:server": "npm run start:dev --prefix server",
     "start:server:debug": "npm run start:debug --prefix server",
+    "start:build": "node build/main",
+    "build": "npm run build:server && npm run build:client",
+    "build:coverage": "npm run build:server && npm run build:client:coverage",
     "build:client": "npm run build --prefix client",
+    "build:client:coverage": "npm run build:e2e-coverage --prefix client",
     "build:server": "npm run build --prefix server",
     "start:karma": "npm run start:karma --prefix client",
     "test:playwright": "npx playwright test",
@@ -29,6 +33,7 @@
   },
   "private": true,
   "dependencies": {
+    "@nestjs/serve-static": "^4.0.2",
     "express": "^4.18.2",
     "tslib": "^2.3.0"
   },
