@@ -15,7 +15,7 @@ import configuration from 'src/config/configuration';
     //   load: [configuration],
     // }),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, '.', 'client/browser'),
+      rootPath: join(__dirname, '.', env.CI ? 'client/browser' : 'clicnet'),
     }),
     MongooseModule.forRoot('mongodb://localhost:27017', { dbName: 'test' }),
     HeroesModule,
