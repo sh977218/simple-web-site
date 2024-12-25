@@ -18,7 +18,7 @@ import configuration from 'src/config/configuration';
       rootPath: join(
         __dirname,
         '.',
-        process.env.CI ? 'client/browser' : 'client',
+        process.env.COVERAGE ? 'client' : 'client/browser',
       ),
     }),
     MongooseModule.forRoot('mongodb://localhost:27017', { dbName: 'test' }),
