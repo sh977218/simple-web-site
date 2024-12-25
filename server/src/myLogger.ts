@@ -11,7 +11,7 @@ export class MyLogger implements LoggerService {
       format: format.combine(format.timestamp(), format.json()),
       transports: [
         new transports.Console(), // Log to console
-        new transports.File({ filename: 'error.log' }),
+        new transports.File({ filename: '../error.log' }),
       ],
     });
   }
