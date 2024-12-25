@@ -31,7 +31,7 @@ export default defineConfig({
   ],
   use: {
     actionTimeout: 0,
-    baseURL: 'http://localhost:4200',
+    baseURL: 'http://localhost:3000',
 
     trace: 'on',
     video: 'on',
