@@ -23,12 +23,16 @@ import { AppService } from './app.service';
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => ({
-        uri:
+      useFactory: (configService: ConfigService) => {
+        const uri =
           configService.get<string>('DATABASE_PROTOCOL') +
-          configService.get<string>('DATABASE_HOST'),
-        dbName: configService.get<string>('DATABASE_NAME'),
-      }),
+          configService.get<string>('DATABASE_HOST');
+        const dbName = configService.get<string>('DATABASE_NAME');
+        return {
+          uri,
+          dbName,
+        };
+      },
       inject: [ConfigService],
     }),
     HeroesModule,

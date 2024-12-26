@@ -35,6 +35,7 @@
   "dependencies": {
     "@nestjs/config": "^3.3.0",
     "@nestjs/serve-static": "^4.0.2",
+    "@nestjs/swagger": "^8.1.0",
     "@types/cookie-parser": "^1.4.8",
     "cookie-parser": "^1.4.7",
     "express": "^4.18.2",

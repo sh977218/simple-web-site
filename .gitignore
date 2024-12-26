@@ -73,3 +73,4 @@ previous-allure-report
 
 # logger
 error.log
+!/error.log

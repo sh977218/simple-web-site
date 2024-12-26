@@ -56,7 +56,7 @@ export class SearchComponent {
     );
 
   heroesFromMongo$ = this.http
-    .get<Hero[]>('http://localhost:3000/api/heroes')
+    .get<Hero[]>('http://localhost:3000/api/heroes/100')
     .pipe(catchError(() => []));
 
   /*
@@ -70,6 +70,8 @@ export class SearchComponent {
         return res.hits.hits._source as Hero[];
       }));*/
   constructor() {
-    this.http.get('http://localhost:3000/api/information').subscribe();
+    this.http
+      .get('http://localhost:3000/api/information', { responseType: 'text' })
+      .subscribe();
   }
 }
