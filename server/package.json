@@ -1,7 +1,7 @@
 {
   "name": "server",
   "scripts": {
-    "start": "nest start",
+    "start": "node build/main",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "build": "nest build"
