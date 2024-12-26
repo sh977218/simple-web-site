@@ -23,7 +23,7 @@ import { AppService } from './app.service';
     }),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
-      useFactory: async (configService: ConfigService) => {
+      useFactory: (configService: ConfigService) => {
         const uri =
           configService.get<string>('DATABASE_PROTOCOL') +
           configService.get<string>('DATABASE_HOST');

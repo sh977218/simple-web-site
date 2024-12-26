@@ -3,17 +3,22 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Client } from '@elastic/elasticsearch';
 import { Model } from 'mongoose';
 import { Hero } from 'src/model/hero';
+import { CreateHeroDto } from 'src/heroes/createHeroDto';
 
 @Injectable()
 export class HeroesService {
   client = new Client({
     node: 'http://localhost:9200',
   });
+
   constructor(@InjectModel('Hero') private readonly heroModel: Model<Hero>) {}
 
+  async createHero(createHeroDto: CreateHeroDto) {
+    return new this.heroModel(createHeroDto).save();
+  }
+
   async getHeroes() {
-    const heroes = await this.heroModel.find({}).exec();
-    return heroes;
+    return this.heroModel.find({}).exec();
   }
 
   async searchHeroes() {
