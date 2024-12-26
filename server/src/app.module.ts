@@ -4,6 +4,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import * as Joi from 'joi';
 
 import { AppController } from 'src/app.controller';
 import { AppService } from 'src/app.service';
@@ -12,8 +13,19 @@ import { HeroesModule } from 'src/heroes/heroes.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env'],
+      envFilePath: ['.env', '.env.development'],
       isGlobal: true,
+      validationSchema: Joi.object({
+        NODE_ENV: Joi.string().valid('development', 'production', 'test'),
+        PORT: Joi.number().port().default(3000),
+        DATABASE_PROTOCOL: Joi.string().default('mongodb://'),
+        DATABASE_HOST: Joi.string().default('localhost:27017/'),
+        DATABASE_NAME: Joi.string().default('test'),
+      }),
+      validationOptions: {
+        allowUnknown: true,
+        abortEarly: true,
+      },
     }),
     ServeStaticModule.forRoot({
       rootPath: join(
