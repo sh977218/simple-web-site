@@ -32,17 +32,18 @@ jobs:
       - name: Build Angular & NestJS
         run: npm run build
 
+      - name: Output content of build folder
+        run: ls -l build
+
       - name: Generate build tar
         run: tar -cf build.tar .env* build package.json package-lock.json
 
-      - run: ls -l
-
-      - name: Deploy master branch to S3
-        if: github.ref == 'refs/heads/master'
-        run: aws s3 sync ./build.tar ${{ secrets.AWS_SECRET_S3_BUCKET }} --delete
-
-      - name: Deploy PR branch to S3
-        if: github.event_name == 'pull_request'
-        run: aws s3 sync ./build.tar ${{ secrets.AWS_SECRET_S3_BUCKET }}/test/${{ github.event.number }} --delete
+#      - name: Deploy master branch to S3
+#        if: github.ref == 'refs/heads/master'
+#        run: aws s3 sync ./build.tar ${{ secrets.AWS_SECRET_S3_BUCKET }} --delete
+#
+#      - name: Deploy PR branch to S3
+#        if: github.event_name == 'pull_request'
+#        run: aws s3 sync ./build.tar ${{ secrets.AWS_SECRET_S3_BUCKET }}/test/${{ github.event.number }} --delete
 #      - name: Invalidate CloudFront
 #        run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
