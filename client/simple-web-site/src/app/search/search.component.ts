@@ -13,8 +13,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map } from 'rxjs';
-import { Hero } from '../model/hero';
-import { HeroComponent } from '../hero/hero.component';
+import { HeroComponent } from 'app/hero/hero.component';
+import { Hero } from 'app/model/hero';
 
 @Component({
   selector: 'app-search',

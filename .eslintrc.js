@@ -1,22 +1,35 @@
 module.exports = {
   root: true,
-  ignorePatterns: ['.eslintrc.js', 'scripts/', 'build'],
+  parser: '@typescript-eslint/parser',
+  ignorePatterns: ['.eslintrc.js', 'scripts/', 'build', 'test'],
+  plugins: ['@typescript-eslint/eslint-plugin', 'import'],
+  settings: {
+    'import/resolver': {
+      typescript: {
+        project: ['tsconfig.json', 'client/tsconfig', 'server/tsconfig.json'],
+      },
+      node: {
+        project: ['tsconfig.json', 'client/tsconfig', 'server/tsconfig.json'],
+      },
+    },
+  },
   overrides: [
     {
       files: ['client/**/*.ts'],
+      parserOptions: {
+        project: 'client/tsconfig.json',
+        tsconfigRootDir: __dirname,
+        sourceType: 'module',
+      },
       env: {
         browser: true,
         amd: true,
-      },
-      parserOptions: {
-        project: 'client/tsconfig.json',
       },
       extends: [
         'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@angular-eslint/recommended',
         'plugin:@angular-eslint/template/process-inline-templates',
-        'plugin:import/recommended',
       ],
       rules: {
         '@angular-eslint/directive-selector': [
@@ -35,17 +48,14 @@ module.exports = {
             style: 'kebab-case',
           },
         ],
-        'import/no-unresolved': 'off',
-        'import/named': 'off',
-        'import/namespace': 'off',
-        'import/default': 'off',
-        'import/export': 'off',
       },
     },
     {
       files: ['client/**/*.html'],
       parserOptions: {
         project: 'client/tsconfig.json',
+        tsconfigRootDir: __dirname,
+        sourceType: 'module',
       },
       extends: [
         'plugin:@angular-eslint/template/recommended',
@@ -55,13 +65,11 @@ module.exports = {
     },
     {
       files: ['server/src/*.ts'],
-      parser: '@typescript-eslint/parser',
       parserOptions: {
-        project: 'tsconfig.json',
+        project: 'server/tsconfig.json',
         tsconfigRootDir: __dirname,
         sourceType: 'module',
       },
-      plugins: ['@typescript-eslint/eslint-plugin'],
       extends: [
         'plugin:@typescript-eslint/recommended',
         'plugin:prettier/recommended',

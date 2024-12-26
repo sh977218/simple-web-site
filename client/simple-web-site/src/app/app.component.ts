@@ -14,7 +14,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { AsyncPipe, NgClass, NgForOf, UpperCasePipe } from '@angular/common';
-import { ColorService } from './color-service';
+import { ColorService } from 'app/color-service';
 
 @Component({
   selector: 'app-root',
