@@ -1,7 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { SearchComponent } from 'app/search/search.component';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { SearchComponent } from 'app/search/search.component';
 
 describe('SearchComponent', () => {
   let component: SearchComponent;

@@ -1,3 +1,4 @@
+import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import {
   MatCard,
@@ -7,8 +8,8 @@ import {
   MatCardTitle,
 } from '@angular/material/card';
 import { MatList, MatListItem } from '@angular/material/list';
-import { NgForOf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+
 import { Hero } from '../model/hero';
 
 @Component({

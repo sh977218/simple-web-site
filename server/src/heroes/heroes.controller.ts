@@ -1,7 +1,8 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { HeroesService } from 'src/heroes/heroes.service';
 import { ApiResponse } from '@nestjs/swagger';
+
 import { CreateHeroDto } from 'src/heroes/createHeroDto';
+import { HeroesService } from 'src/heroes/heroes.service';
 
 @Controller()
 export class HeroesController {

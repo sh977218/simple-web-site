@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
 import { MatButtonToggleAppearance } from '@angular/material/button-toggle';
 import { ThemePalette } from '@angular/material/core';
+import { of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ColorService {

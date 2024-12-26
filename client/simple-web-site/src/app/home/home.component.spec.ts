@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HomeComponent } from 'app/home/home.component';
-import { provideRouter } from '@angular/router';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideRouter } from '@angular/router';
+
+import { HomeComponent } from 'app/home/home.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
