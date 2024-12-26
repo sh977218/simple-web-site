@@ -1,4 +1,5 @@
 checkPrTitle();
+
 function checkString(s) {
   console.log(
     '------------------------------------------------------------------'
@@ -14,6 +15,7 @@ function checkString(s) {
   );
   process.exit(regexResult ? 0 : 1);
 }
+
 function checkPrTitle() {
   let argv = process.argv[2];
   if (!argv) {
