@@ -18,10 +18,7 @@ module.exports = {
                 project: [
                     'tsconfig.json',
                     'client/tsconfig.json',
-                    'client/tsconfig.app.json',
-                    'client/tsconfig.spec.json',
-                    'server/tsconfig.json',
-                    'server/tsconfig.build.json'
+                    'server/tsconfig.json'
                 ],
             },
             node: {
@@ -29,10 +26,7 @@ module.exports = {
                 project: [
                     'tsconfig.json',
                     'client/tsconfig.json',
-                    'client/tsconfig.app.json',
-                    'client/tsconfig.spec.json',
                     'server/tsconfig.json',
-                    'server/tsconfig.build.json'
                 ],
             },
         },
