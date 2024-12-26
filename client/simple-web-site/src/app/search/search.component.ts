@@ -1,18 +1,19 @@
+import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
   NO_ERRORS_SCHEMA,
 } from '@angular/core';
-import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { HttpClient } from '@angular/common/http';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { catchError, map } from 'rxjs';
+
 import { HeroComponent } from 'app/hero/hero.component';
 import { Hero } from 'app/model/hero';
 

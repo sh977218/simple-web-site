@@ -1,18 +1,19 @@
-import { bootstrapApplication, Title } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
-import { provideAnimations } from '@angular/platform-browser/animations';
 import { VERSION as CDK_VERSION } from '@angular/cdk';
+import { provideHttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { VERSION as MAT_VERSION } from '@angular/material/core';
-import { AppComponent } from 'app/app.component';
+import { bootstrapApplication, Title } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import {
   provideRouter,
   RouterStateSnapshot,
   Routes,
   TitleStrategy,
 } from '@angular/router';
+
+import { AppComponent } from 'app/app.component';
 import { HomeComponent } from 'app/home/home.component';
 import { SearchComponent } from 'app/search/search.component';
-import { Injectable } from '@angular/core';
 import { ThreeJsComponent } from 'app/three-js/three-js.component';
 
 /* eslint-disable no-console */

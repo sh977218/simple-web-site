@@ -1,9 +1,10 @@
+import { Client } from '@elastic/elasticsearch';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Client } from '@elastic/elasticsearch';
 import { Model } from 'mongoose';
-import { Hero } from 'src/model/hero';
+
 import { CreateHeroDto } from 'src/heroes/createHeroDto';
+import { Hero } from 'src/model/hero';
 
 @Injectable()
 export class HeroesService {

@@ -1,8 +1,17 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  ignorePatterns: ['.eslintrc.js', 'scripts/', 'build', 'test'],
+  ignorePatterns: [
+    'test',
+    '.eslintrc.js',
+    'scripts/',
+    'build',
+    'coverage.webpack.js',
+    'karma.conf.js',
+    'tailwind.config.js',
+  ],
   plugins: ['@typescript-eslint/eslint-plugin', 'import'],
+  extends: ['eslint:recommended', 'plugin:import/recommended'],
   settings: {
     'import/resolver': {
       typescript: {
@@ -12,6 +21,28 @@ module.exports = {
         project: ['tsconfig.json', 'client/tsconfig', 'server/tsconfig.json'],
       },
     },
+  },
+  rules: {
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        alphabetize: {
+          order: 'asc',
+          caseInsensitive: true,
+        },
+        groups: [
+          'builtin',
+          'external',
+          'internal',
+          'parent',
+          'sibling',
+          'index',
+          'object',
+          'type',
+        ],
+      },
+    ],
   },
   overrides: [
     {
@@ -24,9 +55,9 @@ module.exports = {
       env: {
         browser: true,
         amd: true,
+        node: true,
       },
       extends: [
-        'eslint:recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@angular-eslint/recommended',
         'plugin:@angular-eslint/template/process-inline-templates',
@@ -61,10 +92,12 @@ module.exports = {
         'plugin:@angular-eslint/template/recommended',
         'plugin:@angular-eslint/template/accessibility',
       ],
-      rules: {},
+      rules: {
+        'import/namespace': 'off',
+      },
     },
     {
-      files: ['server/src/*.ts'],
+      files: ['server/**/*.ts'],
       parserOptions: {
         project: 'server/tsconfig.json',
         tsconfigRootDir: __dirname,

@@ -1,12 +1,13 @@
 import { join } from 'path';
+
 import { Module } from '@nestjs/common';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { ConfigModule, ConfigService } from '@nestjs/config';
-import { HeroesModule } from 'src/heroes/heroes.module';
 
 import { AppController } from 'src/app.controller';
 import { AppService } from 'src/app.service';
+import { HeroesModule } from 'src/heroes/heroes.module';
 
 @Module({
   imports: [
