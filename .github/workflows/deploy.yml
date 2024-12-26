@@ -30,10 +30,12 @@ jobs:
         run: npm i
 
       - name: Build Angular & NestJS
-        run: npm run build
+        run: NODE_ENV=prod npm run build
 
       - name: Output content of build folder
         run: ls -l build
+
+      - run: [ ! -e build/.env ]; echo $?
 
       - name: Generate build tar
         run: tar -cf build.tar build package.json package-lock.json
