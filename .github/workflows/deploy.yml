@@ -35,6 +35,8 @@ jobs:
       - name: Generate build tar
         run: tar -cf build.tar .env* build package.json package-lock.json
 
+      - run: ls -l
+
       - name: Deploy master branch to S3
         if: github.ref == 'refs/heads/master'
         run: aws s3 sync ./build.tar ${{ secrets.AWS_SECRET_S3_BUCKET }} --delete
