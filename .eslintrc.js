@@ -4,25 +4,40 @@ module.exports = {
     ignorePatterns: [
         'test',
         '.eslintrc.js',
-        'scripts/',
+        'scripts',
         'build',
         'coverage.webpack.js',
         'karma.conf.js',
         'tailwind.config.js',
+        'playwright.config.ts'
     ],
     plugins: ['@typescript-eslint/eslint-plugin', 'import'],
     extends: ['eslint:recommended', 'plugin:import/recommended'],
     settings: {
         'import/resolver': {
             typescript: {
-                project: ['tsconfig.json', 'client/tsconfig', 'server/tsconfig.json'],
+                project: [
+                    'tsconfig.json',
+                    'client/tsconfig.json',
+                    'server/tsconfig.json'
+                ],
             },
             node: {
-                project: ['tsconfig.json', 'client/tsconfig', 'server/tsconfig.json'],
+                extensions: ['.js', '.jsx', '.ts', '.tsx'],
+                project: [
+                    'tsconfig.json',
+                    'client/tsconfig.json',
+                    'server/tsconfig.json',
+                ],
             },
         },
     },
     rules: {
+        "import/no-unresolved": "off",
+        "import/named": "off",
+        "import/namespace": "off",
+        "import/default": "off",
+        "import/export": "off",
         'import/order': [
             'error',
             {

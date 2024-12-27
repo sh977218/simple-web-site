@@ -1,5 +1,6 @@
-import { defineConfig, devices } from '@playwright/test';
 import * as os from 'os';
+
+import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './test/src',
