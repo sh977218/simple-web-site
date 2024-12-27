@@ -37,7 +37,7 @@
     "test:playwright": "npx playwright test"
   },
   "lint-staged": {
-    "{client,server}.{js,ts,css,scss,html,md}": [
+    "{client,server}*.{js,ts,css,scss,html,md}": [
       "eslint --fix"
     ]
   },
