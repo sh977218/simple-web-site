@@ -35,8 +35,6 @@ jobs:
       - name: Output content of build folder
         run: ls -l build
 
-      - run: [ ! -e build/.env ]; echo $?
-
       - name: Generate build tar
         run: tar -cf build.tar build package.json package-lock.json
 
