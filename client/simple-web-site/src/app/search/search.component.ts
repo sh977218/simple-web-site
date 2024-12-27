@@ -1,21 +1,22 @@
-import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
-import { HttpClient } from '@angular/common/http';
+import {AsyncPipe, CommonModule, NgFor} from '@angular/common';
+import {HttpClient} from '@angular/common/http';
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
   inject,
   NO_ERRORS_SCHEMA,
 } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { RouterLink, RouterOutlet } from '@angular/router';
-import { catchError, map } from 'rxjs';
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {RouterLink, RouterOutlet} from '@angular/router';
+import {catchError, map} from 'rxjs';
 
-import { HeroComponent } from 'app/hero/hero.component';
-import { Hero } from 'app/model/hero';
+import {HeroComponent} from 'app/hero/hero.component';
+import {Hero, HeroResponseSchema} from "app/model/hero";
+import {verifyResponse} from "app/verifyResponse";
 
 @Component({
   selector: 'app-search',
@@ -58,7 +59,10 @@ export class SearchComponent {
 
   heroesFromMongo$ = this.http
     .get<Hero[]>('http://localhost:3000/api/heroes/100')
-    .pipe(catchError(() => []));
+    .pipe(
+      verifyResponse(HeroResponseSchema),
+      catchError(() => [])
+    );
 
   /*
     cards$ = defer(() => from((this.client.search<Hero>({
@@ -72,7 +76,7 @@ export class SearchComponent {
       }));*/
   constructor() {
     this.http
-      .get('http://localhost:3000/api/information', { responseType: 'text' })
+      .get('http://localhost:3000/api/information', {responseType: 'text'})
       .subscribe();
   }
 }

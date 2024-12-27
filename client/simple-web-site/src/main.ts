@@ -1,9 +1,9 @@
-import { VERSION as CDK_VERSION } from '@angular/cdk';
-import { provideHttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { VERSION as MAT_VERSION } from '@angular/material/core';
-import { bootstrapApplication, Title } from '@angular/platform-browser';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import {VERSION as CDK_VERSION} from '@angular/cdk';
+import {provideHttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {VERSION as MAT_VERSION} from '@angular/material/core';
+import {bootstrapApplication, Title} from '@angular/platform-browser';
+import {provideAnimations} from '@angular/platform-browser/animations';
 import {
   provideRouter,
   RouterStateSnapshot,
@@ -11,10 +11,10 @@ import {
   TitleStrategy,
 } from '@angular/router';
 
-import { AppComponent } from 'app/app.component';
-import { HomeComponent } from 'app/home/home.component';
-import { SearchComponent } from 'app/search/search.component';
-import { ThreeJsComponent } from 'app/three-js/three-js.component';
+import {AppComponent} from 'app/app.component';
+import {HomeComponent} from 'app/home/home.component';
+import {SearchComponent} from 'app/search/search.component';
+import {ThreeJsComponent} from 'app/three-js/three-js.component';
 
 /* eslint-disable no-console */
 console.info('Angular CDK version', CDK_VERSION.full);
@@ -43,7 +43,7 @@ const routes: Routes = [
   },
 ];
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 class TemplatePageTitleStrategy extends TitleStrategy {
   constructor(private readonly title: Title) {
     super();
@@ -60,6 +60,6 @@ bootstrapApplication(AppComponent, {
     provideAnimations(),
     provideHttpClient(),
     provideRouter(routes),
-    { provide: TitleStrategy, useClass: TemplatePageTitleStrategy },
+    {provide: TitleStrategy, useClass: TemplatePageTitleStrategy},
   ],
 }).catch((err) => console.error(err));
