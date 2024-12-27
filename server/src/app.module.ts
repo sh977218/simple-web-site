@@ -10,10 +10,12 @@ import { AppController } from 'src/app.controller';
 import { AppService } from 'src/app.service';
 import { HeroesModule } from 'src/heroes/heroes.module';
 
+const ENV = process.env.NODE_ENV;
+
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: ['.env', '.env.development'],
+      envFilePath: !ENV ? '.env' : `.env.${ENV}`,
       isGlobal: true,
       validationSchema: Joi.object({
         NODE_ENV: Joi.string().valid('development', 'production', 'test'),
