@@ -1,4 +1,4 @@
-import { expect } from '@playwright/test';
+import {expect} from '@playwright/test';
 import test from 'test/fixtures/baseTest';
 
 test.describe('Click search link', async () => {
@@ -8,13 +8,18 @@ test.describe('Click search link', async () => {
     await expect(page).toHaveTitle(`Search`);
   });
   test('es result', async ({page}) => {
-    await expect(page.getByTestId('esResult')).toContainText(
+    const appHero = page.getByTestId('esResult').locator('app-hero');
+    await expect(appHero.first()).toContainText(
       'Radiation resistance,Turning tiny,Radiation blast'
     );
   });
   test('mongo result', async ({page}) => {
-    await expect(page.getByTestId('mongoResult')).toContainText(
+    const appHero = page.getByTestId('mongoResult').locator('app-hero');
+    await expect(appHero.first()).toContainText(
       'Radiation resistance,Turning tiny,Radiation blast'
+    );
+    await expect(appHero.nth(1)).toContainText(
+      'Lonely Super hero'
     );
   });
 });

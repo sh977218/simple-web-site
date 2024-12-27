@@ -1,8 +1,9 @@
+@import "material-theme";
+@import 'color';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import 'color';
 
 html,
 body {
@@ -10,5 +11,5 @@ body {
 }
 
 .active {
-  background: $my-blue;
+  background: $my-blue !important;
 }

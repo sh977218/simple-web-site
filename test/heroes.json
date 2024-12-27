@@ -1,4 +1,5 @@
-{
+[
+  {
   "squadName": "Super hero squad",
   "homeTown": "Metro City",
   "formed": 2016,
@@ -38,4 +39,12 @@
       ]
     }
   ]
+},
+  {
+  "squadName": "Lonely Super hero",
+  "homeTown": "Lonely City",
+  "formed": 2025,
+  "secretBase": "Lonely tower",
+  "active": false
 }
+]

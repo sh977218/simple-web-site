@@ -37,7 +37,7 @@
     "test:playwright": "npx playwright test"
   },
   "lint-staged": {
-    "*.{js,ts,css,scss,html,md}": [
+    "{client,server}.{js,ts,css,scss,html,md}": [
       "eslint --fix"
     ]
   },
@@ -120,7 +120,6 @@
     "ajv": "^8.12.0",
     "allure-commandline": "^2.29.0",
     "allure-playwright": "^3.0.0-beta.5",
-    "autoprefixer": "^10.4.20",
     "commitizen": "^4.3.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
@@ -142,12 +141,13 @@
     "lint-staged": "^15.2.10",
     "mongoose": "^8.9.2",
     "nyc": "^15.1.0",
-    "postcss": "^8.4.49",
     "prettier": "^3.4.2",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
     "standard-version": "^9.5.0",
-    "tailwindcss": "^3.4.16",
+    "tailwindcss": "^3.4.17",
+    "postcss": "^8.4.49",
+    "autoprefixer": "^10.4.20",
     "three": "^0.165.0",
     "tslib": "^2.3.0",
     "typescript": "~5.5.4",

@@ -6,7 +6,7 @@
           color="primary"
           togglePosition="before"
           *ngFor="let shoe of typesOfShoes"
-          >{{ shoe }}</mat-list-option
+        >{{ shoe }}</mat-list-option
         >
       </mat-selection-list>
     </div>
@@ -16,7 +16,7 @@
           color="accent"
           togglePosition="before"
           *ngFor="let season of typeOfSeasons"
-          >{{ season }}</mat-list-option
+        >{{ season }}</mat-list-option
         >
       </mat-selection-list>
     </div>
@@ -24,19 +24,21 @@
   <mat-divider></mat-divider>
 
   <div class="flex">
-    <div class="flex-grow" data-testid="esResult">
+    <div class="flex-grow basis-0" data-testid="esResult">
       <h1>Search Result From ES:</h1>
-      <section class="flex flex-wrap justify-between">
+      <section class="flex flex-col flex-wrap justify-between">
         <ng-container *ngFor="let hero of heroesFromES$ | async">
-          <app-hero [hero]="hero"></app-hero>
+          <app-hero [hero]="hero" class="my-2"></app-hero>
+          <mat-divider></mat-divider>
         </ng-container>
       </section>
     </div>
-    <div class="flex-grow" data-testid="mongoResult">
+    <div class="flex-grow basis-0" data-testid="mongoResult">
       <h1 class="flex">Search Result From Mongo:</h1>
-      <section class="flex flex-wrap justify-between">
+      <section class="flex flex-col flex-wrap justify-between">
         <ng-container *ngFor="let hero of heroesFromMongo$ | async">
-          <app-hero [hero]="hero"></app-hero>
+          <app-hero [hero]="hero" class="my-2"></app-hero>
+          <mat-divider></mat-divider>
         </ng-container>
       </section>
     </div>

@@ -8,7 +8,7 @@ module.exports = {
         'build',
         'coverage.webpack.js',
         'karma.conf.js',
-        'tailwind.config.js',
+        'tailwind.config',
         'playwright.config.ts'
     ],
     plugins: ['@typescript-eslint/eslint-plugin', 'import'],
