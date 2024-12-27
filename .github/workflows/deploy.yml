@@ -30,7 +30,7 @@ jobs:
         run: npm i
 
       - name: Build Angular & NestJS
-        run: NODE_ENV=prod npm run build
+        run: npm run build
 
       - name: Output content of build folder
         run: ls -l build

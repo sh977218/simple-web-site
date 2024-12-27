@@ -13,7 +13,7 @@
     "start:client": "npm run start --prefix client",
     "start:server": "npm run start:dev --prefix server",
     "start:server:debug": "npm run start:debug --prefix server",
-    "start:build": "npm run start:build --prefix build",
+    "start:build": "node build/main",
     "build": "npm run build:server && npm run build:client",
     "build:coverage": "npm run build:server && npm run build:client:coverage",
     "build:client": "npm run build --prefix client",
@@ -96,8 +96,6 @@
     "standard-version": "^9.5.0"
   },
   "dependencies": {
-    "mongodb": "^6.12.0",
-    "express-winston": "^4.2.0",
     "@angular/animations": "^18.2.13",
     "@angular/cdk": "^18.2.14",
     "@angular/common": "^18.2.13",

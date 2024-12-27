@@ -8,7 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "target": "ES2021",
     "sourceMap": true,
-    "outDir": "../build/build",
+    "outDir": "../build",
     "baseUrl": ".",
     "typeRoots": [
       "../node_modules/@types/"

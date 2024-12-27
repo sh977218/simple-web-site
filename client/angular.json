@@ -18,7 +18,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath": "../build/build/client",
+            "outputPath": "../build/client",
             "index": "simple-web-site/src/index.html",
             "browser": "simple-web-site/src/main.ts",
             "polyfills": [
@@ -113,7 +113,7 @@
             "customWebpackConfig": {
               "path": "simple-web-site/coverage.webpack.js"
             },
-            "outputPath": "../build/build/client",
+            "outputPath": "../build/client",
             "index": "simple-web-site/src/index.html",
             "main": "simple-web-site/src/main.ts",
             "polyfills": [
