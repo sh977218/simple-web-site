@@ -8,6 +8,7 @@ import * as Joi from 'joi';
 
 import { AppController } from 'src/app.controller';
 import { AppService } from 'src/app.service';
+import { EsService } from 'src/es/es.service';
 import { HeroesModule } from 'src/heroes/heroes.module';
 
 const ENV = process.env.NODE_ENV;
@@ -53,6 +54,6 @@ const ENV = process.env.NODE_ENV;
     HeroesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, EsService],
 })
 export class AppModule {}

@@ -30,9 +30,6 @@
               "simple-web-site/src/public"
             ],
             "styles": [
-              {
-                "input": "simple-web-site/src/theme.scss"
-              },
               "simple-web-site/src/styles.scss"
             ],
             "scripts": []
@@ -86,9 +83,6 @@
               "simple-web-site/src/public"
             ],
             "styles": [
-              {
-                "input": "simple-web-site/src/theme.scss"
-              },
               "simple-web-site/src/styles.scss"
             ],
             "scripts": []
@@ -125,9 +119,6 @@
               "simple-web-site/src/public"
             ],
             "styles": [
-              {
-                "input": "simple-web-site/src/theme.scss"
-              },
               "simple-web-site/src/styles.scss"
             ],
             "scripts": [],

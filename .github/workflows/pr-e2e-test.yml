@@ -41,20 +41,7 @@ jobs:
         run: |
           wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
-      - run: mongoimport test/heroes.json # TODO find a way to run this inside the mongo service container, then the `Setup mongodb-tools` would not be needed neither
-
-      - name: Create es index
-        run: curl -X PUT localhost:9200/heroes
-      - name: Update index to have 0 replicas # TODO es create 1 repl set per node by default, index status is yellow.
-        run: |
-          curl -X PUT http://localhost:9200/heroes/_settings -H "Content-Type: application/json" -d '{
-              "index" : {
-                  "number_of_replicas" : 0
-              }
-          }'
-      - name: Inject data into es
-        run: |
-          curl -X PUT http://localhost:9200/heroes/_create/1 -H "Content-Type: application/json" -d @test/heroes.json
+      - run: mongoimport test/heroes.json --jsonArray # TODO find a way to run this inside the mongo service container, then the `Setup mongodb-tools` would not be needed neither
 
       - name: Install dependencies
         run: npm i
