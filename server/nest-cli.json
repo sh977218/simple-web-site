@@ -10,7 +10,7 @@
         "outDir": "../build/.env"
       },
       {
-        "include": "./assets/heroes.json",
+        "include": "./assets/*",
         "outDir": "../build"
       },
       {

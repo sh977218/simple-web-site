@@ -1,0 +1,3 @@
+{
+  "description": "this file is for testing nestJS build process, which should output this file to build/assets folder"
+}
