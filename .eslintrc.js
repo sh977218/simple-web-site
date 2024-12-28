@@ -6,6 +6,7 @@ module.exports = {
         '.eslintrc.js',
         'scripts',
         'build',
+        'dist',
         'coverage.webpack.js',
         'karma.conf.js',
         'tailwind.config.js',
@@ -112,7 +113,7 @@ module.exports = {
             },
         },
         {
-            files: ['server/**/*.ts'],
+            files: ['{server,test}/**/*.ts'],
             parserOptions: {
                 project: 'server/tsconfig.json',
                 tsconfigRootDir: __dirname,

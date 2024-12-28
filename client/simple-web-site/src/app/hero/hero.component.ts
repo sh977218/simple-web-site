@@ -1,13 +1,7 @@
 import { NgForOf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardSubtitle,
-  MatCardTitle,
-} from '@angular/material/card';
-import { MatList, MatListItem } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 import { RouterLink } from '@angular/router';
 
 import { Hero } from '../model/hero';
@@ -16,15 +10,10 @@ import { Hero } from '../model/hero';
   selector: 'app-hero',
   standalone: true,
   imports: [
-    MatCard,
-    MatCardContent,
-    MatCardHeader,
-    MatCardSubtitle,
-    MatCardTitle,
-    MatList,
-    MatListItem,
     NgForOf,
     RouterLink,
+    MatCardModule,
+    MatListModule,
   ],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
