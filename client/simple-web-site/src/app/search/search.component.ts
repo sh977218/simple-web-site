@@ -41,13 +41,6 @@ import { verifyResponse } from 'app/verifyResponse';
 export class SearchComponent {
   private http = inject(HttpClient);
 
-  typesOfShoes: string[] = [
-    'Boots',
-    'Clogs',
-    'Loafers',
-    'Moccasins',
-    'Sneakers',
-  ];
   typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
 
   heroesFromES$ = this.http

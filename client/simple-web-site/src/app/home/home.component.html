@@ -1,54 +1,47 @@
 <div class="flex flex-col">
   <section>
-    <div class="example-label">Button</div>
-    <div *ngFor="let color of colorService.colors$ | async">
-      <button mat-raised-button [color]="color">{{ color }} Button</button>
-    </div>
-  </section>
-  <section>
-    <div class="example-label">Button Toggle</div>
-    <div *ngFor="let appearance of colorService.appearance$ | async">
-      <mat-button-toggle-group [appearance]="appearance">
-        <mat-button-toggle *ngFor="let color of colorService.colors$ | async">
-          {{ appearance }} {{ color }} Button
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-    </div>
-  </section>
-  <section>
     <div class="example-label">Checkbox</div>
-    <div *ngFor="let color of colorService.colors$ | async">
-      <mat-checkbox [color]="color" [checked]="true">
-        {{ color }}
-      </mat-checkbox>
-      <mat-checkbox [color]="color" [indeterminate]="true">
-        {{ color }}
-      </mat-checkbox>
-      <mat-checkbox [color]="color" [indeterminate]="false">
-        {{ color }}
-      </mat-checkbox>
-    </div>
+    <mat-checkbox [color]="themeService.selectedColor" [checked]="true">
+      checked true
+    </mat-checkbox>
+    <mat-checkbox [color]="themeService.selectedColor" [indeterminate]="true">
+      indeterminate true
+    </mat-checkbox>
+    <mat-checkbox [color]="themeService.selectedColor" [indeterminate]="false">
+      indeterminate false
+    </mat-checkbox>
   </section>
   <section>
     <div class="example-label">Chips</div>
     <div>
       <mat-chip-set>
-        <mat-chip
-          *ngFor="let color of colorService.colors$ | async"
-          [color]="color"
-        >
-          {{ color }}
+        <mat-chip [color]="themeService.selectedColor">
+          chips
         </mat-chip>
       </mat-chip-set>
     </div>
   </section>
   <section>
     <div class="example-label">Tabs</div>
-    <div *ngFor="let color of colorService.colors$ | async">
-      <mat-tab-group [color]="color">
-        <mat-tab label="{{ color }}">{{ color }}</mat-tab>
-        <mat-tab label="{{ color }}">{{ color }}</mat-tab>
-      </mat-tab-group>
-    </div>
+    <mat-tab-group [color]="themeService.selectedColor">
+      <mat-tab label="tab1">tab1</mat-tab>
+      <mat-tab label="tab2">tab2</mat-tab>
+    </mat-tab-group>
+  </section>
+  <section>
+    <div class="example-label">Select List</div>
+    <mat-selection-list [color]="themeService.selectedColor">
+      <mat-list-option
+        [togglePosition]="themeService.selectedLabelPosition"
+        *ngFor="let shoe of [
+    'Boots',
+    'Clogs',
+    'Loafers',
+    'Moccasins',
+    'Sneakers',
+  ]"
+      >{{ shoe }}</mat-list-option
+      >
+    </mat-selection-list>
   </section>
 </div>

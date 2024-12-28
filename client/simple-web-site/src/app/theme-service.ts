@@ -4,10 +4,12 @@ import { ThemePalette } from '@angular/material/core';
 import { of } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class ColorService {
+export class ThemeService {
   colors$ = of<ThemePalette[]>(['primary', 'accent', 'warn']);
-
   appearance$ = of<MatButtonToggleAppearance[]>(['legacy', 'standard']);
-
+  labelPosition$ = of(['before', 'after']);
   darkMode = false;
+  selectedColor: ThemePalette = 'primary';
+  selectedAppearance: MatButtonToggleAppearance = 'legacy';
+  selectedLabelPosition: 'before' | 'after' = 'before';
 }

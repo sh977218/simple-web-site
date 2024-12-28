@@ -1,46 +1,64 @@
-<div [ngClass]="[colorService.darkMode ? 'dark-theme' : '']">
-  <mat-toolbar
-    *ngFor="let color of colorService.colors$ | async"
-    [color]="color"
-  >
+<div [ngClass]="[themeService.darkMode ? 'dark-theme' : '']">
+  <mat-toolbar [color]="themeService.selectedColor">
     <mat-toolbar-row>
-      <span class="mx-2">{{ color | uppercase }} tool bar</span>
+      <button mat-fab extended [color]="themeService.selectedColor">
+        <mat-icon>favorite</mat-icon>
+        Logo
+      </button>
       <a
-        mat-button
+        [color]="themeService.selectedColor"
+        mat-raised-button
         routerLinkActive="active"
         data-automation-id="home-link"
         routerLink="home"
         [routerLinkActiveOptions]="{ exact: true }"
-        >Home
+      >Home
       </a>
       <a
-        mat-button
+        [color]="themeService.selectedColor"
+        mat-raised-button
         routerLinkActive="active"
         data-automation-id="search-link"
         routerLink="search"
         [routerLinkActiveOptions]="{ exact: true }"
-        >Search</a
+      >Search</a
       >
       <a
-        mat-button
+        [color]="themeService.selectedColor"
+        mat-raised-button
         routerLinkActive="active"
         routerLink="threeJs"
         data-automation-id="three-js-link"
         [routerLinkActiveOptions]="{ exact: true }"
-        >Three JS</a
+      >Three JS</a
       >
       <a
-        mat-button
+        [color]="themeService.selectedColor"
+        mat-raised-button
         routerLinkActive="active"
         routerLink="helps/about"
         [routerLinkActiveOptions]="{ exact: true }"
-      >About</a
-      >
+      >About</a>
+      <span class="flex-1"></span>
+      <mat-button-toggle-group (change)="themeService.selectedColor = $event.value">
+        <mat-button-toggle [value]="color" *ngFor="let color of themeService.colors$ | async">{{color}}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+      <span class="flex-1"></span>
+      <mat-button-toggle-group [appearance]="themeService.selectedAppearance" (change)="themeService.selectedAppearance = $event.value">
+        <mat-button-toggle [value]="appearance" *ngFor="let appearance of themeService.appearance$ | async">{{appearance}}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
+      <span class="flex-1"></span>
+      <mat-button-toggle-group [appearance]="themeService.selectedAppearance" (change)="themeService.selectedLabelPosition = $event.value">
+        <mat-button-toggle [value]="labelPosition" *ngFor="let labelPosition of themeService.labelPosition$ | async">{{labelPosition}}
+        </mat-button-toggle>
+      </mat-button-toggle-group>
       <span class="flex-1"></span>
       <mat-slide-toggle
-        color="warn"
-        labelPosition="before"
-        [(ngModel)]="colorService.darkMode"
+        [color]="themeService.selectedColor"
+        [labelPosition]="themeService.selectedLabelPosition"
+        [(ngModel)]="themeService.darkMode"
       >
         <div class="flex justify-center">
           <mat-icon>dark_mode</mat-icon>
