@@ -1,5 +1,7 @@
-[
-  {
+[{
+  "_id": {
+    "$oid": "676f1540126a297f0007405e"
+  },
   "squadName": "Super hero squad",
   "homeTown": "Metro City",
   "formed": 2016,
@@ -40,11 +42,13 @@
     }
   ]
 },
-  {
+{
+  "_id": {
+    "$oid": "676f1540126a297f0007405f"
+  },
   "squadName": "Lonely Super hero",
   "homeTown": "Lonely City",
   "formed": 2025,
   "secretBase": "Lonely tower",
   "active": false
-}
-]
+}]
