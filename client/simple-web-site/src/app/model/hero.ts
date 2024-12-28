@@ -3,7 +3,7 @@ import { z } from 'zod';
 export const MemberSchema = z.object({
   age: z.number(),
   name: z.string(),
-  powers: [z.string()],
+  powers: z.array(z.string()),
   secretIdentity: z.string(),
 });
 export const HeroSchema = z.object({
@@ -11,9 +11,9 @@ export const HeroSchema = z.object({
   secretBase: z.string(),
   content: z.string(),
   squadName: z.number(),
-  members: [MemberSchema],
+  members: z.array(MemberSchema),
 });
 
 export const HeroResponseSchema = z.array(HeroSchema);
 
-export type Hero = z.infer<HeroSchema>;
+export type Hero = z.infer<typeof HeroSchema>;
