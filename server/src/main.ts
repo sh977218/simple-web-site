@@ -7,6 +7,7 @@ import * as cookieParser from 'cookie-parser';
 import { AppModule } from 'src/app.module';
 import { EsService } from 'src/es/es.service';
 import { MyLogger } from 'src/myLogger';
+
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: new MyLogger(),
@@ -17,7 +18,7 @@ async function bootstrap() {
   const esService = app.get(EsService);
   await esService.deleteHeroIndex('heroes');
   await esService.createHeroIndex('heroes');
-  const data = fs.readFileSync('src/heroes.json', 'utf-8');
+  const data = fs.readFileSync('assets/heroes.json', 'utf-8');
   await esService.injectData('heroes', JSON.parse(data));
 
   const config = new DocumentBuilder()
