@@ -41,7 +41,7 @@ jobs:
         run: |
           wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
           sudo apt install ./mongodb-database-tools-*-100.6.1.deb
-      - run: mongoimport test/heroes.json # TODO find a way to run this inside the mongo service container, then the `Setup mongodb-tools` would not be needed neither
+      - run: mongoimport test/heroes.json --jsonArray # TODO find a way to run this inside the mongo service container, then the `Setup mongodb-tools` would not be needed neither
 
       - name: Create es index
         run: curl -X PUT localhost:9200/heroes
