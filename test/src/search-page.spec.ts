@@ -12,6 +12,8 @@ test.describe('Click search link', async () => {
     await expect(appHero.first()).toContainText(
       'Radiation resistance,Turning tiny,Radiation blast'
     );
+    await expect(appHero.nth(1)).toContainText('Lonely Super hero'
+    );
   });
   test('mongo result', async ({page}) => {
     const appHero = page.getByTestId('mongoResult').locator('app-hero');

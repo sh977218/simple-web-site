@@ -112,7 +112,7 @@ module.exports = {
             },
         },
         {
-            files: ['server/**/*.ts'],
+            files: ['{server,test}/**/*.ts'],
             parserOptions: {
                 project: 'server/tsconfig.json',
                 tsconfigRootDir: __dirname,
