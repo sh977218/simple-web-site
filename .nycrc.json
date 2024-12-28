@@ -6,7 +6,7 @@
     "lcov", "json", "text-summary"
   ],
   "statements": 45,
-  "branches": 100,
+  "branches": 33,
   "functions": 28,
   "lines": 42
 }

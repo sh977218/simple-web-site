@@ -7,10 +7,11 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatListOption, MatSelectionList } from '@angular/material/list';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterLink } from '@angular/router';
 
-import { ColorService } from 'app/color-service';
+import { ThemeService } from 'app/theme-service';
 
 @Component({
   selector: 'app-home',
@@ -26,10 +27,12 @@ import { ColorService } from 'app/color-service';
     MatInputModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatListOption,
+    MatSelectionList,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  colorService = inject(ColorService);
+  themeService = inject(ThemeService);
 }
