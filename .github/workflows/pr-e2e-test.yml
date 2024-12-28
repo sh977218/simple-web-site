@@ -132,6 +132,7 @@ jobs:
         uses: ./.github/actions/generate-playwright-coverage-report
 
       - name: Upload playwright coverage report to Azure
+        if: always()
         uses: azure/cli@v2
         with:
           azcliversion: latest
@@ -139,6 +140,7 @@ jobs:
             az storage blob upload-batch --account-name mysimplewebsite -s ./coverage-e2e -d playwright-coverage --destination-path ${{github.event.pull_request.number}} --overwrite
 
       - name: Populate coverage report to job summary
+        if: always()
         run: |
           echo "# Deployed playwright coverage report to https://mysimplewebsite.blob.core.windows.net/playwright-coverage/${{github.event.pull_request.number}}/lcov-report/index.html" >> $GITHUB_STEP_SUMMARY
 
