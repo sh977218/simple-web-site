@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import * as path from 'path';
 
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
@@ -18,7 +19,8 @@ async function bootstrap() {
   const esService = app.get(EsService);
   await esService.deleteHeroIndex('heroes');
   await esService.createHeroIndex('heroes');
-  const data = fs.readFileSync('assets/heroes.json', 'utf-8');
+  const filePath = path.join(__dirname, 'assets/heroes.json');
+  const data = fs.readFileSync(filePath, 'utf-8');
   await esService.injectData('heroes', JSON.parse(data));
 
   const config = new DocumentBuilder()
