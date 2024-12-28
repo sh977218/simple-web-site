@@ -6,6 +6,7 @@ module.exports = {
         '.eslintrc.js',
         'scripts',
         'build',
+        'dist',
         'coverage.webpack.js',
         'karma.conf.js',
         'tailwind.config.js',
