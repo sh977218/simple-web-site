@@ -40,9 +40,17 @@ const ENV = process.env.NODE_ENV;
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
-        const uri =
-          configService.get<string>('DATABASE_PROTOCOL') +
-          configService.get<string>('DATABASE_HOST');
+        const DATABASE_PROTOCOL =
+          configService.get<string>('DATABASE_PROTOCOL');
+        const DATABASE_HOST = configService.get<string>('DATABASE_HOST');
+        const DATABASE_USERNAME =
+          configService.get<string>('DATABASE_USERNAME');
+        const DATABASE_PASSWORD =
+          configService.get<string>('DATABASE_PASSWORD');
+        const AUTH_CREDITS = DATABASE_USERNAME
+          ? `${DATABASE_USERNAME}:${DATABASE_PASSWORD}@`
+          : '';
+        const uri = `${DATABASE_PROTOCOL}${AUTH_CREDITS}${DATABASE_HOST}`;
         const dbName = configService.get<string>('DATABASE_NAME');
         return {
           uri,
