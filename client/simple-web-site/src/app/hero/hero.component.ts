@@ -9,12 +9,7 @@ import { Hero } from '../model/hero';
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [
-    NgForOf,
-    RouterLink,
-    MatCardModule,
-    MatListModule,
-  ],
+  imports: [NgForOf, RouterLink, MatCardModule, MatListModule],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

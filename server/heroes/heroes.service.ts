@@ -3,8 +3,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { CreateHeroDto } from 'src/heroes/createHeroDto';
-import { Hero } from 'src/model/hero';
+import { CreateHeroDto } from 'server/heroes/createHeroDto';
+import { Hero } from 'server/model/hero';
 
 @Injectable()
 export class HeroesService {

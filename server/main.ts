@@ -5,9 +5,9 @@ import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as cookieParser from 'cookie-parser';
 
-import { AppModule } from 'src/app.module';
-import { EsService } from 'src/es/es.service';
-import { MyLogger } from 'src/myLogger';
+import { AppModule } from 'server/app.module';
+import { EsService } from 'server/es/es.service';
+import { MyLogger } from 'server/myLogger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {

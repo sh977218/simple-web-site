@@ -39,10 +39,8 @@ import { verifyResponse } from 'app/verifyResponse';
   styleUrl: './search.component.scss',
 })
 export class SearchComponent {
-  private http = inject(HttpClient);
-
   typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
-
+  private http = inject(HttpClient);
   heroesFromES$ = this.http
     .get<{ _source: Hero }[]>('http://localhost:3000/api/search/heroes')
     .pipe(

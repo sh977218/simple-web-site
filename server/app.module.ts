@@ -6,10 +6,10 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import * as Joi from 'joi';
 
-import { AppController } from 'src/app.controller';
-import { AppService } from 'src/app.service';
-import { EsService } from 'src/es/es.service';
-import { HeroesModule } from 'src/heroes/heroes.module';
+import { AppController } from 'server/app.controller';
+import { AppService } from 'server/app.service';
+import { EsService } from 'server/es/es.service';
+import { HeroesModule } from 'server/heroes/heroes.module';
 
 const ENV = process.env.NODE_ENV;
 

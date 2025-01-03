@@ -1,7 +1,28 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./build",
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc"
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "moduleResolution": "node"
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }

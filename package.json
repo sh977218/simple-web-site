@@ -15,10 +15,10 @@
   "scripts": {
     "build": "npm run build:server && npm run build:client",
     "build-docker": "docker build -t simply-web-site:v1.0.0 -f ./Dockerfile .",
-    "build:client": "npm run build --prefix client",
+    "build:client": "ng build simple-web-site",
     "build:client:coverage": "npm run build:e2e-coverage --prefix client",
     "build:coverage": "npm run build:server && npm run build:client:coverage",
-    "build:server": "npm run build --prefix server",
+    "build:server": "nest build",
     "commit": "git cz",
     "coverage-report": "npx nyc report",
     "postinstall": "npx husky install",
@@ -31,7 +31,7 @@
     "run-docker": "docker run -p 4200:80 simply-web-site:v1.0.0",
     "start:build": "node build/main",
     "start:client": "npm run start --prefix client",
-    "start:server": "npm run start:dev --prefix server",
+    "start:server": "nest start",
     "start:server:debug": "npm run start:debug --prefix server",
     "test:karma": "npm run test:karma --prefix client",
     "test:playwright": "npx playwright test"
