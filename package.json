@@ -1,7 +1,7 @@
 {
   "name": "simple-web-site",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "keywords": [
     "Angular",
     "Playwright",
@@ -157,7 +157,7 @@
     "zod": "^3.24.1"
   },
   "engines": {
-    "node": ">=18 <= 20.x.x",
-    "npm": ">=9 <= 10.x.x"
+    "node": ">=^24.0.0",
+    "npm": ">=11"
   }
 }
