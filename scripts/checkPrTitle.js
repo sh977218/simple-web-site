@@ -1,32 +1,22 @@
-checkPrTitle();
+#!/usr/bin/env node
 
-function checkString(s) {
-  console.log(
-    '------------------------------------------------------------------'
+const prTitle = process.argv[2];
+
+const TYPE = 'feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|poc';
+const SCOPE = 'repo';
+
+const regex = new RegExp(`^(${TYPE})\\(${SCOPE}\\)(!)?:\\s.+$`);
+
+console.log('PR Title:', prTitle);
+console.log('Validating against pattern:', regex);
+
+if (!regex.test(prTitle)) {
+  console.error(
+    '❌ Invalid PR title!',
   );
-  console.log('Input string: '.concat(s));
-  let regex = new RegExp(
-    /(\b(feat|fix|bug|docs|chore|refactor|test)\b(\((.)*\))*:).*/
-  );
-  let regexResult = regex.test(s);
-  console.log('regexResult: '.concat(regexResult));
-  console.log(
-    '------------------------------------------------------------------'
-  );
-  process.exit(regexResult ? 0 : 1);
+  console.error('Example: feat(repo): adds fancy feature');
+  console.error(`Pattern: ${regex}`);
+  process.exit(1);
 }
 
-function checkPrTitle() {
-  let argv = process.argv[2];
-  if (!argv) {
-    process.exit(1);
-  } else {
-    let argvArray = argv.split('=');
-    if (argvArray.length != 2) {
-      process.exit(1);
-    } else {
-      let prTitle = argvArray[1];
-      checkString(prTitle);
-    }
-  }
-}
+process.exit(0);

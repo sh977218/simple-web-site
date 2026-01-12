@@ -19,8 +19,4 @@ jobs:
           node-version: '20'
 
       - name: Validate Title of PR
-        run: node scripts/checkPrTitle.js --title="${{ github.event.pull_request.title }}"
-
-      - name: Validate Template completion of PR
-        if: false
-        run: node scripts/checkPrTemplate.js --body="${{ github.event.pull_request.body }}"
+        run: node scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
