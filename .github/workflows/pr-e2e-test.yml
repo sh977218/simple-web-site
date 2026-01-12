@@ -56,7 +56,7 @@ jobs:
         run: COVERAGE=true npm run test:playwright
 
       - name: Upload playwright blob report to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: blob-report
@@ -64,7 +64,7 @@ jobs:
           retention-days: 30
 
       - name: Upload nyc report row data to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: e2e_nyc_output
@@ -72,14 +72,14 @@ jobs:
           retention-days: 30
 
       - name: Upload current run allure result to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: allure-results
           path: allure-results
           retention-days: 30
       - name: Upload error log to Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         if: always()
         with:
           name: error.log
