@@ -74,3 +74,8 @@ previous-allure-report
 
 # logger
 error.log
+
+
+
+.nx/cache
+.nx/workspace-data
