@@ -27,7 +27,7 @@ jobs:
           node-version: '20'
 
       - name: Install dependencies
-        run: npm i
+        run: npm ci
 
       - name: Build Angular & NestJS
         run: nx run ui:build:production
