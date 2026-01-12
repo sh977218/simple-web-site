@@ -3,11 +3,11 @@ import * as path from 'path';
 
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import * as cookieParser from 'cookie-parser';
+import cookieParser from 'cookie-parser';
 
-import { AppModule } from 'src/app.module';
-import { EsService } from 'src/es/es.service';
-import { MyLogger } from 'src/myLogger';
+import { AppModule } from './app/app.module';
+import { EsService } from './app/es/es.service';
+import { MyLogger } from './app/myLogger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
