@@ -14,7 +14,6 @@ import {
 import { AppComponent } from './app/app.component';
 import { HomeComponent } from './app/home/home.component';
 import { SearchComponent } from './app/search/search.component';
-import { ThreeJsComponent } from './app/three-js/three-js.component';
 
 /* eslint-disable no-console */
 console.info('Angular CDK version', CDK_VERSION.full);
@@ -25,11 +24,6 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent,
     title: 'Home',
-  },
-  {
-    path: 'threeJs',
-    component: ThreeJsComponent,
-    title: 'Three Js',
   },
   {
     path: 'search',
