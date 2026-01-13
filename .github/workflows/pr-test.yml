@@ -39,13 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and deploy
     steps:
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
@@ -59,9 +52,6 @@ jobs:
 
       - name: Build Angular & NestJS
         run: npm run build
-
-      - name: Generate build tar
-        run: tar -cf build.tar build package.json package-lock.json
 
   e2e-test:
     name: e2e-test
