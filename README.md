@@ -1,9 +1,5 @@
 # Simple Web Site
 
-
-
-
-
 ## This is a playground project, but it has comprehensive software development practices
 
 ### Tech Stacks:

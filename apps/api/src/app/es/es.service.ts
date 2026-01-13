@@ -7,8 +7,6 @@ export class EsService {
     node: 'http://localhost:9200',
   });
 
-  constructor() {}
-
   async deleteHeroIndex(indexName: string) {
     try {
       const response = await this.client.indices.delete({

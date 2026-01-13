@@ -1,5 +1,5 @@
 import { expect } from '@playwright/test';
-import test from 'test/fixtures/baseTest';
+import test from '../fixtures/baseTest';
 
 test('Check page title', async ({ page }) => {
   await expect(page).toHaveTitle(`SimpleWebSite`);

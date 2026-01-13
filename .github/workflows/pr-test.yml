@@ -21,7 +21,7 @@ jobs:
           node-version: '20'
 
       - name: Validate Title of PR
-        run: node scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
+        run: node .github/scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
 
   unit-test:
     name: unit-test

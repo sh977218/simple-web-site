@@ -1,19 +1,17 @@
 {
   "name": "ui",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "app",
   "sourceRoot": "apps/ui/src",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
+      "executor": "@angular/build:application",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/ui",
-        "index": "apps/ui/src/index.html",
         "browser": "apps/ui/src/main.ts",
-        "polyfills": ["zone.js"],
         "tsConfig": "apps/ui/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -22,10 +20,22 @@
             "input": "apps/ui/public"
           }
         ],
-        "styles": ["apps/ui/src/styles.scss"]
+        "styles": ["apps/ui/src/styles.css"]
       },
       "configurations": {
         "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "4kb",
+              "maximumError": "8kb"
+            }
+          ],
           "outputHashing": "all"
         },
         "development": {
@@ -38,7 +48,7 @@
     },
     "serve": {
       "continuous": true,
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
       "configurations": {
         "production": {
           "buildTarget": "ui:build:production"
@@ -51,6 +61,10 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {}
     },
     "serve-static": {
       "continuous": true,
