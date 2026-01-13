@@ -30,10 +30,7 @@ jobs:
         run: npm ci
 
       - name: Build Angular & NestJS
-        run: nx run ui:build:production
-
-      - name: Output content of build folder
-        run: ls -l build
+        run: npm run build
 
       - name: Generate build tar
         run: tar -cf build.tar build package.json package-lock.json
