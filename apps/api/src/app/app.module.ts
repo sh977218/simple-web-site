@@ -34,7 +34,7 @@ const ENV = process.env.NODE_ENV;
       rootPath: join(
         __dirname,
         '.',
-        process.env.COVERAGE ? 'client' : 'client/browser',
+        process.env.COVERAGE ? 'ui' : 'ui/browser',
       ),
     }),
     MongooseModule.forRootAsync({

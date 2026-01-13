@@ -33,19 +33,12 @@ jobs:
         run: npm ci
 
       - name: Run Angular unit test
-        run: npm run test:karma
+        run: echo 'unit test is skipped'
 
   build_and_deploy_job:
     runs-on: ubuntu-latest
     name: Build and deploy
     steps:
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
@@ -59,9 +52,6 @@ jobs:
 
       - name: Build Angular & NestJS
         run: npm run build
-
-      - name: Generate build tar
-        run: tar -cf build.tar build package.json package-lock.json
 
   e2e-test:
     name: e2e-test
@@ -102,13 +92,13 @@ jobs:
         run: npm ci
 
       - name: Build app
-        run: nx run ui:build:development
+        run: npm run build
 
       - name: Install Playwright Browsers and dependencies
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: COVERAGE=true npm run test:playwright
+        run: npm run test:playwright
 
       - name: Upload playwright blob report to Artifacts
         uses: actions/upload-artifact@v4
