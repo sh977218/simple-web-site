@@ -82,6 +82,27 @@
           }
         }
       },
+      "scope": {
+        "description": "Select the scope of change you're commiting:",
+        "enum": {
+          "repo": {
+            "description": "Repository architectural",
+            "title": "Repo"
+          },
+          "ui": {
+            "description": "Angular",
+            "title": "UI"
+          },
+          "api": {
+            "description": "NestJs",
+            "title": "API"
+          },
+          "ui & api": {
+            "description": "Angular & NestJs",
+            "title": "UI & API"
+          }
+        }
+      },
       "subject": {
         "description": "Write a short, imperative tense description of the change"
       }
