@@ -27,8 +27,10 @@ export class HeroesService {
     const result = await this.client.search<Hero>({
       index: 'heroes',
       body: {
-        match: {
-          homeTown: 'Metro City',
+        query: {
+          match: {
+            homeTown: 'Metro City',
+          },
         },
       },
     });
