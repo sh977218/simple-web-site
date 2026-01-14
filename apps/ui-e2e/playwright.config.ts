@@ -54,8 +54,8 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: 'npm run start:build',
-      url: 'http://localhost:3000',
+      command: 'npm run start:ui',
+      url: 'http://localhost:4200',
       reuseExistingServer: true,
       cwd: workspaceRoot,
     },
