@@ -3,7 +3,7 @@
 const prTitle = process.argv[2];
 
 const TYPE = 'feat|fix|docs|style|refactor|perf|test|chore|build|ci|revert|poc';
-const SCOPE = 'repo|ui|api & ui';
+const SCOPE = 'repo|ui|api|ui & api';
 
 const regex = new RegExp(`^(${TYPE})\\(${SCOPE}\\)(!)?:\\s.+$`);
 
