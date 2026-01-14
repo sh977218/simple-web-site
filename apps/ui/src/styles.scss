@@ -1,0 +1,13 @@
+@use 'color';
+@use "tailwindcss";
+@use "material-theme";
+
+
+html,
+body {
+  margin: 0;
+}
+
+.active {
+  background: color.$my-blue !important;
+}

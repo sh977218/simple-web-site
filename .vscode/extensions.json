@@ -1,8 +1,10 @@
 {
   "recommendations": [
+    "angular.ng-template",
     "nrwl.angular-console",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
-    "ms-playwright.playwright"
+    "ms-playwright.playwright",
+    "firsttris.vscode-jest-runner"
   ]
 }

@@ -1,0 +1,14 @@
+name: generate-coverage-report
+description: generate coverage report
+runs:
+  using: "composite"
+  steps:
+    - name: Download nyc report row data from Previous job(s)
+      uses: actions/download-artifact@v3
+      with:
+        name: e2e_nyc_output
+        path: e2e_nyc_output
+
+    - name: Generate coverage report
+      shell: bash
+      run: npx nyc report

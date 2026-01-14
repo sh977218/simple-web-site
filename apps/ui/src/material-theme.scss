@@ -1,0 +1,36 @@
+@use 'sass:color';
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+
+$my-light-theme-primary: mat.m2-define-palette(mat.$m2-blue-palette);
+$my-light-theme-accent: mat.m2-define-palette(mat.$m2-yellow-palette);
+$my-light-theme-warn: mat.m2-define-palette(mat.$m2-red-palette);
+
+$my-light-theme: mat.m2-define-light-theme(
+  (
+    color: (
+      primary: $my-light-theme-primary,
+      accent: $my-light-theme-accent,
+      warn: $my-light-theme-warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($my-light-theme);
+
+$my-dark-theme-primary: mat.m2-define-palette(mat.$m2-gray-palette);
+$my-dark-theme-accent: mat.m2-define-palette(mat.$m2-amber-palette);
+
+$my-dark-theme: mat.m2-define-dark-theme(
+  (
+    color: (
+      primary: $my-dark-theme-primary,
+      accent: $my-dark-theme-accent,
+    ),
+  )
+);
+.dark-theme {
+  @include mat.all-component-colors($my-dark-theme);
+}
