@@ -1,8 +1,8 @@
+@use 'sass:color';
 @use '@angular/material' as mat;
 
 @include mat.core();
 
-@import 'color';
 
 $my-light-theme-primary: mat.m2-define-palette(mat.$m2-blue-palette);
 $my-light-theme-accent: mat.m2-define-palette(mat.$m2-yellow-palette);
