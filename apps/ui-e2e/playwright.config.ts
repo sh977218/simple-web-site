@@ -4,7 +4,7 @@ import { workspaceRoot } from '@nx/devkit';
 import * as os from 'node:os';
 
 // For CI, you may want to set BASE_URL to the deployed application.
-const baseURL = process.env['BASE_URL'] || 'http://localhost:3000';
+const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
 
 /**
  * Read environment variables from file.
