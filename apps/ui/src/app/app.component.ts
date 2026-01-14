@@ -1,4 +1,4 @@
-import { AsyncPipe, NgClass, NgForOf } from '@angular/common';
+import { AsyncPipe, NgClass } from '@angular/common';
 import {
   Component,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -31,7 +31,6 @@ import { ThemeService } from './theme-service';
     RouterLink,
     RouterLinkActive,
     NgClass,
-    NgForOf,
     AsyncPipe,
     MatToolbarModule,
     MatIconModule,
@@ -41,8 +40,8 @@ import { ThemeService } from './theme-service';
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
-    MatButtonToggle,
-  ],
+    MatButtonToggle
+],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
 })
 export class AppComponent {
