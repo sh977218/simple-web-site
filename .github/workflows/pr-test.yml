@@ -98,7 +98,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: npm run test:playwright
+        run: npx nx run ui-e2e:e2e
 
       - name: Upload playwright blob report to Artifacts
         uses: actions/upload-artifact@v4
@@ -123,6 +123,7 @@ jobs:
           name: allure-results
           path: allure-results
           retention-days: 30
+
       - name: Upload error log to Artifacts
         uses: actions/upload-artifact@v4
         if: always()
