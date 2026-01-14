@@ -1,4 +1,4 @@
-import { NgForOf } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
@@ -9,7 +9,7 @@ import { Hero } from '../model/hero';
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [NgForOf, RouterLink, MatCardModule, MatListModule],
+  imports: [RouterLink, MatCardModule, MatListModule],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -31,17 +31,18 @@
   <section>
     <div class="example-label">Select List</div>
     <mat-selection-list [color]="themeService.selectedColor">
-      <mat-list-option
-        [togglePosition]="themeService.selectedLabelPosition"
-        *ngFor="let shoe of [
-    'Boots',
-    'Clogs',
-    'Loafers',
-    'Moccasins',
-    'Sneakers',
-  ]"
-      >{{ shoe }}</mat-list-option
-      >
-    </mat-selection-list>
-  </section>
-</div>
+      @for (shoe of [
+        'Boots',
+        'Clogs',
+        'Loafers',
+        'Moccasins',
+        'Sneakers',
+        ]; track shoe) {
+        <mat-list-option
+          [togglePosition]="themeService.selectedLabelPosition"
+          >{{ shoe }}</mat-list-option
+          >
+        }
+      </mat-selection-list>
+    </section>
+  </div>

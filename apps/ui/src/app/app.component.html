@@ -12,7 +12,7 @@
         data-automation-id="home-link"
         routerLink="home"
         [routerLinkActiveOptions]="{ exact: true }"
-      >Home
+        >Home
       </a>
       <a
         [color]="themeService.selectedColor"
@@ -21,55 +21,61 @@
         data-automation-id="search-link"
         routerLink="search"
         [routerLinkActiveOptions]="{ exact: true }"
-      >Search</a
-      >
-      <a
-        [color]="themeService.selectedColor"
-        mat-raised-button
-        routerLinkActive="active"
-        routerLink="threeJs"
-        data-automation-id="three-js-link"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >Three JS</a
-      >
-      <a
-        [color]="themeService.selectedColor"
-        mat-raised-button
-        routerLinkActive="active"
-        routerLink="helps/about"
-        [routerLinkActiveOptions]="{ exact: true }"
-      >About</a>
-      <span class="flex-1"></span>
-      <mat-button-toggle-group (change)="themeService.selectedColor = $event.value">
-        <mat-button-toggle [value]="color" *ngFor="let color of themeService.colors$ | async">{{color}}
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-      <span class="flex-1"></span>
-      <mat-button-toggle-group [appearance]="themeService.selectedAppearance" (change)="themeService.selectedAppearance = $event.value">
-        <mat-button-toggle [value]="appearance" *ngFor="let appearance of themeService.appearance$ | async">{{appearance}}
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-      <span class="flex-1"></span>
-      <mat-button-toggle-group [appearance]="themeService.selectedAppearance" (change)="themeService.selectedLabelPosition = $event.value">
-        <mat-button-toggle [value]="labelPosition" *ngFor="let labelPosition of themeService.labelPosition$ | async">{{labelPosition}}
-        </mat-button-toggle>
-      </mat-button-toggle-group>
-      <span class="flex-1"></span>
-      <mat-slide-toggle
-        [color]="themeService.selectedColor"
-        [labelPosition]="themeService.selectedLabelPosition"
-        [(ngModel)]="themeService.darkMode"
-      >
-        <div class="flex justify-center">
-          <mat-icon>dark_mode</mat-icon>
-          DARK MODE
-        </div>
-      </mat-slide-toggle>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <mat-drawer-container class="min-h-svh" autosize>
-    <main class="m-5">
-      <router-outlet></router-outlet>
-    </main>
-  </mat-drawer-container>
-</div>
+        >Search</a
+        >
+        <a
+          [color]="themeService.selectedColor"
+          mat-raised-button
+          routerLinkActive="active"
+          routerLink="threeJs"
+          data-automation-id="three-js-link"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Three JS</a
+          >
+          <a
+            [color]="themeService.selectedColor"
+            mat-raised-button
+            routerLinkActive="active"
+            routerLink="helps/about"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >About</a>
+          <span class="flex-1"></span>
+          <mat-button-toggle-group (change)="themeService.selectedColor = $event.value">
+            @for (color of themeService.colors$ | async; track color) {
+              <mat-button-toggle [value]="color">{{color}}
+              </mat-button-toggle>
+            }
+          </mat-button-toggle-group>
+          <span class="flex-1"></span>
+          <mat-button-toggle-group [appearance]="themeService.selectedAppearance" (change)="themeService.selectedAppearance = $event.value">
+            @for (appearance of themeService.appearance$ | async; track appearance) {
+              <mat-button-toggle [value]="appearance">{{appearance}}
+              </mat-button-toggle>
+            }
+          </mat-button-toggle-group>
+          <span class="flex-1"></span>
+          <mat-button-toggle-group [appearance]="themeService.selectedAppearance" (change)="themeService.selectedLabelPosition = $event.value">
+            @for (labelPosition of themeService.labelPosition$ | async; track labelPosition) {
+              <mat-button-toggle [value]="labelPosition">{{labelPosition}}
+              </mat-button-toggle>
+            }
+          </mat-button-toggle-group>
+          <span class="flex-1"></span>
+          <mat-slide-toggle
+            [color]="themeService.selectedColor"
+            [labelPosition]="themeService.selectedLabelPosition"
+            [(ngModel)]="themeService.darkMode"
+            >
+            <div class="flex justify-center">
+              <mat-icon>dark_mode</mat-icon>
+              DARK MODE
+            </div>
+          </mat-slide-toggle>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-drawer-container class="min-h-svh" autosize>
+        <main class="m-5">
+          <router-outlet></router-outlet>
+        </main>
+      </mat-drawer-container>
+    </div>

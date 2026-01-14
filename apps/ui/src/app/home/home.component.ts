@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -15,7 +15,6 @@ import { ThemeService } from '../theme-service';
   selector: 'app-home',
   standalone: true,
   imports: [
-    CommonModule,
     MatButtonModule,
     MatGridListModule,
     MatTabsModule,
@@ -25,8 +24,8 @@ import { ThemeService } from '../theme-service';
     MatCheckboxModule,
     MatChipsModule,
     MatListOption,
-    MatSelectionList,
-  ],
+    MatSelectionList
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })

@@ -1,4 +1,4 @@
-import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
   Component,
@@ -21,7 +21,6 @@ import { verifyResponse } from '../verifyResponse';
   selector: 'app-search',
   standalone: true,
   imports: [
-    NgFor,
     AsyncPipe,
     CommonModule,
     MatSidenavModule,
@@ -29,8 +28,8 @@ import { verifyResponse } from '../verifyResponse';
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    HeroComponent,
-  ],
+    HeroComponent
+],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './search.component.html',
   styleUrl: './search.component.scss',
