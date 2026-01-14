@@ -1,4 +1,4 @@
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
   Component,
@@ -22,13 +22,13 @@ import { verifyResponse } from '../verifyResponse';
   standalone: true,
   imports: [
     AsyncPipe,
-    CommonModule,
     MatSidenavModule,
     MatListModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
-    HeroComponent
+    HeroComponent,
+    AsyncPipe
 ],
   schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './search.component.html',

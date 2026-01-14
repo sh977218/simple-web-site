@@ -1,6 +1,6 @@
 import { VERSION as CDK_VERSION } from '@angular/cdk';
 import { provideHttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { VERSION as MAT_VERSION } from '@angular/material/core';
 import { bootstrapApplication, Title } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -12,8 +12,8 @@ import {
 } from '@angular/router';
 
 import { AppComponent } from './app/app.component';
-import { HomeComponent } from './app/home/home.component';
-import { SearchComponent } from './app/search/search.component';
+
+
 
 /* eslint-disable no-console */
 console.info('Angular CDK version', CDK_VERSION.full);
@@ -22,12 +22,12 @@ console.info('Angular Material version', MAT_VERSION.full);
 const routes: Routes = [
   {
     path: 'home',
-    component: HomeComponent,
+    loadComponent: () => import('./app/home/home.component').then(m => m.HomeComponent),
     title: 'Home',
   },
   {
     path: 'search',
-    component: SearchComponent,
+    loadComponent: () => import('./app/search/search.component').then(m => m.SearchComponent),
     title: 'Search',
   },
   {
@@ -39,7 +39,12 @@ const routes: Routes = [
 
 @Injectable({ providedIn: 'root' })
 class TemplatePageTitleStrategy extends TitleStrategy {
-  constructor(private readonly title: Title) {
+  private readonly title = inject(Title);
+
+  /** Inserted by Angular inject() migration for backwards compatibility */
+  constructor(...args: unknown[]);
+
+  constructor() {
     super();
   }
 
