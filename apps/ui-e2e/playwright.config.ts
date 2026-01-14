@@ -27,23 +27,7 @@ export default defineConfig({
   forbidOnly: !!process.env['CI'],
   retries: 0,
   workers: 1,
-  reporter: [
-    ['blob'],
-    ['html'],
-    [
-      'allure-playwright',
-      {
-        detail: true,
-        suiteTitle: false,
-        environmentInfo: {
-          os_platform: os.platform(),
-          os_release: os.release(),
-          os_version: os.version(),
-          node_version: process.version,
-        },
-      },
-    ],
-  ],
+  reporter: [['html']],
   use: {
     baseURL,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */

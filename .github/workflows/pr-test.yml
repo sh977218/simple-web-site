@@ -100,37 +100,46 @@ jobs:
       - name: Run Playwright tests
         run: npx nx run ui-e2e:e2e
 
-      - name: Upload playwright blob report to Artifacts
+      - name: Upload playwright html report to Artifacts
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: blob-report
-          path: blob-report
+          name: playwright-report
+          path: playwright-report
           retention-days: 30
 
-      - name: Upload nyc report row data to Artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: e2e_nyc_output
-          path: e2e_nyc_output
-          retention-days: 30
-
-      - name: Upload current run allure result to Artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: allure-results
-          path: allure-results
-          retention-days: 30
-
-      - name: Upload error log to Artifacts
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: error.log
-          path: error.log
-          retention-days: 30
+#
+#      - name: Upload playwright blob report to Artifacts
+#        uses: actions/upload-artifact@v4
+#        if: always()
+#        with:
+#          name: blob-report
+#          path: blob-report
+#          retention-days: 30
+#
+#      - name: Upload nyc report row data to Artifacts
+#        uses: actions/upload-artifact@v4
+#        if: always()
+#        with:
+#          name: e2e_nyc_output
+#          path: e2e_nyc_output
+#          retention-days: 30
+#
+#      - name: Upload current run allure result to Artifacts
+#        uses: actions/upload-artifact@v4
+#        if: always()
+#        with:
+#          name: allure-results
+#          path: allure-results
+#          retention-days: 30
+#
+#      - name: Upload error log to Artifacts
+#        uses: actions/upload-artifact@v4
+#        if: always()
+#        with:
+#          name: error.log
+#          path: error.log
+#          retention-days: 30
 
 #  publish-playwright-report:
 #    name: Publish playwright report
