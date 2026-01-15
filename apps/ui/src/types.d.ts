@@ -1,0 +1,24 @@
+declare module '*.glsl' {
+  const value: string;
+  export default value;
+}
+
+declare module '*.blob' {
+  const url: string;
+  export default url;
+}
+
+declare module '*.glb' {
+  const url: string;
+  export default url;
+}
+
+declare module '*.gltf' {
+  const url: string;
+  export default url;
+}
+
+declare module '*.hdr' {
+  const data: string;
+  export default data;
+}

@@ -1,11 +1,12 @@
 import { expect } from '@playwright/test';
 import test from '../fixtures/baseTest';
 
-test.describe('Click search link', async () => {
+test.describe('Click search link',  () => {
   test.beforeEach(async ({ page }) => {
     await page.locator(`[data-automation-id="search-link"]`).first().click();
     await expect(page).toHaveTitle(`Search`);
   });
+
   test.skip('es result', async ({ page }) => {
     const appHero = page.getByTestId('esResult').locator('app-hero');
     await expect(appHero.first()).toContainText(
@@ -13,6 +14,7 @@ test.describe('Click search link', async () => {
     );
     await expect(appHero.nth(1)).toContainText('Lonely Super hero');
   });
+
   test.skip('mongo result', async ({ page }) => {
     const appHero = page.getByTestId('mongoResult').locator('app-hero');
     await expect(appHero.first()).toContainText('Lonely Super hero');

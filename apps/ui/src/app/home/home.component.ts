@@ -13,7 +13,7 @@ import { ThemeService } from '../theme-service';
 
 @Component({
   selector: 'app-home',
-  standalone: true,
+
   imports: [
     MatButtonModule,
     MatGridListModule,

@@ -19,7 +19,7 @@ import { verifyResponse } from '../verifyResponse';
 
 @Component({
   selector: 'app-search',
-  standalone: true,
+
   imports: [
     AsyncPipe,
     MatSidenavModule,
