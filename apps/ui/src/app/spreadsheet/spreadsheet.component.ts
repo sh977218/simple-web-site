@@ -12,27 +12,47 @@ export class SpreadsheetComponent {
   @ViewChild('fileInput') fileInput!: ElementRef;
 
   spread!: GC.Spread.Sheets.Workbook;
-
   hostStyle = {
     width: '100%',
-    height: '500px',
+    height: '100%',
+  };
+  openOptions = {
+    openMode: 0,
+    includeStyles: true,
+    includeFormulas: true,
+    frozenColumnsAsRowHeaders: false,
+    frozenRowsAsColumnHeaders: false,
+    fullRecalc: false,
+    dynamicReferences: true,
+    calcOnDemand: false,
+    includeUnusedStyles: true,
+    convertSheetTableToDataTable: false,
+    incrementalLoading: false,
+    encoding: 'UTF-8',
+    rowDelimiter: '\r\n',
+    columnDelimiter: ',',
   };
 
-  //Initialization
-  workbookInit($event: any) {
-    //initialize the spread
+  initSpread($event: any) {
     this.spread = $event.spread;
   }
 
   onFileSelected() {
+    const options = this.openOptions;
+    const file = this.fileInput.nativeElement.files[0];
+
     if (typeof FileReader !== 'undefined') {
       const reader = new FileReader();
 
       reader.onload = (e: any) => {
-        this.workbookInit({ spread: e.target.result });
+        this.spread.import(
+          file,
+          function () {},
+          function () {},
+        );
       };
 
-      reader.readAsArrayBuffer(this.fileInput.nativeElement.files[0]);
+      reader.readAsArrayBuffer(file);
     }
   }
 }
