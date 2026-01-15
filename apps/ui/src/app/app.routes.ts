@@ -4,22 +4,22 @@ import {
 
 export const appRoutes: Routes = [
   {
-    path: 'home',
+    path: 'mongodb',
     loadComponent: () =>
-      import('./home/home.component').then((m) => m.HomeComponent),
-    title: 'Home',
+      import('./mongodb/mongodb.component').then((m) => m.MongodbComponent),
+    title: 'Mongo DB',
   },
   {
-    path: 'search',
+    path: 'elasticsearch',
     loadComponent: () =>
-      import('./search/search.component').then((m) => m.SearchComponent),
-    title: 'Search',
+      import('./elasticsearch/elasticsearch.component').then((m) => m.ElasticsearchComponent),
+    title: 'Elastic Search',
   },
   {
     path: 'threeJs',
     loadComponent: () =>
       import('./three-js/three-js.component').then((m) => m.ThreeJsComponent),
-    title: 'ThreeJs',
+    title: 'Three Js',
   },
   {
     path: 'helps',
