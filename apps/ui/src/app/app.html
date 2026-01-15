@@ -36,9 +36,9 @@
             [color]="themeService.selectedColor"
             mat-raised-button
             routerLinkActive="active"
-            routerLink="helps/about"
+            routerLink="spreadsheet"
             [routerLinkActiveOptions]="{ exact: true }"
-          >About</a>
+          >Spread Sheet</a>
           <span class="flex-1"></span>
           <mat-button-toggle-group (change)="themeService.selectedColor = $event.value">
             @for (color of themeService.colors$ | async; track color) {
