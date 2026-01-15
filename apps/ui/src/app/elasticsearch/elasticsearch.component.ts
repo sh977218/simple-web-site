@@ -37,17 +37,6 @@ export class ElasticsearchComponent {
       map((res) => res.map((h) => h._source)),
     );
 
-
-  /*
-    cards$ = defer(() => from((this.client.search<Hero>({
-        index: 'heroes'
-      })).then((response) => {
-        return response.hits.hits.map(h => h._source);
-      }))
-    ).pipe(catchError(() => []),
-      map((res: any) => {
-        return res.hits.hits._source as Hero[];
-      }));*/
   constructor() {
     this.http
       .get('http://localhost:3000/api/information', { responseType: 'text' })

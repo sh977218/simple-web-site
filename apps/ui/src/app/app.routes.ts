@@ -4,20 +4,16 @@ import {
 
 export const appRoutes: Routes = [
   {
-    path: 'home',
+    path: 'mongodb',
     loadComponent: () =>
-      import('./home/home.component').then((m) => m.HomeComponent),
-    title: 'Home',
+      import('./mongodb/mongodb.component').then((m) => m.MongodbComponent),
+    title: 'Mongodb',
   },
   {
-    path: 'search',
+    path: 'elasticsearch',
     loadComponent: () =>
-<<<<<<< HEAD
       import('./elasticsearch/elasticsearch.component').then((m) => m.ElasticsearchComponent),
-=======
-      import('./search/search.component').then((m) => m.SearchComponent),
->>>>>>> 491b533459388b55277fb792d3e4f6f3b7e29d40
-    title: 'Search',
+    title: 'Elasticsearch',
   },
   {
     path: 'threeJs',

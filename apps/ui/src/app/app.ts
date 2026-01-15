@@ -20,9 +20,7 @@ import { ThemeService } from './theme-service';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-
+  templateUrl: './app.html',
   imports: [
     FormsModule,
     RouterOutlet,
@@ -42,6 +40,6 @@ import { ThemeService } from './theme-service';
 ],
   schemas: [],
 })
-export class AppComponent {
+export class App {
   themeService = inject(ThemeService);
 }
