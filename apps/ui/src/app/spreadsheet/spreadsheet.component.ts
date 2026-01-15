@@ -1,13 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild, viewChild } from '@angular/core';
 import * as GC from '@mescius/spread-sheets';
 import { SpreadSheetsModule } from '@mescius/spread-sheets-angular';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   templateUrl: './spreadsheet.component.html',
-  imports: [SpreadSheetsModule]
+  imports: [SpreadSheetsModule, MatButton],
 })
 export class SpreadsheetComponent {
   title = 'sjs-angular-app';
+  @ViewChild('fileInput') fileInput!: ElementRef;
+
   spread!: GC.Spread.Sheets.Workbook;
 
   hostStyle = {
@@ -19,5 +22,17 @@ export class SpreadsheetComponent {
   workbookInit($event: any) {
     //initialize the spread
     this.spread = $event.spread;
+  }
+
+  onFileSelected() {
+    if (typeof FileReader !== 'undefined') {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        this.workbookInit({ spread: e.target.result });
+      };
+
+      reader.readAsArrayBuffer(this.fileInput.nativeElement.files[0]);
+    }
   }
 }
