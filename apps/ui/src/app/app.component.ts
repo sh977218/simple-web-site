@@ -1,9 +1,7 @@
 import { AsyncPipe, NgClass } from '@angular/common';
 import {
   Component,
-  CUSTOM_ELEMENTS_SCHEMA,
   inject,
-  NO_ERRORS_SCHEMA,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,7 +22,7 @@ import { ThemeService } from './theme-service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  standalone: true,
+
   imports: [
     FormsModule,
     RouterOutlet,
@@ -42,7 +40,7 @@ import { ThemeService } from './theme-service';
     MatListModule,
     MatButtonToggle
 ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
+  schemas: [],
 })
 export class AppComponent {
   themeService = inject(ThemeService);
