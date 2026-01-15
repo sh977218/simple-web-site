@@ -20,7 +20,10 @@
             "input": "apps/ui/public"
           }
         ],
-        "styles": ["apps/ui/src/styles.scss"]
+        "styles": [
+          "apps/ui/src/styles.scss",
+          "node_modules/@mescius/spread-sheets/styles/gc.spread.sheets.excel2013white.css"
+        ]
       },
       "configurations": {
         "production": {

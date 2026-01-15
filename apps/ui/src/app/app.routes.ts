@@ -12,7 +12,9 @@ export const appRoutes: Routes = [
   {
     path: 'elasticsearch',
     loadComponent: () =>
-      import('./elasticsearch/elasticsearch.component').then((m) => m.ElasticsearchComponent),
+      import('./elasticsearch/elasticsearch.component').then(
+        (m) => m.ElasticsearchComponent,
+      ),
     title: 'Elastic Search',
   },
   {
@@ -22,8 +24,11 @@ export const appRoutes: Routes = [
     title: 'Three Js',
   },
   {
-    path: 'helps',
-    loadChildren: () =>
-      import('./helps/helps.module').then((m) => m.HelpsModule),
+    path: 'spreadsheet',
+    loadComponent: () =>
+      import('./spreadsheet/spreadsheet.component').then(
+        (m) => m.SpreadsheetComponent,
+      ),
+    title: 'Spread Sheet',
   },
 ];
