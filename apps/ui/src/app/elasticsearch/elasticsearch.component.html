@@ -1,9 +1,16 @@
 <div class="flex-grow basis-0" data-testid="esResult">
-  <h1>Search Result From ES:</h1>
+  <h1>Search Result From Elastic Search:</h1>
   <section class="flex flex-col flex-wrap justify-between">
-    @for (hero of heroesFromES$ | async; track hero) {
-      <app-hero [hero]="hero" class="my-2" />
-      <mat-divider />
+
+    @if(heroes.hasValue()) {
+      @for (hero of heroes.value(); track hero) {
+        <app-hero [hero]="hero" class="my-2" />
+        <mat-divider />
+      }
+    } @else if (heroes.error()) {
+      <div>Could not load heroes information</div>
+    } @else if (heroes.isLoading()) {
+      <div>Loading heroes info...</div>
     }
   </section>
 </div>
