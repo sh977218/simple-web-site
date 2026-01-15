@@ -12,7 +12,7 @@ export const appRoutes: Routes = [
   {
     path: 'search',
     loadComponent: () =>
-      import('./search/search.component').then((m) => m.SearchComponent),
+      import('./elasticsearch/elasticsearch.component').then((m) => m.ElasticsearchComponent),
     title: 'Search',
   },
   {

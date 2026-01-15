@@ -2,9 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import {
   Component,
-  CUSTOM_ELEMENTS_SCHEMA,
   inject,
-  NO_ERRORS_SCHEMA,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -14,12 +12,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { catchError, map } from 'rxjs';
 
 import { HeroComponent } from '../hero/hero.component';
-import { Hero, HeroResponseSchema } from '../model/hero';
-import { verifyResponse } from '../verifyResponse';
+import { Hero } from '../model/hero';
 
 @Component({
-  selector: 'app-search',
-
   imports: [
     AsyncPipe,
     MatSidenavModule,
@@ -30,14 +25,10 @@ import { verifyResponse } from '../verifyResponse';
     HeroComponent,
     AsyncPipe
 ],
-  schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA],
-  templateUrl: './search.component.html',
-  styleUrl: './search.component.scss',
+  templateUrl: './elasticsearch.component.html'
 })
-export class SearchComponent {
+export class ElasticsearchComponent {
   private http = inject(HttpClient);
-
-  typeOfSeasons: string[] = ['Spring', 'Summer', 'Fall', 'Winter'];
 
   heroesFromES$ = this.http
     .get<{ _source: Hero }[]>('http://localhost:3000/api/search/heroes')
@@ -46,12 +37,6 @@ export class SearchComponent {
       map((res) => res.map((h) => h._source)),
     );
 
-  heroesFromMongo$ = this.http
-    .get<Hero[]>('http://localhost:3000/api/heroes/100')
-    .pipe(
-      verifyResponse(HeroResponseSchema),
-      catchError(() => []),
-    );
 
   /*
     cards$ = defer(() => from((this.client.search<Hero>({
