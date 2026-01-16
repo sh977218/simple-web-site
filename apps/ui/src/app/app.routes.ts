@@ -24,11 +24,9 @@ export const appRoutes: Routes = [
     title: 'Three Js',
   },
   {
-    path: 'spreadsheet',
+    path: 'excel',
     loadComponent: () =>
-      import('./spreadsheet/spreadsheet.component').then(
-        (m) => m.SpreadsheetComponent,
-      ),
-    title: 'Spread Sheet',
+      import('./excel/excel.component').then((m) => m.ExcelComponent),
+    title: 'Excel',
   },
 ];

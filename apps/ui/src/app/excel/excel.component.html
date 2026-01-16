@@ -1,0 +1,11 @@
+<div class="flex-grow basis-0" data-testid="esResult">
+  <section class="flex flex-col flex-wrap justify-between mb-5">
+    <div>
+      <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
+      <button type="button" mat-raised-button (click)="open()">Open</button>
+    </div>
+    <input hidden (change)="selectedFileChange($event)" #fileInput type="file" id="file">
+  </section>
+  <section class="flex flex-col flex-wrap justify-between">
+  </section>
+</div>
