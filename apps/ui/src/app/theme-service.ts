@@ -6,7 +6,7 @@ import { ThemePalette } from '@angular/material/core';
 export class ThemeService {
   colors: ThemePalette[] = ['primary', 'accent', 'warn'];
   appearance: MatButtonToggleAppearance[] = ['standard', 'legacy'];
-  labelPosition = ['before', 'after'];
+  labelPosition: ('before' | 'after')[] = ['before', 'after'];
   darkMode = false;
   selectedColor: ThemePalette = 'primary';
   selectedAppearance: MatButtonToggleAppearance = 'standard';

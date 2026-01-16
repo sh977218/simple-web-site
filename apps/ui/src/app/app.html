@@ -4,6 +4,7 @@
     <a mat-mini-fab [color]="themeService.selectedColor" routerLink="./">
       <mat-icon>favorite</mat-icon>
     </a>
+    <span class="flex-1"></span>
     @for (route of routes; track route) {
       <a
         [color]="themeService.selectedColor"
@@ -14,7 +15,7 @@
       >{{ route.label }}</a>
     }
     <span class="flex-1"></span>
-    <mat-button-toggle-group
+    <mat-button-toggle-group [appearance]="themeService.selectedAppearance"
       [(value)]="themeService.selectedColor">
       @for (color of themeService.colors; track color) {
         <mat-button-toggle [value]="color">{{ color }}
@@ -30,6 +31,7 @@
       }
     </mat-button-toggle-group>
     <span class="flex-1"></span>
+<!--
     <mat-button-toggle-group [appearance]="themeService.selectedAppearance"
                              [(value)]="themeService.selectedLabelPosition">
       @for (labelPosition of themeService.labelPosition; track labelPosition) {
@@ -37,10 +39,11 @@
         </mat-button-toggle>
       }
     </mat-button-toggle-group>
+-->
     <span class="flex-1"></span>
+<!--
     <mat-slide-toggle
       [color]="themeService.selectedColor"
-      [labelPosition]="themeService.selectedLabelPosition"
       [(ngModel)]="themeService.darkMode"
     >
       <div class="flex justify-center">
@@ -48,6 +51,7 @@
         DARK MODE
       </div>
     </mat-slide-toggle>
+-->
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-drawer-container class="min-h-svh" autosize>
