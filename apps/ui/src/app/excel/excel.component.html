@@ -2,10 +2,16 @@
   <section class="flex flex-col flex-wrap justify-between mb-5">
     <div>
       <button type="button" mat-raised-button (click)="fileInput.click()">Choose File</button>
-      <button type="button" mat-raised-button (click)="open()">Open</button>
     </div>
     <input hidden (change)="selectedFileChange($event)" #fileInput type="file" id="file">
   </section>
-  <section class="flex flex-col flex-wrap justify-between">
+  <section class="flex flex-col flex-wrap justify-between" style="width: 100%; height: 1000px;">
+    <ag-grid-angular
+      style="width: 100%; height: 100%;"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [rowData]="rowData"
+      (gridReady)="onGridReady($event)"
+    />
   </section>
 </div>
