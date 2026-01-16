@@ -1,7 +1,7 @@
 <div [ngClass]="[themeService.darkMode ? 'dark-theme' : '']">
   <mat-toolbar [color]="themeService.selectedColor">
     <mat-toolbar-row>
-      <button mat-fab extended [color]="themeService.selectedColor">
+      <button mat-fab extended [color]="themeService.selectedColor" routerLink="./">
         <mat-icon>favorite</mat-icon>
         Logo
       </button>
