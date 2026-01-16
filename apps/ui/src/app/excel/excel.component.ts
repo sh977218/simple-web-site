@@ -23,10 +23,12 @@ export class ExcelComponent {
   private gridApi!: GridApi;
 
   async selectedFileChange(event: Event) {
-    const data = (event?.target as HTMLInputElement)?.files?.[0];
-    if (data) {
-      const workbook = convertDataToWorkbook(await data.arrayBuffer());
-      populateGrid(this.gridApi, workbook);
+    const file = (event?.target as HTMLInputElement)?.files?.[0];
+    if (file) {
+      const data = await file.arrayBuffer();
+      const workbook = convertDataToWorkbook(data);
+      const rowData = populateGrid(workbook);
+      this.gridApi.setGridOption('rowData', rowData);
     }
   }
   onGridReady(params: GridReadyEvent) {

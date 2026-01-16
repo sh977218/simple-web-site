@@ -1,5 +1,4 @@
-import type {  GridApi } from 'ag-grid-community';
-import { read } from 'xlsx';
+import { read, WorkBook, utils } from 'xlsx';
 
 export function convertDataToWorkbook(dataRows: ArrayBuffer) {
   /* convert data to binary string */
@@ -12,34 +11,23 @@ export function convertDataToWorkbook(dataRows: ArrayBuffer) {
   return read(bstr, { type: 'binary' });
 }
 
-export function populateGrid(api: GridApi, workbook: any) {
+export function populateGrid(workbook: WorkBook) {
   // our data is in the first sheet
   const firstSheetName = workbook.SheetNames[0];
   const worksheet = workbook.Sheets[firstSheetName];
   // we expect the following columns to be present
-  const columns: Record<string, string> = {
-    A: 'athlete',
-    B: 'age',
-    C: 'country',
-    D: 'year',
-    E: 'date',
-    F: 'sport',
-    G: 'gold',
-    H: 'silver',
-    I: 'bronze',
-    J: 'total',
-  };
-  const rowData = [];
+  const a = utils.sheet_to_json(worksheet, { header: 1 });
+  const rowData:any[] = [];
   // start at the 2nd row - the first row are the headers
   let rowIndex = 2;
   // iterate over the worksheet pulling out the columns we're expecting
-  while (worksheet['A' + rowIndex]) {
-    const row: any = {};
-    Object.keys(columns).forEach((column) => {
-      row[columns[column]] = worksheet[column + rowIndex].w;
-    });
-    rowData.push(row);
-    rowIndex++;
-  }
-  api.setGridOption('rowData', rowData);
+  // while (worksheet['A' + rowIndex]) {
+  //   const row: any = {};
+  //   Object.keys(columns).forEach((column) => {
+  //     row[columns[column]] = worksheet[column + rowIndex].w;
+  //   });
+  //   rowData.push(row);
+  //   rowIndex++;
+  // }
+  return rowData;
 }
