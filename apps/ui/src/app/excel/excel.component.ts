@@ -7,7 +7,11 @@ import {
   GridReadyEvent,
   ModuleRegistry,
 } from 'ag-grid-community';
-import { convertDataToWorkbook, populateGrid } from './excel';
+import {
+  convertDataToWorkbook,
+  getHeader,
+  populateGrid,
+} from './excel';
 import { AgGridAngular } from 'ag-grid-angular';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -23,30 +27,25 @@ export class ExcelComponent {
   private gridApi!: GridApi;
 
   async selectedFileChange(event: Event) {
-    const data = (event?.target as HTMLInputElement)?.files?.[0];
-    if (data) {
-      const workbook = convertDataToWorkbook(await data.arrayBuffer());
-      populateGrid(this.gridApi, workbook);
+    const file = (event?.target as HTMLInputElement)?.files?.[0];
+    if (file) {
+      const data = await file.arrayBuffer();
+      const workbook = convertDataToWorkbook(data);
+      const rowData = populateGrid(workbook);
+      const columnDefs = getHeader(workbook).map((header: string) => ({
+        field: header,
+        minWidth: 180,
+      }));
+      this.gridApi.setGridOption('rowData', rowData);
+      this.gridApi.setGridOption('columnDefs', columnDefs);
     }
   }
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
-  }
-  columnDefs: ColDef[] = [
-    { field: 'athlete', minWidth: 180 },
-    { field: 'age' },
-    { field: 'country', minWidth: 150 },
-    { field: 'year' },
-    { field: 'date', minWidth: 130 },
-    { field: 'sport', minWidth: 100 },
-    { field: 'gold' },
-    { field: 'silver' },
-    { field: 'bronze' },
-    { field: 'total' },
-  ];
+  };
+
   defaultColDef: ColDef = {
     minWidth: 80,
     flex: 1,
   };
-  rowData: any[] | null = [];
 }
