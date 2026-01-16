@@ -2,18 +2,16 @@ import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import {
-  MatButtonToggle,
-  MatButtonToggleGroup,
-} from '@angular/material/button-toggle';
+
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 import { ThemeService } from './theme-service';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @Component({
   selector: 'app-root',
@@ -21,38 +19,17 @@ import { ThemeService } from './theme-service';
   imports: [
     FormsModule,
     RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
     NgClass,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatSlideToggleModule,
-    MatButtonToggleGroup,
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
-    MatButtonToggle,
+    NavigationComponent,
   ],
 })
 export class App {
   themeService = inject(ThemeService);
-  routes = [
-    {
-      path: 'mongodb',
-      label: 'Mongodb',
-    },
-    {
-      path: 'elasticsearch',
-      label: 'Elasticsearch',
-    },
-    {
-      path: 'threeJs',
-      label: 'Three JS',
-    },
-    {
-      path: 'excel',
-      label: 'Excel',
-    },
-  ];
 }
