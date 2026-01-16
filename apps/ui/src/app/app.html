@@ -1,58 +1,8 @@
 <body [ngClass]="[themeService.darkMode ? 'dark-theme' : '']">
-  <mat-toolbar [color]="themeService.selectedColor">
-    <mat-toolbar-row>
-      <a mat-mini-fab [color]="themeService.selectedColor" routerLink="./">
-        <mat-icon>favorite</mat-icon>
-      </a>
-      <span class="flex-1"></span>
-      @for (route of routes; track route) {
-        <a
-          [color]="themeService.selectedColor"
-          mat-raised-button
-          routerLinkActive="active"
-          [routerLink]=route.path
-          [routerLinkActiveOptions]="{ exact: true }"
-        >{{ route.label }}</a>
-      }
-      <span class="flex-1"></span>
-      <mat-button-toggle-group (change)="themeService.selectedColor = $event.value">
-        @for (color of themeService.colors; track color) {
-          <mat-button-toggle [value]="color">{{ color }}
-          </mat-button-toggle>
-        }
-      </mat-button-toggle-group>
-      <span class="flex-1"></span>
-      <mat-button-toggle-group [appearance]="themeService.selectedAppearance"
-                               (change)="themeService.selectedAppearance = $event.value">
-        @for (appearance of themeService.appearance; track appearance) {
-          <mat-button-toggle [value]="appearance">{{ appearance }}
-          </mat-button-toggle>
-        }
-      </mat-button-toggle-group>
-      <span class="flex-1"></span>
-      <mat-button-toggle-group [appearance]="themeService.selectedAppearance"
-                               (change)="themeService.selectedLabelPosition = $event.value">
-        @for (labelPosition of themeService.labelPosition; track labelPosition) {
-          <mat-button-toggle [value]="labelPosition">{{ labelPosition }}
-          </mat-button-toggle>
-        }
-      </mat-button-toggle-group>
-      <span class="flex-1"></span>
-      <mat-slide-toggle
-        [color]="themeService.selectedColor"
-        [labelPosition]="themeService.selectedLabelPosition"
-        [(ngModel)]="themeService.darkMode"
-      >
-        <div class="flex justify-center">
-          <mat-icon>dark_mode</mat-icon>
-          DARK MODE
-        </div>
-      </mat-slide-toggle>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <mat-drawer-container class="min-h-svh" autosize>
-    <main class="m-5">
-      <router-outlet />
-    </main>
-  </mat-drawer-container>
+<app-navigation></app-navigation>
+<mat-drawer-container class="min-h-svh" autosize>
+  <main class="m-5">
+    <router-outlet />
+  </main>
+</mat-drawer-container>
 </body>
