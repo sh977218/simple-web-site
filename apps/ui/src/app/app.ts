@@ -1,8 +1,5 @@
-import { AsyncPipe, NgClass } from '@angular/common';
-import {
-  Component,
-  inject,
-} from '@angular/core';
+import { NgClass } from '@angular/common';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {
@@ -27,7 +24,6 @@ import { ThemeService } from './theme-service';
     RouterLink,
     RouterLinkActive,
     NgClass,
-    AsyncPipe,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
@@ -36,10 +32,27 @@ import { ThemeService } from './theme-service';
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
-    MatButtonToggle
-],
-  schemas: [],
+    MatButtonToggle,
+  ]
 })
 export class App {
   themeService = inject(ThemeService);
+  routes = [
+    {
+      path: 'mongodb',
+      label: 'Mongodb',
+    },
+    {
+      path: 'elasticsearch',
+      label: 'Elasticsearch',
+    },
+    {
+      path: 'threeJs',
+      label: 'Three JS',
+    },
+    {
+      path: 'excel',
+      label: 'Excel',
+    },
+  ];
 }
