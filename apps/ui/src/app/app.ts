@@ -33,7 +33,7 @@ import { ThemeService } from './theme-service';
     MatMenuModule,
     MatListModule,
     MatButtonToggle,
-  ]
+  ],
 })
 export class App {
   themeService = inject(ThemeService);
