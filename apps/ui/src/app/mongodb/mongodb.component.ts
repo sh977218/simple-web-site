@@ -1,4 +1,4 @@
-import { HeroResponseSchema } from '../model/hero';
+import { HeroResponseSchema } from '@shared/shared-models';
 import { Component } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { MatDivider } from '@angular/material/list';

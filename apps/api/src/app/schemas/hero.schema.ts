@@ -1,7 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-import { Member } from '../model/hero';
+import { Member } from '@shared/shared-models';
 
 export type HeroDocument = HydratedDocument<Hero>;
 
