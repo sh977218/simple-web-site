@@ -8,9 +8,9 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  check_pr_title_template:
+  check_pr_title:
     runs-on: ubuntu-latest
-    name: Run PR title and template check
+    name: Run PR title check
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -24,8 +24,8 @@ jobs:
         run: node .github/scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
 
   build:
+    name: Build
     runs-on: ubuntu-latest
-    name: Build and deploy
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -41,9 +41,8 @@ jobs:
       - name: Build Angular & NestJS
         run: npm run build
 
-
   ui-unit-test:
-    name: unit-test
+    name: ui unit test
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
@@ -56,7 +55,7 @@ jobs:
         run: npx nx run ui:test
 
   api-unit-test:
-    name: unit-test
+    name: api unit test
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
