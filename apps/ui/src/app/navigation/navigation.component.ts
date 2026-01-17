@@ -27,6 +27,9 @@ import { MatIcon } from '@angular/material/icon';
     MatIcon,
     MatToolbarRow,
   ],
+  host: {
+    class: 'fixed top-0 left-0 right-0 z-10',
+  },
 })
 export class NavigationComponent {
   themeService = inject(ThemeService);

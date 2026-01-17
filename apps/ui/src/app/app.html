@@ -1,8 +1,8 @@
 <body [ngClass]="[themeService.darkMode ? 'dark-theme' : '']">
 <app-navigation></app-navigation>
-<mat-drawer-container class="min-h-svh" autosize>
-  <main class="m-5">
+<main style="margin-top:64px;">
+  <mat-drawer-container autosize>
     <router-outlet />
-  </main>
-</mat-drawer-container>
+  </mat-drawer-container>
+</main>
 </body>
