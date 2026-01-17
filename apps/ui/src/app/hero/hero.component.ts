@@ -1,10 +1,10 @@
 
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { RouterLink } from '@angular/router';
 
-import { Hero } from '../model/hero';
+import { HeroType } from '@shared/shared-models';
 
 @Component({
   selector: 'app-hero',
@@ -15,5 +15,5 @@ import { Hero } from '../model/hero';
 
 })
 export class HeroComponent {
-  hero = input.required<Hero>();
+  hero = input.required<HeroType>();
 }

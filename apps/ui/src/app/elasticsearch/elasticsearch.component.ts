@@ -10,7 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { HeroComponent } from '../hero/hero.component';
-import { HeroResponseSchema } from '../model/hero';
+import { HeroResponseSchema } from '@shared/shared-models';
 
 @Component({
   imports: [

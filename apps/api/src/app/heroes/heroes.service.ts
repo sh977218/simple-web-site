@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { Hero } from '../model/hero';
+import { HeroType } from '@shared/shared-models';
 
 import { CreateHeroDto } from './createHeroDto';
 
@@ -13,7 +13,7 @@ export class HeroesService {
     node: 'http://localhost:9200',
   });
 
-  constructor(@InjectModel('Hero') private readonly heroModel: Model<Hero>) {}
+  constructor(@InjectModel('Hero') private readonly heroModel: Model<HeroType>) {}
 
   async createHero(createHeroDto: CreateHeroDto) {
     return new this.heroModel(createHeroDto).save();
@@ -24,7 +24,7 @@ export class HeroesService {
   }
 
   async searchHeroes() {
-    const result = await this.client.search<Hero>({
+    const result = await this.client.search<HeroType>({
       index: 'heroes',
       body: {
         query: {
