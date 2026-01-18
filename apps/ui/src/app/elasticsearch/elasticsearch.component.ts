@@ -1,6 +1,6 @@
-import { HttpClient, httpResource } from '@angular/common/http';
+import { httpResource } from '@angular/common/http';
 import {
-  Component,
+  Component, effect,
   inject,
 } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
@@ -11,6 +11,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { HeroComponent } from '../hero/hero.component';
 import { HeroResponseSchema } from '@shared/shared-models';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   imports: [
@@ -20,10 +22,16 @@ import { HeroResponseSchema } from '@shared/shared-models';
     MatIconModule,
     MatButtonModule,
     HeroComponent,
+    MatProgressSpinner,
   ],
   templateUrl: './elasticsearch.component.html',
+  host: {
+    class: 'flex h-full w-full flex-col',
+  },
 })
 export class ElasticsearchComponent {
+  private _snackBar = inject(MatSnackBar);
+
   private url = 'http://localhost:3000/api/search/heroes';
 
   heroes = httpResource(
@@ -34,4 +42,12 @@ export class ElasticsearchComponent {
       parse: HeroResponseSchema.parse,
     },
   );
+
+  constructor() {
+    effect(() => {
+      if (this.heroes.error()) {
+        this._snackBar.open('Could not load heroes information');
+      }
+    });
+  }
 }

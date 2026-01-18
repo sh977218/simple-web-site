@@ -5,23 +5,15 @@
 ### Tech Stacks:
 
 - Frontend: Angular
-- Backend: NestJS (NodeJS + ExpressJS)
-  - dotenv for server side configuration
-  - NestJS Database
-    - Mongo/Mongoose adapter
-    - ORM
-  - NestJS logging
-    - winston integration
+- Backend: NestJS
 - Database: MongoDB
 - Search engine: Elasticsearch
 
-### Host code on Cloud(AWS): - in development
-
-- Hosting static content in S3 - **to be included**
-- Register DNS and link to S3 - **to be included**
-- Deploy NodeJS to EC2 - **to be included**
-- Deploy MongoDB to EC2 (or using AWS DynamoDB) - **to be included**
-- Deploy Elasticsearch to EC2 (or using AWS OpenSearch) - **to be included**
+### Host code
+- Hosting static content at https://nx-workspace.onrender.com/
+- Deploy NestJs - **to be included**
+- Deploy MongoDB - **to be included**
+- Deploy Elasticsearch - **to be included**
 
 ### Development practice:
 
