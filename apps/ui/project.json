@@ -44,7 +44,8 @@
           "buildTarget": "ui:build:production"
         },
         "development": {
-          "buildTarget": "ui:build:development"
+          "buildTarget": "ui:build:development",
+          "proxyConfig": "apps/ui/src/proxy.config.json"
         }
       },
       "defaultConfiguration": "development"

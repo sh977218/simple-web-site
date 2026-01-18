@@ -10,7 +10,6 @@ updates:
     open-pull-requests-limit: 10
     reviewers:
       - "peter"
-    assign-reviewers: true
     allow:
       - dependency-type: "all"
     commit-message:
@@ -27,4 +26,3 @@ updates:
     open-pull-requests-limit: 10
     reviewers:
       - "peter"
-    assign-reviewers: true

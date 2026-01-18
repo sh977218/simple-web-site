@@ -9,7 +9,7 @@ import { httpResource } from '@angular/common/http';
   imports: [HeroComponent, MatDivider],
 })
 export class MongodbComponent {
-  private url = 'http://localhost:3000/api/heroes/100';
+  private url = '/api/heroes/100';
 
   heroes = httpResource(
     () => ({

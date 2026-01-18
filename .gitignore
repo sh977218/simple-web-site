@@ -74,10 +74,11 @@ previous-allure-report
 # logger
 error.log
 
-
-
 .nx/cache
 .nx/workspace-data
 .angular
 
 vitest.config.*.timestamp*
+
+# Environment files
+apps/api/src/.env.production
