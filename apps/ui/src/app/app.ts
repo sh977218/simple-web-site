@@ -9,16 +9,14 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterOutlet } from '@angular/router';
 import { ThemeService } from './theme-service';
-import { NavigationComponent } from './navigation/navigation.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
   imports: [
     FormsModule,
-    RouterOutlet,
     NgClass,
     MatToolbarModule,
     MatIconModule,
@@ -27,7 +25,7 @@ import { NavigationComponent } from './navigation/navigation.component';
     MatSidenavModule,
     MatMenuModule,
     MatListModule,
-    NavigationComponent,
+    NavBarComponent,
   ],
 })
 export class App {

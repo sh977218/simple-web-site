@@ -1,16 +1,13 @@
-<div class="flex-grow basis-0" data-testid="esResult">
-  <h1>Search Result From Elastic Search:</h1>
-  <section class="flex flex-col flex-wrap justify-between">
-
-    @if(heroes.hasValue()) {
-      @for (hero of heroes.value(); track hero) {
-        <app-hero [hero]="hero" class="my-2" />
-        <mat-divider />
-      }
-    } @else if (heroes.error()) {
-      <div>Could not load heroes information</div>
-    } @else if (heroes.isLoading()) {
-      <div>Loading heroes info...</div>
+<h1>Search Result From Elastic Search:</h1>
+<section>
+  @if (heroes.hasValue()) {
+    @for (hero of heroes.value(); track hero) {
+      <app-hero [hero]="hero" class="my-2" />
+      <mat-divider />
     }
-  </section>
-</div>
+  } @else if (heroes.isLoading()) {
+    <div class="spinner-overlay">
+      <mat-spinner></mat-spinner>
+    </div>
+  }
+</section>
