@@ -128,7 +128,9 @@ jobs:
     needs: [ e2e-test ]
     if: always()
     permissions:
+      contents: read
       pages: write
+      id-token: write
     concurrency:
       group: "pages"
       cancel-in-progress:
