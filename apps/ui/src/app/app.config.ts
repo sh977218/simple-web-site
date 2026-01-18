@@ -25,7 +25,7 @@ class TemplatePageTitleStrategy extends TitleStrategy {
 
   override updateTitle(routerState: RouterStateSnapshot) {
     const title = this.buildTitle(routerState);
-    this.title.setTitle(`${title ? title : 'SimpleWebSite'}`);
+    this.title.setTitle(`${title ? title : 'NX Workspace'}`);
   }
 }
 
