@@ -7,11 +7,11 @@ export class MyLogger implements LoggerService {
 
   constructor() {
     this.logger = createLogger({
-      level: 'info', // Set the minimum logging level
+      level: 'debug', // Set the minimum logging level
       format: format.combine(format.timestamp(), format.json()),
       transports: [
         new transports.Console(), // Log to console
-        new transports.File({ filename: '../error.log' }),
+        new transports.File({ filename: './error.log' }),
       ],
     });
   }
@@ -33,7 +33,10 @@ export class MyLogger implements LoggerService {
   /**
    * Write an 'error' level log.
    */
-  error(message: string) {
+  error(message: string | Error) {
+    if (message instanceof Error) {
+      message = message.stack || message.message;
+    }
     this.logger.log({ level: 'error', message });
   }
 
