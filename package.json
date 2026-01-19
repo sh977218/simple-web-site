@@ -57,7 +57,7 @@
     "@angular/build": "~21.1.0",
     "@angular/cdk": "^21.0.6",
     "@angular/cli": "~21.0.0",
-    "@angular/compiler-cli": "~21.0.0",
+    "@angular/compiler-cli": "~21.1.0",
     "@angular/language-service": "~21.0.0",
     "@angular/material": "^21.0.6",
     "@commitlint/cli": "^20.3.1",
