@@ -52,7 +52,7 @@
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@angular-devkit/core": "~21.0.0",
+    "@angular-devkit/core": "~21.1.0",
     "@angular-devkit/schematics": "~21.1.0",
     "@angular/build": "~21.1.0",
     "@angular/cdk": "^21.0.6",
