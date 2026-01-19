@@ -14,7 +14,7 @@ export const HeroSchema = z.object({
   members: z.array(MemberSchema),
 });
 
-export const HeroResponseSchema = z.array(HeroSchema);
+export const HeroesResponseSchema = z.array(HeroSchema);
 
 export type HeroType = z.infer<typeof HeroSchema>;
 

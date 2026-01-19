@@ -10,7 +10,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { HeroComponent } from '../hero/hero.component';
-import { HeroResponseSchema } from '@shared/shared-models';
+import {
+  HeroesResponseSchema,
+} from '@shared/shared-models';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -39,7 +41,7 @@ export class ElasticsearchComponent {
       url: this.url,
     }),
     {
-      parse: HeroResponseSchema.parse,
+      parse: HeroesResponseSchema.parse,
     },
   );
 

@@ -9,29 +9,33 @@ import { UpdateHeroDto } from './dto/update-cat.dto';
 export class HeroesController {
   constructor(private readonly heroesService: HeroesService) {}
 
+  @Post(':id')
+  create(@Body() createHeroDto: CreateHeroDto) {
+    return this.heroesService.createHero(createHeroDto);
+  }
+
+  @Get()
+  async findAll() {
+    return await this.heroesService.findAll();
+  }
+
   @Get(':id')
   @ApiResponse({
     status: 200,
     description: 'The heroes have been successfully retrieved.',
   })
   @ApiResponse({ status: 404, description: 'The hero is not found.' })
-  getHeroes(@Param('id') id: string) {
-    console.log(`path parameter id: ${id}`);
-    return this.heroesService.getHeroes();
+  findOne(@Param('id') id: string) {
+    return this.heroesService.findOne(id);
   }
 
   @Post(':id')
-  async update(@Param('id') id: string, @Body() updateHeroDto: UpdateHeroDto) {
+  update(@Param('id') id: string, @Body() updateHeroDto: UpdateHeroDto) {
     return this.heroesService.update(id, updateHeroDto);
   }
 
-  @Post(':id')
-  async create(@Body() createHeroDto: CreateHeroDto) {
-    const result = await this.heroesService.createHero(createHeroDto);
-    return result;
-  }
   @Delete(':id')
-  async delete(@Param('id') id: string) {
+  delete(@Param('id') id: string) {
     return this.heroesService.delete(id);
   }
 }

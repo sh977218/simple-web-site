@@ -12,11 +12,11 @@ describe('AppController', () => {
     }).compile();
   });
 
-  describe('getData', () => {
-    it('should return "/api/information testing"', () => {
+  describe('health check', () => {
+    it('should return status ok', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.appInformation()).toEqual({
-        message: '/api/information testing',
+      expect(appController.healthCheck()).toEqual({
+        status: 'ok',
       });
     });
   });

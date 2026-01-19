@@ -1,9 +1,6 @@
-import { join } from 'path';
-
 import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
-import { ServeStaticModule } from '@nestjs/serve-static';
 import * as Joi from 'joi';
 
 import { AppController } from './app.controller';
@@ -19,7 +16,7 @@ const ENV = process.env.NODE_ENV;
       envFilePath: !ENV ? '.env' : `.env.${ENV}`,
       isGlobal: true,
       validationSchema: Joi.object({
-        NODE_ENV: Joi.string().valid('development', 'production', 'test'),
+        NODE_ENV: Joi.string().valid('development', 'production', 'ci'),
         PORT: Joi.number().port().default(3000),
         DATABASE_PROTOCOL: Joi.string().default('mongodb://'),
         DATABASE_HOST: Joi.string().default('localhost:27017/'),
@@ -30,6 +27,7 @@ const ENV = process.env.NODE_ENV;
         abortEarly: true,
       },
     }),
+/*
     ServeStaticModule.forRoot({
       rootPath: join(
         __dirname,
@@ -37,6 +35,7 @@ const ENV = process.env.NODE_ENV;
         process.env.COVERAGE ? 'ui' : 'ui/browser',
       ),
     }),
+*/
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {

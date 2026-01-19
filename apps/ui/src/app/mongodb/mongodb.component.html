@@ -6,10 +6,10 @@
         <app-hero [hero]="hero" class="my-2" />
         <mat-divider />
       }
-    } @else if (heroes.error()) {
-      <div>Could not load heroes information</div>
     } @else if (heroes.isLoading()) {
-      <div>Loading heroes info...</div>
+      <div class="spinner-overlay">
+        <mat-spinner></mat-spinner>
+      </div>
     }
   </section>
 </div>
