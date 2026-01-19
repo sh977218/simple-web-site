@@ -1,14 +1,15 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 
-import { CreateHeroDto } from './createHeroDto';
 import { HeroesService } from './heroes.service';
+import { CreateHeroDto } from './dto/createHeroDto';
+import { UpdateHeroDto } from './dto/update-cat.dto';
 
-@Controller()
+@Controller('heroes')
 export class HeroesController {
   constructor(private readonly heroesService: HeroesService) {}
 
-  @Get('/api/heroes/:id')
+  @Get(':id')
   @ApiResponse({
     status: 200,
     description: 'The heroes have been successfully retrieved.',
@@ -19,15 +20,18 @@ export class HeroesController {
     return this.heroesService.getHeroes();
   }
 
-  @Get('/api/search/heroes')
-  async searchHeroes() {
-    const result = await this.heroesService.searchHeroes();
-    return result;
+  @Post(':id')
+  async update(@Param('id') id: string, @Body() updateHeroDto: UpdateHeroDto) {
+    return this.heroesService.update(id, updateHeroDto);
   }
 
-  @Post('/api/hero')
+  @Post(':id')
   async create(@Body() createHeroDto: CreateHeroDto) {
     const result = await this.heroesService.createHero(createHeroDto);
     return result;
+  }
+  @Delete(':id')
+  async delete(@Param('id') id: string) {
+    return this.heroesService.delete(id);
   }
 }

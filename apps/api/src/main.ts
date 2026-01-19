@@ -36,4 +36,6 @@ async function bootstrap() {
   console.info(`env name: ${process.env.ENV_NAME}`);
 }
 
-bootstrap();
+bootstrap().catch((e) => {
+  console.log(`api server started with error: ${e}`);
+});
