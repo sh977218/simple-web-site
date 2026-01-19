@@ -13,7 +13,7 @@ jobs:
     name: Run PR title check
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -46,7 +46,7 @@ jobs:
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install dependencies
         run: npm ci
@@ -59,7 +59,7 @@ jobs:
     needs: [ build ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Install dependencies
         run: npm ci
@@ -95,7 +95,7 @@ jobs:
         volumes:
           - db_vol:/data/db
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Setup mongodb-tools
         run: |
@@ -201,7 +201,7 @@ jobs:
 #    runs-on: ubuntu-latest
 #    steps:
 #      - name: Checkout repository
-#        uses: actions/checkout@v4
+#        uses: actions/checkout@v6
 #
 #      - name: Azure Login
 #        uses: azure/login@v2
@@ -231,7 +231,7 @@ jobs:
 #    runs-on: ubuntu-latest
 #    steps:
 #      - name: Checkout repository
-#        uses: actions/checkout@v4
+#        uses: actions/checkout@v6
 #
 #      - run: npm ci
 #
