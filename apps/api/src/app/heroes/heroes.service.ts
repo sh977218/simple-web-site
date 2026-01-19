@@ -12,12 +12,15 @@ export class HeroesService {
   ) {}
 
   async createHero(createHeroDto: CreateHeroDto) {
-    const createdHero = await new this.heroModel(createHeroDto).save();
-    return createdHero;
+    return await new this.heroModel(createHeroDto).save();
   }
 
-  async getHeroes() {
-    return this.heroModel.find({}).exec();
+  async findAll() {
+    return await this.heroModel.find().lean().exec();
+  }
+
+  async findOne(id: string) {
+    return this.heroModel.find({ _id: id }).exec();
   }
 
   async update(id: string, updateHeroDto: UpdateHeroDto): Promise<Hero> {
@@ -27,9 +30,6 @@ export class HeroesService {
   }
 
   async delete(id: string): Promise<Hero> {
-    const deletedHero = await this.heroModel
-      .findByIdAndDelete({ _id: id })
-      .exec();
-    return deletedHero;
+    return await this.heroModel.findByIdAndDelete({ _id: id }).exec();
   }
 }

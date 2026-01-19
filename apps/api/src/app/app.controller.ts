@@ -2,10 +2,8 @@ import { Controller, Get } from '@nestjs/common';
 
 @Controller()
 export class AppController {
-  @Get('/api/information')
+  @Get('/healthz')
   appInformation() {
-    return {
-      message: '/api/information testing',
-    };
+    return { status: 'ok' };
   }
 }
