@@ -5,16 +5,16 @@ import { Member, MemberSchema } from './member.schema';
 
 @Schema({ collection: 'heroes' })
 export class Hero {
-  @Prop()
+  @Prop({ type: String })
   homeTown: string;
 
-  @Prop()
+  @Prop({ type: Number })
   secretBase: number;
 
-  @Prop()
+  @Prop({ type: String })
   content: string;
 
-  @Prop()
+  @Prop({ type: String })
   squadName: string;
 
   @Prop({ type: [MemberSchema] })
