@@ -33,7 +33,7 @@ async function bootstrap() {
   SwaggerModule.setup('api', app, documentFactory);
 
   await app.listen(process.env['PORT'] ?? 3000);
-  console.info(`env name: ${process.env.ENV_NAME}`);
+  console.info(`NODE_ENV name: ${process.env.NODE_ENV}`);
 }
 
 bootstrap().catch((e) => {

@@ -3,11 +3,11 @@ import { HydratedDocument } from 'mongoose';
 
 @Schema()
 export class Member {
-  @Prop({ type: Number })
-  name: number;
-
   @Prop({ type: String })
-  age: string;
+  name: string;
+
+  @Prop({ type: Number })
+  age: number;
 
   @Prop({ type: [String] })
   powers: string[];
