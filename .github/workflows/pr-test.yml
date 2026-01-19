@@ -126,7 +126,7 @@ jobs:
   publish-playwright-report:
     name: Publish playwright report
     needs: [ e2e-test ]
-    if: always()
+    if: ${{ !cancelled() }}
     permissions:
       contents: read
       pages: write

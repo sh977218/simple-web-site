@@ -3,13 +3,12 @@ import { Component, effect, inject } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { MatDivider } from '@angular/material/list';
 import { httpResource } from '@angular/common/http';
-import { JsonPipe } from '@angular/common';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   templateUrl: './mongodb.component.html',
-  imports: [HeroComponent, MatDivider, JsonPipe, MatProgressSpinner],
+  imports: [HeroComponent, MatDivider, MatProgressSpinner],
 })
 export class MongodbComponent {
   private _snackBar = inject(MatSnackBar);
