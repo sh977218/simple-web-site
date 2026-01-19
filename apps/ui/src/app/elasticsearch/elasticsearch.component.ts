@@ -32,7 +32,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ElasticsearchComponent {
   private _snackBar = inject(MatSnackBar);
 
-  private url = 'http://localhost:3000/api/search/heroes';
+  private url = '/api/search/heroes';
 
   heroes = httpResource(
     () => ({

@@ -1,9 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 
-import { Member } from '@shared/shared-models';
-
-export type HeroDocument = HydratedDocument<Hero>;
+import { Member, MemberSchema } from './member.schema';
 
 @Schema({ collection: 'heroes' })
 export class Hero {
@@ -19,8 +17,9 @@ export class Hero {
   @Prop()
   squadName: string;
 
-  @Prop()
+  @Prop({ type: [MemberSchema] })
   members: Member[];
 }
 
+export type HeroDocument = HydratedDocument<Hero>;
 export const HeroSchema = SchemaFactory.createForClass(Hero);

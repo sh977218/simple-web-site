@@ -24,10 +24,10 @@ async function bootstrap() {
   await esService.injectData('heroes', JSON.parse(data));
 
   const config = new DocumentBuilder()
-    .setTitle('Simple Web Site OpenAPI')
+    .setTitle('NX Workspace OpenAPI')
     .setDescription('The API description')
     .setVersion('1.0')
-    .addTag('simple web site')
+    .addTag('nx workspace')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
