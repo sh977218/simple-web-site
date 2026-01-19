@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-class MemberDto {
+export class MemberDto {
   @ApiProperty()
   age: number;
 
