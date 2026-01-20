@@ -7,14 +7,20 @@
   "targets": {
     "build": {
       "executor": "nx:run-commands",
+      "defaultConfiguration": "production",
       "options": {
         "command": "webpack-cli build",
-        "args": ["--node-env=production"],
         "cwd": "apps/api"
       },
       "configurations": {
+        "production": {
+          "args": ["--node-env=production"]
+        },
         "development": {
           "args": ["--node-env=development"]
+        },
+        "ci": {
+          "args": ["--node-env=ci"]
         }
       }
     },
@@ -53,12 +59,15 @@
         "runBuildTargetDependencies": false
       },
       "configurations": {
-        "development": {
-          "buildTarget": "api:build:development",
-          "inspect": false
-        },
         "production": {
           "buildTarget": "api:build:production"
+        },
+        "development": {
+          "buildTarget": "api:build:development"
+        },
+        "ci": {
+          "buildTarget": "api:build:ci",
+          "inspect": false
         }
       }
     }

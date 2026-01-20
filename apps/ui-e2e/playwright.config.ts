@@ -1,7 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 import { nxE2EPreset } from '@nx/playwright/preset';
 import { workspaceRoot } from '@nx/devkit';
-import * as os from 'node:os';
+
+const isCI = !!process.env['CI'];
 
 // For CI, you may want to set BASE_URL to the deployed application.
 const baseURL = process.env['BASE_URL'] || 'http://localhost:4200';
@@ -24,7 +25,7 @@ export default defineConfig({
     timeout: 15000,
   },
   fullyParallel: true,
-  forbidOnly: !!process.env['CI'],
+  forbidOnly: isCI,
   retries: 0,
   workers: '70%',
   reporter: [['html']],
@@ -39,13 +40,13 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: 'npm run start:ui',
+      command: isCI ? 'nx run ui:serve' : 'nx run ui:serve:production',
       url: 'http://localhost:4200',
       reuseExistingServer: true,
       cwd: workspaceRoot,
     },
     {
-      command: 'npm run start:api',
+      command: isCI ? 'nx run api:serve' : 'nx run api:serve:ci',
       url: 'http://localhost:3000/healthz',
       reuseExistingServer: true,
       cwd: workspaceRoot,
