@@ -36,7 +36,6 @@
 .history/*
 
 # Miscellaneous
-/.angular/cache
 /.sass-cache/
 /connect.lock
 /coverage
@@ -74,11 +73,10 @@ previous-allure-report
 # logger
 error.log
 
-.nx/cache
-.nx/workspace-data
+.nx/
 .angular
 
 vitest.config.*.timestamp*
 
 # Environment files
-apps/api/src/.env.production
+*/**/.env.production

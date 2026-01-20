@@ -17,17 +17,17 @@ const ENV = process.env.NODE_ENV;
       isGlobal: true,
       validationSchema: Joi.object({
         NODE_ENV: Joi.string().valid('development', 'production', 'ci'),
-        PORT: Joi.number().port().default(3000),
-        DATABASE_PROTOCOL: Joi.string().default('mongodb://'),
-        DATABASE_HOST: Joi.string().default('localhost:27017/'),
-        DATABASE_NAME: Joi.string().default('test'),
+        PORT: Joi.number(),
+        DATABASE_PROTOCOL: Joi.string(),
+        DATABASE_HOST: Joi.string(),
+        DATABASE_NAME: Joi.string(),
       }),
       validationOptions: {
         allowUnknown: true,
         abortEarly: true,
       },
     }),
-/*
+    /*
     ServeStaticModule.forRoot({
       rootPath: join(
         __dirname,
