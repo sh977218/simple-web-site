@@ -13,7 +13,11 @@ import {
 import { provideNgtRenderer } from 'angular-three/dom';
 import { appRoutes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
-import { Title } from '@angular/platform-browser';
+import {
+  provideClientHydration,
+  Title,
+  withEventReplay,
+} from '@angular/platform-browser';
 
 @Injectable({ providedIn: 'root' })
 class TemplatePageTitleStrategy extends TitleStrategy {
@@ -35,6 +39,7 @@ export const appConfig: ApplicationConfig = {
     provideZonelessChangeDetection(),
     provideRouter(appRoutes, withComponentInputBinding()),
     provideNgtRenderer(),
+    provideClientHydration(withEventReplay()),
     { provide: TitleStrategy, useClass: TemplatePageTitleStrategy },
   ],
 };
