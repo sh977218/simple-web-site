@@ -20,10 +20,7 @@
             "input": "apps/ui/public"
           }
         ],
-        "styles": ["apps/ui/src/styles.scss"],
-        "optimization": false,
-        "extractLicenses": false,
-        "sourceMap": true
+        "styles": ["apps/ui/src/styles.scss"]
       },
       "configurations": {
         "production": {
