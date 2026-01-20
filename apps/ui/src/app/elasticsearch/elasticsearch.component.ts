@@ -15,6 +15,7 @@ import {
 } from '@shared/shared-models';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../environments/environment';
 
 @Component({
   imports: [
@@ -34,7 +35,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class ElasticsearchComponent {
   private _snackBar = inject(MatSnackBar);
 
-  private url = '/api/search/heroes';
+  private url = `${environment.api}/heroes`;
 
   heroes = httpResource(
     () => ({

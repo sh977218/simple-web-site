@@ -34,12 +34,19 @@ export default defineConfig({
     actionTimeout: 0,
     trace: 'on',
     video: 'on',
+    screenshot: 'on',
   },
   /* Run your local dev server before starting the tests */
   webServer: [
     {
       command: 'npm run start:ui',
       url: 'http://localhost:4200',
+      reuseExistingServer: true,
+      cwd: workspaceRoot,
+    },
+    {
+      command: 'npm run start:api',
+      url: 'http://localhost:30000/health',
       reuseExistingServer: true,
       cwd: workspaceRoot,
     },
