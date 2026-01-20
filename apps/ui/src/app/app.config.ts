@@ -38,8 +38,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideZonelessChangeDetection(),
     provideRouter(appRoutes, withComponentInputBinding()),
-    provideNgtRenderer(),
     provideClientHydration(withEventReplay()),
+    provideNgtRenderer(),
     { provide: TitleStrategy, useClass: TemplatePageTitleStrategy },
   ],
 };
