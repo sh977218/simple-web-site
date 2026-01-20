@@ -25,11 +25,6 @@
       "configurations": {
         "production": {
           "outputHashing": "all",
-          "server": "apps/ui/src/main.server.ts",
-          "outputMode": "static",
-          "ssr": {
-            "entry": "apps/ui/src/server.ts"
-          },
           "fileReplacements": [
             {
               "replace": "apps/ui/src/environments/environment.ts",
