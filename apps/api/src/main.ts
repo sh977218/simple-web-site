@@ -16,12 +16,14 @@ async function bootstrap() {
   app.enableCors();
   app.use(cookieParser());
 
+/*
   const esService = app.get(EsService);
   await esService.deleteHeroIndex('heroes');
   await esService.createHeroIndex('heroes');
   const filePath = path.join(__dirname, 'assets/heroes.json');
   const data = fs.readFileSync(filePath, 'utf-8');
   await esService.injectData('heroes', JSON.parse(data));
+*/
 
   const config = new DocumentBuilder()
     .setTitle('NX Workspace OpenAPI')
@@ -32,7 +34,9 @@ async function bootstrap() {
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
 
-  await app.listen(process.env['PORT'] ?? 3000);
+  const port = process.env['PORT'] ?? 3000;
+  await app.listen(port);
+  console.info(`port: ${port}`);
   console.info(`NODE_ENV name: ${process.env.NODE_ENV}`);
 }
 
