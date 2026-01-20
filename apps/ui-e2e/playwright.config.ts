@@ -46,7 +46,7 @@ export default defineConfig({
     },
     {
       command: 'npm run start:api',
-      url: 'http://localhost:30000/health',
+      url: 'http://localhost:3000/healthz',
       reuseExistingServer: true,
       cwd: workspaceRoot,
     },
