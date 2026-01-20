@@ -5,6 +5,7 @@ import { MatDivider } from '@angular/material/list';
 import { httpResource } from '@angular/common/http';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { environment } from '../../environments/environment';
 
 @Component({
   templateUrl: './mongodb.component.html',
@@ -13,7 +14,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class MongodbComponent {
   private _snackBar = inject(MatSnackBar);
 
-  private url = 'api/heroes';
+  private url = `${environment.api}/heroes`;
 
   heroes = httpResource<Hero[]>(() => ({
     url: this.url,
