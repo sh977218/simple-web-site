@@ -20,18 +20,30 @@
             "input": "apps/ui/public"
           }
         ],
-        "styles": [
-          "apps/ui/src/styles.scss"
-        ]
+        "styles": ["apps/ui/src/styles.scss"]
       },
       "configurations": {
         "production": {
-          "outputHashing": "all"
+          "outputHashing": "all",
+          "fileReplacements": [
+            {
+              "replace": "apps/ui/src/environments/environment.ts",
+              "with": "apps/ui/src/environments/environment.prod.ts"
+            }
+          ]
         },
         "development": {
           "optimization": false,
           "extractLicenses": false,
           "sourceMap": true
+        },
+        "ci": {
+          "fileReplacements": [
+            {
+              "replace": "apps/ui/src/environments/environment.ts",
+              "with": "apps/ui/src/environments/environment.ci.ts"
+            }
+          ]
         }
       },
       "defaultConfiguration": "production"
@@ -46,6 +58,9 @@
         "development": {
           "buildTarget": "ui:build:development",
           "proxyConfig": "apps/ui/src/proxy.config.json"
+        },
+        "ci": {
+          "buildTarget": "ui:build:ci"
         }
       },
       "defaultConfiguration": "development"
@@ -55,8 +70,7 @@
     },
     "test": {
       "executor": "@angular/build:unit-test",
-      "options": {
-      }
+      "options": {}
     },
     "serve-static": {
       "continuous": true,
