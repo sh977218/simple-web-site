@@ -39,4 +39,11 @@ export class HeroesService {
   async delete(id: string): Promise<Hero> {
     return await this.heroModel.findByIdAndDelete({ _id: id }).exec();
   }
+
+  deleteAllHeroes() {
+    return this.heroModel.deleteMany({});
+  }
+  injectHeroes(data: any) {
+    return this.heroModel.insertMany(data);
+  }
 }
