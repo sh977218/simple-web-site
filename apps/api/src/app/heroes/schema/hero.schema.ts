@@ -23,3 +23,9 @@ export class Hero {
 
 export type HeroDocument = HydratedDocument<Hero>;
 export const HeroSchema = SchemaFactory.createForClass(Hero);
+HeroSchema.index({
+  homeTown: 'text',
+  secretBase: 'text',
+  content: 'text',
+  squadName: 'text',
+});

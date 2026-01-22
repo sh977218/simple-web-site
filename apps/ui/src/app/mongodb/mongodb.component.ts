@@ -1,4 +1,4 @@
-import { Hero } from '@shared/shared-models';
+import { HeroZod } from '@shared/shared-models';
 import { Component, effect, inject } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { MatDivider } from '@angular/material/list';
@@ -16,7 +16,7 @@ export class MongodbComponent {
 
   private url = `${environment.api}/heroes`;
 
-  heroes = httpResource<Hero[]>(() => ({
+  heroes = httpResource<HeroZod[]>(() => ({
     url: this.url,
   }));
 

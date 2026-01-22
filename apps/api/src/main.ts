@@ -3,8 +3,8 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import cookieParser from 'cookie-parser';
 
 import { AppModule } from './app/app.module';
-import { MyLogger } from './app/myLogger';
 import { DataLoadService } from './app/data-load/data-load.service';
+import { MyLogger } from './app/my-logger';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
