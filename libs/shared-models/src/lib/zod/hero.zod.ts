@@ -18,7 +18,7 @@ export const HeroesResponseSchema = z.array(HeroSchema);
 
 export type HeroType = z.infer<typeof HeroSchema>;
 
-export type Hero = {
+export type HeroZod = {
   homeTown: string;
   secretBase: string;
   content: string;
