@@ -7,7 +7,7 @@
         <button mat-icon-button aria-label="Search" (click)="search()">
           <mat-icon fontIcon="search"></mat-icon>
         </button>
-        <button mat-icon-button aria-label="Reset" (click)="searchTermTemporary.set('')">
+        <button mat-icon-button aria-label="Reset" (click)="searchTermTemporary.set(''); search()">
           <mat-icon fontIcon="clear"></mat-icon>
         </button>
       </div>

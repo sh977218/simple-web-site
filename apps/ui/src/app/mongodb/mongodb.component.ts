@@ -28,12 +28,10 @@ export class MongodbComponent {
   search() {
     this.facade.searchTerm.set(this.searchTermTemporary());
   }
-  // Super hero squad
-  // Lonely City
 
   constructor() {
     effect(() => {
-      if (this.facade.searchedHeroes.error() || this.facade.allHeroes.error()) {
+      if (this.facade.searchedHeroes.error()) {
         this._snackBar.open('Could not load heroes information', 'Close');
       }
     });

@@ -11,15 +11,15 @@ export class SearchFacade {
 
   searchedHeroes = httpResource<HeroZod[]>(() => {
     const searchTerm = this.searchTerm();
-    if (!searchTerm) {
+    if (searchTerm) {
       return {
         url: this.url,
+        method: 'POST',
+        body: { searchTerm },
       };
     }
     return {
       url: this.url,
-      method: 'POST',
-      body: { searchTerm },
     };
   });
 }

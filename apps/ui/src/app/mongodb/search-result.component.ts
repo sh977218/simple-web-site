@@ -10,8 +10,8 @@ import { HeroZod } from '@shared/shared-models';
   selector: 'app-search-result',
   template: `
     <fieldset>
-      @if (heroes()?.hasValue()) {
-        @for (hero of heroes()?.value(); track hero) {
+      @if (heroes().hasValue()) {
+        @for (hero of heroes().value(); track hero) {
           <section class="flex flex-col flex-wrap justify-between">
             <app-hero [hero]="hero" class="my-2" />
             <mat-divider />
@@ -19,7 +19,7 @@ import { HeroZod } from '@shared/shared-models';
         } @empty {
           <p>No searchedHeroes found.</p>
         }
-      } @else if (heroes()?.isLoading()) {
+      } @else if (heroes().isLoading()) {
         <div class="spinner-overlay">
           <mat-spinner></mat-spinner>
         </div>
@@ -30,5 +30,5 @@ import { HeroZod } from '@shared/shared-models';
   providers: [SearchFacade],
 })
 export class SearchResultComponent {
-  heroes = input.required<HttpResourceRef<HeroZod[]>>();
+  heroes = input.required<HttpResourceRef<HeroZod[] | undefined>>();
 }
