@@ -2,7 +2,7 @@
   <h1>Search Result From Mongo DB:</h1>
   <mat-form-field class="w-full" appearance="fill">
     <input matInput type="search" [(ngModel)]="searchTerm">
-    @if (searchTerm()?.length) {
+    @if (searchTerm().length) {
       <button matSuffix mat-icon-button aria-label="Search">
         <mat-icon fontIcon="search"></mat-icon>
       </button>
