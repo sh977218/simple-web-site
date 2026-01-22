@@ -8,6 +8,7 @@ import cookieParser from 'cookie-parser';
 import { AppModule } from './app/app.module';
 import { EsService } from './app/es/es.service';
 import { MyLogger } from './app/myLogger';
+import { DataLoadService } from './app/data-load/data-load.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
@@ -15,6 +16,9 @@ async function bootstrap() {
   });
   app.enableCors();
   app.use(cookieParser());
+
+  const dataLoadService = app.get(DataLoadService);
+  await dataLoadService.resetAndLoadHeroes();
 
 /*
   const esService = app.get(EsService);

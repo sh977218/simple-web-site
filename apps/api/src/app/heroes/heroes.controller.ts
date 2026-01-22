@@ -2,12 +2,17 @@ import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 
 import { HeroesService } from './heroes.service';
-import { CreateHeroDto } from './dto/createHeroDto';
+import { CreateHeroDto, SearchHeroDto } from './dto/createHeroDto';
 import { UpdateHeroDto } from './dto/update-cat.dto';
 
 @Controller('heroes')
 export class HeroesController {
   constructor(private readonly heroesService: HeroesService) {}
+
+  @Post()
+  search(@Body() searchHeroDto: SearchHeroDto) {
+    return this.heroesService.search(searchHeroDto);
+  }
 
   @Post(':id')
   create(@Body() createHeroDto: CreateHeroDto) {
