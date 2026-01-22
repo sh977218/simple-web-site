@@ -8,8 +8,8 @@ export class Hero {
   @Prop({ type: String })
   homeTown: string;
 
-  @Prop({ type: Number })
-  secretBase: number;
+  @Prop({ type: String })
+  secretBase: string;
 
   @Prop({ type: String })
   content: string;

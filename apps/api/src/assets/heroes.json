@@ -46,5 +46,295 @@
     "formed": 2025,
     "secretBase": "Lonely tower",
     "active": false
+  },
+  {
+    "squadName": "Cosmic Guardians",
+    "homeTown": "New Tokyo",
+    "formed": 2018,
+    "secretBase": "Orbital Station Alpha",
+    "active": true,
+    "members": [
+      {
+        "name": "Starlight",
+        "age": 31,
+        "secretIdentity": "Yuki Tanaka",
+        "powers": [
+          "Energy manipulation",
+          "Flight",
+          "Force field generation"
+        ]
+      },
+      {
+        "name": "Void Walker",
+        "age": 45,
+        "secretIdentity": "Marcus Chen",
+        "powers": [
+          "Dimensional shifting",
+          "Shadow control",
+          "Invisibility"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Thunder Legion",
+    "homeTown": "Storm Valley",
+    "formed": 2014,
+    "secretBase": "Lightning Peak",
+    "active": true,
+    "members": [
+      {
+        "name": "Thunderbolt",
+        "age": 35,
+        "secretIdentity": "Jake Morrison",
+        "powers": [
+          "Electricity control",
+          "Speed enhancement",
+          "Weather manipulation"
+        ]
+      },
+      {
+        "name": "Storm Caller",
+        "age": 28,
+        "secretIdentity": "Elena Volkov",
+        "powers": [
+          "Cloud formation",
+          "Lightning summoning",
+          "Wind control"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Mystic Order",
+    "homeTown": "Arcane Valley",
+    "formed": 2010,
+    "secretBase": "Hidden Sanctum",
+    "active": true,
+    "members": [
+      {
+        "name": "Mystic Phoenix",
+        "age": 156,
+        "secretIdentity": "Professor Adrian Wells",
+        "powers": [
+          "Spellcasting",
+          "Mystical healing",
+          "Resurrection"
+        ]
+      },
+      {
+        "name": "Nightwhisper",
+        "age": 42,
+        "secretIdentity": "Sarah Black",
+        "powers": [
+          "Shadow magic",
+          "Telepathy",
+          "Spirit communication"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Apex Predators",
+    "homeTown": "Savage Jungle",
+    "formed": 2017,
+    "secretBase": "Beast Lair",
+    "active": true,
+    "members": [
+      {
+        "name": "Fang",
+        "age": 34,
+        "secretIdentity": "Victor Beast",
+        "powers": [
+          "Animal transformation",
+          "Enhanced strength",
+          "Primal instincts"
+        ]
+      },
+      {
+        "name": "Wildcat",
+        "age": 26,
+        "secretIdentity": "Rebecca Hunt",
+        "powers": [
+          "Agility",
+          "Claw projection",
+          "Animal communication"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Tech Titans",
+    "homeTown": "Silicon Metropolis",
+    "formed": 2019,
+    "secretBase": "Innovation Hub",
+    "active": true,
+    "members": [
+      {
+        "name": "Cyber Mind",
+        "age": 33,
+        "secretIdentity": "Dr. Alex Rivera",
+        "powers": [
+          "Technology control",
+          "Hacking",
+          "Digital teleportation"
+        ]
+      },
+      {
+        "name": "Iron Heart",
+        "age": 29,
+        "secretIdentity": "Lisa Zhang",
+        "powers": [
+          "Mechanical suits",
+          "Weapons creation",
+          "Engineering mastery"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Quantum Knights",
+    "homeTown": "Crystal City",
+    "formed": 2020,
+    "secretBase": "Quantum Labs",
+    "active": true,
+    "members": [
+      {
+        "name": "Phase Shift",
+        "age": 38,
+        "secretIdentity": "Dr. Michael Stone",
+        "powers": [
+          "Quantum tunneling",
+          "Matter phasing",
+          "Probability manipulation"
+        ]
+      },
+      {
+        "name": "Prism",
+        "age": 24,
+        "secretIdentity": "Sophie Laurent",
+        "powers": [
+          "Light refraction",
+          "Energy projection",
+          "Spectrum analysis"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Hydro Alliance",
+    "homeTown": "Atlantis Bay",
+    "formed": 2015,
+    "secretBase": "Deep Sea Fortress",
+    "active": true,
+    "members": [
+      {
+        "name": "Tidal Force",
+        "age": 50,
+        "secretIdentity": "King Arthur Smith",
+        "powers": [
+          "Water control",
+          "Ocean communication",
+          "Pressure resistance"
+        ]
+      },
+      {
+        "name": "Wave Rider",
+        "age": 32,
+        "secretIdentity": "Marina Santos",
+        "powers": [
+          "Hydrokinesis",
+          "Aquatic respiration",
+          "Tsunami generation"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Terra Guardians",
+    "homeTown": "Earth Haven",
+    "formed": 2012,
+    "secretBase": "Stone Cathedral",
+    "active": true,
+    "members": [
+      {
+        "name": "Earthquake",
+        "age": 47,
+        "secretIdentity": "Robert King",
+        "powers": [
+          "Seismic control",
+          "Earth manipulation",
+          "Tectonic sensing"
+        ]
+      },
+      {
+        "name": "Stone Guardian",
+        "age": 31,
+        "secretIdentity": "Emma Green",
+        "powers": [
+          "Rock solidification",
+          "Mineral control",
+          "Geological mastery"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Inferno Coalition",
+    "homeTown": "Scorched Lands",
+    "formed": 2016,
+    "secretBase": "Volcanic Stronghold",
+    "active": true,
+    "members": [
+      {
+        "name": "Blaze Master",
+        "age": 41,
+        "secretIdentity": "Carlos Rodriguez",
+        "powers": [
+          "Fire control",
+          "Heat immunity",
+          "Combustion generation"
+        ]
+      },
+      {
+        "name": "Inferno Spirit",
+        "age": 27,
+        "secretIdentity": "Nina Flame",
+        "powers": [
+          "Pyrokinesis",
+          "Fire shape-shifting",
+          "Temperature control"
+        ]
+      }
+    ]
+  },
+  {
+    "squadName": "Frost Collective",
+    "homeTown": "Frozen Peak",
+    "formed": 2018,
+    "secretBase": "Ice Palace",
+    "active": true,
+    "members": [
+      {
+        "name": "Iceborn",
+        "age": 36,
+        "secretIdentity": "Erik Frostenson",
+        "powers": [
+          "Cryokinesis",
+          "Ice construction",
+          "Absolute zero"
+        ]
+      },
+      {
+        "name": "Glacial Princess",
+        "age": 25,
+        "secretIdentity": "Kristina Arctica",
+        "powers": [
+          "Frost manipulation",
+          "Blizzard generation",
+          "Ice control"
+        ]
+      }
+    ]
   }
 ]
