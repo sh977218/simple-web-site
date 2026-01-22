@@ -1,3 +1,4 @@
+import { HeroZod } from '@shared/shared-models';
 import { Component, effect, inject, model } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { MatDivider } from '@angular/material/list';
@@ -6,10 +7,9 @@ import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { environment } from '../../environments/environment';
 import { MatFormField, MatInput, MatSuffix } from '@angular/material/input';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatIcon } from '@angular/material/icon';
 import { MatIconButton } from '@angular/material/button';
-import { HeroZod } from '@shared/shared-models';
+import { MatIcon } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   templateUrl: './mongodb.component.html',
@@ -19,21 +19,20 @@ import { HeroZod } from '@shared/shared-models';
     MatProgressSpinner,
     MatFormField,
     MatInput,
-    ReactiveFormsModule,
-    MatIcon,
     MatIconButton,
+    MatIcon,
     FormsModule,
-    MatSuffix,
+    MatSuffix
   ],
 })
 export class MongodbComponent {
   private _snackBar = inject(MatSnackBar);
+  searchTerm = model<string>();
 
   private url = `${environment.api}/heroes`;
 
   // Super hero squad
   // Lonely City
-  searchTerm = model('Super hero squad');
 
   heroes = httpResource<HeroZod[]>(() => ({
     url: this.url,
