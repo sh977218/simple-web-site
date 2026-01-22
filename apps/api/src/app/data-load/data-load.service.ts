@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { HeroesService } from '../heroes/heroes.service';
-import { heroesData } from '../../assets/heroes.json';
+import * as heroesData from '../../assets/heroes.json';
 
 @Injectable()
 export class DataLoadService {

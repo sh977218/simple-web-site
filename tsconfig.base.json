@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "paths": {
       "@shared/shared-models": ["libs/shared-models/src/index.ts"]
     }

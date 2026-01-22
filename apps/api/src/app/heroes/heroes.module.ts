@@ -9,5 +9,6 @@ import { Hero, HeroSchema } from './schemas/hero.schema';
   imports: [MongooseModule.forFeature([{ name: Hero.name, schema: HeroSchema }])],
   controllers: [HeroesController],
   providers: [HeroesService],
+  exports: [HeroesService],
 })
 export class HeroesModule {}
