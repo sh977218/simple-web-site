@@ -1,33 +1,17 @@
 <div class="flex-grow basis-0" data-testid="esResult">
   <h1>Search Result From Mongo DB:</h1>
   <mat-form-field class="w-full" appearance="fill">
-    <input matInput type="search" [(ngModel)]="searchTerm">
-    @if (searchTerm()) {
+    <input matInput type="search" [(ngModel)]="searchTermTemporary" placeholder="Search searchedHeroes..." />
+    @if (searchTermTemporary()) {
       <div matSuffix>
-        <button mat-icon-button aria-label="Search">
+        <button mat-icon-button aria-label="Search" (click)="search()">
           <mat-icon fontIcon="search"></mat-icon>
         </button>
-        <button mat-icon-button aria-label="Reset" (click)="searchTerm.set('')">
+        <button mat-icon-button aria-label="Reset" (click)="searchTermTemporary.set(''); search()">
           <mat-icon fontIcon="clear"></mat-icon>
         </button>
       </div>
     }
   </mat-form-field>
-  <fieldset>
-
-    @if (heroes.hasValue()) {
-      @for (hero of heroes.value(); track hero) {
-        <section class="flex flex-col flex-wrap justify-between">
-          <app-hero [hero]="hero" class="my-2" />
-          <mat-divider />
-        </section>
-      }
-
-    } @else if (heroes.isLoading()) {
-      <div class="spinner-overlay">
-        <mat-spinner></mat-spinner>
-      </div>
-    }
-
-  </fieldset>
+  <app-search-result [heroes]="facade.searchedHeroes"/>
 </div>
