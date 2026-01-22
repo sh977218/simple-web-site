@@ -1,15 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Hero } from './schemas/hero.schema';
-import { CreateHeroDto } from './dto/createHeroDto';
-import { UpdateHeroDto } from './dto/update-cat.dto';
+import { Hero } from './schema/hero.schema';
+import { SearchHeroDto } from './dto/search-heroes.dto';
+import { CreateHeroDto } from './dto/create-hero.dto';
+import { UpdateHeroDto } from './dto/update-hero.dto';
 
 @Injectable()
 export class HeroesService {
   constructor(
     @InjectModel(Hero.name) private readonly heroModel: Model<Hero>,
   ) {}
+
+  async search(searchHeroDto: SearchHeroDto) {
+    return await this.heroModel
+      .find({ $text: { $search: searchHeroDto.searchTerm } })
+      .lean()
+      .exec();
+  }
 
   async createHero(createHeroDto: CreateHeroDto) {
     return await new this.heroModel(createHeroDto).save();
@@ -36,7 +44,7 @@ export class HeroesService {
   deleteAllHeroes() {
     return this.heroModel.deleteMany({});
   }
-  injectHeroes(data: any) {
+  injectHeroes(data: CreateHeroDto[]) {
     return this.heroModel.insertMany(data);
   }
 }
