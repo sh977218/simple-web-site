@@ -1,5 +1,5 @@
 import { HeroZod } from '@shared/shared-models';
-import { Component, effect, inject, model } from '@angular/core';
+import { Component, effect, inject, model, signal } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { MatDivider } from '@angular/material/list';
 import { httpResource } from '@angular/common/http';
@@ -22,23 +22,31 @@ import { FormsModule } from '@angular/forms';
     MatIconButton,
     MatIcon,
     FormsModule,
-    MatSuffix
+    MatSuffix,
   ],
 })
 export class MongodbComponent {
   private _snackBar = inject(MatSnackBar);
-  searchTerm = model<string>();
+  searchTerm = signal<string | undefined>(undefined);
+  searchTermTemporary = model('');
 
   private url = `${environment.api}/heroes`;
 
+  search() {
+    this.searchTerm.set(this.searchTermTemporary());
+  }
   // Super hero squad
   // Lonely City
 
-  heroes = httpResource<HeroZod[]>(() => ({
-    url: this.url,
-    method: 'POST',
-    body: { searchTerm: this.searchTerm() },
-  }));
+  heroes = httpResource<HeroZod[]>(() => {
+    const searchTerm = this.searchTerm();
+    if (!searchTerm) return;
+    return {
+      url: this.url,
+      method: 'POST',
+      body: { searchTerm },
+    };
+  });
 
   constructor() {
     effect(() => {

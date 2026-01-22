@@ -49,7 +49,7 @@ export class ElasticsearchComponent {
   constructor() {
     effect(() => {
       if (this.heroes.error()) {
-        this._snackBar.open('Could not load heroes information');
+        this._snackBar.open('Could not load heroes information', 'Close');
       }
     });
   }
