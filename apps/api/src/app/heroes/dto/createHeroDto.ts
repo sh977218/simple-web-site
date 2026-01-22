@@ -30,3 +30,8 @@ export class CreateHeroDto {
   @ApiProperty({ type: [MemberDto] })
   members: MemberDto[];
 }
+
+export class SearchHeroDto {
+  @ApiProperty()
+  searchTerm: string;
+}
