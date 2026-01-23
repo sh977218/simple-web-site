@@ -25,7 +25,7 @@ import { Member } from '@shared/shared-models';
     MatChipSet,
   ],
   template: `
-    <h2 mat-dialog-title>{{ member.name }}</h2>
+    <h2 matDialogTitle>{{ member.name }}</h2>
     <mat-dialog-content>
       <mat-list>
         <mat-list-item>
@@ -44,7 +44,7 @@ import { Member } from '@shared/shared-models';
       </mat-chip-set>
     </mat-dialog-content>
     <mat-dialog-actions>
-      <button matButton mat-dialog-close cdkFocusInitial>Ok</button>
+      <button matButton matDialogClose cdkFocusInitial>Ok</button>
     </mat-dialog-actions>
   `,
 })
