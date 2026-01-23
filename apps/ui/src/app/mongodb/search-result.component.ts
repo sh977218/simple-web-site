@@ -30,6 +30,9 @@ import { SearchFacade } from './search.facade';
   `,
   imports: [HeroComponent, MatDivider, MatProgressSpinner],
   providers: [SearchFacade],
+  host: {
+    role: 'search'
+  },
 })
 export class SearchResultComponent {
   heroes = input.required<HttpResourceRef<Hero[] | undefined>>();
