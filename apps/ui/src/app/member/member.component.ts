@@ -10,6 +10,9 @@ import { MemberDialog } from './member.dialog';
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
+  host: {
+    class: 'flex flex-col flex-wrap justify-between my-2',
+  },
   imports: [
     MatCardHeader,
     MatCardTitle,
