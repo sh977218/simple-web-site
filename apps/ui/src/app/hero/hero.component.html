@@ -1,39 +1,16 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title
-    ><a
-      [queryParams]="{ q: hero().homeTown }"
-      class="underline"
-      routerLink="/search"
-    >{{ hero().homeTown }}</a
-    >
-    </mat-card-title>
+    <mat-card-title>{{ hero().homeTown }}</mat-card-title>
     <mat-card-subtitle>{{ hero().squadName }}</mat-card-subtitle>
   </mat-card-header>
+  <mat-card-actions>
+    <button matButton color="accent" (click)="openHeroDetailDialog()">Learn More</button>
+  </mat-card-actions>
   <mat-card-content>
     <p>{{ hero().secretBase }}</p>
     <p>{{ hero().content }}</p>
     @for (member of hero().members || []; track member) {
-      <div class="my-2 border-solid border-2">
-        <mat-list>
-          <mat-list-item>
-            <span matListItemTitle>member name</span>
-            <span matListItemLine>{{ member.name }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span matListItemTitle>member age</span>
-            <span matListItemLine>{{ member.age }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span matListItemTitle>member powers</span>
-            <span matListItemLine>{{ member.powers }}</span>
-          </mat-list-item>
-          <mat-list-item>
-            <span matListItemTitle>member secretIdentity</span>
-            <span matListItemLine>{{ member.secretIdentity }}</span>
-          </mat-list-item>
-        </mat-list>
-      </div>
+      <app-member [member]="member"  />
     }
   </mat-card-content>
 </mat-card>
