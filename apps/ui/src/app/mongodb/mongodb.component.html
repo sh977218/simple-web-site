@@ -1,16 +1,14 @@
-<div class="flex-grow basis-0" data-testid="esResult">
-  <mat-form-field appearance="fill" class="w-full">
-    <input [(ngModel)]="searchTermTemporary" matInput placeholder="Search heroes..." type="search" />
-    @if (searchTermTemporary()) {
-      <div matSuffix>
-        <button (click)="search()" aria-label="Search" mat-icon-button>
-          <mat-icon fontIcon="search"></mat-icon>
-        </button>
-        <button (click)="searchTermTemporary.set(''); search()" aria-label="Reset" mat-icon-button>
-          <mat-icon fontIcon="clear"></mat-icon>
-        </button>
-      </div>
-    }
-  </mat-form-field>
-  <app-search-result [heroes]="facade.searchedHeroes" />
-</div>
+<mat-form-field appearance="fill" class="w-full">
+  <input [(ngModel)]="searchTermTemporary" matInput placeholder="Search heroes..." type="search" />
+  @if (searchTermTemporary()) {
+    <div matSuffix>
+      <button (click)="search()" aria-label="Search" mat-icon-button>
+        <mat-icon fontIcon="search"></mat-icon>
+      </button>
+      <button (click)="searchTermTemporary.set(''); search()" aria-label="Reset" mat-icon-button>
+        <mat-icon fontIcon="clear"></mat-icon>
+      </button>
+    </div>
+  }
+</mat-form-field>
+<app-search-result [heroes]="facade.searchedHeroes" />
