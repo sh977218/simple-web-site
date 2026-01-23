@@ -1,17 +1,17 @@
 import { z } from 'zod';
 
 export const MemberSchema = z.object({
-  age: z.number(),
   name: z.string(),
   content: z.string(),
-  powers: z.array(z.string()),
+  age: z.number(),
   secretIdentity: z.string(),
+  powers: z.array(z.string()),
 });
 export const HeroSchema = z.object({
+  squadName: z.number(),
+  content: z.string(),
   homeTown: z.string(),
   secretBase: z.string(),
-  content: z.string(),
-  squadName: z.number(),
   members: z.array(MemberSchema),
 });
 

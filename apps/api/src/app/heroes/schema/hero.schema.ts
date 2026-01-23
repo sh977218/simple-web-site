@@ -6,16 +6,16 @@ import { Member, MemberSchema } from './member.schema';
 @Schema({ collection: 'heroes' })
 export class Hero {
   @Prop({ type: String })
-  homeTown: string;
-
-  @Prop({ type: String })
-  secretBase: string;
+  squadName: string;
 
   @Prop({ type: String })
   content: string;
 
   @Prop({ type: String })
-  squadName: string;
+  homeTown: string;
+
+  @Prop({ type: String })
+  secretBase: string;
 
   @Prop({ type: [MemberSchema] })
   members: Member[];
@@ -24,8 +24,8 @@ export class Hero {
 export type HeroDocument = HydratedDocument<Hero>;
 export const HeroSchema = SchemaFactory.createForClass(Hero);
 HeroSchema.index({
-  homeTown: 'text',
-  secretBase: 'text',
-  content: 'text',
   squadName: 'text',
+  content: 'text',
+  homeTown: 'text',
+  secretBase: 'text'
 });
