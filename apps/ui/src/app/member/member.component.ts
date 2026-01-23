@@ -21,19 +21,20 @@ import { MemberDialog } from './member.dialog';
     class: 'flex flex-col flex-wrap justify-between my-2',
   },
   imports: [
-    MatCardHeader,
-    MatCardTitle,
-    MatCardSubtitle,
-    MatButton,
+    MatCard,
     MatCardContent,
     MatCardFooter,
+    MatCardHeader,
+    MatCardSubtitle,
+    MatCardTitle,
+    MatButton,
     MatIconButton,
     MatIcon,
-    MatCard,
   ],
 })
 export class MemberComponent {
   readonly dialog = inject(MatDialog);
+
   member = input.required<Member>();
 
   openMemberDetailDialog() {

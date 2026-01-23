@@ -1,6 +1,5 @@
 import { HttpResourceRef } from '@angular/common/http';
 import { Component, input } from '@angular/core';
-import { MatDivider } from '@angular/material/list';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { Hero } from '@shared/shared-models';
 

@@ -3,12 +3,20 @@
     <mat-card-title>{{ hero().squadName }}</mat-card-title>
   </mat-card-header>
   <mat-card-actions>
-    <button (click)="openHeroDetailDialog()" color="accent" matButton>Learn More</button>
+    <button matButton color="accent" (click)="openHeroDetailDialog()">Learn More</button>
   </mat-card-actions>
   <mat-card-content>
-    <p>{{ hero().content }}</p>
-    @for (member of hero().members; track member) {
+    {{ hero().content }}
+    @for (member of hero().members; track member; ) {
       <app-member [member]="member" />
     }
   </mat-card-content>
+  <mat-card-footer>
+    <button matIconButton>
+      <mat-icon aria-hidden="false" aria-label="like" fontIcon="thumb_up"></mat-icon>
+    </button>
+    <button matIconButton>
+      <mat-icon aria-hidden="false" aria-label="unlike" fontIcon="thumb_down"></mat-icon>
+    </button>
+  </mat-card-footer>
 </mat-card>
