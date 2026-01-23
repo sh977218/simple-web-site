@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 export class SearchFacade {
   searchTerm = signal<string | undefined>(undefined);
   private url = `${environment.api}/heroes`;
+
   searchedHeroes = httpResource<Hero[]>(() => {
     const searchTerm = this.searchTerm();
     if (searchTerm) {

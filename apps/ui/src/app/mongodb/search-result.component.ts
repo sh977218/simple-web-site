@@ -15,7 +15,7 @@ import { SearchFacade } from './search.facade';
     <fieldset>
       @if (heroes().hasValue()) {
         @for (hero of heroes().value(); track hero) {
-            <app-hero [hero]="hero" class="my-2" />
+          <app-hero [hero]="hero" />
         } @empty {
           <p>No searchedHeroes found.</p>
         }
@@ -26,7 +26,7 @@ import { SearchFacade } from './search.facade';
       }
     </fieldset>
   `,
-  imports: [HeroComponent, MatDivider, MatProgressSpinner],
+  imports: [HeroComponent, MatProgressSpinner],
   providers: [SearchFacade],
   host: {
     role: 'search',

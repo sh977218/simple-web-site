@@ -1,21 +1,21 @@
 <mat-card>
-<mat-card-header>
-  <mat-card-title>
-    {{ member.name }}
-    <mat-card-subtitle>
-      <button matButton color="accent" (click)="openMemberDetailDialog()">Learn More</button>
-    </mat-card-subtitle>
-  </mat-card-title>
-</mat-card-header>
-<mat-card-content>
-  {{ member().content }}
-</mat-card-content>
-<mat-card-footer>
-  <button matIconButton>
-    <mat-icon aria-hidden="false" aria-label="like" fontIcon="thumb_up"></mat-icon>
-  </button>
-  <button matIconButton>
-    <mat-icon aria-hidden="false" aria-label="unlike" fontIcon="thumb_down"></mat-icon>
-  </button>
-</mat-card-footer>
+  <mat-card-header>
+    <mat-card-title>
+      {{ member.name }}
+      <mat-card-subtitle>
+        <button matButton color="accent" (click)="openMemberDetailDialog()">Learn More</button>
+      </mat-card-subtitle>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ member().content }}</p>
+  </mat-card-content>
+  <mat-card-footer>
+    <button matIconButton>
+      <mat-icon aria-hidden="false" aria-label="like" fontIcon="thumb_up"></mat-icon>
+    </button>
+    <button matIconButton>
+      <mat-icon aria-hidden="false" aria-label="unlike" fontIcon="thumb_down"></mat-icon>
+    </button>
+  </mat-card-footer>
 </mat-card>
