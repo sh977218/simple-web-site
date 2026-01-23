@@ -32,5 +32,5 @@ import { SearchFacade } from './search.facade';
   },
 })
 export class SearchResultComponent {
-  heroes = input.required<HttpResourceRef<Hero[]>>();
+  heroes = input.required<HttpResourceRef<Hero[] | undefined>>();
 }
