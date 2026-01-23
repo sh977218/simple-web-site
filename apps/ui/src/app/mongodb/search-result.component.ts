@@ -11,13 +11,11 @@ import { SearchFacade } from './search.facade';
 @Component({
   selector: 'app-search-result',
   template: `
+    <h1>Search Result From Mongo DB:</h1>
     <fieldset>
       @if (heroes().hasValue()) {
         @for (hero of heroes().value(); track hero) {
-          <section class="flex flex-col flex-wrap justify-between">
             <app-hero [hero]="hero" class="my-2" />
-            <mat-divider />
-          </section>
         } @empty {
           <p>No searchedHeroes found.</p>
         }
@@ -31,7 +29,7 @@ import { SearchFacade } from './search.facade';
   imports: [HeroComponent, MatDivider, MatProgressSpinner],
   providers: [SearchFacade],
   host: {
-    role: 'search'
+    role: 'search',
   },
 })
 export class SearchResultComponent {

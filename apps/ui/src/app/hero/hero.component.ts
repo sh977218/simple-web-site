@@ -11,8 +11,11 @@ import { HeroDialog } from './hero.dialog';
 
 @Component({
   selector: 'app-hero',
-  imports: [MatCardModule, MatListModule, MatButton, MemberComponent],
   templateUrl: './hero.component.html',
+  host: {
+    class: 'flex flex-col flex-wrap justify-between my-2',
+  },
+  imports: [MatCardModule, MatListModule, MatButton, MemberComponent],
 })
 export class HeroComponent {
   readonly dialog = inject(MatDialog);

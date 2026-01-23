@@ -1,7 +1,6 @@
 <div class="flex-grow basis-0" data-testid="esResult">
-  <h1>Search Result From Mongo DB:</h1>
   <mat-form-field appearance="fill" class="w-full">
-    <input [(ngModel)]="searchTermTemporary" matInput placeholder="Search searchedHeroes..." type="search" />
+    <input [(ngModel)]="searchTermTemporary" matInput placeholder="Search heroes..." type="search" />
     @if (searchTermTemporary()) {
       <div matSuffix>
         <button (click)="search()" aria-label="Search" mat-icon-button>
