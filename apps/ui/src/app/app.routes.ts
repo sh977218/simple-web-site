@@ -5,7 +5,7 @@ export const appRoutes: Routes = [
     path: 'mongodb',
     loadComponent: () =>
       import('./search/search.component').then((m) => m.SearchComponent),
-    title: 'Mongo DB',
+    title: 'Search',
   },
   {
     path: 'threeJs',
