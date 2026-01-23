@@ -27,5 +27,5 @@ HeroSchema.index({
   squadName: 'text',
   content: 'text',
   homeTown: 'text',
-  secretBase: 'text'
+  secretBase: 'text',
 });

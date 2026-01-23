@@ -1,9 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-
-import { Hero } from '@shared/shared-models';
 import { MatButton } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -11,6 +8,8 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
+import { Hero } from '@shared/shared-models';
 
 @Component({
   imports: [

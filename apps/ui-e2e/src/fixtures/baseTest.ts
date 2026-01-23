@@ -26,6 +26,8 @@ const test = baseTest.extend({
   },
 });
 
-test.afterEach(async () => { /* empty */ });
+test.afterEach(async () => {
+  /* empty */
+});
 
 export default test;

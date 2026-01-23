@@ -12,11 +12,7 @@
         "age": 29,
         "secretIdentity": "Dan Jukes",
         "content": "A brilliant scientist with extraordinary molecular manipulation abilities, capable of controlling matter at the atomic level. His powers make him invaluable to the squad's success.",
-        "powers": [
-          "Radiation resistance",
-          "Turning tiny",
-          "Radiation blast"
-        ]
+        "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
       },
       {
         "name": "Madame Uppercut",
@@ -65,22 +61,14 @@
         "age": 31,
         "secretIdentity": "Yuki Tanaka",
         "content": "A celestial warrior wielding stellar energy and defensive barriers, serving as the team's protective beacon in cosmic battles.",
-        "powers": [
-          "Energy manipulation",
-          "Flight",
-          "Force field generation"
-        ]
+        "powers": ["Energy manipulation", "Flight", "Force field generation"]
       },
       {
         "name": "Void Walker",
         "age": 45,
         "secretIdentity": "Marcus Chen",
         "content": "An enigmatic figure who navigates dimensional rifts and shadows, offering tactical invisibility and dimensional support to the Cosmic Guardians.",
-        "powers": [
-          "Dimensional shifting",
-          "Shadow control",
-          "Invisibility"
-        ]
+        "powers": ["Dimensional shifting", "Shadow control", "Invisibility"]
       }
     ]
   },
@@ -108,11 +96,7 @@
         "age": 28,
         "secretIdentity": "Elena Volkov",
         "content": "Elena harnesses atmospheric fury summoning storms and lightning with precision, commanding wind and clouds to protect her allies and devastate enemies.",
-        "powers": [
-          "Cloud formation",
-          "Lightning summoning",
-          "Wind control"
-        ]
+        "powers": ["Cloud formation", "Lightning summoning", "Wind control"]
       }
     ]
   },
@@ -129,22 +113,14 @@
         "age": 156,
         "secretIdentity": "Professor Adrian Wells",
         "content": "An ancient wizard wielding powerful spells and mystical healing, capable of resurrecting allies and dispelling dark magic with extraordinary skill.",
-        "powers": [
-          "Spellcasting",
-          "Mystical healing",
-          "Resurrection"
-        ]
+        "powers": ["Spellcasting", "Mystical healing", "Resurrection"]
       },
       {
         "name": "Nightwhisper",
         "age": 42,
         "secretIdentity": "Sarah Black",
         "content": "A master of shadow magic and telepathy, Nightwhisper communicates with spirits and allies, wielding darkness to protect secrets and unveil truth.",
-        "powers": [
-          "Shadow magic",
-          "Telepathy",
-          "Spirit communication"
-        ]
+        "powers": ["Shadow magic", "Telepathy", "Spirit communication"]
       }
     ]
   },
@@ -172,11 +148,7 @@
         "age": 26,
         "secretIdentity": "Rebecca Hunt",
         "content": "An agile feline warrior communicating with jungle creatures, Wildcat uses stealth and lethal precision to defend the wild against poachers and invaders.",
-        "powers": [
-          "Agility",
-          "Claw projection",
-          "Animal communication"
-        ]
+        "powers": ["Agility", "Claw projection", "Animal communication"]
       }
     ]
   },
@@ -193,11 +165,7 @@
         "age": 33,
         "secretIdentity": "Dr. Alex Rivera",
         "content": "A brilliant technologist capable of controlling digital systems and networks through advanced hacking and cyber warfare techniques.",
-        "powers": [
-          "Technology control",
-          "Hacking",
-          "Digital teleportation"
-        ]
+        "powers": ["Technology control", "Hacking", "Digital teleportation"]
       },
       {
         "name": "Iron Heart",
@@ -236,11 +204,7 @@
         "age": 24,
         "secretIdentity": "Sophie Laurent",
         "content": "A young quantum warrior capable of refracting light and projecting concentrated energy beams, providing both defensive barriers and offensive firepower to the team.",
-        "powers": [
-          "Light refraction",
-          "Energy projection",
-          "Spectrum analysis"
-        ]
+        "powers": ["Light refraction", "Energy projection", "Spectrum analysis"]
       }
     ]
   },
@@ -268,11 +232,7 @@
         "age": 27,
         "secretIdentity": "Marina Waves",
         "content": "An aquatic dancer with grace and precision, wielding water control and healing abilities to support allies while gracefully evading enemy attacks.",
-        "powers": [
-          "Hydrokinesis",
-          "Aquatic respiration",
-          "Tsunami generation"
-        ]
+        "powers": ["Hydrokinesis", "Aquatic respiration", "Tsunami generation"]
       }
     ]
   },
@@ -289,11 +249,7 @@
         "age": 36,
         "secretIdentity": "Tom Rockwell",
         "content": "A powerful earthquake manipulator creating tremors and ground displacement, devastating opponents while protecting allies with protective stone barriers.",
-        "powers": [
-          "Seismic control",
-          "Earth manipulation",
-          "Tectonic sensing"
-        ]
+        "powers": ["Seismic control", "Earth manipulation", "Tectonic sensing"]
       },
       {
         "name": "Coral Guardian",
@@ -320,21 +276,13 @@
         "age": 41,
         "secretIdentity": "Captain James Deep",
         "content": "A legendary oceanic warrior commanding water pressure and deep sea creatures, controlling currents with immense power to dominate aquatic battlefields.",
-        "powers": [
-          "Fire control",
-          "Heat immunity",
-          "Combustion generation"
-        ]
+        "powers": ["Fire control", "Heat immunity", "Combustion generation"]
       },
       {
         "name": "Inferno Spirit",
         "age": 27,
         "secretIdentity": "Nina Flame",
-        "powers": [
-          "Pyrokinesis",
-          "Fire shape-shifting",
-          "Temperature control"
-        ]
+        "powers": ["Pyrokinesis", "Fire shape-shifting", "Temperature control"]
       }
     ]
   },
@@ -350,21 +298,13 @@
         "age": 32,
         "secretIdentity": "Lily Patterson",
         "content": "A botanist wielding plant control and accelerated growth, creating entangling vines and regenerating forests to heal wounds and trap enemies.",
-        "powers": [
-          "Cryokinesis",
-          "Ice construction",
-          "Absolute zero"
-        ]
+        "powers": ["Cryokinesis", "Ice construction", "Absolute zero"]
       },
       {
         "name": "Glacial Princess",
         "age": 25,
         "secretIdentity": "Kristina Arctica",
-        "powers": [
-          "Frost manipulation",
-          "Blizzard generation",
-          "Ice control"
-        ]
+        "powers": ["Frost manipulation", "Blizzard generation", "Ice control"]
       }
     ]
   }

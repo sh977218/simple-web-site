@@ -7,9 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  HeroesResponseSchema,
-} from '@shared/shared-models';
+import { HeroesResponseSchema } from '@shared/shared-models';
 
 import { environment } from '../../environments/environment';
 import { HeroComponent } from '../hero/hero.component';
