@@ -1,9 +1,11 @@
-import { Component, input } from '@angular/core';
-import { SearchFacade } from './search.facade';
-import { HeroComponent } from '../hero/hero.component';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { HttpResourceRef } from '@angular/common/http';
+import { Component, input } from '@angular/core';
+import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { Hero } from '@shared/shared-models';
+
+import { HeroComponent } from '../hero/hero.component';
+
+import { SearchFacade } from './search.facade';
 
 @Component({
   selector: 'app-search-result',

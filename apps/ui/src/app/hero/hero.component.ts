@@ -1,12 +1,14 @@
 import { Component, inject, input } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { Hero } from '@shared/shared-models';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { HeroDialog } from './hero.dialog';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { Hero } from '@shared/shared-models';
+
 import { MemberComponent } from '../member/member.component';
+
+import { HeroDialog } from './hero.dialog';
 
 @Component({
   selector: 'app-hero',

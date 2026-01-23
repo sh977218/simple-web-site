@@ -1,9 +1,10 @@
 import { Component, effect, inject, model } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatFormField, MatInput, MatSuffix } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { MatFormField, MatInput, MatSuffix } from '@angular/material/input';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { SearchFacade } from './search.facade';
 import { SearchResultComponent } from './search-result.component';
 
@@ -21,13 +22,9 @@ import { SearchResultComponent } from './search-result.component';
   providers: [SearchFacade],
 })
 export class MongodbComponent {
-  private readonly _snackBar = inject(MatSnackBar);
   readonly facade = inject(SearchFacade);
   searchTermTemporary = model('');
-
-  search() {
-    this.facade.searchTerm.set(this.searchTermTemporary());
-  }
+  private readonly _snackBar = inject(MatSnackBar);
 
   constructor() {
     effect(() => {
@@ -35,5 +32,9 @@ export class MongodbComponent {
         this._snackBar.open('Could not load heroes information', 'Close');
       }
     });
+  }
+
+  search() {
+    this.facade.searchTerm.set(this.searchTermTemporary());
   }
 }

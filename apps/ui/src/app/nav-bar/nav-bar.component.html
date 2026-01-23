@@ -1,16 +1,16 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
-               [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-               [mode]="(isHandset$ | async) ? 'over' : 'side'"
-               [opened]="(isHandset$ | async) === false">
+  <mat-sidenav #drawer [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+               [opened]="(isHandset$ | async) === false"
+               class="sidenav"
+               fixedInViewport>
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       @for (route of routes; track route) {
         <a
+          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLink]=route.path
           mat-list-item
           routerLinkActive="active"
-          [routerLink]=route.path
-          [routerLinkActiveOptions]="{ exact: true }"
         >{{ route.label }}</a>
       }
     </mat-nav-list>
@@ -19,24 +19,24 @@
     <mat-toolbar [color]="themeService.selectedColor">
       @if (isHandset$ | async) {
         <button
-          type="button"
+          (click)="drawer.toggle()"
           aria-label="Toggle sidenav"
           matIconButton
-          (click)="drawer.toggle()">
+          type="button">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
       }
 
-      <a mat-mini-fab [color]="themeService.selectedColor" routerLink="./">
+      <a [color]="themeService.selectedColor" mat-mini-fab routerLink="./">
         <mat-icon>favorite</mat-icon>
       </a>
       <span class="flex-1"></span>
-      <button matButton [matMenuTriggerFor]="themeColorMenu">theme color</button>
+      <button [matMenuTriggerFor]="themeColorMenu" matButton>theme color</button>
       <mat-menu #themeColorMenu="matMenu">
         <mat-radio-group
+          [(ngModel)]="themeService.selectedColor"
           aria-labelledby="example-radio-group-label"
-          class="flex flex-col"
-          [(ngModel)]="themeService.selectedColor">
+          class="flex flex-col">
           @for (color of themeService.colors; track color) {
             <mat-radio-button [value]="color">{{ color }}</mat-radio-button>
           }
@@ -44,8 +44,8 @@
       </mat-menu>
       <span class="flex-1"></span>
       <mat-slide-toggle
-        [color]="themeService.selectedColor"
         [(ngModel)]="themeService.darkMode"
+        [color]="themeService.selectedColor"
       >
         <div class="flex justify-center">
           <mat-icon>dark_mode</mat-icon>

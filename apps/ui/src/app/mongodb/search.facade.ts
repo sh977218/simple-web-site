@@ -1,6 +1,7 @@
-import { Injectable, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
+import { Injectable, signal } from '@angular/core';
 import { Hero } from '@shared/shared-models';
+
 import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })

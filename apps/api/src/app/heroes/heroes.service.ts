@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Hero } from './schema/hero.schema';
-import { SearchHeroDto } from './dto/search-heroes.dto';
+
 import { CreateHeroDto } from './dto/create-hero.dto';
+import { SearchHeroDto } from './dto/search-heroes.dto';
 import { UpdateHeroDto } from './dto/update-hero.dto';
+import { Hero } from './schema/hero.schema';
 
 @Injectable()
 export class HeroesService {

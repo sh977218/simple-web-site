@@ -1,7 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { HeroesService } from '../heroes/heroes.service';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+
+import { HeroesService } from '../heroes/heroes.service';
 
 @Injectable()
 export class DataLoadService {

@@ -1,4 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
+
 import { MemberDto } from './create-hero.dto';
 
 export class UpdateHeroDto {
