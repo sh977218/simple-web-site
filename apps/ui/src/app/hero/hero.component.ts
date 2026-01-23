@@ -1,4 +1,3 @@
-
 import { Component, input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
@@ -8,11 +7,8 @@ import { HeroType } from '@shared/shared-models';
 
 @Component({
   selector: 'app-hero',
-
   imports: [RouterLink, MatCardModule, MatListModule],
-  templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss',
-
+  templateUrl: './hero.component.html'
 })
 export class HeroComponent {
   hero = input.required<HeroType>();

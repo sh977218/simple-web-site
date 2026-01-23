@@ -21,13 +21,9 @@ import { SearchResultComponent } from './search-result.component';
   providers: [SearchFacade],
 })
 export class MongodbComponent {
-  private readonly _snackBar = inject(MatSnackBar);
   readonly facade = inject(SearchFacade);
   searchTermTemporary = model('');
-
-  search() {
-    this.facade.searchTerm.set(this.searchTermTemporary());
-  }
+  private readonly _snackBar = inject(MatSnackBar);
 
   constructor() {
     effect(() => {
@@ -35,5 +31,9 @@ export class MongodbComponent {
         this._snackBar.open('Could not load heroes information', 'Close');
       }
     });
+  }
+
+  search() {
+    this.facade.searchTerm.set(this.searchTermTemporary());
   }
 }

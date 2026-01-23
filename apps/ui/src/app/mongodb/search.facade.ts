@@ -5,10 +5,8 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class SearchFacade {
-  private url = `${environment.api}/heroes`;
-
   searchTerm = signal<string | undefined>(undefined);
-
+  private url = `${environment.api}/heroes`;
   searchedHeroes = httpResource<HeroZod[]>(() => {
     const searchTerm = this.searchTerm();
     if (searchTerm) {

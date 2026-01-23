@@ -5,7 +5,6 @@ import * as Joi from 'joi';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { EsService } from './es/es.service';
 import { HeroesModule } from './heroes/heroes.module';
 import { DataLoadModule } from './data-load/data-load.module';
 

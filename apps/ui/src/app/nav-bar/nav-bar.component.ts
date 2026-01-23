@@ -38,16 +38,7 @@ import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
   ],
 })
 export class NavBarComponent {
-  private breakpointObserver = inject(BreakpointObserver);
   themeService = inject(ThemeService);
-
-  isHandset$: Observable<boolean> = this.breakpointObserver
-    .observe(Breakpoints.Handset)
-    .pipe(
-      map((result) => result.matches),
-      shareReplay(),
-    );
-
   routes = [
     {
       path: 'mongodb',
@@ -66,4 +57,11 @@ export class NavBarComponent {
       label: 'Excel',
     },
   ];
+  private breakpointObserver = inject(BreakpointObserver);
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
+    .pipe(
+      map((result) => result.matches),
+      shareReplay(),
+    );
 }

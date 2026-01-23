@@ -1,17 +1,17 @@
 <div class="flex-grow basis-0" data-testid="esResult">
   <h1>Search Result From Mongo DB:</h1>
-  <mat-form-field class="w-full" appearance="fill">
-    <input matInput type="search" [(ngModel)]="searchTermTemporary" placeholder="Search searchedHeroes..." />
+  <mat-form-field appearance="fill" class="w-full">
+    <input [(ngModel)]="searchTermTemporary" matInput placeholder="Search searchedHeroes..." type="search" />
     @if (searchTermTemporary()) {
       <div matSuffix>
-        <button mat-icon-button aria-label="Search" (click)="search()">
+        <button (click)="search()" aria-label="Search" mat-icon-button>
           <mat-icon fontIcon="search"></mat-icon>
         </button>
-        <button mat-icon-button aria-label="Reset" (click)="searchTermTemporary.set(''); search()">
+        <button (click)="searchTermTemporary.set(''); search()" aria-label="Reset" mat-icon-button>
           <mat-icon fontIcon="clear"></mat-icon>
         </button>
       </div>
     }
   </mat-form-field>
-  <app-search-result [heroes]="facade.searchedHeroes"/>
+  <app-search-result [heroes]="facade.searchedHeroes" />
 </div>
