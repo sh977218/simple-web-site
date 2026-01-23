@@ -42,12 +42,8 @@ export class NavBarComponent {
   themeService = inject(ThemeService);
   routes = [
     {
-      path: 'mongodb',
-      label: 'Mongodb',
-    },
-    {
-      path: 'elasticsearch',
-      label: 'Elasticsearch',
+      path: 'search',
+      label: 'Search',
     },
     {
       path: 'threeJs',

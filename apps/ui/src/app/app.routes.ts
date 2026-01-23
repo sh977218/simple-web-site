@@ -2,18 +2,10 @@ import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
   {
-    path: 'mongodb',
+    path: 'search',
     loadComponent: () =>
-      import('./mongodb/mongodb.component').then((m) => m.MongodbComponent),
-    title: 'Mongo DB',
-  },
-  {
-    path: 'elasticsearch',
-    loadComponent: () =>
-      import('./elasticsearch/elasticsearch.component').then(
-        (m) => m.ElasticsearchComponent,
-      ),
-    title: 'Elastic Search',
+      import('./search/search.component').then((m) => m.SearchComponent),
+    title: 'Search',
   },
   {
     path: 'threeJs',
