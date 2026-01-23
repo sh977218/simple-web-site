@@ -46,10 +46,6 @@ export class NavBarComponent {
       label: 'Mongodb',
     },
     {
-      path: 'elasticsearch',
-      label: 'Elasticsearch',
-    },
-    {
       path: 'threeJs',
       label: 'Three JS',
     },

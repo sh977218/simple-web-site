@@ -4,16 +4,8 @@ export const appRoutes: Routes = [
   {
     path: 'mongodb',
     loadComponent: () =>
-      import('./mongodb/mongodb.component').then((m) => m.MongodbComponent),
+      import('./search/search.component').then((m) => m.SearchComponent),
     title: 'Mongo DB',
-  },
-  {
-    path: 'elasticsearch',
-    loadComponent: () =>
-      import('./elasticsearch/elasticsearch.component').then(
-        (m) => m.ElasticsearchComponent,
-      ),
-    title: 'Elastic Search',
   },
   {
     path: 'threeJs',
