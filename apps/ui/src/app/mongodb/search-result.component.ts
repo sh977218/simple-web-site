@@ -2,7 +2,7 @@ import { HttpResourceRef } from '@angular/common/http';
 import { Component, input } from '@angular/core';
 import { MatDivider } from '@angular/material/list';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
-import { HeroZod } from '@shared/shared-models';
+import { Hero } from '@shared/shared-models';
 
 import { HeroComponent } from '../hero/hero.component';
 
@@ -32,5 +32,5 @@ import { SearchFacade } from './search.facade';
   providers: [SearchFacade],
 })
 export class SearchResultComponent {
-  heroes = input.required<HttpResourceRef<HeroZod[] | undefined>>();
+  heroes = input.required<HttpResourceRef<Hero[] | undefined>>();
 }
