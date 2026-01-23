@@ -29,6 +29,7 @@ import { SearchFacade } from './search.facade';
   providers: [SearchFacade],
   host: {
     role: 'search',
+    class:'inline-flex flex-col'
   },
 })
 export class SearchResultComponent {

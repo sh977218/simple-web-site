@@ -1,0 +1,20 @@
+<form (ngSubmit)="search()" class="flex flex-col">
+  <mat-form-field appearance="fill" class="w-full mb-3">
+    <mat-label>Search heroes...</mat-label>
+    <input [formField]="searchForm.searchTerm" matInput type="search" placeholder="Ex. legendary" />
+    @if (searchForm.searchTerm().value().length) {
+      <div matSuffix>
+        <button type="submit" aria-label="Search" mat-icon-button>
+          <mat-icon fontIcon="search"></mat-icon>
+        </button>
+        <button type="reset" aria-label="Reset" mat-icon-button>
+          <mat-icon fontIcon="clear"></mat-icon>
+        </button>
+      </div>
+    }
+    @for (error of searchForm.searchTerm().errors(); track error) {
+      <mat-error>{{ error.message }}</mat-error>
+    }
+  </mat-form-field>
+  <app-search-result [heroes]="facade.searchedHeroes" />
+</form>
