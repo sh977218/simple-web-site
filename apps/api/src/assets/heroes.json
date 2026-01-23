@@ -5,11 +5,13 @@
     "formed": 2016,
     "secretBase": "Super tower",
     "active": true,
+    "content": "A legendary team of superheroes dedicated to protecting Metro City from evil threats and maintaining peace.",
     "members": [
       {
         "name": "Molecule Man",
         "age": 29,
         "secretIdentity": "Dan Jukes",
+        "content": "A brilliant scientist with extraordinary molecular manipulation abilities, capable of controlling matter at the atomic level. His powers make him invaluable to the squad's success.",
         "powers": [
           "Radiation resistance",
           "Turning tiny",
@@ -20,6 +22,7 @@
         "name": "Madame Uppercut",
         "age": 39,
         "secretIdentity": "Jane Wilson",
+        "content": "A formidable fighter with incredible strength and reflexes, Madame Uppercut serves as the squad's primary defensive force. Her combat expertise and resilience protect allies.",
         "powers": [
           "Million tonne punch",
           "Damage resistance",
@@ -30,6 +33,7 @@
         "name": "Eternal Flame",
         "age": 1000000,
         "secretIdentity": "Unknown",
+        "content": "An ancient immortal being possessing mastery over heat and interdimensional forces. Eternal Flame's vast experience and mystical powers provide the squad unparalleled strategic wisdom.",
         "powers": [
           "Immortality",
           "Heat Immunity",
@@ -45,7 +49,8 @@
     "homeTown": "Lonely City",
     "formed": 2025,
     "secretBase": "Lonely tower",
-    "active": false
+    "active": false,
+    "content": "A solitary hero operating independently in Lonely City, bearing the weight of duty without team support."
   },
   {
     "squadName": "Cosmic Guardians",
@@ -53,11 +58,13 @@
     "formed": 2018,
     "secretBase": "Orbital Station Alpha",
     "active": true,
+    "content": "Protectors of the cosmos defending New Tokyo from intergalactic threats and interdimensional invasions.",
     "members": [
       {
         "name": "Starlight",
         "age": 31,
         "secretIdentity": "Yuki Tanaka",
+        "content": "A celestial warrior wielding stellar energy and defensive barriers, serving as the team's protective beacon in cosmic battles.",
         "powers": [
           "Energy manipulation",
           "Flight",
@@ -68,6 +75,7 @@
         "name": "Void Walker",
         "age": 45,
         "secretIdentity": "Marcus Chen",
+        "content": "An enigmatic figure who navigates dimensional rifts and shadows, offering tactical invisibility and dimensional support to the Cosmic Guardians.",
         "powers": [
           "Dimensional shifting",
           "Shadow control",
@@ -82,11 +90,13 @@
     "formed": 2014,
     "secretBase": "Lightning Peak",
     "active": true,
+    "content": "Masters of electricity and weather, commanding atmospheric forces to protect Storm Valley from natural and supernatural threats.",
     "members": [
       {
         "name": "Thunderbolt",
         "age": 35,
         "secretIdentity": "Jake Morrison",
+        "content": "A speedster wielding electricity control, Jake Morrison accelerates through danger while commanding bolts of destructive lightning to overcome adversaries.",
         "powers": [
           "Electricity control",
           "Speed enhancement",
@@ -97,6 +107,7 @@
         "name": "Storm Caller",
         "age": 28,
         "secretIdentity": "Elena Volkov",
+        "content": "Elena harnesses atmospheric fury summoning storms and lightning with precision, commanding wind and clouds to protect her allies and devastate enemies.",
         "powers": [
           "Cloud formation",
           "Lightning summoning",
@@ -111,11 +122,13 @@
     "formed": 2010,
     "secretBase": "Hidden Sanctum",
     "active": true,
+    "content": "Ancient practitioners of mystical arts devoted to protecting the realm from magical darkness and supernatural chaos.",
     "members": [
       {
         "name": "Mystic Phoenix",
         "age": 156,
         "secretIdentity": "Professor Adrian Wells",
+        "content": "An ancient wizard wielding powerful spells and mystical healing, capable of resurrecting allies and dispelling dark magic with extraordinary skill.",
         "powers": [
           "Spellcasting",
           "Mystical healing",
@@ -126,6 +139,7 @@
         "name": "Nightwhisper",
         "age": 42,
         "secretIdentity": "Sarah Black",
+        "content": "A master of shadow magic and telepathy, Nightwhisper communicates with spirits and allies, wielding darkness to protect secrets and unveil truth.",
         "powers": [
           "Shadow magic",
           "Telepathy",
@@ -140,11 +154,13 @@
     "formed": 2017,
     "secretBase": "Beast Lair",
     "active": true,
+    "content": "Fierce warriors with primal powers protecting the savage jungle from those who threaten its wild creatures.",
     "members": [
       {
         "name": "Fang",
         "age": 34,
         "secretIdentity": "Victor Beast",
+        "content": "A savage beast-warrior with primal instincts and animal transformation, Fang combines raw power with enhanced predatory senses to track and eliminate threats.",
         "powers": [
           "Animal transformation",
           "Enhanced strength",
@@ -155,6 +171,7 @@
         "name": "Wildcat",
         "age": 26,
         "secretIdentity": "Rebecca Hunt",
+        "content": "An agile feline warrior communicating with jungle creatures, Wildcat uses stealth and lethal precision to defend the wild against poachers and invaders.",
         "powers": [
           "Agility",
           "Claw projection",
@@ -169,11 +186,13 @@
     "formed": 2019,
     "secretBase": "Innovation Hub",
     "active": true,
+    "content": "Cutting-edge technological warriors using advanced gadgets and innovation to defend Silicon Metropolis.",
     "members": [
       {
         "name": "Cyber Mind",
         "age": 33,
         "secretIdentity": "Dr. Alex Rivera",
+        "content": "A brilliant technologist capable of controlling digital systems and networks through advanced hacking and cyber warfare techniques.",
         "powers": [
           "Technology control",
           "Hacking",
@@ -184,6 +203,7 @@
         "name": "Iron Heart",
         "age": 29,
         "secretIdentity": "Lisa Zhang",
+        "content": "An ingenious engineer designing advanced mechanical suits and weaponry, providing the team with cutting-edge tactical equipment and defensive technology.",
         "powers": [
           "Mechanical suits",
           "Weapons creation",
@@ -198,11 +218,13 @@
     "formed": 2020,
     "secretBase": "Quantum Labs",
     "active": true,
+    "content": "Advanced quantum warriors harnessing reality-bending powers to protect Crystal City from quantum threats.",
     "members": [
       {
         "name": "Phase Shift",
         "age": 38,
         "secretIdentity": "Dr. Michael Stone",
+        "content": "A brilliant quantum physicist who manipulates matter through quantum tunneling, enabling the team to phase through obstacles and obstacles and reposition strategically.",
         "powers": [
           "Quantum tunneling",
           "Matter phasing",
@@ -213,6 +235,7 @@
         "name": "Prism",
         "age": 24,
         "secretIdentity": "Sophie Laurent",
+        "content": "A young quantum warrior capable of refracting light and projecting concentrated energy beams, providing both defensive barriers and offensive firepower to the team.",
         "powers": [
           "Light refraction",
           "Energy projection",
@@ -227,11 +250,13 @@
     "formed": 2015,
     "secretBase": "Deep Sea Fortress",
     "active": true,
+    "content": "Masters of aquatic forces defending Atlantis Bay and surrounding oceans from threats above and below the surface.",
     "members": [
       {
-        "name": "Tidal Force",
-        "age": 50,
-        "secretIdentity": "King Arthur Smith",
+        "name": "Stone Guardian",
+        "age": 200,
+        "secretIdentity": "Ancient Earth Spirit",
+        "content": "An immortal entity of stone and earth, providing absolute defense and shaping terrain to create fortifications and environmental advantages.",
         "powers": [
           "Water control",
           "Ocean communication",
@@ -239,9 +264,10 @@
         ]
       },
       {
-        "name": "Wave Rider",
-        "age": 32,
-        "secretIdentity": "Marina Santos",
+        "name": "Pearl Dancer",
+        "age": 27,
+        "secretIdentity": "Marina Waves",
+        "content": "An aquatic dancer with grace and precision, wielding water control and healing abilities to support allies while gracefully evading enemy attacks.",
         "powers": [
           "Hydrokinesis",
           "Aquatic respiration",
@@ -251,16 +277,18 @@
     ]
   },
   {
-    "squadName": "Terra Guardians",
-    "homeTown": "Earth Haven",
-    "formed": 2012,
-    "secretBase": "Stone Cathedral",
+    "squadName": "Earth Guardians",
+    "homeTown": "Nature's Haven",
+    "formed": 2016,
+    "secretBase": "Hidden Grove",
     "active": true,
+    "content": "Defenders of nature commanding earth and vegetation to protect ecosystems and preserve the balance of natural world.",
     "members": [
       {
-        "name": "Earthquake",
-        "age": 47,
-        "secretIdentity": "Robert King",
+        "name": "Seismic Wave",
+        "age": 36,
+        "secretIdentity": "Tom Rockwell",
+        "content": "A powerful earthquake manipulator creating tremors and ground displacement, devastating opponents while protecting allies with protective stone barriers.",
         "powers": [
           "Seismic control",
           "Earth manipulation",
@@ -268,9 +296,10 @@
         ]
       },
       {
-        "name": "Stone Guardian",
-        "age": 31,
-        "secretIdentity": "Emma Green",
+        "name": "Coral Guardian",
+        "age": 55,
+        "secretIdentity": "Dr. Ocean Smith",
+        "content": "An ancient protector of marine ecosystems commanding coral growth and symbiotic sea life, fortifying defenses and restoring allies through nature's power.",
         "powers": [
           "Rock solidification",
           "Mineral control",
@@ -287,9 +316,10 @@
     "active": true,
     "members": [
       {
-        "name": "Blaze Master",
+        "name": "Aqua Titan",
         "age": 41,
-        "secretIdentity": "Carlos Rodriguez",
+        "secretIdentity": "Captain James Deep",
+        "content": "A legendary oceanic warrior commanding water pressure and deep sea creatures, controlling currents with immense power to dominate aquatic battlefields.",
         "powers": [
           "Fire control",
           "Heat immunity",
@@ -316,9 +346,10 @@
     "active": true,
     "members": [
       {
-        "name": "Iceborn",
-        "age": 36,
-        "secretIdentity": "Erik Frostenson",
+        "name": "Wildgrowth",
+        "age": 32,
+        "secretIdentity": "Lily Patterson",
+        "content": "A botanist wielding plant control and accelerated growth, creating entangling vines and regenerating forests to heal wounds and trap enemies.",
         "powers": [
           "Cryokinesis",
           "Ice construction",

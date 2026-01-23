@@ -6,6 +6,9 @@ export class Member {
   @Prop({ type: String })
   name: string;
 
+  @Prop({ type: String })
+  content: string;
+
   @Prop({ type: Number })
   age: number;
 
