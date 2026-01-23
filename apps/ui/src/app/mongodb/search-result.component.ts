@@ -27,6 +27,9 @@ import { SearchFacade } from './search.facade';
   `,
   imports: [HeroComponent, MatProgressSpinner],
   providers: [SearchFacade],
+  host: {
+    role: 'search'
+  },
 })
 export class SearchResultComponent {
   heroes = input.required<HttpResourceRef<Hero[]>>();
