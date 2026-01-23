@@ -27,7 +27,6 @@ import { MemberDialog } from './member.dialog';
     MatCardHeader,
     MatCardSubtitle,
     MatCardTitle,
-    MatListModule,
     MatButton,
     MatIconButton,
     MatIcon,
