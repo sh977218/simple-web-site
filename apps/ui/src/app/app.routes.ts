@@ -2,10 +2,10 @@ import { Routes } from '@angular/router';
 
 export const appRoutes: Routes = [
   {
-    path: 'mongodb',
+    path: 'search',
     loadComponent: () =>
       import('./search/search.component').then((m) => m.SearchComponent),
-    title: 'Mongo DB',
+    title: 'Search',
   },
   {
     path: 'threeJs',
