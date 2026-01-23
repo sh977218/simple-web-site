@@ -1,8 +1,5 @@
 import { httpResource } from '@angular/common/http';
-import {
-  Component, effect,
-  inject,
-} from '@angular/core';
+import { Component, effect, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -10,9 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import {
-  HeroesResponseSchema,
-} from '@shared/shared-models';
+import { HeroesResponseSchema } from '@shared/shared-models';
 
 import { environment } from '../../environments/environment';
 import { HeroComponent } from '../hero/hero.component';

@@ -1,7 +1,13 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatButton } from '@angular/material/button';
 import { AgGridAngular } from 'ag-grid-angular';
-import { AllCommunityModule, ColDef, GridApi, GridReadyEvent, ModuleRegistry } from 'ag-grid-community';
+import {
+  AllCommunityModule,
+  ColDef,
+  GridApi,
+  GridReadyEvent,
+  ModuleRegistry,
+} from 'ag-grid-community';
 
 import { convertDataToWorkbook, getHeader, populateGrid } from './excel';
 
