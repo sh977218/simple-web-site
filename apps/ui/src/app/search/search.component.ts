@@ -9,7 +9,7 @@ import { SearchFacade } from './search.facade';
 import { SearchResultComponent } from './search-result.component';
 
 @Component({
-  templateUrl: './mongodb.component.html',
+  templateUrl: './search.component.html',
   imports: [
     MatFormField,
     MatInput,
@@ -21,7 +21,7 @@ import { SearchResultComponent } from './search-result.component';
   ],
   providers: [SearchFacade],
 })
-export class MongodbComponent {
+export class SearchComponent {
   readonly facade = inject(SearchFacade);
   searchTermTemporary = model('');
   private readonly _snackBar = inject(MatSnackBar);
