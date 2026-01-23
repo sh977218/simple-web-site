@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-
 import { MatButton } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatChip, MatChipSet } from '@angular/material/chips';
 import {
   MAT_DIALOG_DATA,
   MatDialogActions,
@@ -10,8 +9,8 @@ import {
   MatDialogContent,
   MatDialogTitle,
 } from '@angular/material/dialog';
+import { MatListModule } from '@angular/material/list';
 import { Member } from '@shared/shared-models';
-import { MatChip, MatChipSet } from '@angular/material/chips';
 
 @Component({
   imports: [

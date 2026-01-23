@@ -1,11 +1,12 @@
 import { Component, inject, input } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
-import { Member } from '@shared/shared-models';
 import { MatButton, MatIconButton } from '@angular/material/button';
-import { MemberDialog } from './member.dialog';
+import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { Member } from '@shared/shared-models';
+
+import { MemberDialog } from './member.dialog';
 
 @Component({
   selector: 'app-member',
