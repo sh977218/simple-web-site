@@ -37,5 +37,4 @@ export class EsService {
       console.error('Error creating index:', err);
     }
   }
-
 }

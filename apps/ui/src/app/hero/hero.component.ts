@@ -1,23 +1,17 @@
 import { Component, inject, input } from '@angular/core';
+import { MatButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
-import { RouterLink } from '@angular/router';
 import { Hero } from '@shared/shared-models';
 
-import { HeroDialog } from './hero.dialog';
-import { MatButton } from '@angular/material/button';
 import { MemberComponent } from '../member/member.component';
+
+import { HeroDialog } from './hero.dialog';
 
 @Component({
   selector: 'app-hero',
-  imports: [
-    RouterLink,
-    MatCardModule,
-    MatListModule,
-    MatButton,
-    MemberComponent,
-  ],
+  imports: [MatCardModule, MatListModule, MatButton, MemberComponent],
   templateUrl: './hero.component.html',
 })
 export class HeroComponent {
