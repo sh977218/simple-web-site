@@ -1,6 +1,7 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { extend, NgtArgs } from 'angular-three';
 import * as THREE from 'three';
+
 import { Cube } from './cube';
 
 extend(THREE);

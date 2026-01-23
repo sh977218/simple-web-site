@@ -1,9 +1,11 @@
+import { provideHttpClient } from '@angular/common/http';
 import {
   ApplicationConfig,
   inject,
   Injectable,
   provideZonelessChangeDetection,
 } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import {
   provideRouter,
   RouterStateSnapshot,
@@ -11,9 +13,8 @@ import {
   withComponentInputBinding,
 } from '@angular/router';
 import { provideNgtRenderer } from 'angular-three/dom';
+
 import { appRoutes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
-import { Title } from '@angular/platform-browser';
 
 @Injectable({ providedIn: 'root' })
 class TemplatePageTitleStrategy extends TitleStrategy {

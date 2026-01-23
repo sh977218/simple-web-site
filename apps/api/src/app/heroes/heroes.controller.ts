@@ -1,10 +1,10 @@
 import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
 
-import { HeroesService } from './heroes.service';
-import { SearchHeroDto } from './dto/search-heroes.dto';
 import { CreateHeroDto } from './dto/create-hero.dto';
+import { SearchHeroDto } from './dto/search-heroes.dto';
 import { UpdateHeroDto } from './dto/update-hero.dto';
+import { HeroesService } from './heroes.service';
 
 @Controller('heroes')
 export class HeroesController {

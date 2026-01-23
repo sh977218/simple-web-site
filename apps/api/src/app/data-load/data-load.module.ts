@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { DataLoadService } from './data-load.service';
 import { HeroesModule } from '../heroes/heroes.module';
+
+import { DataLoadService } from './data-load.service';
 
 @Module({
   imports: [HeroesModule],

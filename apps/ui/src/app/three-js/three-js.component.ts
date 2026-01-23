@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgtCanvas, NgtCanvasContent, NgtCanvasImpl } from 'angular-three/dom';
+
 import { SceneGraph } from './scene-graph';
 
 @Component({

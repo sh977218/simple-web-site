@@ -1,4 +1,5 @@
 import { expect } from '@playwright/test';
+
 import test from '../fixtures/baseTest';
 
 test('Three JS', async ({ page }) => {

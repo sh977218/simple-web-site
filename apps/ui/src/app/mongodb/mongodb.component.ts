@@ -1,9 +1,10 @@
 import { Component, effect, inject, model } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatFormField, MatInput, MatSuffix } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
 import { MatIcon } from '@angular/material/icon';
-import { FormsModule } from '@angular/forms';
+import { MatFormField, MatInput, MatSuffix } from '@angular/material/input';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { SearchFacade } from './search.facade';
 import { SearchResultComponent } from './search-result.component';
 
