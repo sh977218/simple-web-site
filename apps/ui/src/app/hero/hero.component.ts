@@ -35,5 +35,4 @@ export class HeroComponent {
       data: { hero: this.hero() },
     });
   }
-
 }

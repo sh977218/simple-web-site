@@ -28,7 +28,7 @@ import { SearchFacade } from './search.facade';
   imports: [HeroComponent, MatProgressSpinner],
   providers: [SearchFacade],
   host: {
-    role: 'search'
+    role: 'search',
   },
 })
 export class SearchResultComponent {
