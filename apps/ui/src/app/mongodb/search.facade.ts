@@ -1,14 +1,13 @@
-import { Injectable, signal } from '@angular/core';
 import { httpResource } from '@angular/common/http';
+import { Injectable, signal } from '@angular/core';
 import { HeroZod } from '@shared/shared-models';
+
 import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class SearchFacade {
-  private url = `${environment.api}/heroes`;
-
   searchTerm = signal<string | undefined>(undefined);
-
+  private url = `${environment.api}/heroes`;
   searchedHeroes = httpResource<HeroZod[]>(() => {
     const searchTerm = this.searchTerm();
     if (searchTerm) {

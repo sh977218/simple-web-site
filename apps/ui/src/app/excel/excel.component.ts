@@ -1,18 +1,9 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MatButton } from '@angular/material/button';
-import {
-  AllCommunityModule,
-  ColDef,
-  GridApi,
-  GridReadyEvent,
-  ModuleRegistry,
-} from 'ag-grid-community';
-import {
-  convertDataToWorkbook,
-  getHeader,
-  populateGrid,
-} from './excel';
 import { AgGridAngular } from 'ag-grid-angular';
+import { AllCommunityModule, ColDef, GridApi, GridReadyEvent, ModuleRegistry } from 'ag-grid-community';
+
+import { convertDataToWorkbook, getHeader, populateGrid } from './excel';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -24,6 +15,10 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 })
 export class ExcelComponent {
   @ViewChild('fileInput') fileInput!: ElementRef;
+  defaultColDef: ColDef = {
+    minWidth: 80,
+    flex: 1,
+  };
   private gridApi!: GridApi;
 
   async selectedFileChange(event: Event) {
@@ -40,12 +35,8 @@ export class ExcelComponent {
       this.gridApi.setGridOption('columnDefs', columnDefs);
     }
   }
+
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
-  };
-
-  defaultColDef: ColDef = {
-    minWidth: 80,
-    flex: 1,
-  };
+  }
 }

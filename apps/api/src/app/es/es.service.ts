@@ -38,18 +38,4 @@ export class EsService {
     }
   }
 
-  async injectData(indexName: string, data: any[]) {
-    const body = data.flatMap((doc) => [{ index: { _index: indexName } }, doc]);
-
-    const response = await this.client.bulk({
-      refresh: true,
-      body,
-    });
-
-    if (response.errors) {
-      console.error('Errors occurred during indexing:', response.errors);
-    } else {
-      console.log(`Successfully indexed ${data.length} documents.`);
-    }
-  }
 }

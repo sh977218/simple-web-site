@@ -1,4 +1,4 @@
-import { read, WorkBook, utils, WorkSheet } from 'xlsx';
+import { read, utils, WorkBook, WorkSheet } from 'xlsx';
 
 export function getFirstWorkSheet(workbook: WorkBook) {
   const firstSheetName = workbook.SheetNames[0];

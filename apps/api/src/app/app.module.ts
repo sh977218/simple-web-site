@@ -3,11 +3,10 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import * as Joi from 'joi';
 
+import { DataLoadModule } from './data-load/data-load.module';
+import { HeroesModule } from './heroes/heroes.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { EsService } from './es/es.service';
-import { HeroesModule } from './heroes/heroes.module';
-import { DataLoadModule } from './data-load/data-load.module';
 
 const ENV = process.env.NODE_ENV;
 
