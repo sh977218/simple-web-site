@@ -27,7 +27,7 @@ const test = baseTest.extend({
 });
 
 test.afterEach(async ({ page }, testInfo) => {
-//  await codeCoverage(page, testInfo);
+  //  await codeCoverage(page, testInfo);
 });
 
 export default test;

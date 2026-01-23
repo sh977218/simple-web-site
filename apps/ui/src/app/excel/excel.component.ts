@@ -7,11 +7,7 @@ import {
   GridReadyEvent,
   ModuleRegistry,
 } from 'ag-grid-community';
-import {
-  convertDataToWorkbook,
-  getHeader,
-  populateGrid,
-} from './excel';
+import { convertDataToWorkbook, getHeader, populateGrid } from './excel';
 import { AgGridAngular } from 'ag-grid-angular';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -42,7 +38,7 @@ export class ExcelComponent {
   }
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
-  };
+  }
 
   defaultColDef: ColDef = {
     minWidth: 80,

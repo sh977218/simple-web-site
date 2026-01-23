@@ -6,7 +6,9 @@ import { HeroesService } from './heroes.service';
 import { Hero, HeroSchema } from './schema/hero.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: Hero.name, schema: HeroSchema }])],
+  imports: [
+    MongooseModule.forFeature([{ name: Hero.name, schema: HeroSchema }]),
+  ],
   controllers: [HeroesController],
   providers: [HeroesService],
   exports: [HeroesService],

@@ -1,0 +1,28 @@
+import { Component, inject, input } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { Member } from '@shared/shared-models';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { MemberDialog } from './member.dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
+
+@Component({
+  selector: 'app-member',
+  templateUrl: './member.component.html',
+  host: {
+    class: 'flex flex-col flex-wrap justify-between my-2',
+  },
+  imports: [MatCardModule, MatListModule, MatButton, MatIconButton, MatIcon],
+})
+export class MemberComponent {
+  readonly dialog = inject(MatDialog);
+
+  member = input.required<Member>();
+
+  openMemberDetailDialog() {
+    this.dialog.open(MemberDialog, {
+      data: { member: this.member() },
+    });
+  }
+}
