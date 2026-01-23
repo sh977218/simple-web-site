@@ -1,12 +1,34 @@
-import { Component, input } from '@angular/core';
-import { MatList, MatListItem } from '@angular/material/list';
+import { Component, inject, input } from '@angular/core';
+import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatCard, MatCardContent, MatCardFooter, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
+import { MatDialog } from '@angular/material/dialog';
+import { MatIcon } from '@angular/material/icon';
 import { Member } from '@shared/shared-models';
+
+import { MemberDialog } from './member.dialog';
 
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',
-  imports: [MatList, MatListItem],
+  imports: [
+    MatCardHeader,
+    MatCardTitle,
+    MatCardSubtitle,
+    MatButton,
+    MatCardContent,
+    MatCardFooter,
+    MatIconButton,
+    MatIcon,
+    MatCard,
+  ],
 })
 export class MemberComponent {
+  readonly dialog = inject(MatDialog);
   member = input.required<Member>();
+
+  openMemberDetailDialog() {
+    this.dialog.open(MemberDialog, {
+      data: { member: this.member() },
+    });
+  }
 }
