@@ -1,19 +1,17 @@
 import { Component, inject, input } from '@angular/core';
-import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIconButton } from '@angular/material/button';
 import {
-  MatCard, MatCardActions, MatCardAvatar,
+  MatCard,
+  MatCardActions,
   MatCardContent,
-  MatCardFooter,
-  MatCardHeader, MatCardSmImage,
-  MatCardSubtitle,
-  MatCardTitle, MatCardTitleGroup,
+  MatCardHeader,
+  MatCardTitle,
 } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
 import { Member } from '@shared/shared-models';
 
 import { MemberDialog } from './member.dialog';
-import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-member',
@@ -24,17 +22,10 @@ import { NgOptimizedImage } from '@angular/common';
   imports: [
     MatCard,
     MatCardContent,
-    MatCardFooter,
     MatCardHeader,
-    MatCardSubtitle,
     MatCardTitle,
-    MatButton,
     MatIconButton,
     MatIcon,
-    MatCardSmImage,
-    NgOptimizedImage,
-    MatCardTitleGroup,
-    MatCardAvatar,
     MatCardActions,
   ],
 })
