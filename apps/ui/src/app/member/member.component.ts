@@ -1,7 +1,8 @@
 import { Component, inject, input } from '@angular/core';
-import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIconButton } from '@angular/material/button';
 import {
-  MatCard, MatCardActions,
+  MatCard,
+  MatCardActions,
   MatCardContent,
   MatCardHeader,
   MatCardTitle,
