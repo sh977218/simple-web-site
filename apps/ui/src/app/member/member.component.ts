@@ -1,15 +1,8 @@
 import { Component, inject, input } from '@angular/core';
-import { MatIconButton } from '@angular/material/button';
-import {
-  MatCard,
-  MatCardActions,
-  MatCardContent,
-  MatCardHeader,
-  MatCardTitle,
-} from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
-import { MatIcon } from '@angular/material/icon';
 import { Member } from '@shared/shared-models';
+
+import { MaterialModule } from '../material.module';
 
 import { MemberDialog } from './member.dialog';
 
@@ -19,15 +12,7 @@ import { MemberDialog } from './member.dialog';
   host: {
     class: 'flex flex-col flex-wrap justify-between my-2',
   },
-  imports: [
-    MatCard,
-    MatCardContent,
-    MatCardHeader,
-    MatCardTitle,
-    MatIconButton,
-    MatIcon,
-    MatCardActions,
-  ],
+  imports: [MaterialModule],
 })
 export class MemberComponent {
   readonly dialog = inject(MatDialog);

@@ -44,7 +44,7 @@ import { Member } from '@shared/shared-models';
       </mat-chip-set>
     </mat-dialog-content>
     <mat-dialog-actions>
-      <button matButton matDialogClose  cdkFocusInitial>Ok</button>
+      <button matButton matDialogClose cdkFocusInitial>Ok</button>
     </mat-dialog-actions>
   `,
 })

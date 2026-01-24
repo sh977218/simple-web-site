@@ -1,23 +1,23 @@
 import { Component, effect, inject, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatIconButton } from '@angular/material/button';
-import { MatIcon } from '@angular/material/icon';
-import { MatFormField, MatInput, MatSuffix } from '@angular/material/input';
+import {  FormField } from '@angular/forms/signals';
 import { MatSnackBar } from '@angular/material/snack-bar';
+
+import { MaterialModule } from '../material.module';
 
 import { SearchFacade } from './search.facade';
 import { SearchResultComponent } from './search-result.component';
+import { SearchBarComponent } from './search-bar.component';
 
 @Component({
   templateUrl: './search.component.html',
+  styleUrl: './search.component.css',
   imports: [
-    MatFormField,
-    MatInput,
-    MatIconButton,
-    MatIcon,
     FormsModule,
-    MatSuffix,
     SearchResultComponent,
+    FormField,
+    MaterialModule,
+    SearchBarComponent,
   ],
   providers: [SearchFacade],
 })
@@ -35,6 +35,6 @@ export class SearchComponent {
   }
 
   search() {
-    this.facade.searchTerm.set(this.searchTermTemporary());
+    this.facade.searchTerm.set(this.facade.searchForm.searchTerm().value());
   }
 }

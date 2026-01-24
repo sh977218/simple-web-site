@@ -1,9 +1,9 @@
 import { HttpResourceRef } from '@angular/common/http';
 import { Component, input } from '@angular/core';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { Hero } from '@shared/shared-models';
 
 import { HeroComponent } from '../hero/hero.component';
+import { MaterialModule } from '../material.module';
 
 import { SearchFacade } from './search.facade';
 
@@ -25,10 +25,11 @@ import { SearchFacade } from './search.facade';
       }
     </fieldset>
   `,
-  imports: [HeroComponent, MatProgressSpinner],
+  imports: [HeroComponent, MaterialModule],
   providers: [SearchFacade],
   host: {
     role: 'search',
+    class: 'inline-flex flex-col',
   },
 })
 export class SearchResultComponent {
