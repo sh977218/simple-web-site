@@ -1,33 +1,23 @@
-import { Component, effect, inject, model, signal } from '@angular/core';
+import { Component, effect, inject, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { form, FormField, required } from '@angular/forms/signals';
-import {
-  MatError,
-  MatFormField,
-  MatInput,
-  MatLabel,
-} from '@angular/material/input';
+import {  FormField } from '@angular/forms/signals';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
-import { SearchForm } from './search';
+import { MaterialModule } from '../material.module';
+
 import { SearchFacade } from './search.facade';
 import { SearchResultComponent } from './search-result.component';
-import { MatIcon } from '@angular/material/icon';
-import { MatIconButton } from '@angular/material/button';
+import { SearchBarComponent } from './search-bar.component';
 
 @Component({
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
   imports: [
-    MatFormField,
-    MatInput,
     FormsModule,
     SearchResultComponent,
     FormField,
-    MatError,
-    MatLabel,
-    MatIcon,
-    MatIconButton,
+    MaterialModule,
+    SearchBarComponent,
   ],
   providers: [SearchFacade],
 })
@@ -35,14 +25,6 @@ export class SearchComponent {
   readonly facade = inject(SearchFacade);
   searchTermTemporary = model('');
   private readonly _snackBar = inject(MatSnackBar);
-
-  defaultSearchForm = signal<SearchForm>({
-    searchTerm: '',
-  });
-
-  searchForm = form(this.defaultSearchForm, (schemaPath) => {
-    required(schemaPath.searchTerm, { message: 'searchTerm is required' });
-  });
 
   constructor() {
     effect(() => {
@@ -53,6 +35,6 @@ export class SearchComponent {
   }
 
   search() {
-    this.facade.searchTerm.set(this.searchForm.searchTerm().value());
+    this.facade.searchTerm.set(this.facade.searchForm.searchTerm().value());
   }
 }

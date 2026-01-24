@@ -1,5 +1,4 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { MatButton } from '@angular/material/button';
 import { AgGridAngular } from 'ag-grid-angular';
 import {
   AllCommunityModule,
@@ -9,6 +8,8 @@ import {
   ModuleRegistry,
 } from 'ag-grid-community';
 
+import { MaterialModule } from '../material.module';
+
 import { convertDataToWorkbook, getHeader, populateGrid } from './excel';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -17,7 +18,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 
 @Component({
   templateUrl: './excel.component.html',
-  imports: [MatButton, AgGridAngular],
+  imports: [MaterialModule, AgGridAngular],
 })
 export class ExcelComponent {
   @ViewChild('fileInput') fileInput!: ElementRef;

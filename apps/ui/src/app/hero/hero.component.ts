@@ -1,10 +1,8 @@
 import { Component, inject, input } from '@angular/core';
-import { MatButton, MatIconButton } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
-import { MatAccordion, MatExpansionPanel, MatExpansionPanelActionRow, MatExpansionPanelHeader, MatExpansionPanelTitle } from '@angular/material/expansion';
-import { MatIcon } from '@angular/material/icon';
 import { Hero } from '@shared/shared-models';
 
+import { MaterialModule } from '../material.module';
 import { MemberComponent } from '../member/member.component';
 
 import { HeroDialog } from './hero.dialog';
@@ -15,17 +13,7 @@ import { HeroDialog } from './hero.dialog';
   host: {
     class: 'flex flex-col flex-wrap justify-between my-2',
   },
-  imports: [
-    MatButton,
-    MatIconButton,
-    MatIcon,
-    MemberComponent,
-    MatAccordion,
-    MatExpansionPanel,
-    MatExpansionPanelHeader,
-    MatExpansionPanelTitle,
-    MatExpansionPanelActionRow,
-  ],
+  imports: [MaterialModule, MemberComponent],
 })
 export class HeroComponent {
   readonly dialog = inject(MatDialog);

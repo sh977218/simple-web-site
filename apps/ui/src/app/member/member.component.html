@@ -1,6 +1,8 @@
-<mat-card>
+<mat-card appearance="outlined">
   <mat-card-header>
-    <img matCardAvatar [attr.src]="member().avatar" alt="Squad Logo" />
+    <div matCardAvatar>
+      <img [attr.src]="member().avatar" alt="Squad Logo" />
+    </div>
     <mat-card-title>{{ member().name }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
