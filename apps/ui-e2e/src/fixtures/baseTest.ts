@@ -30,4 +30,4 @@ test.afterEach(async () => {
   /* empty */
 });
 
-export default test;
+export { test };
