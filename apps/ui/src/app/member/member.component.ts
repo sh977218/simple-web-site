@@ -1,11 +1,10 @@
 import { Component, inject, input } from '@angular/core';
-import { MatButton, MatIconButton } from '@angular/material/button';
+import { MatIconButton } from '@angular/material/button';
 import {
   MatCard,
+  MatCardActions,
   MatCardContent,
-  MatCardFooter,
   MatCardHeader,
-  MatCardSubtitle,
   MatCardTitle,
 } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
@@ -23,13 +22,11 @@ import { MemberDialog } from './member.dialog';
   imports: [
     MatCard,
     MatCardContent,
-    MatCardFooter,
     MatCardHeader,
-    MatCardSubtitle,
     MatCardTitle,
-    MatButton,
     MatIconButton,
     MatIcon,
+    MatCardActions,
   ],
 })
 export class MemberComponent {

@@ -2,6 +2,7 @@ name: pr e2e test
 on:
   pull_request:
     branches: [ master ]
+    types: [ opened, synchronize, reopened, ready_for_review ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -69,6 +70,7 @@ jobs:
 
   e2e-test:
     name: e2e-test
+    if: ${{ github.event.pull_request.draft == false }}
     needs: [ ui-unit-test, api-unit-test ]
     runs-on: ubuntu-latest
     services:
@@ -123,7 +125,7 @@ jobs:
   publish-playwright-report:
     name: Publish playwright report
     needs: [ e2e-test ]
-    if: ${{ !cancelled() }}
+    if: ${{ failure() || success() }}
     permissions:
       contents: read
       pages: write
@@ -142,9 +144,7 @@ jobs:
         with:
           name: playwright-report
           path: playwright-report
-
       - name: Setup Pages
-        if: ${{ failure() || success() }}
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4

@@ -7,6 +7,9 @@ export class Member {
   name: string;
 
   @Prop({ type: String })
+  avatar: string;
+
+  @Prop({ type: String })
   content: string;
 
   @Prop({ type: Number })
