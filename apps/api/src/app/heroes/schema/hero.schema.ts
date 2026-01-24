@@ -9,6 +9,9 @@ export class Hero {
   squadName: string;
 
   @Prop({ type: String })
+  avatar: string;
+
+  @Prop({ type: String })
   content: string;
 
   @Prop({ type: String })
