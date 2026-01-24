@@ -2,6 +2,7 @@ name: pr e2e test
 on:
   pull_request:
     branches: [ master ]
+    types: [ opened, synchronize, reopened, ready_for_review ]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -69,6 +70,7 @@ jobs:
 
   e2e-test:
     name: e2e-test
+    if: ${{ github.event.pull_request.draft == false }}
     needs: [ ui-unit-test, api-unit-test ]
     runs-on: ubuntu-latest
     services:

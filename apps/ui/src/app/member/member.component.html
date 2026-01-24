@@ -1,21 +1,20 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>
-      {{ member().name }}
-      <mat-card-subtitle>
-        <button type="button" matButton color="accent" (click)="openMemberDetailDialog()">Learn More</button>
-      </mat-card-subtitle>
-    </mat-card-title>
+    <img matCardAvatar [attr.src]="member().avatar" alt="Squad Logo" />
+    <mat-card-title>{{ member().name }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
     <p>{{ member().content }}</p>
   </mat-card-content>
-  <mat-card-footer>
+  <mat-card-actions>
+    <button type="button" matIconButton (click)="openMemberDetailDialog()">
+      <mat-icon aria-hidden="false" aria-label="more" fontIcon="info"></mat-icon>
+      </button>
     <button type="button" matIconButton>
       <mat-icon aria-hidden="false" aria-label="like" fontIcon="thumb_up"></mat-icon>
     </button>
     <button type="button" matIconButton>
       <mat-icon aria-hidden="false" aria-label="unlike" fontIcon="thumb_down"></mat-icon>
     </button>
-  </mat-card-footer>
+  </mat-card-actions>
 </mat-card>

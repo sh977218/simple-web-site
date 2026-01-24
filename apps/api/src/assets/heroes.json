@@ -6,12 +6,14 @@
     "secretBase": "Super tower",
     "active": true,
     "content": "A legendary team of superheroes dedicated to protecting Metro City from evil threats and maintaining peace.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzFFMzBGRiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iODAiIGZpbGw9IiNGRkQxMDAiLz48dGV4dCB4PSIxMDAiIHk9IjEyMCIgZm9udC1zaXplPSI2MCIgZm9udC13ZWlnaHQ9ImJvbGQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMxRTMwRkYiPlNIUzwvdGV4dD48L3N2Zz4=",
     "members": [
       {
         "name": "Molecule Man",
         "age": 29,
         "secretIdentity": "Dan Jukes",
         "content": "A brilliant scientist with extraordinary molecular manipulation abilities, capable of controlling matter at the atomic level. His powers make him invaluable to the squad's success.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzQyODVGNCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBvbHlnb24gcG9pbnRzPSI3NSw3MCA0NSw5NSAxMDUsOTUiIGZpbGw9IiNGRkYiLz48L3N2Zz4=",
         "powers": ["Radiation resistance", "Turning tiny", "Radiation blast"]
       },
       {
@@ -19,6 +21,7 @@
         "age": 39,
         "secretIdentity": "Jane Wilson",
         "content": "A formidable fighter with incredible strength and reflexes, Madame Uppercut serves as the squad's primary defensive force. Her combat expertise and resilience protect allies.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGMDAwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTSA0MCw5MCBMIDU1LDcwIEw2MCw4MCBMIDc1LDYwIEw5MCw4MCBMMTEwLDkwIiBzdHJva2U9IiNGRkYiIHN0cm9rZS13aWR0aD0iOCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+",
         "powers": [
           "Million tonne punch",
           "Damage resistance",
@@ -30,6 +33,7 @@
         "age": 1000000,
         "secretIdentity": "Unknown",
         "content": "An ancient immortal being possessing mastery over heat and interdimensional forces. Eternal Flame's vast experience and mystical powers provide the squad unparalleled strategic wisdom.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGNjYwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTSA2MCw3MCBRIDcwLDUwIDgwLDcwIFEgODUsNjAgOTAsNzAiIHN0cm9rZT0iI0ZGNjYwMCIgc3Ryb2tlLXdpZHRoPSI2IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTSA0MCw5MCBMIDc1LDEyMCBMMTEwLDkwIiBmaWxsPSIjRkZBNTAwIi8+PC9zdmc+",
         "powers": [
           "Immortality",
           "Heat Immunity",
@@ -55,12 +59,14 @@
     "secretBase": "Orbital Station Alpha",
     "active": true,
     "content": "Protectors of the cosmos defending New Tokyo from intergalactic threats and interdimensional invasions.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMDAzMyIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNjAiIGZpbGw9IiNGRkQxMDAiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjcwIiByPSIxNSIgZmlsbD0iI0ZGRiIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjcwIiByPSIxNSIgZmlsbD0iI0ZGRiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEzMCIgcj0iMjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSI0Ii8+PC9zdmc+",
     "members": [
       {
         "name": "Starlight",
         "age": 31,
         "secretIdentity": "Yuki Tanaka",
         "content": "A celestial warrior wielding stellar energy and defensive barriers, serving as the team's protective beacon in cosmic battles.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGRDEwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBvbHlnb24gcG9pbnRzPSI3NSw2MCAxMDAsOTAgNzUsOTUgNTAsOTAiIGZpbGw9IiNGRkQxMDAiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+",
         "powers": ["Energy manipulation", "Flight", "Force field generation"]
       },
       {
@@ -68,6 +74,7 @@
         "age": 45,
         "secretIdentity": "Marcus Chen",
         "content": "An enigmatic figure who navigates dimensional rifts and shadows, offering tactical invisibility and dimensional support to the Cosmic Guardians.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzIyMjIyMiIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjMDAwMDAwIi8+PHBhdGggZD0iTSA0MCw3MCBMIDExMCw3MCBMIDExMCwxMDAgTCA0MCwxMDAiIGZpbGw9IiMzMzMzMzMiIHN0cm9rZT0iIzY2NjY2NiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+",
         "powers": ["Dimensional shifting", "Shadow control", "Invisibility"]
       }
     ]
@@ -79,12 +86,14 @@
     "secretBase": "Lightning Peak",
     "active": true,
     "content": "Masters of electricity and weather, commanding atmospheric forces to protect Storm Valley from natural and supernatural threats.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzM0MzQzNCIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDIwIDEyMCw4MCAxNDAsODAgMTAwLDEyMCA2MCw4MCAxMDAsODAiIGZpbGw9IiNGRkQxMDAiLz48L3N2Zz4=",
     "members": [
       {
         "name": "Thunderbolt",
         "age": 35,
         "secretIdentity": "Jake Morrison",
         "content": "A speedster wielding electricity control, Jake Morrison accelerates through danger while commanding bolts of destructive lightning to overcome adversaries.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGRDEwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBvbHlnb24gcG9pbnRzPSI3NSw2MCAxMDAsOTAgODAsOTAgNzUsNzAgNjAsOTAgNDAsOTAiIGZpbGw9IiNGRkQxMDAiLz48L3N2Zz4=",
         "powers": [
           "Electricity control",
           "Speed enhancement",
@@ -96,6 +105,7 @@
         "age": 28,
         "secretIdentity": "Elena Volkov",
         "content": "Elena harnesses atmospheric fury summoning storms and lightning with precision, commanding wind and clouds to protect her allies and devastate enemies.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzMzMzMzMyIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjQ0NDIi8+PHBhdGggZD0iTSA0MCw3MCBRIDc1LDUwIDExMCw3MCIgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjQiIGZpbGw9Im5vbmUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==",
         "powers": ["Cloud formation", "Lightning summoning", "Wind control"]
       }
     ]
@@ -107,12 +117,14 @@
     "secretBase": "Hidden Sanctum",
     "active": true,
     "content": "Ancient practitioners of mystical arts devoted to protecting the realm from magical darkness and supernatural chaos.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzRCMDA4MiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNTAiIGZpbGw9IiNGRkQxMDAiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIzIi8+PHBvbHlnb24gcG9pbnRzPSIxMDAsNjAgMTE1LDkyIDEwMCwxMDAgODUsOTIiIGZpbGw9IiM0QjAwODIiLz48L3N2Zz4=",
     "members": [
       {
         "name": "Mystic Phoenix",
         "age": 156,
         "secretIdentity": "Professor Adrian Wells",
         "content": "An ancient wizard wielding powerful spells and mystical healing, capable of resurrecting allies and dispelling dark magic with extraordinary skill.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGNjYwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTSA2MCw3MCBMIDkwLDcwIEw5MCwxMDAgTCA2MCwxMDAiIGZpbGw9IiNGRkMwQ0IiLz48L3N2Zz4=",
         "powers": ["Spellcasting", "Mystical healing", "Resurrection"]
       },
       {
@@ -120,6 +132,7 @@
         "age": 42,
         "secretIdentity": "Sarah Black",
         "content": "A master of shadow magic and telepathy, Nightwhisper communicates with spirits and allies, wielding darkness to protect secrets and unveil truth.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzExMTExMSIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjMzMzIi8+PGVsbGlwc2UgY3g9IjUwIiBjeT0iOTAiIHJ4PSIyOCIgcnk9IjM0IiBmaWxsPSIjNDQwIi8+PGVsbGlwc2UgY3g9IjEwMCIgY3k9IjkwIiByeD0iMjgiIHJ5PSIzNCIgZmlsbD0iIzQ0MCIvPjwvc3ZnPg==",
         "powers": ["Shadow magic", "Telepathy", "Spirit communication"]
       }
     ]
@@ -131,12 +144,14 @@
     "secretBase": "Beast Lair",
     "active": true,
     "content": "Fierce warriors with primal powers protecting the savage jungle from those who threaten its wild creatures.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzMzNDEzMCIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNjAiIGZpbGw9IiNGRkE1MDAiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjcwIiByPSIxMCIgZmlsbD0iIzAwMCIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjcwIiByPSIxMCIgZmlsbD0iIzAwMCIvPjxwb2x5Z29uIHBvaW50cz0iOTAsMTAwIDExMCwxMDAgMTAwLDEyMCIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==",
     "members": [
       {
         "name": "Fang",
         "age": 34,
         "secretIdentity": "Victor Beast",
         "content": "A savage beast-warrior with primal instincts and animal transformation, Fang combines raw power with enhanced predatory senses to track and eliminate threats.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzhCNDUxMyIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBvbHlnb24gcG9pbnRzPSI0MCw4MCw1MCw2MCw1MCw5MCIgZmlsbD0iI0ZGRiIvPjxwb2x5Z29uIHBvaW50cz0iMTEwLDgwLDEwMCw2MCwxMDAsOTAiIGZpbGw9IiNGRkYiLz48L3N2Zz4=",
         "powers": [
           "Animal transformation",
           "Enhanced strength",
@@ -148,6 +163,7 @@
         "age": 26,
         "secretIdentity": "Rebecca Hunt",
         "content": "An agile feline warrior communicating with jungle creatures, Wildcat uses stealth and lethal precision to defend the wild against poachers and invaders.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGQzMwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHRyaWFuZ2xlIHBvaW50cz0iNjAsNDAgNzAtNSA4MCw0MCIgZmlsbD0iI0ZGQzMwMCIgc3Ryb2tlPSIjRkZGIiBzdHJva2Utd2lkdGg9IjIiLz48dHJpYW5nbGUgcG9pbnRzPSI5MCw0MCAxMDAsNSAxMTAsNDAiIGZpbGw9IiNGRkMzMDAiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+",
         "powers": ["Agility", "Claw projection", "Animal communication"]
       }
     ]
@@ -159,12 +175,14 @@
     "secretBase": "Innovation Hub",
     "active": true,
     "content": "Cutting-edge technological warriors using advanced gadgets and innovation to defend Silicon Metropolis.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzExMDExMSIvPjxyZWN0IHg9IjMwIiB5PSI0MCIgd2lkdGg9IjU0MCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzBGRjAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yNTApIi8+PHJlY3QgeD0iNjAiIHk9IjkwIiB3aWR0aD0iODAiIGhlaWdodD0iODAiIGZpbGw9IiMwMDMzRkYiLz48L3N2Zz4=",
     "members": [
       {
         "name": "Cyber Mind",
         "age": 33,
         "secretIdentity": "Dr. Alex Rivera",
         "content": "A brilliant technologist capable of controlling digital systems and networks through advanced hacking and cyber warfare techniques.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzAwMTEwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjMDBGRjAwIi8+PHJlY3QgeD0iNDUiIHk9IjcwIiB3aWR0aD0iNjAiIGhlaWdodD0iNTAiIGZpbGw9IiMwMDMzRkYiIHN0cm9rZT0iIzAwRkYwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+",
         "powers": ["Technology control", "Hacking", "Digital teleportation"]
       },
       {
@@ -172,6 +190,7 @@
         "age": 29,
         "secretIdentity": "Lisa Zhang",
         "content": "An ingenious engineer designing advanced mechanical suits and weaponry, providing the team with cutting-edge tactical equipment and defensive technology.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGNjMwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHJlY3QgeD0iNTAiIHk9IjcwIiB3aWR0aD0iNTAiIGhlaWdodD0iNjAiIGZpbGw9IiNGRjYzMDAiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIzIi8+PC9zdmc+",
         "powers": [
           "Mechanical suits",
           "Weapons creation",
@@ -187,12 +206,14 @@
     "secretBase": "Quantum Labs",
     "active": true,
     "content": "Advanced quantum warriors harnessing reality-bending powers to protect Crystal City from quantum threats.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMDAzMyIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDI1IDEzMCw5MCAxMDAsMTQwIDcwLDkwIiBmaWxsPSIjMDBGRkZGIiBzdHJva2U9IiNGRkQxMDAiIHN0cm9rZS13aWR0aD0iMyIvPjwvc3ZnPg==",
     "members": [
       {
         "name": "Phase Shift",
         "age": 38,
         "secretIdentity": "Dr. Michael Stone",
         "content": "A brilliant quantum physicist who manipulates matter through quantum tunneling, enabling the team to phase through obstacles and obstacles and reposition strategically.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzAwMjJDQyIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjMDBGRkZGIi8+PHJlY3QgeD0iNDUiIHk9IjcwIiB3aWR0aD0iNjAiIGhlaWdodD0iNTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwRkZGRiIgc3Ryb2tlLXdpZHRoPSIzIiBvcGFjaXR5PSIwLjYiLz48L3N2Zz4=",
         "powers": [
           "Quantum tunneling",
           "Matter phasing",
@@ -204,6 +225,7 @@
         "age": 24,
         "secretIdentity": "Sophie Laurent",
         "content": "A young quantum warrior capable of refracting light and projecting concentrated energy beams, providing both defensive barriers and offensive firepower to the team.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGMzMwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBvbHlnb24gcG9pbnRzPSI3NSw3MCAxMDAsOTAgNzUsOTUgNTAsOTAiIGZpbGw9IiNGRkZGRkYiIHN0cm9rZT0iI0ZGRjMwMCIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+",
         "powers": ["Light refraction", "Energy projection", "Spectrum analysis"]
       }
     ]
@@ -215,12 +237,14 @@
     "secretBase": "Deep Sea Fortress",
     "active": true,
     "content": "Masters of aquatic forces defending Atlantis Bay and surrounding oceans from threats above and below the surface.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMzM2NiIvPjx3YXZlIHg9IjAiIHk9IjEwMCIgd2lkdGg9IjIwMCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzAwNjY5OSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjUwIiByPSI0MCIgZmlsbD0iI0ZGRDEwMCIvPjwvc3ZnPg==",
     "members": [
       {
         "name": "Stone Guardian",
         "age": 200,
         "secretIdentity": "Ancient Earth Spirit",
         "content": "An immortal entity of stone and earth, providing absolute defense and shaping terrain to create fortifications and environmental advantages.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzY2NjY2NiIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjQUFBQUFBIi8+PHJlY3QgeD0iNTAiIHk9IjcwIiB3aWR0aD0iNTAiIGhlaWdodD0iNjAiIGZpbGw9IiM0NDQ0NDQiIHN0cm9rZT0iIzhBOEE4QSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+",
         "powers": [
           "Water control",
           "Ocean communication",
@@ -232,6 +256,7 @@
         "age": 27,
         "secretIdentity": "Marina Waves",
         "content": "An aquatic dancer with grace and precision, wielding water control and healing abilities to support allies while gracefully evading enemy attacks.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzAwODlCMiIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjMDBGRkZGIi8+PHBhdGggZD0iTSA0MCw3MCBRIDc1LDUwIDExMCw3MCBRIDExMCw5MCAxMDEsMTA1IFEgNzUsOTAgNDksOTA4IiBmaWxsPSIjMDBGRkZGIiBvcGFjaXR5PSIwLjMiLz48L3N2Zz4=",
         "powers": ["Hydrokinesis", "Aquatic respiration", "Tsunami generation"]
       }
     ]
@@ -243,12 +268,14 @@
     "secretBase": "Hidden Grove",
     "active": true,
     "content": "Defenders of nature commanding earth and vegetation to protect ecosystems and preserve the balance of natural world.",
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzJENjAzMiIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iNjAiIGZpbGw9IiM2OEM0NDUiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjcwIiByPSIyMCIgZmlsbD0iIzRDQzA1MCIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjcwIiByPSIyMCIgZmlsbD0iIzRDQzA1MCIvPjwvc3ZnPg==",
     "members": [
       {
         "name": "Seismic Wave",
         "age": 36,
         "secretIdentity": "Tom Rockwell",
         "content": "A powerful earthquake manipulator creating tremors and ground displacement, devastating opponents while protecting allies with protective stone barriers.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzhCNjYzMyIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTSA0MCw3MCBMIDExMCw3MCBNIDQwLDg1IEwgMTEwLDg1IE0gNDAsODAgTCAxMTAsODAiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSI2IiBzdHJva2UtbGluZWNhcD0icm91bmQiIGZpbGw9Im5vbmUiLz48L3N2Zz4=",
         "powers": ["Seismic control", "Earth manipulation", "Tectonic sensing"]
       },
       {
@@ -256,6 +283,7 @@
         "age": 55,
         "secretIdentity": "Dr. Ocean Smith",
         "content": "An ancient protector of marine ecosystems commanding coral growth and symbiotic sea life, fortifying defenses and restoring allies through nature's power.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzAwODlCMiIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBvbHlnb24gcG9pbnRzPSI0MCw4MCw1MCw2MCw2MCw3MCw3MCw2MCw4MCw4MCw3MCw5MCw2MCw3MCw1MCw5MCIgZmlsbD0iI0ZGQTUwMCIvPjwvc3ZnPg==",
         "powers": [
           "Rock solidification",
           "Mineral control",
@@ -270,18 +298,21 @@
     "formed": 2016,
     "secretBase": "Volcanic Stronghold",
     "active": true,
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzMzMDAwMCIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDMwIDE0MCwxNDAgNjAsMTQwIiBmaWxsPSIjRkY0NDAwIi8+PHBvbHlnb24gcG9pbnRzPSIxMDAsNDAgMTIwLDEwMCA4MCwxMDAiIGZpbGw9IiNGRkQxMDAiLz48L3N2Zz4=",
     "members": [
       {
         "name": "Aqua Titan",
         "age": 41,
         "secretIdentity": "Captain James Deep",
         "content": "A legendary oceanic warrior commanding water pressure and deep sea creatures, controlling currents with immense power to dominate aquatic battlefields.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGNDQwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBvbHlnb24gcG9pbnRzPSI1MCw3MCw3NSw1MCAxMDAsNzAgODUsOTUgNjAsOTUiIGZpbGw9IiNGRkQ1MCIvPjwvc3ZnPg==",
         "powers": ["Fire control", "Heat immunity", "Combustion generation"]
       },
       {
         "name": "Inferno Spirit",
         "age": 27,
         "secretIdentity": "Nina Flame",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iI0ZGQzMwMCIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTSA2MCw3MCBRIDcwLDUwIDgwLDcwIFEgOTAsNjAgMTAwLDcwIiBzdHJva2U9IiNGRjQ0MDAiIHN0cm9rZS13aWR0aD0iNiIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PC9zdmc+",
         "powers": ["Pyrokinesis", "Fire shape-shifting", "Temperature control"]
       }
     ]
@@ -292,18 +323,21 @@
     "formed": 2018,
     "secretBase": "Ice Palace",
     "active": true,
+    "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzAwMzM2NiIvPjxwb2x5Z29uIHBvaW50cz0iMTAwLDMwIDEyMCw4MCAxMDAsODAgODAsODAiIGZpbGw9IiMwMEZGRkYiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIyIi8+PHBvbHlnb24gcG9pbnRzPSI3MCw5MCAxMDAsNjAgMTMwLDkwIiBmaWxsPSIjMDBGRkZGIiBvcGFjaXR5PSIwLjciLz48L3N2Zz4=",
     "members": [
       {
         "name": "Wildgrowth",
         "age": 32,
         "secretIdentity": "Lily Patterson",
         "content": "A botanist wielding plant control and accelerated growth, creating entangling vines and regenerating forests to heal wounds and trap enemies.",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzJENjAzMiIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTSA0MCw3MCBMIDQ1LDExMCBNIDU1LDcwIEwgNTAsMTEwIE0gNzUsNzAgTCA3NSwxMTAgTSA5NSw3MCBMIDkwLDExMCBNIDExMCw3MCBMIDExMCwxMTAiIHN0cm9rZT0iIzRDQzA1MCIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=",
         "powers": ["Cryokinesis", "Ice construction", "Absolute zero"]
       },
       {
         "name": "Glacial Princess",
         "age": 25,
         "secretIdentity": "Kristina Arctica",
+        "avatar": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgZmlsbD0iIzAwNjY5OSIvPjxjaXJjbGUgY3g9Ijc1IiBjeT0iNDUiIHI9IjMwIiBmaWxsPSIjMDBGRkZGIi8+PHBvbHlnb24gcG9pbnRzPSI1MCw3MCw3NSw1MCAxMDAsNzAgOTAsOTAgNjAsOTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwRkZGRiIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4=",
         "powers": ["Frost manipulation", "Blizzard generation", "Ice control"]
       }
     ]

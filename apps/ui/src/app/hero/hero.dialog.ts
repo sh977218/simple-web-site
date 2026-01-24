@@ -22,7 +22,7 @@ import { Hero } from '@shared/shared-models';
     MatDialogActions,
   ],
   template: `
-    <h2 mat-dialog-title>{{ hero.squadName }}</h2>
+    <h2 matDialogTitle>{{ hero.squadName }}</h2>
     <mat-dialog-content>
       <mat-list>
         <mat-list-item>
@@ -40,7 +40,7 @@ import { Hero } from '@shared/shared-models';
       </mat-list>
     </mat-dialog-content>
     <mat-dialog-actions>
-      <button matButton mat-dialog-close cdkFocusInitial>Ok</button>
+      <button matButton matDialogClose  cdkFocusInitial>Ok</button>
     </mat-dialog-actions>
   `,
 })
