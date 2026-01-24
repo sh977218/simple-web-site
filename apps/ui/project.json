@@ -70,7 +70,10 @@
     },
     "test": {
       "executor": "@angular/build:unit-test",
-      "options": {}
+      "options": {
+        "runner": "vitest",
+        "browsers": ["Chromium"]
+      }
     },
     "serve-static": {
       "continuous": true,
