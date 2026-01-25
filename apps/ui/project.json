@@ -71,8 +71,7 @@
     "test": {
       "executor": "@angular/build:unit-test",
       "options": {
-        "runner": "vitest",
-        "browsers": ["Chromium"]
+        "runnerConfig": "apps/ui/vitest.config.ts"
       }
     },
     "serve-static": {
