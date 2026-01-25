@@ -125,7 +125,7 @@ jobs:
   publish-playwright-report:
     name: Publish playwright report
     needs: [ e2e-test ]
-    if: ${{ failure() || success() }}
+    if: ${{ (needs.e2e-test.result != 'skipped') && (failure() || success()) }}
     permissions:
       contents: read
       pages: write
@@ -157,6 +157,28 @@ jobs:
       - name: Populate playwright report to summary
         run: |
           echo "# Deployed playwright report to ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
+
+
+  status_check:
+    runs-on: ubuntu-latest
+    needs:
+      - check_pr_title
+      - build
+      - ui-unit-test
+      - api-unit-test
+      - e2e-test
+      - publish-playwright-report
+    name: Check all jobs' statuses to be success
+    if: |
+      ${{ github.event.pull_request.draft == false &&
+      (needs.check_pr_title.result == 'success' &&
+      needs.build.result == 'success' &&
+      needs.ui-unit-test.result == 'success' &&
+      needs.api-unit-test.result == 'success' &&
+      needs.e2e-test.result == 'success' &&
+      needs.publish-playwright-report.result == 'success') }}
+    steps:
+      - run: echo "All jobs passed successfully."
 
 #
 #      - name: Upload playwright blob report to Artifacts
