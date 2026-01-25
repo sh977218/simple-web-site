@@ -1,15 +1,15 @@
 import { Component, effect, inject, model } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {  FormField } from '@angular/forms/signals';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { MaterialModule } from '../material.module';
 
 import { SearchFacade } from './search.facade';
-import { SearchResultComponent } from './search-result.component';
 import { SearchBarComponent } from './search-bar.component';
+import { SearchResultComponent } from './search-result.component';
 
 @Component({
+  selector: 'app-search',
   templateUrl: './search.component.html',
   styleUrl: './search.component.css',
   imports: [
@@ -32,5 +32,4 @@ export class SearchComponent {
       }
     });
   }
-
 }

@@ -71,7 +71,14 @@
     "test": {
       "executor": "@angular/build:unit-test",
       "options": {
-        "runnerConfig": "apps/ui/vitest.config.ts"
+        "runner": "vitest"
+      }
+    },
+    "test-integration": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "runnerConfig": "apps/ui/vitest.config.ts",
+        "include": ["apps/ui/src/test-ui/**/*.spec.ts"]
       }
     },
     "serve-static": {

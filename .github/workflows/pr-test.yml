@@ -55,6 +55,19 @@ jobs:
       - name: Run Angular unit test
         run: npx nx run ui:test --coverage
 
+  ui-integration-test:
+    name: ui integration test
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Angular integration test
+        run: npx nx run ui:test-integration --coverage
+
   api-unit-test:
     name: api unit test
     needs: [ build ]
@@ -125,7 +138,7 @@ jobs:
   publish-playwright-report:
     name: Publish playwright report
     needs: [ e2e-test ]
-    if: ${{ failure() || success() }}
+    if: ${{ (needs.e2e-test.result != 'skipped') && (failure() || success()) }}
     permissions:
       contents: read
       pages: write
