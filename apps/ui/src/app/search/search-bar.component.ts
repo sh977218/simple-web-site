@@ -16,23 +16,20 @@ import { SearchFacade } from './search.facade';
         type="search"
         placeholder="Ex. legendary"
       />
-      @if (facade.searchForm.searchTerm().value().length) {
-        <div matSuffix>
-          <button type="submit" aria-label="Search" matIconButton>
-            <mat-icon fontIcon="search"></mat-icon>
-          </button>
-          <button type="reset" aria-label="Reset" matIconButton>
-            <mat-icon fontIcon="clear"></mat-icon>
-          </button>
-        </div>
-      }
+      <div matSuffix>
+        <button type="submit" aria-label="Search" matIconButton>
+          <mat-icon fontIcon="search"></mat-icon>
+        </button>
+        <button type="reset" aria-label="Reset" matIconButton (click)="facade.onReset()">
+          <mat-icon fontIcon="clear"></mat-icon>
+        </button>
+      </div>
       @for (error of facade.searchForm.searchTerm().errors(); track error) {
         <mat-error>{{ error.message }}</mat-error>
       }
     </mat-form-field>
   `,
   imports: [MaterialModule, FormField],
-  providers: [SearchFacade]
 })
 export class SearchBarComponent {
   readonly facade = inject(SearchFacade);

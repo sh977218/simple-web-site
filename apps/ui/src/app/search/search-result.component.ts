@@ -5,8 +5,6 @@ import { Hero } from '@shared/shared-models';
 import { HeroComponent } from '../hero/hero.component';
 import { MaterialModule } from '../material.module';
 
-import { SearchFacade } from './search.facade';
-
 @Component({
   selector: 'app-search-result',
   template: `
@@ -14,9 +12,11 @@ import { SearchFacade } from './search.facade';
     <fieldset>
       @if (heroes().hasValue()) {
         @for (hero of heroes().value(); track hero) {
-          <app-hero [hero]="hero" />
+          <div role="list">
+            <app-hero [hero]="hero" role="listitem" />
+          </div>
         } @empty {
-          <p>No searchedHeroes found.</p>
+          <p aria-live="polite">No heroes found.</p>
         }
       } @else if (heroes().isLoading()) {
         <div class="spinner-overlay">
@@ -26,7 +26,6 @@ import { SearchFacade } from './search.facade';
     </fieldset>
   `,
   imports: [HeroComponent, MaterialModule],
-  providers: [SearchFacade],
   host: {
     role: 'search',
     class: 'inline-flex flex-col',

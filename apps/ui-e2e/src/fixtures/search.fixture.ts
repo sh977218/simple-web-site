@@ -2,13 +2,26 @@ import { expect, test as baseTest } from '@playwright/test';
 import { SearchPo } from '@shared/shared-models';
 
 const test = baseTest.extend<{
-  searchPage: SearchPo;
+  hasSearchResult: SearchPo;
+  hasNoSearchResults: SearchPo;
 }>({
-  searchPage: async ({ page }, use) => {
+  hasSearchResult: async ({ page }, use) => {
     await page.goto('/');
     await page.getByRole('link', { name: 'Search' }).click();
     await expect(page).toHaveTitle(`Search`);
-    await use(new SearchPo(page));
+    const searchPage = new SearchPo(page);
+    await use(searchPage);
+    await expect(searchPage.searchResult).toBeVisible();
+  },
+  hasNoSearchResults: async ({ page }, use) => {
+    await page.goto('/');
+    await page.getByRole('link', { name: 'Search' }).click();
+    await expect(page).toHaveTitle(`Search`);
+    const searchPage = new SearchPo(page);
+    await use(searchPage);
+    await expect(
+      searchPage.searchResult.getByText('No heroes found.'),
+    ).toBeVisible();
   },
 });
 

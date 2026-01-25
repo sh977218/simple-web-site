@@ -15,7 +15,6 @@ import { SearchBarComponent } from './search-bar.component';
   imports: [
     FormsModule,
     SearchResultComponent,
-    FormField,
     MaterialModule,
     SearchBarComponent,
   ],
@@ -34,7 +33,4 @@ export class SearchComponent {
     });
   }
 
-  search() {
-    this.facade.searchTerm.set(this.facade.searchForm.searchTerm().value());
-  }
 }
