@@ -8,7 +8,9 @@
   "targets": {
     "build": {
       "executor": "@angular/build:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/ui",
         "browser": "apps/ui/src/main.ts",
@@ -20,7 +22,9 @@
             "input": "apps/ui/public"
           }
         ],
-        "styles": ["apps/ui/src/styles.scss"]
+        "styles": [
+          "apps/ui/src/styles.scss"
+        ]
       },
       "configurations": {
         "production": {
@@ -71,14 +75,19 @@
     "test": {
       "executor": "@angular/build:unit-test",
       "options": {
-        "runner": "vitest"
+        "runner": "vitest",
+        "exclude": [
+          "apps/ui/src/test-ui/"
+        ]
       }
     },
     "test-integration": {
       "executor": "@angular/build:unit-test",
       "options": {
         "runnerConfig": "apps/ui/vitest.config.ts",
-        "include": ["apps/ui/src/test-ui/**/*.spec.ts"]
+        "include": [
+          "apps/ui/src/test-ui/**/*.spec.ts"
+        ]
       }
     },
     "serve-static": {
