@@ -72,6 +72,7 @@
       "executor": "@angular/build:unit-test",
       "options": {
         "runner": "vitest",
+        "coverage": true,
         "browsers": ["Chromium"]
       }
     },
