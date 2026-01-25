@@ -59,7 +59,6 @@
     "@angular/cdk": "^21.0.6",
     "@angular/cli": "~21.0.0",
     "@angular/compiler-cli": "~21.1.0",
-    "@angular/google-maps": "^21.1.1",
     "@angular/language-service": "~21.1.0",
     "@angular/material": "^21.0.6",
     "@angular/youtube-player": "^21.1.1",
