@@ -19,4 +19,10 @@ export const appRoutes: Routes = [
       import('./excel/excel.component').then((m) => m.ExcelComponent),
     title: 'Excel',
   },
+  {
+    path: 'video',
+    loadComponent: () =>
+      import('./video/video.component').then((m) => m.VideoComponent),
+    title: 'Video',
+  }
 ];

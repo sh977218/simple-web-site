@@ -37,6 +37,10 @@ export class NavBarComponent {
       path: 'excel',
       label: 'Excel',
     },
+    {
+      path: 'video',
+      label: 'Video',
+    }
   ];
   private breakpointObserver = inject(BreakpointObserver);
   isHandset$: Observable<boolean> = this.breakpointObserver

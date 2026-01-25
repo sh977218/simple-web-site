@@ -53,7 +53,7 @@ jobs:
         run: npm ci
 
       - name: Run Angular unit test
-        run: npx nx run ui:test
+        run: npx nx run ui:test --coverage
 
   api-unit-test:
     name: api unit test
