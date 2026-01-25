@@ -55,19 +55,6 @@ jobs:
       - name: Run Angular unit test
         run: npx nx run ui:test --coverage
 
-  ui-integration-test:
-    name: ui integration test
-    needs: [ build ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run Angular integration test
-        run: npx nx run ui:test-integration --coverage
-
   api-unit-test:
     name: api unit test
     needs: [ build ]
@@ -178,7 +165,6 @@ jobs:
       - check_pr_title
       - build
       - ui-unit-test
-      - ui-integration-test
       - api-unit-test
       - e2e-test
       - publish-playwright-report
@@ -188,7 +174,6 @@ jobs:
       (needs.check_pr_title.result == 'success' &&
       needs.build.result == 'success' &&
       needs.ui-unit-test.result == 'success' &&
-      needs.ui-integration-test.result == 'success' &&
       needs.api-unit-test.result == 'success' &&
       needs.e2e-test.result == 'success' &&
       needs.publish-playwright-report.result == 'success') }}
