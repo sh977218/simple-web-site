@@ -100,7 +100,18 @@
         "buildTarget": "ui:build",
         "port": 4200,
         "staticFilePath": "dist/apps/ui/browser",
-        "spa": true
+        "spa": true,
+        "configurations": {
+          "production": {
+            "buildTarget": "ui:build:production"
+          },
+          "development": {
+            "buildTarget": "ui:build:development"
+          },
+          "ci": {
+            "buildTarget": "ui:build:ci"
+          }
+        }
       }
     }
   }
