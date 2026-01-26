@@ -6,7 +6,8 @@
   "prefix": "lib",
   "targets": {
     "build": {
-      "executor": "@angular/build:ng-packagr",
+      "executor": "@nx/angular:package",
+      "outputs": ["{options.outputPath}"],
       "dependsOn": [
         {
           "dependencies": true,
