@@ -8,11 +8,11 @@ import { SearchComponent } from '../app/search/search.component';
   template: `
     <app-search /> `,
   imports: [
-    SearchComponent,
     SearchComponent
   ]
 })
-export class MyComponent {}
+export class MyComponent {
+}
 
 test('query elements', async () => {
   // Render the component
