@@ -5,7 +5,7 @@
     </mat-expansion-panel-header>
     <p>{{ hero().content }}</p>
     @for (member of hero().members; track member; ) {
-      <app-member [member]="member" />
+      <lib-member [member]="member" />
     }
     <mat-action-row>
       <button type="button" matButton color="accent" (click)="openHeroDetailDialog()">Learn More</button>
