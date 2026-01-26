@@ -1,8 +1,7 @@
 {
-  "name": "shared/member",
+  "name": "member",
   "version": "0.0.1",
   "peerDependencies": {
-    "@angular/common": "^21.0.0",
     "@angular/core": "^21.0.0",
     "@angular/material": "^21.0.0",
     "@shared/shared-models": "^0.0.1"

@@ -7,7 +7,6 @@ import {
   MatDialogModule
 } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
-import { Member } from '@shared/shared-models';
 
 @Component({
   imports: [
@@ -42,6 +41,6 @@ import { Member } from '@shared/shared-models';
   `
 })
 export class MemberDialog {
-  readonly data = inject<{ member: Member }>(MAT_DIALOG_DATA);
+  readonly data = inject<{ member: any }>(MAT_DIALOG_DATA);
   readonly member = this.data.member;
 }
