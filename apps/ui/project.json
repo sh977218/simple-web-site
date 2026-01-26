@@ -107,7 +107,7 @@
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "ui:ci",
+        "buildTarget": "ui:build:ci",
         "port": 4200,
         "staticFilePath": "dist/apps/ui/browser",
         "spa": true
