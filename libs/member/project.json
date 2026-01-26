@@ -1,5 +1,5 @@
 {
-  "name": "@shared/member",
+  "name": "shared/member",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/member/src",
   "prefix": "lib",
@@ -23,7 +23,9 @@
     },
     "test": {
       "executor": "@nx/angular:unit-test",
-      "options": {}
+      "options": {
+        "runner": "vitest"
+      }
     },
     "lint": {
       "executor": "@nx/eslint:lint"
