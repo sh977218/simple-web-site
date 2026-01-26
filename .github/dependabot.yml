@@ -12,8 +12,6 @@ updates:
       - "peter"
     allow:
       - dependency-type: "all"
-      - groups:
-          - "patch"
     commit-message:
       prefix: "chore"
       include: "scope"

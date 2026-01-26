@@ -7,6 +7,13 @@
   "targets": {
     "build": {
       "executor": "@angular/build:ng-packagr",
+      "dependsOn": [
+        {
+          "dependencies": true,
+          "target": "build",
+          "params": "forward"
+        }
+      ],
       "configurations": {
         "production": {
           "tsConfig": "libs/member/tsconfig.lib.prod.json"
@@ -20,8 +27,12 @@
     "test": {
       "executor": "@angular/build:unit-test",
       "options": {
+        "runner": "vitest",
         "tsConfig": "libs/member/tsconfig.spec.json"
       }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
     }
   }
 }
