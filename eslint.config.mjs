@@ -29,6 +29,7 @@ export default [
           ],
         },
       ],
+      '@nx/dependency-checks': 'error',
     },
   },
   {
