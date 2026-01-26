@@ -49,6 +49,7 @@
     "reflect-metadata": "^0.2.2",
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.1.18",
+    "tslib": "^2.3.0",
     "winston": "^3.19.0",
     "xlsx": "^0.18.5"
   },
@@ -109,6 +110,7 @@
     "jest-util": "^30.0.2",
     "jsdom": "^27.1.0",
     "jsonc-eslint-parser": "^2.1.0",
+    "ng-packagr": "^21.0.0",
     "nx": "22.3.3",
     "prettier": "~3.6.2",
     "three": "^0.182.0",

@@ -1,0 +1,15 @@
+{
+  "name": "member",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/common": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/material":"^21.1.1",
+    "tslib": "^2.3.0",
+    "@shared/member": true,
+    "@shared/shared-models": true
+  },
+  "dependencies": {
+  },
+  "sideEffects": false
+}

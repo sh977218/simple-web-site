@@ -1,13 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { MatButton } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { MatChip, MatChipSet } from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
 import {
   MAT_DIALOG_DATA,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogContent,
-  MatDialogTitle,
+  MatDialogModule
 } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
 import { Member } from '@shared/shared-models';
@@ -16,13 +13,9 @@ import { Member } from '@shared/shared-models';
   imports: [
     MatCardModule,
     MatListModule,
-    MatButton,
-    MatDialogClose,
-    MatDialogTitle,
-    MatDialogContent,
-    MatDialogActions,
-    MatChip,
-    MatChipSet,
+    MatButtonModule,
+    MatDialogModule,
+    MatChipsModule
   ],
   template: `
     <h2 matDialogTitle>{{ member.name }}</h2>
@@ -46,7 +39,7 @@ import { Member } from '@shared/shared-models';
     <mat-dialog-actions>
       <button matButton matDialogClose cdkFocusInitial>Ok</button>
     </mat-dialog-actions>
-  `,
+  `
 })
 export class MemberDialog {
   readonly data = inject<{ member: Member }>(MAT_DIALOG_DATA);

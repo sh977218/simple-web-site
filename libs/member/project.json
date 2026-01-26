@@ -1,0 +1,27 @@
+{
+  "name": "member",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/member/src",
+  "prefix": "lib",
+  "targets": {
+    "build": {
+      "executor": "@angular/build:ng-packagr",
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/member/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/member/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "options": {
+        "tsConfig": "libs/member/tsconfig.spec.json"
+      }
+    }
+  }
+}

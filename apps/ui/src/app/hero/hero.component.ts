@@ -1,9 +1,9 @@
 import { Component, inject, input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MemberComponent } from '@shared/member';
 import { Hero } from '@shared/shared-models';
 
 import { MaterialModule } from '../material.module';
-import { MemberComponent } from '../member/member.component';
 
 import { HeroDialog } from './hero.dialog';
 
