@@ -40,7 +40,7 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: isCI ? 'nx run serve-static:ci' : 'nx run ui:serve',
+      command: isCI ? 'nx run serve-static-ci' : 'nx run ui:serve',
       url: 'http://localhost:4200',
       reuseExistingServer: true,
       cwd: workspaceRoot,

@@ -103,7 +103,7 @@
         "spa": true
       }
     },
-    "serve-static:ci": {
+    "serve-static-ci": {
       "continuous": true,
       "executor": "@nx/web:file-server",
       "options": {
