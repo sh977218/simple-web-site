@@ -80,3 +80,5 @@ vitest.config.*.timestamp*
 
 # Environment files
 */**/.env.production
+
+__screenshots__/
