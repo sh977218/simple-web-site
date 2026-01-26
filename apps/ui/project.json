@@ -100,18 +100,17 @@
         "buildTarget": "ui:build",
         "port": 4200,
         "staticFilePath": "dist/apps/ui/browser",
-        "spa": true,
-        "configurations": {
-          "production": {
-            "buildTarget": "ui:build:production"
-          },
-          "development": {
-            "buildTarget": "ui:build:development"
-          },
-          "ci": {
-            "buildTarget": "ui:build:ci"
-          }
-        }
+        "spa": true
+      }
+    },
+    "serve-static:ci": {
+      "continuous": true,
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "ui:ci",
+        "port": 4200,
+        "staticFilePath": "dist/apps/ui/browser",
+        "spa": true
       }
     }
   }

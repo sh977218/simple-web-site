@@ -40,13 +40,13 @@ export default defineConfig({
   /* Run your local dev server before starting the tests */
   webServer: [
     {
-      command: isCI ? 'nx run ui:serve' : 'nx run ui:serve:production',
+      command: isCI ? 'nx run serve-static:ci' : 'nx run ui:serve',
       url: 'http://localhost:4200',
       reuseExistingServer: true,
       cwd: workspaceRoot,
     },
     {
-      command: isCI ? 'nx run api:serve' : 'nx run api:serve:ci',
+      command: isCI ? 'nx run api:serve:ci' : 'nx run api:serve',
       url: 'http://localhost:3000/healthz',
       reuseExistingServer: true,
       cwd: workspaceRoot,
