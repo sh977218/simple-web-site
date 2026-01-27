@@ -6,7 +6,7 @@ import { SearchSquadsDto } from './dto/search-squads.dto';
 import { UpdateSquadDto } from './dto/update-squad.dto';
 import { SquadService } from './squad.service';
 
-@Controller('squad')
+@Controller('squads')
 export class SquadController {
   constructor(private readonly squadService: SquadService) {}
 
