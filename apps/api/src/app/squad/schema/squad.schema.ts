@@ -3,8 +3,8 @@ import { HydratedDocument } from 'mongoose';
 
 import { Member, MemberSchema } from './member.schema';
 
-@Schema({ collection: 'heroes' })
-export class Hero {
+@Schema({ collection: 'squads' })
+export class Squad {
   @Prop({ type: String })
   squadName: string;
 
@@ -24,9 +24,9 @@ export class Hero {
   members: Member[];
 }
 
-export type HeroDocument = HydratedDocument<Hero>;
-export const HeroSchema = SchemaFactory.createForClass(Hero);
-HeroSchema.index({
+export type HeroDocument = HydratedDocument<Squad>;
+export const SquadSchema = SchemaFactory.createForClass(Squad);
+SquadSchema.index({
   squadName: 'text',
   content: 'text',
   homeTown: 'text',

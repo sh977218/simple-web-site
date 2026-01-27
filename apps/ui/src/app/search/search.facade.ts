@@ -8,7 +8,7 @@ import { SearchForm } from './search';
 
 @Injectable({ providedIn: 'root' })
 export class SearchFacade {
-  private url = `${environment.api}/heroes`;
+  private url = `${environment.api}/squads`;
 
   defaultSearchForm = signal<SearchForm>({
     searchTerm: '',

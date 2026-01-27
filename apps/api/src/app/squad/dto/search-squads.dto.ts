@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class SearchHeroDto {
+export class SearchSquadsDto {
   @ApiProperty()
   searchTerm: string;
 }

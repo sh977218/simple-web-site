@@ -4,7 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import * as Joi from 'joi';
 
 import { DataLoadModule } from './data-load/data-load.module';
-import { HeroesModule } from './heroes/heroes.module';
+import { SquadModule } from './squad/squad.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -58,7 +58,7 @@ const ENV = process.env.NODE_ENV;
       },
       inject: [ConfigService],
     }),
-    HeroesModule,
+    SquadModule,
     DataLoadModule,
   ],
   controllers: [AppController],

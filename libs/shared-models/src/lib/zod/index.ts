@@ -1,1 +1,1 @@
-export * from './hero.zod';
+export * from './squad.zod';

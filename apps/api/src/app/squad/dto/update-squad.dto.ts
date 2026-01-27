@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-import { MemberDto } from './create-hero.dto';
+import { MemberDto } from './create-squad.dto';
 
-export class UpdateHeroDto {
+export class UpdateSquadDto {
   @ApiProperty()
   readonly homeTown?: string;
   @ApiProperty()
