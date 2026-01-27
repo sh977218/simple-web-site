@@ -1,8 +1,7 @@
 import { HttpResourceRef } from '@angular/common/http';
 import { Component, input } from '@angular/core';
-import { Hero } from '@shared/shared-models';
+import { SquadComponent } from '@shared/shared-components/squad';
 
-import { HeroComponent } from '../hero/hero.component';
 import { MaterialModule } from '../material.module';
 
 @Component({
@@ -13,7 +12,7 @@ import { MaterialModule } from '../material.module';
       @if (heroes().hasValue()) {
         @for (hero of heroes().value(); track hero) {
           <div role="list">
-            <app-hero [hero]="hero" role="listitem" />
+            <lib-squad [hero]="hero" role="listitem" />
           </div>
         } @empty {
           <p aria-live="polite">No heroes found.</p>
@@ -25,12 +24,12 @@ import { MaterialModule } from '../material.module';
       }
     </fieldset>
   `,
-  imports: [HeroComponent, MaterialModule],
+  imports: [MaterialModule, SquadComponent],
   host: {
     role: 'search',
     class: 'inline-flex flex-col',
   },
 })
 export class SearchResultComponent {
-  heroes = input.required<HttpResourceRef<Hero[] | undefined>>();
+  heroes = input.required<HttpResourceRef<any[] | undefined>>();
 }
