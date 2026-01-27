@@ -2,14 +2,14 @@ import { Injectable } from '@nestjs/common';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
-import { HeroesService } from '../heroes/heroes.service';
+import { SquadService } from '../squad/squad.service';
 
 @Injectable()
 export class DataLoadService {
-  constructor(private readonly heroesService: HeroesService) {}
+  constructor(private readonly heroesService: SquadService) {}
 
   async resetAndLoadHeroes() {
-    const filePath = join(__dirname, 'assets/heroes.json');
+    const filePath = join(__dirname, 'assets/squads.json');
     const data = readFileSync(filePath, 'utf-8');
     const heroesData = JSON.parse(data);
 

@@ -8,7 +8,7 @@ export const MemberSchema = z.object({
   secretIdentity: z.string(),
   powers: z.array(z.string()),
 });
-export const HeroSchema = z.object({
+export const SquadSchema = z.object({
   squadName: z.string(),
   avatar: z.string(),
   content: z.string(),
@@ -17,7 +17,7 @@ export const HeroSchema = z.object({
   members: z.array(MemberSchema),
 });
 
-export const HeroesResponseSchema = z.array(HeroSchema);
+export const SquadsResponseSchema = z.array(SquadSchema);
 
-export type Hero = z.infer<typeof HeroSchema>;
+export type Squad = z.infer<typeof SquadSchema>;
 export type Member = z.infer<typeof MemberSchema>;

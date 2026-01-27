@@ -14,7 +14,7 @@ export class MemberDto {
   secretIdentity: string;
 }
 
-export class CreateHeroDto {
+export class CreateSquadDto {
   @ApiProperty()
   homeTown: string;
 
