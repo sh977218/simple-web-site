@@ -1,7 +1,7 @@
 {
   "name": "shared-components",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/member/src",
+  "sourceRoot": "libs/shared-components/src",
   "prefix": "lib",
   "projectType": "library",
   "tags": [],
@@ -10,12 +10,12 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "libs/member/ng-package.json",
-        "tsConfig": "libs/member/tsconfig.lib.json"
+        "project": "libs/shared-components/ng-package.json",
+        "tsConfig": "libs/shared-components/tsconfig.lib.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "libs/member/tsconfig.lib.prod.json"
+          "tsConfig": "libs/shared-components/tsconfig.lib.prod.json"
         },
         "development": {}
       },
