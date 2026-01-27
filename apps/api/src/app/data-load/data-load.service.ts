@@ -6,14 +6,14 @@ import { SquadService } from '../squad/squad.service';
 
 @Injectable()
 export class DataLoadService {
-  constructor(private readonly heroesService: SquadService) {}
+  constructor(private readonly squadsService: SquadService) {}
 
   async resetAndLoadHeroes() {
     const filePath = join(__dirname, 'assets/squads.json');
     const data = readFileSync(filePath, 'utf-8');
-    const heroesData = JSON.parse(data);
+    const squadsData = JSON.parse(data);
 
-    await this.heroesService.deleteAllHeroes();
-    await this.heroesService.injectHeroes(heroesData);
+    await this.squadsService.deleteAllSquads();
+    await this.squadsService.injectSquads(squadsData);
   }
 }
