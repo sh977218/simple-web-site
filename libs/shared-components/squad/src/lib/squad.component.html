@@ -1,14 +1,14 @@
 <mat-accordion>
   <mat-expansion-panel hideToggle>
     <mat-expansion-panel-header>
-      <mat-panel-title> {{ hero().squadName }} </mat-panel-title>
+      <mat-panel-title> {{ squad().squadName }} </mat-panel-title>
     </mat-expansion-panel-header>
-    <p>{{ hero().content }}</p>
-    @for (member of hero().members; track member; ) {
+    <p>{{ squad().content }}</p>
+    @for (member of squad().members; track member; ) {
       <lib-member [member]="member" />
     }
     <mat-action-row>
-      <button type="button" matButton color="accent" (click)="openHeroDetailDialog()">Learn More</button>
+      <button type="button" matButton color="accent" (click)="openSquadDetailDialog()">Learn More</button>
       <button type="button" matIconButton>
         <mat-icon aria-hidden="false" aria-label="like" fontIcon="thumb_up"></mat-icon>
       </button>

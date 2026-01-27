@@ -13,16 +13,21 @@ import { SquadDialog } from './squad-dialog.component';
   host: {
     class: 'flex flex-col flex-wrap justify-between my-2',
   },
-  imports: [MatExpansionModule,MatButtonModule, MatIconModule, MemberComponent],
+  imports: [
+    MatExpansionModule,
+    MatButtonModule,
+    MatIconModule,
+    MemberComponent,
+  ],
 })
 export class SquadComponent {
   readonly dialog = inject(MatDialog);
 
-  hero = input.required<any>();
+  squad = input.required<any>();
 
-  openHeroDetailDialog() {
+  openSquadDetailDialog() {
     this.dialog.open(SquadDialog, {
-      data: { hero: this.hero() },
+      data: { squad: this.squad() },
     });
   }
 }
