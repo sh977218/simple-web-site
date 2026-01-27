@@ -1,7 +1,6 @@
 import { httpResource } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { debounce, form, required } from '@angular/forms/signals';
-import { Hero } from '@shared/shared-models';
 
 import { environment } from '../../environments/environment';
 
@@ -20,7 +19,7 @@ export class SearchFacade {
     required(schemaPath.searchTerm, { message: 'searchTerm is required' });
   });
 
-  searchedHeroes = httpResource<Hero[]>(() => {
+  searchedHeroes = httpResource<any[]>(() => {
     const searchTerm = this.searchForm.searchTerm().value();
     if (searchTerm) {
       return {

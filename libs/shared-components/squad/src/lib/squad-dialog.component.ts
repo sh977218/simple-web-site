@@ -9,7 +9,6 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
-import { Hero } from '@shared/shared-models';
 
 @Component({
   imports: [
@@ -44,7 +43,7 @@ import { Hero } from '@shared/shared-models';
     </mat-dialog-actions>
   `,
 })
-export class HeroDialog {
-  readonly data = inject<{ hero: Hero }>(MAT_DIALOG_DATA);
+export class SquadDialog {
+  readonly data = inject<{ hero: any }>(MAT_DIALOG_DATA);
   readonly hero = this.data.hero;
 }
