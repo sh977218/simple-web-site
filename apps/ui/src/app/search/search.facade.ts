@@ -19,7 +19,7 @@ export class SearchFacade {
     required(schemaPath.searchTerm, { message: 'searchTerm is required' });
   });
 
-  searchedHeroes = httpResource<any[]>(() => {
+  searchedSquads = httpResource<any[]>(() => {
     const searchTerm = this.searchForm.searchTerm().value();
     if (searchTerm) {
       return {

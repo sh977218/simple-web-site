@@ -21,20 +21,20 @@ import { MatListModule } from '@angular/material/list';
     MatDialogActions,
   ],
   template: `
-    <h2 matDialogTitle>{{ hero.squadName }}</h2>
+    <h2 matDialogTitle>{{ squad.squadName }}</h2>
     <mat-dialog-content>
       <mat-list>
         <mat-list-item>
           <span matListItemTitle>home town</span>
-          <span matListItemLine>{{ hero.homeTown }}</span>
+          <span matListItemLine>{{ squad.homeTown }}</span>
         </mat-list-item>
         <mat-list-item>
           <span matListItemTitle>secret base</span>
-          <span matListItemLine>{{ hero.secretBase }}</span>
+          <span matListItemLine>{{ squad.secretBase }}</span>
         </mat-list-item>
         <mat-list-item>
           <span matListItemTitle>members</span>
-          <span matListItemLine>{{ hero.members.length }}</span>
+          <span matListItemLine>{{ squad.members.length }}</span>
         </mat-list-item>
       </mat-list>
     </mat-dialog-content>
@@ -44,6 +44,6 @@ import { MatListModule } from '@angular/material/list';
   `,
 })
 export class SquadDialog {
-  readonly data = inject<{ hero: any }>(MAT_DIALOG_DATA);
-  readonly hero = this.data.hero;
+  readonly data = inject<{ squad: any }>(MAT_DIALOG_DATA);
+  readonly squad = this.data.squad;
 }

@@ -9,15 +9,15 @@ import { MaterialModule } from '../material.module';
   template: `
     <h1>Search Result From Mongo DB:</h1>
     <fieldset>
-      @if (heroes().hasValue()) {
-        @for (hero of heroes().value(); track hero) {
+      @if (squads().hasValue()) {
+        @for (squad of squads().value(); track squad) {
           <div role="list">
-            <lib-squad [hero]="hero" role="listitem" />
+            <lib-squad [squad]="squads" role="listitem" />
           </div>
         } @empty {
           <p aria-live="polite">No heroes found.</p>
         }
-      } @else if (heroes().isLoading()) {
+      } @else if (squads().isLoading()) {
         <div class="spinner-overlay">
           <mat-spinner></mat-spinner>
         </div>
@@ -31,5 +31,5 @@ import { MaterialModule } from '../material.module';
   },
 })
 export class SearchResultComponent {
-  heroes = input.required<HttpResourceRef<any[] | undefined>>();
+  squads = input.required<HttpResourceRef<any[] | undefined>>();
 }

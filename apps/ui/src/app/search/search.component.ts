@@ -27,8 +27,8 @@ export class SearchComponent {
 
   constructor() {
     effect(() => {
-      if (this.facade.searchedHeroes.error()) {
-        this._snackBar.open('Could not load heroes information', 'Close');
+      if (this.facade.searchedSquads.error()) {
+        this._snackBar.open('Could not load squads information', 'Close');
       }
     });
   }
