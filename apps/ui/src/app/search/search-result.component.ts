@@ -1,6 +1,7 @@
 import { HttpResourceRef } from '@angular/common/http';
 import { Component, input } from '@angular/core';
 import { SquadComponent } from '@shared/shared-components/squad';
+import { Squad } from '@shared/shared-models/zod';
 
 import { MaterialModule } from '../material.module';
 
@@ -31,5 +32,5 @@ import { MaterialModule } from '../material.module';
   },
 })
 export class SearchResultComponent {
-  squads = input.required<HttpResourceRef<any[] | undefined>>();
+  squads = input.required<HttpResourceRef<Squad[] | undefined>>();
 }

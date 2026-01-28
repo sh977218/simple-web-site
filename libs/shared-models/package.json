@@ -2,9 +2,6 @@
   "name": "@shared/shared-models",
   "version": "0.0.1",
   "private": true,
-  "type": "commonjs",
-  "main": "./index.cjs",
-  "types": "./index.d.ts",
   "dependencies": {
     "zod": "4.1.13"
   }
