@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "peerDependencies": {
     "@angular/core": "^21.0.0",
-    "@angular/material": "^21.0.0",
-    "@shared-models/shared-models": "^0.0.1",
-    "@shared/shared-lib": "^0.0.1"
+    "@angular/material": "^21.0.0"
   },
   "sideEffects": false
 }
