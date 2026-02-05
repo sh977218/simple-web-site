@@ -1,5 +1,5 @@
 import { expect, test as baseTest } from '@playwright/test';
-import {SearchPo} from "@shared/shared-lib";
+import {SearchPo} from "@shared-lib/shared-lib";
 
 const test = baseTest.extend<{
   hasSearchResult: SearchPo;
