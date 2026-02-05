@@ -1,7 +1,7 @@
 import { HttpResourceRef } from '@angular/common/http';
 import { Component, input } from '@angular/core';
 import { SquadComponent } from '@shared/shared-components/squad';
-import { Squad } from '@shared/shared-models/zod';
+import { Squad } from '@shared-models/shared-models/zod';
 
 import { MaterialModule } from '../material.module';
 
