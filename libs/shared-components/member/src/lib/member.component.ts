@@ -10,6 +10,7 @@ import {
 } from '@angular/material/card';
 import { MatDialog } from '@angular/material/dialog';
 import { MatIcon } from '@angular/material/icon';
+import { MEMBER } from '@shared-interface/shared-interfaces';
 
 import { MemberDialog } from './member.dialog';
 
@@ -68,7 +69,7 @@ import { MemberDialog } from './member.dialog';
 export class MemberComponent {
   readonly dialog = inject(MatDialog);
 
-  member = input.required<any>();
+  member = input.required<MEMBER>();
 
   openMemberDetailDialog() {
     this.dialog.open(MemberDialog, {
