@@ -25,7 +25,7 @@ jobs:
         run: node .github/scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
 
   lint-build-test:
-    name: Lint Build Test
+    name: Nx effect Lint Build Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
