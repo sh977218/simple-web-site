@@ -88,7 +88,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       - name: Run Playwright tests
-        run: npx nx e2e:e2e
+        run: DEBUG=pw:webserver npx nx e2e:e2e
 
       - name: Upload playwright html report to Artifacts
         uses: actions/upload-artifact@v6
