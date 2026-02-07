@@ -1,7 +1,7 @@
 import { HttpResourceRef } from '@angular/common/http';
 import { Component, input } from '@angular/core';
 import { SquadComponent } from '@shared/shared-components/squad';
-import { Squad } from '@shared-models/shared-models/zod';
+import { Squad } from '@shared-models/shared-models';
 
 import { MaterialModule } from '../material.module';
 
@@ -13,7 +13,7 @@ import { MaterialModule } from '../material.module';
       @if (squads().hasValue()) {
         @for (squad of squads().value(); track squad) {
           <div role="list">
-            <lib-squad [squad]="squads" role="listitem" />
+            <lib-squad [squad]="squad" role="listitem" />
           </div>
         } @empty {
           <p aria-live="polite">No heroes found.</p>
