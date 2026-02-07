@@ -25,7 +25,7 @@ jobs:
         run: node .github/scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
 
   lint-build-test:
-    name: Lint Build Test
+    name: Nx effect Lint Build Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -39,9 +39,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Lint All apps and libs
-        run: npx nx run-many -t lint build test --all
+      - uses: nrwl/nx-set-shas@v4
 
+      - name: Run NX affected lint, build and test
+        run: npx nx affected -t lint build test
+
+      - run: npx nx fix-ci
+        if: always()
 
   e2e-test:
     name: e2e-test
