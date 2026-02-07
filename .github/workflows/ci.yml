@@ -28,7 +28,7 @@ jobs:
         run: node .github/scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
 
   lint-build-test:
-    name: lint
+    name: lint build test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -87,7 +87,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       - name: Run Playwright tests
-        run: npx nx affected -t e2e
+        run: npx nx e2e
 
       - name: Upload playwright html report to Artifacts
         uses: actions/upload-artifact@v6
