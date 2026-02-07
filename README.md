@@ -44,7 +44,7 @@
   - `npm install` shall be run on production server, because many libraries have machine specific source code
   - `tar -cf build.tar .env* build package.json package-lock.json`
 - Ship `build.tar` to production server and start the process
-  - `NODE_ENV=production npm run start:build`
+  - `NODE_ENV=production npm run start`
 
 ### Automation:
 

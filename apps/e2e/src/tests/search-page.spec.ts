@@ -3,8 +3,10 @@ import { expect } from '@playwright/test';
 import { test } from '../fixtures/search.fixture';
 
 test('Search with result', async ({ hasSearchResult }) => {
-  await hasSearchResult.searchInput.fill('hero')
-  await expect(hasSearchResult.searchResult.getByRole('listitem')).not.toHaveCount(0);
+  await hasSearchResult.searchInput.fill('hero');
+  await expect(
+    hasSearchResult.searchResult.getByRole('listitem'),
+  ).not.toHaveCount(0);
 });
 
 test('Search without result', async ({ hasNoSearchResults }) => {
