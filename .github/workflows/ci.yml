@@ -25,10 +25,11 @@ jobs:
         run: node .github/scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
 
   lint-build-test:
-    name: lint build test
+    name: Lint Build Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout Repository
+        uses: actions/checkout@v6
         with:
           filter: tree:0
           fetch-depth: 0
@@ -88,7 +89,7 @@ jobs:
       - uses: nrwl/nx-set-shas@v4
 
       - name: Run Playwright tests
-        run: DEBUG=pw:webserver npx nx e2e:e2e
+        run: DEBUG=pw:webserver npx nx run e2e:e2e
 
       - name: Upload playwright html report to Artifacts
         uses: actions/upload-artifact@v6
@@ -115,6 +116,10 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v6
+
+      - uses: ./.github/actions/setup-node-nvm
+
       - name: Down playwright html report from Artifacts
         uses: actions/download-artifact@v7
         with:
@@ -133,8 +138,6 @@ jobs:
       - name: Populate playwright report to summary
         run: |
           echo "# Deployed playwright report to ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
-
-
 
   status_check:
     runs-on: ubuntu-latest
@@ -160,8 +163,6 @@ jobs:
           needs.lint-build-test.result == 'success' &&
           needs.e2e-test.result == 'success' &&
           needs.publish-playwright-report.result == 'success') }}
-
-
 
 #
 #      - name: Upload playwright blob report to Artifacts

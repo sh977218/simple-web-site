@@ -41,13 +41,13 @@ export default defineConfig({
   webServer: [
     {
       command: isCI ? 'nx run ui:serve:ci' : 'nx run ui:serve',
-      url: 'http://localhost:4200',
+      port: 4200,
       reuseExistingServer: true,
       cwd: workspaceRoot,
     },
     {
       command: isCI ? 'nx run api:serve:ci' : 'nx run api:serve',
-      url: 'http://localhost:3000/healthz',
+      port: 3000,
       reuseExistingServer: true,
       cwd: workspaceRoot,
     },
