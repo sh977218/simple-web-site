@@ -8,6 +8,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  CI: true
+
 jobs:
   check_pr_title:
     runs-on: ubuntu-latest
@@ -24,8 +27,8 @@ jobs:
       - name: Validate Title of PR
         run: node .github/scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
 
-  build:
-    name: Build
+  lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -39,8 +42,27 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build Angular & NestJS
-        run: npm run build
+      - name: Lint All apps and libs
+        run: npx nx run-many -t lint --all
+
+  build:
+    name: Build
+    needs: [ lint ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build All apps and libs
+        run: npx nx run-many -t build --all
 
   ui-unit-test:
     name: ui unit test
@@ -87,17 +109,17 @@ jobs:
     needs: [ ui-unit-test, api-unit-test, ui-integration-test ]
     runs-on: ubuntu-latest
     services:
-#      elasticsearch:
-#        image: docker.elastic.co/elasticsearch/elasticsearch:8.17.4
-#        options:
-#          --health-cmd "curl http://localhost:9200/_cluster/health"
-#          --health-interval 10s
-#          --health-timeout 30s
-#          --health-retries 10
-#          -e "discovery.type=single-node"
-#          -e "xpack.security.enabled=false"
-#        ports:
-#          - 9200:9200
+      #      elasticsearch:
+      #        image: docker.elastic.co/elasticsearch/elasticsearch:8.17.4
+      #        options:
+      #          --health-cmd "curl http://localhost:9200/_cluster/health"
+      #          --health-interval 10s
+      #          --health-timeout 30s
+      #          --health-retries 10
+      #          -e "discovery.type=single-node"
+      #          -e "xpack.security.enabled=false"
+      #        ports:
+      #          - 9200:9200
       mongodb:
         image: mongo
         ports:
