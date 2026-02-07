@@ -9,6 +9,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import { MatListModule } from '@angular/material/list';
+import { Squad } from '@shared-models/shared-models';
 
 @Component({
   imports: [
@@ -44,6 +45,6 @@ import { MatListModule } from '@angular/material/list';
   `,
 })
 export class SquadDialog {
-  readonly data = inject<{ squad: any }>(MAT_DIALOG_DATA);
+  readonly data = inject<{ squad: Squad }>(MAT_DIALOG_DATA);
   readonly squad = this.data.squad;
 }
