@@ -1,5 +1,5 @@
 import { expect, test as baseTest } from '@playwright/test';
-import { SearchPo } from '@shared-models/shared-models/page-object-model';
+import { SearchPo } from '@shared-models/shared-models';
 
 const test = baseTest.extend<{
   hasSearchResult: SearchPo;
