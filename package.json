@@ -10,10 +10,7 @@
   ],
   "scripts": {
     "commit": "git cz",
-    "build": "nx run-many -t build --all",
-    "start:ui": "nx run ui:serve",
-    "start:api": "nx run api:serve",
-    "start:build": "node dist/apps/api"
+    "start": "node dist/apps/api"
   },
   "config": {
     "commitizen": {
@@ -50,7 +47,8 @@
     "rxjs": "~7.8.0",
     "tailwindcss": "^4.1.18",
     "winston": "^3.19.0",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@angular-devkit/core": "~21.1.1",
@@ -82,7 +80,7 @@
     "@nx/web": "22.3.3",
     "@nx/webpack": "22.3.3",
     "@nx/workspace": "22.3.3",
-    "@playwright/test": "^1.57.0",
+    "@playwright/test": "^1.58.2",
     "@schematics/angular": "~21.0.0",
     "@swc-node/register": "~1.9.1",
     "@swc/core": "~1.15.10",

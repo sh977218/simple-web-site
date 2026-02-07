@@ -1,0 +1,9 @@
+name: setup node with nvm
+description: Setup Node.js environment using nvm
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node
+      uses: actions/setup-node@v6
+      with:
+        node-version-file: '.nvmrc'

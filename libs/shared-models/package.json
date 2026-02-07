@@ -2,7 +2,10 @@
   "name": "@shared-models/shared-models",
   "version": "0.0.1",
   "private": true,
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
   "dependencies": {
-    "zod": "4.1.13"
+    "zod": "^4.3.6",
+    "@playwright/test": "^1.58.2"
   }
 }

@@ -21,6 +21,10 @@
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
     },
+    "@angular/build:unit-test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    },
     "@nx/eslint:lint": {
       "cache": true,
       "inputs": [
@@ -29,10 +33,6 @@
         "{workspaceRoot}/.eslintignore",
         "{workspaceRoot}/eslint.config.mjs"
       ]
-    },
-    "@angular/build:unit-test": {
-      "cache": true,
-      "inputs": ["default", "^production"]
     },
     "@nx/vitest:test": {
       "cache": true,

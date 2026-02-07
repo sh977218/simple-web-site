@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { NgtCanvas, NgtCanvasContent, NgtCanvasImpl } from 'angular-three/dom';
 
-import { SceneGraph } from './scene-graph';
 import { MaterialModule } from '../material.module';
+
+import { SceneGraph } from './scene-graph';
 
 @Component({
   selector: 'app-three-js',
