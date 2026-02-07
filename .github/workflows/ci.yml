@@ -83,7 +83,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: DEBUG=pw:webserver npx nx run ui-e2e:e2e
+        run: DEBUG=pw:webserver npx nx run e2e:e2e
 
       - name: Upload playwright html report to Artifacts
         uses: actions/upload-artifact@v6
@@ -129,8 +129,6 @@ jobs:
       - name: Populate playwright report to summary
         run: |
           echo "# Deployed playwright report to ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
-
-
 
   status_check:
     runs-on: ubuntu-latest
