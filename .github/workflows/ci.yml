@@ -24,6 +24,19 @@ jobs:
       - name: Validate Title of PR
         run: node .github/scripts/checkPrTitle.js "${{ github.event.pull_request.title }}"
 
+  lint:
+    name: ui integration test
+    needs: [ build ]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Angular integration test
+        run: npx nx affected lint
+
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -40,9 +53,9 @@ jobs:
         run: npm ci
 
       - name: Build Angular & NestJS
-        run: npm run build
+        run: npx nx affected build
 
-  ui-unit-test:
+  unit-test:
     name: ui unit test
     needs: [ build ]
     runs-on: ubuntu-latest
@@ -53,38 +66,12 @@ jobs:
         run: npm ci
 
       - name: Run Angular unit test
-        run: npx nx run ui:test --coverage
-
-  ui-integration-test:
-    name: ui integration test
-    needs: [ build ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run Angular integration test
-        run: npx nx run ui:integration-test --coverage
-
-  api-unit-test:
-    name: api unit test
-    needs: [ build ]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run api unit test
-        run: npx nx run api:test
+        run: npx nx affected test
 
   e2e-test:
     name: e2e-test
     if: ${{ github.event.pull_request.draft == false }}
-    needs: [ ui-unit-test, api-unit-test, ui-integration-test ]
+    needs: [ lint, build, unit-test ]
     runs-on: ubuntu-latest
     services:
 #      elasticsearch:
@@ -119,7 +106,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run Playwright tests
-        run: DEBUG=pw:webserver npx nx run ui-e2e:e2e
+        run: npx nx affected e2e
 
       - name: Upload playwright html report to Artifacts
         uses: actions/upload-artifact@v6
@@ -171,10 +158,9 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - check_pr_title
+      - lint
       - build
-      - ui-unit-test
-      - ui-integration-test
-      - api-unit-test
+      - unit-test
       - e2e-test
       - publish-playwright-report
     if: ${{ always() }}
