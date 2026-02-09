@@ -4,25 +4,25 @@ export const appRoutes: Routes = [
   {
     path: 'search',
     loadComponent: () =>
-      import('./search/search.component').then((m) => m.SearchComponent),
+      import('./search/search.component').then((c) => c.SearchComponent),
     title: 'Search',
   },
   {
     path: 'threeJs',
     loadComponent: () =>
-      import('./three-js/three-js.component').then((m) => m.ThreeJsComponent),
+      import('./three-js/three-js.component').then((c) => c.ThreeJsComponent),
     title: 'Three Js',
   },
   {
-    path: 'excel',
+    path: 'dashboard',
     loadComponent: () =>
-      import('./excel/excel.component').then((m) => m.ExcelComponent),
-    title: 'Excel',
+      import('./dashboard/dashboard.component').then((c) => c.DashboardComponent),
+    title: 'Dashboard',
   },
   {
     path: 'video',
     loadComponent: () =>
-      import('./video/video.component').then((m) => m.VideoComponent),
+      import('./video/video.component').then((c) => c.VideoComponent),
     title: 'Video',
   }
 ];

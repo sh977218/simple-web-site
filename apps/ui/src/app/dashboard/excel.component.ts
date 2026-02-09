@@ -5,7 +5,7 @@ import {
   ColDef,
   GridApi,
   GridReadyEvent,
-  ModuleRegistry,
+  ModuleRegistry
 } from 'ag-grid-community';
 
 import { MaterialModule } from '../material.module';
@@ -17,14 +17,45 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 // pull out the values we're after, converting it into an array of rowData
 
 @Component({
-  templateUrl: './excel.component.html',
-  imports: [MaterialModule, AgGridAngular],
+  selector: 'app-excel',
+  template: `
+    <section class="flex flex-col flex-wrap justify-between mb-5">
+      <div>
+        <button (click)="fileInput.click()" mat-raised-button type="button">
+          Choose File
+        </button>
+      </div>
+      <input
+        #fileInput
+        (change)="selectedFileChange($event)"
+        hidden
+        id="file"
+        type="file"
+      />
+    </section>
+    <section
+      class="flex flex-col flex-wrap justify-between"
+      style="width: 100%; height: 800px;"
+    >
+      <ag-grid-angular
+        (gridReady)="onGridReady($event)"
+        [columnDefs]="[]"
+        [defaultColDef]="defaultColDef"
+        [rowData]="[]"
+        style="width: 100%; height: 100%;"
+      />
+    </section>
+  `,
+  host: {
+    class: 'flex flex-col flex-grow basis-0'
+  },
+  imports: [MaterialModule, AgGridAngular]
 })
 export class ExcelComponent {
   @ViewChild('fileInput') fileInput!: ElementRef;
   defaultColDef: ColDef = {
     minWidth: 80,
-    flex: 1,
+    flex: 1
   };
   private gridApi!: GridApi;
 
@@ -36,7 +67,7 @@ export class ExcelComponent {
       const rowData = populateGrid(workbook);
       const columnDefs = getHeader(workbook).map((header: string) => ({
         field: header,
-        minWidth: 180,
+        minWidth: 180
       }));
       this.gridApi.setGridOption('rowData', rowData);
       this.gridApi.setGridOption('columnDefs', columnDefs);
