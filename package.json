@@ -3,10 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "keywords": [
+    "NX",
+    "NestJS",
     "Angular",
-    "Playwright",
-    "Code Coverage",
-    "NestJS"
+    "Playwright"
   ],
   "scripts": {
     "commit": "git cz",
@@ -26,7 +26,6 @@
     "@angular/platform-browser": "~21.0.0",
     "@angular/platform-browser-dynamic": "~21.1.2",
     "@angular/router": "~21.0.0",
-    "@elastic/elasticsearch": "^9.2.0",
     "@nestjs/common": "^11.0.0",
     "@nestjs/config": "^4.0.2",
     "@nestjs/core": "^11.0.0",
@@ -35,9 +34,9 @@
     "@nestjs/serve-static": "^5.0.4",
     "@nestjs/swagger": "^11.2.4",
     "@tailwindcss/postcss": "^4.1.18",
-    "ag-grid-angular": "^35.0.0",
+    "ag-grid-angular": "^35.0.1",
     "angular-three": "^4.0.0",
-    "axios": "^1.6.0",
+    "axios": "^1.13.5",
     "cookie-parser": "^1.4.7",
     "joi": "^18.0.2",
     "mongoose": "^9.1.4",
@@ -59,7 +58,7 @@
     "@angular/cli": "~21.1.2",
     "@angular/compiler-cli": "~21.1.0",
     "@angular/language-service": "~21.1.0",
-    "@angular/material": "^21.0.6",
+    "@angular/material": "^21.1.3",
     "@angular/youtube-player": "^21.1.1",
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
