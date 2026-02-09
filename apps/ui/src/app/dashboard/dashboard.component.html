@@ -1,0 +1,37 @@
+<mat-stepper labelPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup" [optional]="false">
+    <form [formGroup]="firstFormGroup" class="flex flex-col gap-5">
+      <ng-template matStepLabel>Import Excel</ng-template>
+      <app-excel />
+      <div>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" optional>
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Map data</ng-template>
+      <mat-form-field>
+        <mat-label>Favorite Car</mat-label>
+        <mat-select formControlName="secondCtrl">
+          <mat-option value="">None</mat-option>
+          @for (car of cars; track car) {
+            <mat-option [value]="car.value">{{ car.viewValue }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button matButton matStepperPrevious>Back</button>
+      <button matButton (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

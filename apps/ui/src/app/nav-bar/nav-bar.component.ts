@@ -34,8 +34,8 @@ export class NavBarComponent {
       label: 'Three JS',
     },
     {
-      path: 'excel',
-      label: 'Excel',
+      path: 'dashboard',
+      label: 'Dashboard',
     },
     {
       path: 'video',
