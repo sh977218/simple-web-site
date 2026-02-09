@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { ExcelComponent } from './excel.component';
 import { expect } from 'storybook/test';
+
+import { ExcelComponent } from './excel.component';
 
 const meta: Meta<ExcelComponent> = {
   component: ExcelComponent,

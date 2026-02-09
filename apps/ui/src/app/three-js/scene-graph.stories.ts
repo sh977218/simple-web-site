@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { SceneGraph } from './scene-graph';
 import { expect } from 'storybook/test';
+
+import { SceneGraph } from './scene-graph';
 
 const meta: Meta<SceneGraph> = {
   component: SceneGraph,

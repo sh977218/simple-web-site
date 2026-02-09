@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { VideoComponent } from './video.component';
 import { expect } from 'storybook/test';
+
+import { VideoComponent } from './video.component';
 
 const meta: Meta<VideoComponent> = {
   component: VideoComponent,

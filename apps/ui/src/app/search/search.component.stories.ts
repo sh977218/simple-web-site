@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { SearchComponent } from './search.component';
 import { expect } from 'storybook/test';
+
+import { SearchComponent } from './search.component';
 
 const meta: Meta<SearchComponent> = {
   component: SearchComponent,

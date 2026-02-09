@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { NavBarComponent } from './nav-bar.component';
 import { expect } from 'storybook/test';
+
+import { NavBarComponent } from './nav-bar.component';
 
 const meta: Meta<NavBarComponent> = {
   component: NavBarComponent,

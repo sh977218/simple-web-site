@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { SearchBarComponent } from './search-bar.component';
 import { expect } from 'storybook/test';
+
+import { SearchBarComponent } from './search-bar.component';
 
 const meta: Meta<SearchBarComponent> = {
   component: SearchBarComponent,

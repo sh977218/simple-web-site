@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { ThreeJsComponent } from './three-js.component';
 import { expect } from 'storybook/test';
+
+import { ThreeJsComponent } from './three-js.component';
 
 const meta: Meta<ThreeJsComponent> = {
   component: ThreeJsComponent,

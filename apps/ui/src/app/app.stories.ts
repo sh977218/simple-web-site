@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { App } from './app';
 import { expect } from 'storybook/test';
+
+import { App } from './app';
 
 const meta: Meta<App> = {
   component: App,
