@@ -9,7 +9,7 @@ updates:
       time: "03:00"
     open-pull-requests-limit: 10
     reviewers:
-      - "peter"
+      - "sh977218"
     allow:
       - dependency-type: "all"
     commit-message:
@@ -24,7 +24,7 @@ updates:
       time: "04:00"
     open-pull-requests-limit: 10
     reviewers:
-      - "peter"
+      - "sh977218"
     commit-message:
       prefix: "chore"
       include: "scope"
