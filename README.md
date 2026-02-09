@@ -7,13 +7,11 @@
 - Frontend: Angular
 - Backend: NestJS
 - Database: MongoDB
-- Search engine: Elasticsearch
 
 ### Host code
 - Hosting static content at https://nx-workspace.onrender.com/
 - Deploy NestJs - **to be included**
 - Deploy MongoDB - **to be included**
-- Deploy Elasticsearch - **to be included**
 
 ### Development practice:
 
