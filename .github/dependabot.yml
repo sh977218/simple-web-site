@@ -10,6 +10,8 @@ updates:
     open-pull-requests-limit: 10
     reviewers:
       - "sh977218"
+      - "Peter Huang"
+      - "Peter"
     allow:
       - dependency-type: "all"
     commit-message:
@@ -25,6 +27,8 @@ updates:
     open-pull-requests-limit: 10
     reviewers:
       - "sh977218"
+      - "Peter Huang"
+      - "Peter"
     commit-message:
       prefix: "chore"
       include: "scope"
