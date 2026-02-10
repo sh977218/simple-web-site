@@ -28,7 +28,11 @@
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
+    <highcharts-chart
+      [constructorType]="chartConstructor"
+      [options]="chartOptions"
+      class="chart"
+    />
     <div>
       <button matButton matStepperPrevious>Back</button>
       <button matButton (click)="stepper.reset()">Reset</button>
