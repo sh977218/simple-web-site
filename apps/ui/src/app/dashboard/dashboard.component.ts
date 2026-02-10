@@ -1,16 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ChartConstructorType, HighchartsChartComponent, HighchartsChartDirective } from 'highcharts-angular';
+import { ChartConstructorType, HighchartsChartComponent } from 'highcharts-angular';
 
 import { MaterialModule } from '../material.module';
 
 import { ExcelComponent } from './excel.component';
-import { DashboardService } from './dashboard.service';
-
-interface Car {
-  value: string;
-  viewValue: string;
-}
+import { ExcelService } from './excel.service';
 
 @Component({
   templateUrl: './dashboard.component.html',
@@ -29,30 +24,34 @@ interface Car {
     ExcelComponent,
     HighchartsChartComponent
   ],
-  providers: [DashboardService]
+  providers: [ExcelService]
 })
 export class DashboardComponent {
   private _formBuilder = inject(FormBuilder);
-  readonly dashboardService = inject(DashboardService);
+  readonly excelService = inject(ExcelService);
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required]
   });
   secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required]
+    columnCtrl: ['', Validators.required],
+    typeCtrl: ['', Validators.required]
   });
 
-  chartOptions = computed(()=>{
-    const rowData = this.dashboardService.rowData();
+  chartOptions = computed(() => {
+    const rowData = this.excelService.rowData();
     return {
+      title: {
+        text: this.excelService.fileName()
+      },
       series: [
         {
           data: rowData.map((row: any) => {
-            return row[this.secondFormGroup.get('secondCtrl')?.value as string];
+            return row[this.secondFormGroup.get('columnCtrl')?.value as string];
           }),
-          type: 'line',
-        },
-      ],
+          type: this.secondFormGroup.get('typeCtrl')?.value as string
+        }
+      ]
     } as Highcharts.Options;
   });
   chartConstructor: ChartConstructorType = 'chart';

@@ -11,7 +11,7 @@ import {
 import { MaterialModule } from '../material.module';
 
 import { convertDataToWorkbook, getHeader, populateGrid } from './excel';
-import { DashboardService } from './dashboard.service';
+import { ExcelService } from './excel.service';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -54,7 +54,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 })
 export class ExcelComponent {
   @ViewChild('fileInput') fileInput!: ElementRef;
-  private dashboardService = inject(DashboardService);
+  private excelService = inject(ExcelService);
 
   defaultColDef: ColDef = {
     minWidth: 80,
@@ -68,12 +68,14 @@ export class ExcelComponent {
       const data = await file.arrayBuffer();
       const workbook = convertDataToWorkbook(data);
       const rowData = populateGrid(workbook);
-      this.dashboardService.rowData.set(rowData);
-      const columnDefs = getHeader(workbook).map((header: string) => ({
+      this.excelService.rowData.set(rowData);
+      this.excelService.fileName.set(workbook.SheetNames[0]);
+      const headers = getHeader(workbook);
+      const columnDefs = headers.map((header: string) => ({
         field: header,
         minWidth: 180,
       }));
-      this.dashboardService.columnDefs = columnDefs.map((colDef) => colDef.field);
+      this.excelService.headers.set(headers);
       this.gridApi.setGridOption('rowData', rowData);
       this.gridApi.setGridOption('columnDefs', columnDefs);
     }
