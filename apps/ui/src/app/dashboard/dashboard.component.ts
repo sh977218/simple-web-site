@@ -16,28 +16,20 @@ import { ExcelService } from './excel.service';
         height: 400px;
         display: block;
       }
-    `
+    `,
   ],
   imports: [
     MaterialModule,
     ReactiveFormsModule,
     ExcelComponent,
-    HighchartsChartComponent
+    HighchartsChartComponent,
   ],
-  providers: [ExcelService]
+  providers: [ExcelService],
 })
 export class DashboardComponent {
   private _formBuilder = inject(FormBuilder);
   readonly excelService = inject(ExcelService);
-  completed = false;
 
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required]
-  });
-  secondFormGroup = this._formBuilder.group({
-    columnCtrl: ['', Validators.required],
-    typeCtrl: ['bar', Validators.required],
-  });
 
   chartOptions = computed(() => {
     const rowData = this.excelService.rowData();
@@ -54,7 +46,9 @@ export class DashboardComponent {
           return row['Country'];
         });
         const data1 = [];
-        for (const [country, countryDataPerSegment] of Object.entries(countryDataPerSegments)) {
+        for (const [country, countryDataPerSegment] of Object.entries(
+          countryDataPerSegments,
+        )) {
           if (countryDataPerSegment) {
             const total = countryDataPerSegment.reduce((acc, row) => {
               acc += Number.parseInt(row['Gross Sales'] as string);
@@ -65,11 +59,14 @@ export class DashboardComponent {
         }
         data.push({
           name: segment,
-          data: data1
+          data: data1,
         });
       }
     }
     return {
+      chart: {
+        type: 'bar'
+      },
       title: {
         text: this.excelService.fileName(),
       },
