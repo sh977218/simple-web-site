@@ -26,11 +26,15 @@
           type="button">
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
+      } @else {
+        <button mat-icon-button (click)="drawer.toggle()">
+          @if (drawer.opened) {
+            <mat-icon fontIcon="chevron_left">Toggle drawer</mat-icon>
+          } @else {
+            <mat-icon fontIcon="chevron_right">Toggle drawer</mat-icon>
+          }
+        </button>
       }
-
-      <a [color]="themeService.selectedColor" matMiniFab routerLink="./">
-        <mat-icon>favorite</mat-icon>
-      </a>
       <span class="flex-1"></span>
       <button [matMenuTriggerFor]="themeColorMenu" matButton>theme color</button>
       <mat-menu #themeColorMenu="matMenu">
@@ -55,7 +59,7 @@
       </mat-slide-toggle>
     </mat-toolbar>
     <main class="p-5 h-full">
-      <router-outlet />
+      <router-outlet/>
     </main>
   </mat-sidenav-content>
 </mat-sidenav-container>

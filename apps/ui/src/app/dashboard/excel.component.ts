@@ -65,7 +65,8 @@ export class ExcelComponent {
       const data = await file.arrayBuffer();
       const workbook = convertDataToWorkbook(data);
       const rowData = populateGrid(workbook);
-      const columnDefs = getHeader(workbook).map((header: string) => ({
+      const headers = getHeader(workbook);
+      const columnDefs = headers.map((header) => ({
         field: header,
         minWidth: 180
       }));
