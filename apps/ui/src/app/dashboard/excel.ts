@@ -18,6 +18,7 @@ export function trimHeaders(ws: WorkSheet) {
     }
   }
 }
+
 export function convertDataToWorkbook(dataRows: ArrayBuffer) {
   const data = new Uint8Array(dataRows);
   const arr = [];
@@ -27,12 +28,14 @@ export function convertDataToWorkbook(dataRows: ArrayBuffer) {
   const str = arr.join('');
   return read(str, { type: 'binary' });
 }
+
 export function getHeader(workbook: WorkBook) {
   const worksheet = getFirstWorkSheet(workbook);
   const [column] = utils.sheet_to_json(worksheet, { header: 1 });
   return column as string[];
 }
+
 export function populateGrid(workbook: WorkBook) {
   const worksheet = getFirstWorkSheet(workbook);
-  return utils.sheet_to_json(worksheet);
+  return utils.sheet_to_json(worksheet) as Record<string, unknown>[];
 }
