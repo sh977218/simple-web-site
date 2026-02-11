@@ -1,4 +1,3 @@
-/*
 import { Page, test as baseTest, TestInfo } from '@playwright/test';
 import { randomBytes } from 'crypto';
 import { promises as fs } from 'fs';
@@ -24,14 +23,13 @@ const test = baseTest.extend({
   page: async ({ page }, use) => {
     await page.goto('/');
     await page.getByRole('button').filter({ hasText: 'Toggle drawer' }).click();
-    await page.getByRole('navigation').waitFor();
+    await page.locator('mat-sidenav').waitFor();
     await use(page);
   }
 });
 
 test.afterEach(async () => {
-  /!* empty *!/
+  /* empty */
 });
 
 export { test };
-*/
