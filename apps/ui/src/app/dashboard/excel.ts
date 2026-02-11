@@ -34,5 +34,5 @@ export function getHeader(workbook: WorkBook) {
 }
 export function populateGrid(workbook: WorkBook) {
   const worksheet = getFirstWorkSheet(workbook);
-  return utils.sheet_to_json(worksheet);
+  return utils.sheet_to_json(worksheet) as Record<string, unknown>[];
 }
