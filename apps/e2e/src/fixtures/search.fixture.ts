@@ -5,8 +5,13 @@ const test = baseTest.extend<{
   hasSearchResult: SearchPo;
   hasNoSearchResults: SearchPo;
 }>({
-  hasSearchResult: async ({ page }, use) => {
+  page: async ({ page }, use) => {
     await page.goto('/');
+    await page.getByRole('button').filter({ hasText: 'Toggle drawer' }).click();
+    await page.locator('mat-sidenav').waitFor();
+    await use(page);
+  },
+  hasSearchResult: async ({ page }, use) => {
     await page.getByRole('link', { name: 'Search' }).click();
     await expect(page).toHaveTitle(`Search`);
     const searchPage = new SearchPo(page);
@@ -14,15 +19,14 @@ const test = baseTest.extend<{
     await expect(searchPage.searchResult).toBeVisible();
   },
   hasNoSearchResults: async ({ page }, use) => {
-    await page.goto('/');
     await page.getByRole('link', { name: 'Search' }).click();
     await expect(page).toHaveTitle(`Search`);
     const searchPage = new SearchPo(page);
     await use(searchPage);
     await expect(
-      searchPage.searchResult.getByText('No heroes found.'),
+      searchPage.searchResult.getByText('No heroes found.')
     ).toBeVisible();
-  },
+  }
 });
 
 export { test };
