@@ -46,7 +46,7 @@ export class DashboardComponent {
       },
       series: [
         {
-          data: rowData.map((row: any) => {
+          data: rowData.map((row: Record<string, unknown>) => {
             return row[this.secondFormGroup.get('columnCtrl')?.value as string];
           }),
           type: this.secondFormGroup.get('typeCtrl')?.value as string
