@@ -8,7 +8,7 @@ const NYC_OUTPUT_FOLDER = join(PROJECT_ROOT_FOLDER, 'e2e_nyc_output');
 
 async function codeCoverage(page: Page, testInfo: TestInfo) {
   const coverage: string = await page.evaluate(
-    'JSON.stringify(window.__coverage__);',
+    'JSON.stringify(window.__coverage__);'
   );
   if (coverage) {
     const name = randomBytes(32).toString('hex');
@@ -22,8 +22,10 @@ async function codeCoverage(page: Page, testInfo: TestInfo) {
 const test = baseTest.extend({
   page: async ({ page }, use) => {
     await page.goto('/');
+    await page.getByRole('button').filter({ hasText: 'Toggle drawer' }).click();
+    await page.locator('mat-sidenav').waitFor();
     await use(page);
-  },
+  }
 });
 
 test.afterEach(async () => {

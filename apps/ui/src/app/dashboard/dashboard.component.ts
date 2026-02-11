@@ -36,7 +36,7 @@ export class DashboardComponent {
   });
   secondFormGroup = this._formBuilder.group({
     columnCtrl: ['', Validators.required],
-    typeCtrl: ['bar', Validators.required]
+    typeCtrl: ['bar', Validators.required],
   });
 
   chartOptions = computed(() => {
