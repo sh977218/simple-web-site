@@ -15,6 +15,9 @@
         <mat-label>Column Name</mat-label>
         <mat-select formControlName="columnCtrl">
           <mat-option value="">None</mat-option>
+          @for (header of excelService.headers(); track header) {
+            <mat-option [value]="header">{{ header }}</mat-option>
+          }
         </mat-select>
       </mat-form-field>
       <mat-form-field>
@@ -26,16 +29,21 @@
       </mat-form-field>
       <div>
         <button matButton matStepperPrevious>Back</button>
-        <button matButton matStepperNext>Next</button>
+        <button matButton matStepperNext (click)="completed=true">Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
+    @if (completed) {
+      <highcharts-chart
+        [constructorType]="chartConstructor"
+        [options]="chartOptions()"
+        class="chart"/>
+    }
     <div>
       <button matButton matStepperPrevious>Back</button>
-      <button matButton (click)="stepper.reset()">Reset</button>
+      <button matButton (click)="stepper.reset(); completed=false;">Reset</button>
     </div>
   </mat-step>
 </mat-stepper>

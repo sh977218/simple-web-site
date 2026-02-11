@@ -102,6 +102,8 @@
     "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-playwright": "^2.5.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
+    "highcharts": "^12.5.0",
+    "highcharts-angular": "^5.4.0",
     "jest": "^30.0.2",
     "jest-environment-node": "^30.0.2",
     "jest-util": "^30.0.2",
