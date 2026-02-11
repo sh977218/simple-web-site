@@ -1,3 +1,4 @@
+/*
 import { Page, test as baseTest, TestInfo } from '@playwright/test';
 import { randomBytes } from 'crypto';
 import { promises as fs } from 'fs';
@@ -29,7 +30,8 @@ const test = baseTest.extend({
 });
 
 test.afterEach(async () => {
-  /* empty */
+  /!* empty *!/
 });
 
 export { test };
+*/
