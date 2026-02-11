@@ -9,17 +9,8 @@
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup" [optional]="false">
-    <ng-template matStepLabel>Map Data</ng-template>
+    <ng-template matStepLabel>Chart Type</ng-template>
     <form [formGroup]="secondFormGroup" class="mt-2">
-      <mat-form-field>
-        <mat-label>Column Name</mat-label>
-        <mat-select formControlName="columnCtrl">
-          <mat-option value="">None</mat-option>
-          @for (header of excelService.headers(); track header) {
-            <mat-option [value]="header">{{ header }}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
       <mat-form-field>
         <mat-label>Chart Type</mat-label>
         <mat-select formControlName="typeCtrl">
@@ -29,21 +20,54 @@
       </mat-form-field>
       <div>
         <button matButton matStepperPrevious>Back</button>
-        <button matButton matStepperNext (click)="completed=true">Next</button>
+        <button matButton matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" [optional]="false">
+    <ng-template matStepLabel>Map Data</ng-template>
+    <form [formGroup]="thirdFormGroup" class="mt-2">
+      <mat-form-field>
+        <mat-label>X Axis</mat-label>
+        <mat-select formControlName="xAxisCtrl">
+          @for (header of excelService.headers(); track header) {
+            <mat-option [value]="header">{{ header }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Y Axis</mat-label>
+        <mat-select formControlName="yAxisCtrl">
+          @for (header of excelService.headers(); track header) {
+            <mat-option [value]="header">{{ header }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Sum</mat-label>
+        <mat-select formControlName="sumCtrl">
+          @for (header of excelService.headers(); track header) {
+            <mat-option [value]="header">{{ header }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step>
     <ng-template matStepLabel>Done</ng-template>
-    @if (completed) {
+    <ng-template matStepContent>
       <highcharts-chart
         [constructorType]="chartConstructor"
         [options]="chartOptions()"
         class="chart"/>
-    }
+    </ng-template>
     <div>
       <button matButton matStepperPrevious>Back</button>
-      <button matButton (click)="stepper.reset(); completed=false;">Reset</button>
+      <button matButton (click)="stepper.reset();">Reset</button>
     </div>
   </mat-step>
 </mat-stepper>
