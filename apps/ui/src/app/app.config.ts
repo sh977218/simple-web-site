@@ -13,6 +13,7 @@ import {
   withComponentInputBinding,
 } from '@angular/router';
 import { provideNgtRenderer } from 'angular-three/dom';
+import Highcharts from 'highcharts';
 import { provideHighcharts } from 'highcharts-angular';
 
 import { appRoutes } from './app.routes';
@@ -38,7 +39,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(appRoutes, withComponentInputBinding()),
     provideNgtRenderer(),
     provideHighcharts({
-      instance: () => import('highcharts'),
+      instance: () => Promise.resolve(Highcharts),
 
       // Global chart options applied across all charts
       options: {
@@ -53,13 +54,11 @@ export const appConfig: ApplicationConfig = {
       },
 
       // Include Highcharts additional modules (e.g., exporting, accessibility) or custom themes
-      modules: () => {
-        return [
-          import('highcharts/esm/modules/accessibility'),
-          import('highcharts/esm/modules/exporting'),
-          import('highcharts/esm/themes/sunset'),
-        ];
-      },
+      modules: () => [
+        import('highcharts/esm/modules/accessibility'),
+        import('highcharts/esm/modules/exporting'),
+        import('highcharts/esm/themes/sunset'),
+      ],
     }),
     { provide: TitleStrategy, useClass: TemplatePageTitleStrategy },
   ],
