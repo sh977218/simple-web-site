@@ -1,32 +1,26 @@
-<mat-stepper labelPosition="bottom" orientation="vertical" #stepper>
-  <mat-step [stepControl]="firstFormGroup" [optional]="false">
-    <ng-template matStepLabel>Import Excel</ng-template>
-    <form [formGroup]="firstFormGroup" class="flex flex-col gap-5 mt-2">
-      <app-excel/>
-      <div>
-        <button matButton matStepperNext>Next</button>
-      </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="secondFormGroup" [optional]="false">
-    <ng-template matStepLabel>Chart Type</ng-template>
-    <form [formGroup]="secondFormGroup" class="mt-2">
+<form [formGroup]="stepForm">
+  <mat-stepper formArrayName="steps" labelPosition="bottom" orientation="vertical" #stepper>
+    <mat-step [optional]="false">
+      <ng-template matStepLabel>Import Excel</ng-template>
+      <app-excel></app-excel>
+      <button matButton matStepperNext>Next</button>
+    </mat-step>
+    <mat-step [formGroupName]="1" [optional]="false">
+      <ng-template matStepLabel>Select Chart Type</ng-template>
       <mat-form-field>
         <mat-label>Chart Type</mat-label>
-        <mat-select formControlName="typeCtrl">
-          <mat-option value="bar">bar</mat-option>
-          <mat-option value="line">line</mat-option>
+        <mat-select formControlName="chartTypeCtrl">
+          <mat-option value="bar">Bar</mat-option>
+          <mat-option value="line">Line</mat-option>
         </mat-select>
       </mat-form-field>
       <div>
         <button matButton matStepperPrevious>Back</button>
         <button matButton matStepperNext>Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step [stepControl]="thirdFormGroup" [optional]="false">
-    <ng-template matStepLabel>Map Data</ng-template>
-    <form [formGroup]="thirdFormGroup" class="mt-2">
+    </mat-step>
+    <mat-step formGroupName="2" [optional]="false">
+      <ng-template matStepLabel>Map Data</ng-template>
       <mat-form-field>
         <mat-label>X Axis</mat-label>
         <mat-select formControlName="xAxisCtrl">
@@ -55,19 +49,19 @@
         <button matButton matStepperPrevious>Back</button>
         <button matButton matStepperNext>Next</button>
       </div>
-    </form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Done</ng-template>
-    <ng-template matStepContent>
-      <highcharts-chart
-        [constructorType]="chartConstructor"
-        [options]="chartOptions()"
-        class="chart"/>
-    </ng-template>
-    <div>
-      <button matButton matStepperPrevious>Back</button>
-      <button matButton (click)="stepper.reset();">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <ng-template matStepContent>
+        <highcharts-chart
+          [constructorType]="chartConstructor"
+          [options]="chartOptions()"
+          class="chart"/>
+      </ng-template>
+      <div>
+        <button matButton matStepperPrevious>Back</button>
+        <button matButton (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</form>
