@@ -1,5 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChartConstructorType, HighchartsChartComponent } from 'highcharts-angular';
 
 import { MaterialModule } from '../material.module';
@@ -53,6 +53,10 @@ export class DashboardComponent {
     return this.formGroup.get('formArray') as FormArray;
   }
 
+  get chartType():FormControl {
+    return this.formArray.get(2).get('chartTypeCtrl') as FormControl;
+  }
+
   chartOptions = computed(() => {
     const rowData = this.excelService.rowData();
     const countriesData = Object.groupBy(rowData, (row) => {
@@ -68,8 +72,8 @@ export class DashboardComponent {
           return row['Country'];
         });
         const data1 = [];
-        for (const countryDataPerSegment of Object.values(
-          countryDataPerSegments,
+        for (const [country, countryDataPerSegment] of Object.entries(
+          countryDataPerSegments
         )) {
           if (countryDataPerSegment) {
             const total = countryDataPerSegment.reduce((acc, row) => {
@@ -87,31 +91,31 @@ export class DashboardComponent {
     }
     return {
       chart: {
-        type: 'bar'
+        type: this.chartType?.value
       },
       title: {
-        text: this.excelService.fileName(),
+        text: this.excelService.fileName()
       },
       xAxis: {
         categories: Object.keys(countriesData),
         title: {
-          text: null,
+          text: null
         },
         gridLineWidth: 1,
-        lineWidth: 0,
+        lineWidth: 0
       },
       yAxis: {
         min: 0,
         title: {
           text: 'Population (millions)',
-          align: 'high',
+          align: 'high'
         },
         labels: {
-          overflow: 'justify',
+          overflow: 'justify'
         },
-        gridLineWidth: 0,
+        gridLineWidth: 0
       },
-      series: data,
+      series: data
     } as Highcharts.Options;
   });
   chartConstructor: ChartConstructorType = 'chart';
