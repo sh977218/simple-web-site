@@ -1,11 +1,11 @@
-<form [formGroup]="formGroup">
-  <mat-stepper formArrayName="formArray" labelPosition="bottom" orientation="vertical" #stepper>
-    <mat-step formGroupName="0" [stepControl]="formArray.get([0])" [optional]="false">
+<form [formGroup]="stepForm">
+  <mat-stepper formArrayName="steps" labelPosition="bottom" orientation="vertical" #stepper>
+    <mat-step [optional]="false">
       <ng-template matStepLabel>Import Excel</ng-template>
       <app-excel></app-excel>
       <button matButton matStepperNext>Next</button>
     </mat-step>
-    <mat-step formGroupName="1" [stepControl]="formArray.get([1])" [optional]="false">
+    <mat-step [formGroupName]="1" [optional]="false">
       <ng-template matStepLabel>Select Chart Type</ng-template>
       <mat-form-field>
         <mat-label>Chart Type</mat-label>
@@ -19,10 +19,10 @@
         <button matButton matStepperNext>Next</button>
       </div>
     </mat-step>
-    <mat-step formGroupName="2" [stepControl]="formArray.get([2])" [optional]="false">
+    <mat-step formGroupName="2" [optional]="false">
       <ng-template matStepLabel>Map Data</ng-template>
       <mat-form-field>
-        <mat-label>xAxis</mat-label>
+        <mat-label>X Axis</mat-label>
         <mat-select formControlName="xAxisCtrl">
           @for (header of excelService.headers(); track header) {
             <mat-option [value]="header">{{ header }}</mat-option>
@@ -30,7 +30,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>yAxis</mat-label>
+        <mat-label>Y Axis</mat-label>
         <mat-select formControlName="yAxisCtrl">
           @for (header of excelService.headers(); track header) {
             <mat-option [value]="header">{{ header }}</mat-option>
@@ -38,7 +38,7 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field>
-        <mat-label>sum</mat-label>
+        <mat-label>Sum</mat-label>
         <mat-select formControlName="sumCtrl">
           @for (header of excelService.headers(); track header) {
             <mat-option [value]="header">{{ header }}</mat-option>

@@ -16,45 +16,56 @@ import { ExcelService } from './excel.service';
         height: 400px;
         display: block;
       }
-    `,
+    `
   ],
   imports: [
     MaterialModule,
     ReactiveFormsModule,
     ExcelComponent,
-    HighchartsChartComponent,
+    HighchartsChartComponent
   ],
-  providers: [ExcelService],
+  providers: [ExcelService]
 })
 export class DashboardComponent {
-  private _formBuilder = inject(FormBuilder);
   readonly excelService = inject(ExcelService);
 
   // Reactive form backing the template's mat-stepper
-  formGroup: FormGroup = this._formBuilder.group({
-    formArray: this._formBuilder.array([
+  stepForm: FormGroup = new FormGroup({
+    steps: new FormArray([
       // Step 0: Import Excel - keep an empty group (the <app-excel> component uses ExcelService)
-      this._formBuilder.group({}),
+      new FormGroup({}),
       // Step 1: Select Chart Type
-      this._formBuilder.group({
-        chartTypeCtrl: ['bar', Validators.required],
+      new FormGroup({
+        chartTypeCtrl: new FormControl('bar', [Validators.required])
       }),
       // Step 2: Map Data (xAxis, yAxis, aggregation)
-      this._formBuilder.group({
-        xAxisCtrl: [''],
-        yAxisCtrl: [''],
-        sumCtrl: [''],
-      }),
-    ]),
+      new FormGroup({
+        xAxisCtrl: new FormControl(''),
+        yAxisCtrl: new FormControl(''),
+        sumCtrl: new FormControl('')
+      })
+    ])
   });
 
   // Convenience getters
-  get formArray(): FormArray {
-    return this.formGroup.get('formArray') as FormArray;
+  get steps(): FormArray {
+    return this.stepForm.get('steps') as FormArray;
   }
 
-  get chartType():FormControl {
-    return this.formArray.get(2).get('chartTypeCtrl') as FormControl;
+  get chartType(): FormControl {
+    return this.steps.get([1])?.get('chartTypeCtrl') as FormControl;
+  }
+
+  get xAxisCtrl(): FormControl {
+    return this.steps.get([2])?.get('xAxisCtrl') as FormControl;
+  }
+
+  get yAxisCtrl(): FormControl {
+    return this.steps.get([2])?.get('yAxisCtrl') as FormControl;
+  }
+
+  get sumCtrl(): FormControl {
+    return this.steps.get([2])?.get('sumCtrl') as FormControl;
   }
 
   chartOptions = computed(() => {
@@ -85,7 +96,7 @@ export class DashboardComponent {
         }
         data.push({
           name: segment,
-          data: data1,
+          data: data1
         });
       }
     }
