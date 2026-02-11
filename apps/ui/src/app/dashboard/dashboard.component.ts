@@ -13,12 +13,13 @@ import { ExcelService } from './excel.service';
 })
 export class DashboardComponent {
   private _formBuilder = inject(FormBuilder);
+  readonly excelService = inject(ExcelService);
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required],
   });
   secondFormGroup = this._formBuilder.group({
     columnCtrl: ['', Validators.required],
-    typeCtrl: ['', Validators.required],
+    typeCtrl: ['bar', Validators.required],
   });
 }
