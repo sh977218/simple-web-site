@@ -29,14 +29,17 @@ import { ExcelService } from './excel.service';
 export class DashboardComponent {
   private _formBuilder = inject(FormBuilder);
   readonly excelService = inject(ExcelService);
-  completed = false;
 
   firstFormGroup = this._formBuilder.group({
     firstCtrl: ['', Validators.required]
   });
   secondFormGroup = this._formBuilder.group({
-    columnCtrl: ['', Validators.required],
-    typeCtrl: ['bar', Validators.required],
+    typeCtrl: ['bar', Validators.required]
+  });
+  thirdFormGroup = this._formBuilder.group({
+    xAxisCtrl: ['', Validators.required],
+    yAxisCtrl: ['', Validators.required],
+    sumCtrl: ['', Validators.required]
   });
 
   chartOptions = computed(() => {
@@ -54,7 +57,9 @@ export class DashboardComponent {
           return row['Country'];
         });
         const data1 = [];
-        for (const [country, countryDataPerSegment] of Object.entries(countryDataPerSegments)) {
+        for (const [country, countryDataPerSegment] of Object.entries(
+          countryDataPerSegments
+        )) {
           if (countryDataPerSegment) {
             const total = countryDataPerSegment.reduce((acc, row) => {
               acc += Number.parseInt(row['Gross Sales'] as string);
@@ -70,29 +75,32 @@ export class DashboardComponent {
       }
     }
     return {
+      chart: {
+        type: this.secondFormGroup.get('typeCtrl')?.value
+      },
       title: {
-        text: this.excelService.fileName(),
+        text: this.excelService.fileName()
       },
       xAxis: {
         categories: Object.keys(countriesData),
         title: {
-          text: null,
+          text: null
         },
         gridLineWidth: 1,
-        lineWidth: 0,
+        lineWidth: 0
       },
       yAxis: {
         min: 0,
         title: {
           text: 'Population (millions)',
-          align: 'high',
+          align: 'high'
         },
         labels: {
-          overflow: 'justify',
+          overflow: 'justify'
         },
-        gridLineWidth: 0,
+        gridLineWidth: 0
       },
-      series: data,
+      series: data
     } as Highcharts.Options;
   });
   chartConstructor: ChartConstructorType = 'chart';
