@@ -31,7 +31,7 @@ export class DashboardComponent {
   readonly excelService = inject(ExcelService);
 
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required]
+    firstCtrl: ['', Validators.required],
   });
   secondFormGroup = this._formBuilder.group({
     columnCtrl: ['', Validators.required],
