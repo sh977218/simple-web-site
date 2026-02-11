@@ -68,13 +68,13 @@ export class ExcelComponent {
       const data = await file.arrayBuffer();
       const workbook = convertDataToWorkbook(data);
       const rowData = populateGrid(workbook);
-      this.excelService.rowData.set(rowData);
-      this.excelService.fileName.set(workbook.SheetNames[0]);
       const headers = getHeader(workbook);
       const columnDefs = headers.map((header) => ({
         field: header,
         minWidth: 180,
       }));
+      this.excelService.rowData.set(rowData);
+      this.excelService.fileName.set(workbook.SheetNames[0]);
       this.excelService.headers.set(headers);
       this.gridApi.setGridOption('rowData', rowData);
       this.gridApi.setGridOption('columnDefs', columnDefs);

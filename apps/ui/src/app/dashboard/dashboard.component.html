@@ -1,16 +1,16 @@
-<mat-stepper labelPosition="bottom" #stepper>
+<mat-stepper labelPosition="bottom" orientation="vertical" #stepper>
   <mat-step [stepControl]="firstFormGroup" [optional]="false">
-    <form [formGroup]="firstFormGroup" class="flex flex-col gap-5">
-      <ng-template matStepLabel>Import Excel</ng-template>
-      <app-excel/>
+    <ng-template matStepLabel>Import Excel</ng-template>
+    <form [formGroup]="firstFormGroup" class="flex flex-col gap-5 mt-2">
+      <app-excel />
       <div>
         <button matButton matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
   <mat-step [stepControl]="secondFormGroup" optional>
-    <form [formGroup]="secondFormGroup">
-      <ng-template matStepLabel>Map Data</ng-template>
+    <ng-template matStepLabel>Map Data</ng-template>
+    <form [formGroup]="secondFormGroup" class="mt-2">
       <mat-form-field>
         <mat-label>Column Name</mat-label>
         <mat-select formControlName="columnCtrl">
