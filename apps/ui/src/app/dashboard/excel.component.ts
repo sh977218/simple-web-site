@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import {
   AllCommunityModule,
@@ -11,6 +11,7 @@ import {
 import { MaterialModule } from '../material.module';
 
 import { convertDataToWorkbook, getHeader, populateGrid } from './excel';
+import { ExcelService } from './excel.service';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -47,15 +48,17 @@ ModuleRegistry.registerModules([AllCommunityModule]);
     </section>
   `,
   host: {
-    class: 'flex flex-col flex-grow basis-0'
+    class: 'flex flex-col flex-grow basis-0',
   },
-  imports: [MaterialModule, AgGridAngular]
+  imports: [MaterialModule, AgGridAngular],
 })
 export class ExcelComponent {
   @ViewChild('fileInput') fileInput!: ElementRef;
+  private excelService = inject(ExcelService);
+
   defaultColDef: ColDef = {
     minWidth: 80,
-    flex: 1
+    flex: 1,
   };
   private gridApi!: GridApi;
 
@@ -68,8 +71,11 @@ export class ExcelComponent {
       const headers = getHeader(workbook);
       const columnDefs = headers.map((header) => ({
         field: header,
-        minWidth: 180
+        minWidth: 180,
       }));
+      this.excelService.rowData.set(rowData);
+      this.excelService.fileName.set(workbook.SheetNames[0]);
+      this.excelService.headers.set(headers);
       this.gridApi.setGridOption('rowData', rowData);
       this.gridApi.setGridOption('columnDefs', columnDefs);
     }
