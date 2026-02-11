@@ -1,5 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChartConstructorType, HighchartsChartComponent } from 'highcharts-angular';
 
 import { MaterialModule } from '../material.module';
@@ -40,9 +40,9 @@ export class DashboardComponent {
       }),
       // Step 2: Map Data (xAxis, yAxis, aggregation)
       new FormGroup({
-        xAxisCtrl: new FormControl(''),
-        yAxisCtrl: new FormControl(''),
-        sumCtrl: new FormControl('')
+        xAxisCtrl: new FormControl('Country'),
+        yAxisCtrl: new FormControl('Segment'),
+        sumCtrl: new FormControl('Gross Sales')
       })
     ])
   });
@@ -70,63 +70,68 @@ export class DashboardComponent {
 
   chartOptions = computed(() => {
     const rowData = this.excelService.rowData();
-    const countriesData = Object.groupBy(rowData, (row) => {
-      return row['Country'] as string;
+    const chartType = this.chartType.value;
+    const xAxis = this.xAxisCtrl.value;
+    const xAxisData = Object.groupBy(rowData, (row) => {
+      return row[xAxis] as string;
     });
-    const segmentsData = Object.groupBy(rowData, (row) => {
-      return row['Segment'];
+    const yAxis = this.yAxisCtrl.value;
+    const sum = this.sumCtrl.value;
+    const yAxisData = Object.groupBy(rowData, (row) => {
+      return row[yAxis];
     });
-    const data = [];
-    for (const [segment, segmentRows] of Object.entries(segmentsData)) {
-      if (segmentRows) {
-        const countryDataPerSegments = Object.groupBy(segmentRows, (row) => {
-          return row['Country'];
+
+    const chartData = [];
+    for (const [k, v] of Object.entries(yAxisData)) {
+      if (v) {
+        const xAxisDataPerYAxis = Object.groupBy(v, (row) => {
+          return row[xAxis];
         });
-        const data1 = [];
-        for (const [country, countryDataPerSegment] of Object.entries(
-          countryDataPerSegments
+        const totalPerYAxis = [];
+        for (const [, countryDataPerSegment] of Object.entries(
+          xAxisDataPerYAxis,
         )) {
           if (countryDataPerSegment) {
             const total = countryDataPerSegment.reduce((acc, row) => {
-              acc += Number.parseInt(row['Gross Sales'] as string);
+              acc += Number.parseInt(row[sum] as string);
               return acc;
             }, 0);
-            data1.push(total);
+            totalPerYAxis.push(total);
           }
         }
-        data.push({
-          name: segment,
-          data: data1
+        chartData.push({
+          name: k,
+          data: totalPerYAxis,
         });
       }
     }
     return {
       chart: {
-        type: this.chartType?.value
+        type: chartType,
       },
       title: {
-        text: this.excelService.fileName()
+        text: this.excelService.fileName(),
       },
       xAxis: {
-        categories: Object.keys(countriesData),
+        categories: Object.keys(xAxisData),
         title: {
-          text: null
+          text: null,
         },
         gridLineWidth: 1,
-        lineWidth: 0
+        lineWidth: 0,
       },
       yAxis: {
         min: 0,
         title: {
-          text: 'Population (millions)',
-          align: 'high'
+          text: sum,
+          align: 'high',
         },
         labels: {
-          overflow: 'justify'
+          overflow: 'justify',
         },
-        gridLineWidth: 0
+        gridLineWidth: 0,
       },
-      series: data
+      series: chartData,
     } as Highcharts.Options;
   });
   chartConstructor: ChartConstructorType = 'chart';
