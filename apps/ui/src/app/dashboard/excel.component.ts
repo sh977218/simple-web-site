@@ -71,7 +71,7 @@ export class ExcelComponent {
       this.excelService.rowData.set(rowData);
       this.excelService.fileName.set(workbook.SheetNames[0]);
       const headers = getHeader(workbook);
-      const columnDefs = headers.map((header: string) => ({
+      const columnDefs = headers.map((header) => ({
         field: header,
         minWidth: 180,
       }));
