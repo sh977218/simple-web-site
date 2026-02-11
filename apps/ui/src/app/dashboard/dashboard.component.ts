@@ -29,29 +29,70 @@ import { ExcelService } from './excel.service';
 export class DashboardComponent {
   private _formBuilder = inject(FormBuilder);
   readonly excelService = inject(ExcelService);
+  completed = false;
 
   firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+    firstCtrl: ['', Validators.required]
   });
   secondFormGroup = this._formBuilder.group({
     columnCtrl: ['', Validators.required],
-    typeCtrl: ['', Validators.required]
+    typeCtrl: ['bar', Validators.required]
   });
 
   chartOptions = computed(() => {
     const rowData = this.excelService.rowData();
+    const countriesData = Object.groupBy(rowData, (row) => {
+      return row['Country'] as string;
+    });
+    const segmentsData = Object.groupBy(rowData, (row) => {
+      return row['Segment'];
+    });
+    const data = [];
+    for (const [segment, segmentRows] of Object.entries(segmentsData)) {
+      if (segmentRows) {
+        const countryDataPerSegments = Object.groupBy(segmentRows, (row) => {
+          return row['Country'];
+        });
+        const data1 = [];
+        for (const [country, countryDataPerSegment] of Object.entries(countryDataPerSegments)) {
+          if (countryDataPerSegment) {
+            const total = countryDataPerSegment.reduce((acc, row) => {
+              acc += Number.parseInt(row['Gross Sales'] as string);
+              return acc;
+            }, 0);
+            data1.push(total);
+          }
+        }
+        data.push({
+          name: segment,
+          data: data1
+        });
+      }
+    }
     return {
       title: {
-        text: this.excelService.fileName()
+        text: this.excelService.fileName(),
       },
-      series: [
-        {
-          data: rowData.map((row: Record<string, unknown>) => {
-            return row[this.secondFormGroup.get('columnCtrl')?.value as string];
-          }),
-          type: this.secondFormGroup.get('typeCtrl')?.value as string
-        }
-      ]
+      xAxis: {
+        categories: Object.keys(countriesData),
+        title: {
+          text: null,
+        },
+        gridLineWidth: 1,
+        lineWidth: 0,
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: 'Population (millions)',
+          align: 'high',
+        },
+        labels: {
+          overflow: 'justify',
+        },
+        gridLineWidth: 0,
+      },
+      series: data,
     } as Highcharts.Options;
   });
   chartConstructor: ChartConstructorType = 'chart';
