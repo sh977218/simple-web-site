@@ -2,7 +2,7 @@
   <mat-stepper formArrayName="formArray" labelPosition="bottom" orientation="vertical" #stepper>
     <mat-step formGroupName="0" [stepControl]="formArray.get([0])" [optional]="false">
       <ng-template matStepLabel>Import Excel</ng-template>
-      <app-excel/>
+      <app-excel></app-excel>
       <button matButton matStepperNext>Next</button>
     </mat-step>
     <mat-step formGroupName="1" [stepControl]="formArray.get([1])" [optional]="false">
@@ -23,8 +23,7 @@
       <ng-template matStepLabel>Map Data</ng-template>
       <mat-form-field>
         <mat-label>xAxis</mat-label>
-        <mat-select formControlName="columnCtrl">
-          <mat-option value="">None</mat-option>
+        <mat-select formControlName="xAxisCtrl">
           @for (header of excelService.headers(); track header) {
             <mat-option [value]="header">{{ header }}</mat-option>
           }
@@ -32,8 +31,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>yAxis</mat-label>
-        <mat-select formControlName="columnCtrl">
-          <mat-option value="">None</mat-option>
+        <mat-select formControlName="yAxisCtrl">
           @for (header of excelService.headers(); track header) {
             <mat-option [value]="header">{{ header }}</mat-option>
           }
@@ -41,8 +39,7 @@
       </mat-form-field>
       <mat-form-field>
         <mat-label>sum</mat-label>
-        <mat-select formControlName="columnCtrl">
-          <mat-option value="">None</mat-option>
+        <mat-select formControlName="sumCtrl">
           @for (header of excelService.headers(); track header) {
             <mat-option [value]="header">{{ header }}</mat-option>
           }

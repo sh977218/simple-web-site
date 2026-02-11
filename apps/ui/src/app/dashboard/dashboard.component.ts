@@ -1,5 +1,5 @@
 import { Component, computed, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ChartConstructorType, HighchartsChartComponent } from 'highcharts-angular';
 
 import { MaterialModule } from '../material.module';
@@ -30,6 +30,28 @@ export class DashboardComponent {
   private _formBuilder = inject(FormBuilder);
   readonly excelService = inject(ExcelService);
 
+  // Reactive form backing the template's mat-stepper
+  formGroup: FormGroup = this._formBuilder.group({
+    formArray: this._formBuilder.array([
+      // Step 0: Import Excel - keep an empty group (the <app-excel> component uses ExcelService)
+      this._formBuilder.group({}),
+      // Step 1: Select Chart Type
+      this._formBuilder.group({
+        chartTypeCtrl: ['bar', Validators.required],
+      }),
+      // Step 2: Map Data (xAxis, yAxis, aggregation)
+      this._formBuilder.group({
+        xAxisCtrl: [''],
+        yAxisCtrl: [''],
+        sumCtrl: [''],
+      }),
+    ]),
+  });
+
+  // Convenience getters
+  get formArray(): FormArray {
+    return this.formGroup.get('formArray') as FormArray;
+  }
 
   chartOptions = computed(() => {
     const rowData = this.excelService.rowData();
@@ -46,7 +68,7 @@ export class DashboardComponent {
           return row['Country'];
         });
         const data1 = [];
-        for (const [country, countryDataPerSegment] of Object.entries(
+        for (const countryDataPerSegment of Object.values(
           countryDataPerSegments,
         )) {
           if (countryDataPerSegment) {
