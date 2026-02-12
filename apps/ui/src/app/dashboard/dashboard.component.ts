@@ -1,12 +1,12 @@
 import { Component, computed, inject } from '@angular/core';
 import { FormArray, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import Highcharts from 'highcharts';
 import { ChartConstructorType, HighchartsChartComponent } from 'highcharts-angular';
 
 import { MaterialModule } from '../material.module';
 
 import { ExcelComponent } from './excel.component';
 import { ExcelService } from './excel.service';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   templateUrl: './dashboard.component.html',
@@ -24,7 +24,6 @@ import { JsonPipe } from '@angular/common';
     ReactiveFormsModule,
     ExcelComponent,
     HighchartsChartComponent,
-    JsonPipe
   ],
   providers: [ExcelService]
 })
