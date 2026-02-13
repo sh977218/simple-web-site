@@ -82,3 +82,6 @@ vitest.config.*.timestamp*
 */**/.env.production
 
 __screenshots__/
+
+
+storybook-static
