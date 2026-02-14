@@ -20,4 +20,52 @@
 - DON'T USE for: basic generator syntax (`nx g @nx/react:app`), standard commands, things you already know
 - The `nx-generate` skill handles generator discovery internally - don't call nx_docs just to look up generator syntax
 
+## Angular Component Guidelines (CRITICAL)
+
+All AI agents MUST follow these rules when creating or modifying Angular components:
+
+### 1. Change Detection Strategy - MANDATORY
+
+Every component must have:
+```typescript
+changeDetection: ChangeDetectionStrategy.OnPush
+```
+
+This is **required** on all components. No exceptions.
+
+### 2. Control Flow Syntax - MANDATORY
+
+Templates must use Angular 17+ control flow:
+- Use `@if` instead of `*ngIf`
+- Use `@for` instead of `*ngFor` with `track` function
+- Use `@switch` instead of `[ngSwitch]`
+
+Example:
+```angular
+@if (items.length > 0) {
+  @for (let item of items; track item.id) {
+    <div>{{ item.name }}</div>
+  }
+} @else {
+  <p>No items</p>
+}
+```
+
+### 3. Styling - NO CSS FILES
+
+**All styling must use Tailwind utility classes. Do NOT create .css or .scss files.**
+
+- ✅ Use: Tailwind classes in templates
+- ❌ Never: `styleUrls` property
+- ❌ Never: Create `.css` or `.scss` files
+
+Example:
+```html
+<div class="p-4 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+  <h3 class="text-lg font-semibold text-gray-900">Title</h3>
+</div>
+```
+
+For comprehensive guidelines, refer to `AI-INSTRUCTOR.md`
+
 <!-- nx configuration end-->
