@@ -1,0 +1,47 @@
+<div class="feed-container">
+  <h1>CNN Top Stories</h1>
+
+  @if (feed.isLoading()) {
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+      <p>Loading feed...</p>
+    </div>
+  }
+
+  @if (feed.error() && !feed.isLoading()) {
+    <div class="error-container">
+      <mat-card class="error-card">
+        <mat-card-content>
+          <mat-icon class="error-icon">error_outline</mat-icon>
+          <p>{{ feed.error()?.message || 'Failed to fetch RSS feed. This may be due to CORS restrictions.' }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+
+  @if (feed.hasValue()) {
+    <mat-list class="feed-list">
+      @for (item of feed.value(); track item.link) {
+        <mat-list-item [ngClass]="{ 'last-item': item === feed.value()[feed.value().length - 1] }">
+          <div matListItemTitle class="item-title">
+            <a>
+              {{ item.title }}
+            </a>
+          </div>
+          <div matListItemLine class="item-description">
+            {{ item.description | slice : 0 : 200 }}{{ item.description.length > 200 ? '...' : '' }}
+          </div>
+          <div matListItemMeta class="item-date">
+            {{ item.pubDate | slice : 0 : 16 }}
+          </div>
+        </mat-list-item>
+      }
+    </mat-list>
+  }
+
+  @if (feed.hasValue() && feed.value().length === 0 && !feed.error()) {
+    <div class="no-items">
+      <p>No feed items found.</p>
+    </div>
+  }
+</div>

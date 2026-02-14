@@ -5,12 +5,9 @@
       "^/api": ""
     }
   },
-  "/es": {
-    "target": "http://localhost:9200",
+  "/rssfeed": {
+    "target": "http://rss.cnn.com/rss/cnn_topstories.rss",
     "secure": false,
-    "changeOrigin": true,
-    "pathRewrite": {
-      "^/es": ""
-    }
+    "changeOrigin": true
   }
 }

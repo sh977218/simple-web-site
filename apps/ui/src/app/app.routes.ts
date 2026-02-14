@@ -24,5 +24,11 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./video/video.component').then((c) => c.VideoComponent),
     title: 'Video',
+  },
+  {
+    path: 'feed',
+    loadComponent: () =>
+      import('./feed/feed.component').then((c) => c.FeedComponent),
+    title: 'Feed',
   }
 ];
