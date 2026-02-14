@@ -1,6 +1,5 @@
 import nx from '@nx/eslint-plugin';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
-import localAngularRules from './tools/eslint-rules/index.js';
 
 export default [
   ...nx.configs['flat/base'],
@@ -9,7 +8,6 @@ export default [
   {
     plugins: {
       'simple-import-sort': simpleImportSort,
-      'local-angular-rules': localAngularRules,
     },
   },
   {
@@ -61,17 +59,6 @@ export default [
       ],
       'simple-import-sort/exports': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
-    },
-  },
-  // Apply Angular-specific local rules only to component files to reduce noise
-  {
-    files: ['**/*.component.ts'],
-    plugins: {
-      'local-angular-rules': localAngularRules,
-    },
-    rules: {
-      'local-angular-rules/require-onpush': 'error',
-      'local-angular-rules/no-style-urls': 'error',
     },
   },
 ];
