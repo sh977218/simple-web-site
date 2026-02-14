@@ -5,6 +5,7 @@
 ### Tech Stacks:
 
 - Frontend: Angular
+  - See `ANGULAR_INSTRUCTIONS.md` for the canonical Angular coding guidelines used by agents and contributors
 - Backend: NestJS
 - Database: MongoDB
 

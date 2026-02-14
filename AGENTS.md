@@ -21,3 +21,12 @@
 - The `nx-generate` skill handles generator discovery internally - don't call nx_docs just to look up generator syntax
 
 <!-- nx configuration end-->
+
+
+<!-- Additional repository-level guidelines (kept outside nx-managed block) -->
+
+## Repo-specific guidance
+
+- Angular-specific coding guidelines (single source of truth): `ANGULAR_INSTRUCTIONS.md`
+  - Agents and contributors should reference this file for Angular rules, patterns, and examples.
+- Documentation index: see `docs/` for more project-specific docs.
