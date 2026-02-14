@@ -27,6 +27,6 @@
 
 ## Repo-specific guidance
 
-- Angular-specific coding guidelines (single source of truth): `ANGULAR_INSTRUCTIONS.md`
+- Angular-specific coding guidelines (single source of truth): `docs/ANGULAR_INSTRUCTIONS.md`
   - Agents and contributors should reference this file for Angular rules, patterns, and examples.
 - Documentation index: see `docs/` for more project-specific docs.
