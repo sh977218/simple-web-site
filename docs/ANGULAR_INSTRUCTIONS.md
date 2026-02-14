@@ -23,6 +23,11 @@ Why these rules?
 - OnPush change detection reduces unnecessary checks and encourages good data flow patterns.
 - Tailwind utility classes keep component styles consistent and avoid style-file churn.
 
+Component creation note: do NOT specify `standalone`
+- In this repository the convention is to treat components as standalone by default; do not add the `standalone: true` property to the `@Component` decorator in new components.
+- Avoid including `imports: [...]` on the component decorator as well — import dependencies via the surrounding NgModule when non-standalone patterns are being used by your team, or rely on the workspace defaults that treat components as standalone.
+- If you have a special case that requires an explicit `standalone` property, add a short comment explaining why.
+
 Examples
 
 Minimal example (non-standalone component used inside an NgModule):
@@ -63,16 +68,13 @@ export class UserListComponent {
 // ...existing code...
 ```
 
-Standalone component example (recommended for new code):
+Recommended component example (omit `standalone`):
 
 ```ts
 // ...existing code...
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 @Component({
-  standalone: true,
-  imports: [CommonModule],
   selector: 'app-counter',
   template: `
     <div class="flex items-center gap-2">
@@ -111,4 +113,3 @@ PR checklist (suggested for reviewers)
 - [ ] Templates use the modern control-flow micro-syntax where applicable.
 - [ ] No `.css`/`.scss` files were added for the component; styling uses Tailwind utilities.
 - [ ] Observables are used with the `async` pipe where appropriate.
-
